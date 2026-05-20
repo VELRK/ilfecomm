@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import CurrencySelect from "../common/CurrencySelect";
@@ -22,7 +22,7 @@ export default function Footer6() {
                       loading="lazy"
                       width={150}
                       height={30}
-                      src="/ecomm/frontend/assets/images/logo/logo.svg"
+                      src="/ilf/frontend/assets/images/logo/logo.svg"
                       alt="Image"
                     />
                   </Link>
@@ -178,7 +178,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/visa.svg"
+                  src="/ilf/frontend/assets/images/payment/visa.svg"
                   alt="Image"
                 />
               </li>
@@ -187,7 +187,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/master-card.svg"
+                  src="/ilf/frontend/assets/images/payment/master-card.svg"
                   alt="Image"
                 />
               </li>
@@ -196,7 +196,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/amex.svg"
+                  src="/ilf/frontend/assets/images/payment/amex.svg"
                   alt="Image"
                 />
               </li>
@@ -205,7 +205,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/paypal.svg"
+                  src="/ilf/frontend/assets/images/payment/paypal.svg"
                   alt="Image"
                 />
               </li>
@@ -214,7 +214,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/water.svg"
+                  src="/ilf/frontend/assets/images/payment/water.svg"
                   alt="Image"
                 />
               </li>
@@ -223,7 +223,7 @@ export default function Footer6() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ecomm/frontend/assets/images/payment/discover.svg"
+                  src="/ilf/frontend/assets/images/payment/discover.svg"
                   alt="Image"
                 />
               </li>

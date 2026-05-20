@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function TrueSound() {
   return (
@@ -16,7 +16,7 @@ function TrueSound() {
                     loading="lazy"
                     width={454}
                     height={331}
-                    src="/ecomm/frontend/assets/images/section/true-sound.png"
+                    src="/ilf/frontend/assets/images/section/true-sound.png"
                     alt="Image"
                   />
                 </div>

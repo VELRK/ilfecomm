@@ -1,4 +1,4 @@
-function BannerSale() {
+﻿function BannerSale() {
   return (
     <>
       <section className="themesFlat">
@@ -9,7 +9,7 @@ function BannerSale() {
                 loading="lazy"
                 width={1410}
                 height={144}
-                src="/ecomm/frontend/assets/images/section/bg-percent.png"
+                src="/ilf/frontend/assets/images/section/bg-percent.png"
                 alt="Image"
               />
             </div>
@@ -35,7 +35,7 @@ function BannerSale() {
                 loading="lazy"
                 width={390}
                 height={390}
-                src="/ecomm/frontend/assets/images/item/graphic-item-2.png"
+                src="/ilf/frontend/assets/images/item/graphic-item-2.png"
                 alt="Image"
               />
             </div>

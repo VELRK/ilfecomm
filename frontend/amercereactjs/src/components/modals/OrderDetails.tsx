@@ -1,4 +1,4 @@
-type OrderDetailsProps = {
+﻿type OrderDetailsProps = {
   registerModalElement?: (el: HTMLElement | null) => void;
 };
 
@@ -72,7 +72,7 @@ export default function OrderDetails({
                     loading="lazy"
                     width={100}
                     height={133}
-                    src="/ecomm/frontend/assets/images/product/product-3.jpg"
+                    src="/ilf/frontend/assets/images/product/product-3.jpg"
                     alt=""
                   />
                 </a>
@@ -100,7 +100,7 @@ export default function OrderDetails({
                     loading="lazy"
                     width={100}
                     height={133}
-                    src="/ecomm/frontend/assets/images/product/product-6.jpg"
+                    src="/ilf/frontend/assets/images/product/product-6.jpg"
                     alt=""
                   />
                 </a>

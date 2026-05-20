@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useContextElement } from "@/context/Context";
 import { formatPrice } from "@/utils/formatPrice";
@@ -32,7 +32,7 @@ export default function QuickAdd({
   const previewImage  = selectedColor?.img
     ?? product?.img
     ?? product?.images?.[0]?.src
-    ?? "/ecomm/frontend/assets/images/product/product-1.jpg";
+    ?? "/ilf/frontend/assets/images/product/product-1.jpg";
 
   const handleAddToCart = () => {
     if (!product) return;

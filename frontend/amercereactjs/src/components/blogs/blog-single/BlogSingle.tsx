@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { PreventDefaultForm } from "@/components/forms/PreventDefaultForm";
 import type { BlogPost } from "@/types/blog";
@@ -75,7 +75,7 @@ export default function BlogSingle({
                         loading="lazy"
                         width={450}
                         height={320}
-                        src="/ecomm/frontend/assets/images/blog/detail-2.jpg"
+                        src="/ilf/frontend/assets/images/blog/detail-2.jpg"
                         alt="Image"
                       />
                     </div>
@@ -84,7 +84,7 @@ export default function BlogSingle({
                         loading="lazy"
                         width={450}
                         height={320}
-                        src="/ecomm/frontend/assets/images/blog/detail-3.jpg"
+                        src="/ilf/frontend/assets/images/blog/detail-3.jpg"
                         alt="Image"
                       />
                     </div>
@@ -242,7 +242,7 @@ export default function BlogSingle({
                             loading="lazy"
                             width={60}
                             height={60}
-                            src="/ecomm/frontend/assets/images/avatar/avatar-2.jpg"
+                            src="/ilf/frontend/assets/images/avatar/avatar-2.jpg"
                             alt="Image"
                           />
                         </div>
@@ -265,7 +265,7 @@ export default function BlogSingle({
                               loading="lazy"
                               width={60}
                               height={60}
-                              src="/ecomm/frontend/assets/images/avatar/avatar-1.jpg"
+                              src="/ilf/frontend/assets/images/avatar/avatar-1.jpg"
                               alt="Image"
                             />
                           </div>
@@ -290,7 +290,7 @@ export default function BlogSingle({
                             loading="lazy"
                             width={60}
                             height={60}
-                            src="/ecomm/frontend/assets/images/avatar/avatar-3.jpg"
+                            src="/ilf/frontend/assets/images/avatar/avatar-3.jpg"
                             alt="Image"
                           />
                         </div>

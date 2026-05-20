@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function Banner() {
   return (
@@ -11,7 +11,7 @@ function Banner() {
                 loading="lazy"
                 width={640}
                 height={954}
-                src="/ecomm/frontend/assets/images/section/banner-49.jpg"
+                src="/ilf/frontend/assets/images/section/banner-49.jpg"
                 alt="Image"
               />
             </Link>
@@ -42,7 +42,7 @@ function Banner() {
                   loading="lazy"
                   width={450}
                   height={608}
-                  src="/ecomm/frontend/assets/images/section/banner-50.jpg"
+                  src="/ilf/frontend/assets/images/section/banner-50.jpg"
                   alt="Image"
                 />
               </Link>
@@ -70,7 +70,7 @@ function Banner() {
                   loading="lazy"
                   width={450}
                   height={608}
-                  src="/ecomm/frontend/assets/images/section/banner-51.jpg"
+                  src="/ilf/frontend/assets/images/section/banner-51.jpg"
                   alt="Image"
                 />
               </Link>
@@ -99,7 +99,7 @@ function Banner() {
                 loading="lazy"
                 width={450}
                 height={608}
-                src="/ecomm/frontend/assets/images/section/banner-52.jpg"
+                src="/ilf/frontend/assets/images/section/banner-52.jpg"
                 alt="Image"
               />
             </Link>

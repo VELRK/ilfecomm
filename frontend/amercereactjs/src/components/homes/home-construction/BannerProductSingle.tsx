@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+﻿import { useMemo, useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { bannerProductSingleConstruction } from "@/data/products/products";
@@ -20,12 +20,12 @@ const CONSTRUCTION_COLORS: ColorOption[] = [
   {
     label: "Yellow",
     swatchClass: "bg-yellow",
-    img: "/ecomm/frontend/assets/images/product/single/detail-11.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-11.jpg",
   },
   {
     label: "Orange",
     swatchClass: "bg-orange",
-    img: "/ecomm/frontend/assets/images/product/single/detail-11_4.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-11_4.jpg",
   },
 ];
 

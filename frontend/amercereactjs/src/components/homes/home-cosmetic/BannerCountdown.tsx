@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import CountdownTimer from "@/components/common/Countdown";
 function BannerCountdown() {
@@ -10,7 +10,7 @@ function BannerCountdown() {
             loading="lazy"
             width={1920}
             height={600}
-            src="/ecomm/frontend/assets/images/section/banner-32.jpg"
+            src="/ilf/frontend/assets/images/section/banner-32.jpg"
             alt="Image"
           />
         </div>

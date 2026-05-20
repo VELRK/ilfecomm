@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import CategoryNav from "./CategoryNav";
 import { useHeaderSticky } from "@/hooks/useHeaderSticky";
@@ -33,7 +33,7 @@ export default function Header6() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ecomm/frontend/assets/images/logo/logo.svg"
+                src="/ilf/frontend/assets/images/logo/logo.svg"
                 alt="Image"
               />
             </Link>
@@ -49,7 +49,7 @@ export default function Header6() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ecomm/frontend/assets/images/logo/logo.svg"
+                src="/ilf/frontend/assets/images/logo/logo.svg"
                 alt="Image"
               />
             </Link>

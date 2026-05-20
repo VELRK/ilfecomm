@@ -1,4 +1,4 @@
-export const collectionMentalSlides: {
+﻿export const collectionMentalSlides: {
   img: string;
   alt?: string;
   title: string;
@@ -7,20 +7,20 @@ export const collectionMentalSlides: {
   contentWhite?: boolean;
 }[] = [
   {
-    img: "/ecomm/frontend/assets/images/section/banner-1.jpg",
+    img: "/ilf/frontend/assets/images/section/banner-1.jpg",
     alt: "Image",
     title: "Rest Better, Live\nBrighter",
     desc: "Discover calming products for\ndeeper, peaceful sleep.",
   },
   {
-    img: "/ecomm/frontend/assets/images/section/banner-2.jpg",
+    img: "/ilf/frontend/assets/images/section/banner-2.jpg",
     alt: "Image",
     title: "Nourish From\nWithin",
     desc: "Daily essentials to support\nenergy and balance.",
     contentWhite: true,
   },
   {
-    img: "/ecomm/frontend/assets/images/section/banner-3.jpg",
+    img: "/ilf/frontend/assets/images/section/banner-3.jpg",
     alt: "Image",
     title: "Find Your Calm\nSpace",
     desc: "Mindful pieces that bring ease\nto every day.",

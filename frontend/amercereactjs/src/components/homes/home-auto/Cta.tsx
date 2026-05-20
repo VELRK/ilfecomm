@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { PreventDefaultForm } from "@/components/forms/PreventDefaultForm";
 
@@ -15,7 +15,7 @@ function Cta() {
                     loading="lazy"
                     width={690}
                     height={620}
-                    src="/ecomm/frontend/assets/images/section/banner-27.jpg"
+                    src="/ilf/frontend/assets/images/section/banner-27.jpg"
                     alt="Image"
                   />
                 </Link>

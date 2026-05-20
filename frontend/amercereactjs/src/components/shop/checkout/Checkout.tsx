@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+﻿import { Link, useNavigate } from "react-router-dom";
 import { type FormEvent, useEffect, useState } from "react";
 import "./Checkout.css";
 
@@ -276,7 +276,7 @@ export default function Checkout() {
         order_id:    pd.razorpay_order_id,
         name:        "ShopKart Sarees",
         description: `Order #${pd.order_number}`,
-        image:       "/ecomm/frontend/assets/images/logo/logo.png",
+        image:       "/ilf/frontend/assets/images/logo/logo.png",
         prefill:     { name: pd.prefill.name, email: pd.prefill.email, contact: pd.prefill.contact },
         theme:       { color: "#f59e0b" },
         handler: async (response: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
@@ -571,7 +571,7 @@ export default function Checkout() {
 function CheckoutOrderItemPremium({ item, onRemove, onQtyChange }: {
   item: CartProduct; onRemove: () => void; onQtyChange: (qty: number) => void;
 }) {
-  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/ecomm/frontend/assets/images/product/product-1.jpg";
+  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/ilf/frontend/assets/images/product/product-1.jpg";
   const colorLabel = item.selectedColor ?? item.colors?.[0]?.label ?? null;
   const sizeLabel  = item.selectedSize ?? null;
 

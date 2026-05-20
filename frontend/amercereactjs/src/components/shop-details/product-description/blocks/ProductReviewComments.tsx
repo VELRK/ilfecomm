@@ -1,4 +1,4 @@
-export type ReviewAuthorNameElement = "p" | "h6" | "div";
+﻿export type ReviewAuthorNameElement = "p" | "h6" | "div";
 
 function ReviewAuthorName({
   as,
@@ -54,7 +54,7 @@ export function ProductReviewComments({
                   loading="lazy"
                   width={60}
                   height={60}
-                  src="/ecomm/frontend/assets/images/avatar/avatar-2.jpg"
+                  src="/ilf/frontend/assets/images/avatar/avatar-2.jpg"
                   alt=""
                 />
               </div>
@@ -79,7 +79,7 @@ export function ProductReviewComments({
                     loading="lazy"
                     width={60}
                     height={60}
-                    src="/ecomm/frontend/assets/images/avatar/avatar-1.jpg"
+                    src="/ilf/frontend/assets/images/avatar/avatar-1.jpg"
                     alt=""
                   />
                 </div>
@@ -105,7 +105,7 @@ export function ProductReviewComments({
                   loading="lazy"
                   width={60}
                   height={60}
-                  src="/ecomm/frontend/assets/images/avatar/avatar-3.jpg"
+                  src="/ilf/frontend/assets/images/avatar/avatar-3.jpg"
                   alt=""
                 />
               </div>

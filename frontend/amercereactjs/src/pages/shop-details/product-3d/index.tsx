@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/shop-details/Breadcrumb";
+﻿import Breadcrumb from "@/components/shop-details/Breadcrumb";
 import type { ProductSingleImage } from "@/types/productCard";
 import ProductDescription from "@/components/shop-details/ProductDescription";
 import RelatedProducts from "@/components/shop-details/RelatedProducts";
@@ -10,43 +10,43 @@ import PageMeta from "@/components/common/PageMeta";
 
 const threeDImages: ProductSingleImage[] = [
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1.jpg",
     dataColor: "green",
     dataSize: "S",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_2.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_2.jpg",
     dataColor: "green",
     dataSize: "M",
-    model3d: "/ecomm/frontend/assets/images/video/clothing-3d.glb",
+    model3d: "/ilf/frontend/assets/images/video/clothing-3d.glb",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_3.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_3.jpg",
     dataColor: "green",
     dataSize: "L",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_4.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_4.jpg",
     dataColor: "green",
     dataSize: "XL",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_5.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_5.jpg",
     dataColor: "gray",
     dataSize: "M",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_6.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_6.jpg",
     dataColor: "gray",
     dataSize: "L",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_7.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_7.jpg",
     dataColor: "black",
     dataSize: "L",
   },
   {
-    src: "/ecomm/frontend/assets/images/product/single/detail-1_8.jpg",
+    src: "/ilf/frontend/assets/images/product/single/detail-1_8.jpg",
     dataColor: "black",
     dataSize: "XL",
   },

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import ProductCard from "@/components/ui/ProductCard";
 import { favoriteBabyProducts } from "@/data/products/products";
@@ -28,7 +28,7 @@ function Favorite() {
             <div className="banner-image-text type-abs style-6 h-100">
               <Link to="/shop-default" className="bn-image img-style">
                 <img
-                  src="/ecomm/frontend/assets/images/section/banner-21.jpg"
+                  src="/ilf/frontend/assets/images/section/banner-21.jpg"
                   alt=""
                   width={450}
                   height={830}

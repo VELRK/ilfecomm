@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function GridCollection() {
   return (
@@ -11,7 +11,7 @@ function GridCollection() {
               loading="lazy"
               width={1260}
               height={770}
-              src="/ecomm/frontend/assets/images/section/banner-59.jpg"
+              src="/ilf/frontend/assets/images/section/banner-59.jpg"
               alt="Image"
             />
           </div>
@@ -41,7 +41,7 @@ function GridCollection() {
               loading="lazy"
               width={690}
               height={446}
-              src="/ecomm/frontend/assets/images/section/banner-60.jpg"
+              src="/ilf/frontend/assets/images/section/banner-60.jpg"
               alt="Image"
             />
           </Link>
@@ -70,7 +70,7 @@ function GridCollection() {
               loading="lazy"
               width={690}
               height={446}
-              src="/ecomm/frontend/assets/images/section/banner-61.jpg"
+              src="/ilf/frontend/assets/images/section/banner-61.jpg"
               alt="Image"
             />
           </Link>

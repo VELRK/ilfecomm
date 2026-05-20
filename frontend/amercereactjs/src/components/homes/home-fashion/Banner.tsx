@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import React from "react";
 
@@ -11,7 +11,7 @@ function Banner() {
             loading="lazy"
             width={1920}
             height={620}
-            src="/ecomm/frontend/assets/images/section/banner-40.jpg"
+            src="/ilf/frontend/assets/images/section/banner-40.jpg"
             alt="Image"
           />
         </div>

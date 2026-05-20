@@ -1,4 +1,4 @@
-function BannerWhyChoose() {
+﻿function BannerWhyChoose() {
   return (
     <>
       <section className="themesFlat">
@@ -9,7 +9,7 @@ function BannerWhyChoose() {
                 loading="lazy"
                 width={640}
                 height={480}
-                src="/ecomm/frontend/assets/images/section/s-contact-2.jpg"
+                src="/ilf/frontend/assets/images/section/s-contact-2.jpg"
                 alt="Image"
               />
             </div>

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +18,7 @@ const TOP_PICK_TABS = [
 const DEFAULT_TAB_ID = "new";
 
 const BANNER = {
-  img: "/ecomm/frontend/assets/images/section/banner-41.jpg",
+  img: "/ilf/frontend/assets/images/section/banner-41.jpg",
   title: "Peak Audio",
   desc: "Experience peak audio performance with this top Amerce collection.",
 };

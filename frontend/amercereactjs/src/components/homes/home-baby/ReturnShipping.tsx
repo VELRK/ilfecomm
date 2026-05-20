@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 function ReturnShipping() {
   return (
@@ -18,7 +18,7 @@ function ReturnShipping() {
                         loading="lazy"
                         width={90}
                         height={48}
-                        src="/ecomm/frontend/assets/images/section/policy-1.jpg"
+                        src="/ilf/frontend/assets/images/section/policy-1.jpg"
                         alt="Image"
                       />
                     </div>
@@ -30,7 +30,7 @@ function ReturnShipping() {
                         loading="lazy"
                         width={90}
                         height={48}
-                        src="/ecomm/frontend/assets/images/section/policy-2.jpg"
+                        src="/ilf/frontend/assets/images/section/policy-2.jpg"
                         alt="Image"
                       />
                     </div>
@@ -42,7 +42,7 @@ function ReturnShipping() {
                         loading="lazy"
                         width={90}
                         height={48}
-                        src="/ecomm/frontend/assets/images/section/policy-3.jpg"
+                        src="/ilf/frontend/assets/images/section/policy-3.jpg"
                         alt="Image"
                       />
                     </div>
@@ -54,7 +54,7 @@ function ReturnShipping() {
                         loading="lazy"
                         width={90}
                         height={48}
-                        src="/ecomm/frontend/assets/images/section/policy-4.jpg"
+                        src="/ilf/frontend/assets/images/section/policy-4.jpg"
                         alt="Image"
                       />
                     </div>

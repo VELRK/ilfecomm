@@ -1,4 +1,4 @@
-import CountdownTimer from "@/components/common/Countdown";
+﻿import CountdownTimer from "@/components/common/Countdown";
 
 function BannerCountdown() {
   return (
@@ -12,7 +12,7 @@ function BannerCountdown() {
               height={180}
               loading="lazy"
               decoding="async"
-              src="/ecomm/frontend/assets/images/section/banner-countdown.jpg"
+              src="/ilf/frontend/assets/images/section/banner-countdown.jpg"
               alt="banner"
             />
           </div>

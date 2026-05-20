@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 
 import ProductCard from "@/components/ui/ProductCard";
@@ -15,7 +15,7 @@ const TOP_PICKS_CONSTRUCTION_TABS: { id: string; label: string }[] = [
 const TOP_PICKS_CONSTRUCTION_DEFAULT_TAB_ID = "medications";
 
 const BANNER = {
-  img: "/ecomm/frontend/assets/images/section/banner-54.jpg",
+  img: "/ilf/frontend/assets/images/section/banner-54.jpg",
   title: "Top Quality",
   titleBreak: "Accessories",
   desc: "Discover Premium Parts to",

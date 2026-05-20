@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import CartIconCount from "./CartIconCount";
 import AccountIcon from "./AccountIcon";
 import Nav from "./Nav";
@@ -29,7 +29,7 @@ export default function Header1() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ecomm/frontend/assets/images/logo/logo.svg"
+                src="/ilf/frontend/assets/images/logo/logo.svg"
                 alt="ShopKart"
               />
             </Link>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TfSwiper from "@/components/ui/TfSwiper";
 import ProductCardMiniList from "@/components/ui/ProductCardMiniList";
@@ -50,7 +50,7 @@ function FeaturedProducts2() {
               <div className="banner-image-text type-abs style-6">
                 <Link to="/shop-default" className="bn-image img-style">
                   <img
-                    src="/ecomm/frontend/assets/images/section/banner-26.jpg"
+                    src="/ilf/frontend/assets/images/section/banner-26.jpg"
                     alt=""
                     width={450}
                     height={608}

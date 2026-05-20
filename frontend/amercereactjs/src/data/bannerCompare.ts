@@ -1,10 +1,10 @@
-import type { BannerCompareImages } from "@/types/bannerCompare";
+﻿import type { BannerCompareImages } from "@/types/bannerCompare";
 
 /**
  * Default: Unsplash crops in the same aspect as the HTML demo. Replace with local theme
  * assets when present: `public/assets/images/section/skin-before.jpg` and `skin-after.jpg`.
  */
 export const bannerCompareImages: BannerCompareImages = {
-  beforeSrc: "/ecomm/frontend/assets/images/section/skin-before.jpg",
-  afterSrc: "/ecomm/frontend/assets/images/section/skin-after.jpg",
+  beforeSrc: "/ilf/frontend/assets/images/section/skin-before.jpg",
+  afterSrc: "/ilf/frontend/assets/images/section/skin-after.jpg",
 };

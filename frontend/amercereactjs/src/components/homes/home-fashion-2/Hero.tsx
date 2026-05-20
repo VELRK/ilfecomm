@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { heroFashion2Slides } from "@/data/heros";
 import { useBanners } from "@/hooks/useApi";
@@ -6,7 +6,7 @@ import type { ApiBanner } from "@/services/api";
 
 function bannerSrc(b: ApiBanner): string {
   const img = b.image;
-  if (!img) return "/ecomm/frontend/assets/images/slider/fashion-2/slider-1.jpg";
+  if (!img) return "/ilf/frontend/assets/images/slider/fashion-2/slider-1.jpg";
   if (img.startsWith("http")) return img;
   if (img.startsWith("assets/images/")) return `/${img}`;
   const encoded = img.split("/").map(encodeURIComponent).join("/");

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { useMemo, useState } from "react";
 
@@ -37,9 +37,9 @@ export default function QuickView({
 
     return [
       product?.img,
-      "/ecomm/frontend/assets/images/product/product-2.jpg",
-      "/ecomm/frontend/assets/images/product/product-3.jpg",
-      "/ecomm/frontend/assets/images/product/product-4.jpg",
+      "/ilf/frontend/assets/images/product/product-2.jpg",
+      "/ilf/frontend/assets/images/product/product-3.jpg",
+      "/ilf/frontend/assets/images/product/product-4.jpg",
     ];
   }, [product]);
 

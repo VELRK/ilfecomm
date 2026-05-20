@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import ProductCard from "@/components/ui/ProductCard";
 import { favoriteOrganicProducts } from "@/data/products/products";
 
 const BANNER = {
-  img: "/ecomm/frontend/assets/images/section/banner-33.jpg",
+  img: "/ilf/frontend/assets/images/section/banner-33.jpg",
   desc: "Naturally sweet and full of flavor.",
   title: "Crispy Organic",
   titleBreak: "Apple Rings",

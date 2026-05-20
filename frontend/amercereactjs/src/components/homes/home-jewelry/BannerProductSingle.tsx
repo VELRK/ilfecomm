@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+﻿import { useMemo, useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { bannerProductSingleItems } from "@/data/products/products";
@@ -21,17 +21,17 @@ const JEWELRY_COLORS: ColorOption[] = [
   {
     label: "Metal",
     swatchClass: "bg-metal",
-    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-5.jpg",
   },
   {
     label: "Brown",
     swatchClass: "bg-brown",
-    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-5.jpg",
   },
   {
     label: "Blue",
     swatchClass: "bg-blue",
-    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-5.jpg",
   },
 ];
 

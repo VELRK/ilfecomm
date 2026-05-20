@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useProduct } from "@/context/useProduct";
 import type { ProductCardItem } from "@/types/productCard";
 import {
@@ -37,7 +37,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 39.99,
       priceOld: 49.99,
       save: 15,
-      img: "/ecomm/frontend/assets/images/product/product-1.jpg",
+      img: "/ilf/frontend/assets/images/product/product-1.jpg",
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 59.99,
       priceOld: 69.99,
       save: 20,
-      img: "/ecomm/frontend/assets/images/product/product-2.jpg",
+      img: "/ilf/frontend/assets/images/product/product-2.jpg",
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 79.99,
       priceOld: 89.99,
       save: 25,
-      img: "/ecomm/frontend/assets/images/product/product-3.jpg",
+      img: "/ilf/frontend/assets/images/product/product-3.jpg",
     },
   ];
 

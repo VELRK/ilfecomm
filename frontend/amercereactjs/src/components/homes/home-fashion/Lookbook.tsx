@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { useCallback, useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import TfSwiper from "@/components/ui/TfSwiper";
@@ -147,7 +147,7 @@ function Lookbook() {
           <div>
             <img
               className="img-banner"
-              src="/ecomm/frontend/assets/images/section/banner-lookbook-11.jpg"
+              src="/ilf/frontend/assets/images/section/banner-lookbook-11.jpg"
               alt=""
               width={960}
               height={801}

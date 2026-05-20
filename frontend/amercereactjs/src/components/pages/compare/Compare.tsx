@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { useContextElement } from "@/context/Context";
 import { formatPrice } from "@/utils/formatPrice";
@@ -40,7 +40,7 @@ function Compare() {
                             height={356}
                             src={
                               product.img ||
-                              "/ecomm/frontend/assets/images/product/product-1.jpg"
+                              "/ilf/frontend/assets/images/product/product-1.jpg"
                             }
                             alt={product.name}
                           />

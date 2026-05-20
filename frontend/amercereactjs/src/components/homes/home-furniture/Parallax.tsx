@@ -1,4 +1,4 @@
-function Parallax() {
+﻿function Parallax() {
   return (
     <>
       <div className="section-parallax">
@@ -7,7 +7,7 @@ function Parallax() {
             className="banner-image-parallax parallaxie"
             style={{
               backgroundImage:
-                'url("/ecomm/frontend/assets/images/slider/furniture/slider-1.jpg")',
+                'url("/ilf/frontend/assets/images/slider/furniture/slider-1.jpg")',
             }}
           >
             <div className="bn-image">
@@ -16,7 +16,7 @@ function Parallax() {
                 loading="lazy"
                 width={1770}
                 height={560}
-                src="/ecomm/frontend/assets/images/slider/furniture/slider-1.jpg"
+                src="/ilf/frontend/assets/images/slider/furniture/slider-1.jpg"
                 alt="Image"
               />
             </div>

@@ -1,15 +1,15 @@
-import type { ImageBannerSlide } from "@/types/imageBanner";
+﻿import type { ImageBannerSlide } from "@/types/imageBanner";
 
 export const collectionBagAccessoriesSlides: ImageBannerSlide[] = [
   {
-    img: "/ecomm/frontend/assets/images/section/banner-57.jpg",
+    img: "/ilf/frontend/assets/images/section/banner-57.jpg",
     alt: "Image",
     title: "Shoes Designed For\nComfort And Style",
     desc: "Shoes Designed For Comfort And Style",
     btnText: "Shop Now",
   },
   {
-    img: "/ecomm/frontend/assets/images/section/banner-58.jpg",
+    img: "/ilf/frontend/assets/images/section/banner-58.jpg",
     alt: "Image",
     title: "Bags That Elevate\nYour Everyday Look",
     desc: "Functional designs combining style, storage.",

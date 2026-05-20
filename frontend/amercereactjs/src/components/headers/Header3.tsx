@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import Nav from "./Nav";
@@ -63,7 +63,7 @@ export default function Header3() {
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/ecomm/frontend/assets/images/logo/logo.svg"
+                  src="/ilf/frontend/assets/images/logo/logo.svg"
                   alt="Image"
                 />
               </Link>

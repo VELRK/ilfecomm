@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+﻿import { Link, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import { useHeaderSticky } from "@/hooks/useHeaderSticky";
 import CartIconCount from "./CartIconCount";
@@ -38,7 +38,7 @@ export default function Header10({
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ecomm/frontend/assets/images/logo/logo.svg"
+                src="/ilf/frontend/assets/images/logo/logo.svg"
                 alt="Image"
               />
             </Link>

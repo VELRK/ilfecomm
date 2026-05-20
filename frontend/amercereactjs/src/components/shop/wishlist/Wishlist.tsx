@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import { useState } from "react";
 import { useWishlistStore } from "@/store/wishlistStore";
@@ -13,7 +13,7 @@ function WishlistItem({
   product: ProductCardItem;
   removeFromWishlist: (id: string | number) => void;
 }) {
-  const defaultImage = product.img || "/ecomm/frontend/assets/images/product/product-1.jpg";
+  const defaultImage = product.img || "/ilf/frontend/assets/images/product/product-1.jpg";
   const [activeImage, setActiveImage] = useState(defaultImage);
   const activeHoverImage =
     activeImage === defaultImage

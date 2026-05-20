@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function BannerImage() {
   return (
@@ -8,7 +8,7 @@ function BannerImage() {
           <div
             className="banner-image-text type-abs style-10 parallaxie"
             style={{
-              backgroundImage: 'url("/ecomm/frontend/assets/images/section/banner-29.jpg")',
+              backgroundImage: 'url("/ilf/frontend/assets/images/section/banner-29.jpg")',
             }}
           >
             <Link to={`/shop-default`} className="bn-image img-style">
@@ -17,7 +17,7 @@ function BannerImage() {
                 loading="lazy"
                 width={1410}
                 height={480}
-                src="/ecomm/frontend/assets/images/section/banner-29.jpg"
+                src="/ilf/frontend/assets/images/section/banner-29.jpg"
                 alt="Image"
               />
             </Link>

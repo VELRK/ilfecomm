@@ -1,4 +1,4 @@
-import type { ProductCardItem, ProductSingleImage } from "@/types/productCard";
+﻿import type { ProductCardItem, ProductSingleImage } from "@/types/productCard";
 
 /** Matches Bootstrap `md` — desktop uses scroll-sync; below uses Swiper. */
 export const PRODUCT_MEDIA_DESKTOP_MIN_WIDTH = 768;
@@ -18,7 +18,7 @@ export function buildProductGalleryImages(
       src:
         productImg ||
         extraImages[0]?.src ||
-        "/ecomm/frontend/assets/images/product/single/detail-1.jpg",
+        "/ilf/frontend/assets/images/product/single/detail-1.jpg",
       dataColor: extraImages[0]?.dataColor,
       dataSize: extraImages[0]?.dataSize,
     },

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import Nav from "./Nav";
 import TfSwiper from "@/components/ui/TfSwiper";
@@ -35,7 +35,7 @@ export default function Header7() {
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/ecomm/frontend/assets/images/logo/logo.svg"
+                  src="/ilf/frontend/assets/images/logo/logo.svg"
                   alt="Image"
                 />
               </Link>

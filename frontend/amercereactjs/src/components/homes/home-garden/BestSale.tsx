@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import ProductCard from "@/components/ui/ProductCard";
 import { bestSaleGardenProducts } from "@/data/products/products";
 
 const BANNER = {
-  img: "/ecomm/frontend/assets/images/section/banner-48.jpg",
+  img: "/ilf/frontend/assets/images/section/banner-48.jpg",
   title: "Discover Your",
   titleBreak: "New Green",
   desc: "Handpicked selections perfect for",

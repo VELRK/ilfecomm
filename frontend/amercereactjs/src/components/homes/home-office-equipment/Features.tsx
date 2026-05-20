@@ -1,4 +1,4 @@
-function Features() {
+﻿function Features() {
   return (
     <>
       <section className="section-feature flat-spacing">
@@ -20,7 +20,7 @@ function Features() {
                   loading="lazy"
                   width={471}
                   height={471}
-                  src="/ecomm/frontend/assets/images/section/feature-tech.jpg"
+                  src="/ilf/frontend/assets/images/section/feature-tech.jpg"
                   alt="Image"
                 />
               </div>

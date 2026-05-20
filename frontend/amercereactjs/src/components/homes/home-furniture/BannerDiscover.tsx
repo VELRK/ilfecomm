@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function BannerDiscover() {
   return (
@@ -9,7 +9,7 @@ function BannerDiscover() {
             className="banner-v03 parallaxie"
             style={{
               backgroundImage:
-                'url("/ecomm/frontend/assets/images/section/furniture-banner-1.jpg")',
+                'url("/ilf/frontend/assets/images/section/furniture-banner-1.jpg")',
             }}
           >
             <div className="bn_image">
@@ -18,7 +18,7 @@ function BannerDiscover() {
                 loading="lazy"
                 width={1770}
                 height={440}
-                src="/ecomm/frontend/assets/images/section/furniture-banner-1.jpg"
+                src="/ilf/frontend/assets/images/section/furniture-banner-1.jpg"
                 alt="Image"
               />
             </div>

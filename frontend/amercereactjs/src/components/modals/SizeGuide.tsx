@@ -1,4 +1,4 @@
-export default function SizeGuide({
+﻿export default function SizeGuide({
   registerModalElement,
 }: {
   registerModalElement?: (el: HTMLElement | null) => void;
@@ -103,7 +103,7 @@ export default function SizeGuide({
                     loading="lazy"
                     width={270}
                     height={270}
-                    src="/ecomm/frontend/assets/images/section/size-chart.jpg"
+                    src="/ilf/frontend/assets/images/section/size-chart.jpg"
                     alt="Image"
                   />
                 </div>

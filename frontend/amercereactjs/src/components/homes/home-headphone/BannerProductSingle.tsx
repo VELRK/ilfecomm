@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+﻿import { useMemo, useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { bannerProductSingleItems } from "@/data/products/products";
@@ -21,17 +21,17 @@ const HEADPHONE_COLORS: ColorOption[] = [
   {
     label: "Brown",
     swatchClass: "bg-brown",
-    img: "/ecomm/frontend/assets/images/product/single/detail-4_4.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-4_4.jpg",
   },
   {
     label: "Metal",
     swatchClass: "bg-metal",
-    img: "/ecomm/frontend/assets/images/product/single/detail-4.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-4.jpg",
   },
   {
     label: "Blue",
     swatchClass: "bg-blue",
-    img: "/ecomm/frontend/assets/images/product/single/detail-4_6.jpg",
+    img: "/ilf/frontend/assets/images/product/single/detail-4_6.jpg",
   },
 ];
 

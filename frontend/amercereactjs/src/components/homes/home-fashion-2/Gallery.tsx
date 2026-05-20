@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { useSpecialProducts, apiImageUrl } from "@/hooks/useApi";
 
@@ -45,7 +45,7 @@ function Gallery() {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
-                    "/ecomm/frontend/assets/images/product/product-placeholder.jpg";
+                    "/ilf/frontend/assets/images/product/product-placeholder.jpg";
                 }}
               />
             </div>

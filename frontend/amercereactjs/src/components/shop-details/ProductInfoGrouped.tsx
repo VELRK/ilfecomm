@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useProduct } from "@/context/useProduct";
 import type { ProductCardItem } from "@/types/productCard";
 import ProductGroupedItems, { type GroupedItem } from "./ProductGroupedItems";
@@ -26,7 +26,7 @@ export default function ProductInfoGrouped({
       name: "V-neck cotton T-shirt",
       price: 29.99,
       priceOld: 39.99,
-      img: "/ecomm/frontend/assets/images/product/product-3.jpg",
+      img: "/ilf/frontend/assets/images/product/product-3.jpg",
       quantity: 1,
       variant: "Green, XS",
     },
@@ -35,7 +35,7 @@ export default function ProductInfoGrouped({
       name: "Square metallic frame sunglasses",
       price: 69.99,
       priceOld: 89.99,
-      img: "/ecomm/frontend/assets/images/product/product-6.jpg",
+      img: "/ilf/frontend/assets/images/product/product-6.jpg",
       quantity: 1,
       variant: "Green, XS",
     },
@@ -44,7 +44,7 @@ export default function ProductInfoGrouped({
       name: "Oval shoulder bag",
       price: 49.99,
       priceOld: 59.99,
-      img: "/ecomm/frontend/assets/images/product/product-8.jpg",
+      img: "/ilf/frontend/assets/images/product/product-8.jpg",
       quantity: 1,
       variant: "Green, XS",
     },

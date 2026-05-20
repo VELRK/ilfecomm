@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 
 interface Currency {
   code: string;
@@ -14,11 +14,11 @@ interface CurrencySelectProps {
 const currencies: Currency[] = [
   {
     code: "USD $",
-    image: "/ecomm/frontend/assets/images/country/us.png",
+    image: "/ilf/frontend/assets/images/country/us.png",
   },
   {
     code: "VND ₫",
-    image: "/ecomm/frontend/assets/images/country/vn.png",
+    image: "/ilf/frontend/assets/images/country/vn.png",
   },
 ];
 

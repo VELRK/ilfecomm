@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function NotFoundPage() {
   return (
@@ -12,7 +12,7 @@ function NotFoundPage() {
                   loading="lazy"
                   width={930}
                   height={579}
-                  src="/ecomm/frontend/assets/images/section/404.svg"
+                  src="/ilf/frontend/assets/images/section/404.svg"
                   alt="Image"
                 />
               </div>

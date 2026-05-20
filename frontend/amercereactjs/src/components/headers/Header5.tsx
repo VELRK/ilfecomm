@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import Nav from "./Nav";
 import { useStickyCategoryHeader } from "@/hooks/useStickyCategoryHeader";
@@ -48,7 +48,7 @@ export default function Header5() {
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/ecomm/frontend/assets/images/logo/logo.svg"
+                  src="/ilf/frontend/assets/images/logo/logo.svg"
                   alt="Image"
                 />
               </Link>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import ProductCard from "@/components/ui/ProductCard";
 import { featuredMentalProducts } from "@/data/products/products";
@@ -14,7 +14,7 @@ function FeaturedBannersSlide() {
             loading="lazy"
             width={450}
             height={294}
-            src="/ecomm/frontend/assets/images/section/banner-6.jpg"
+            src="/ilf/frontend/assets/images/section/banner-6.jpg"
             alt="Vitamins Every Day"
           />
         </Link>
@@ -39,7 +39,7 @@ function FeaturedBannersSlide() {
             loading="lazy"
             width={450}
             height={294}
-            src="/ecomm/frontend/assets/images/section/banner-7.jpg"
+            src="/ilf/frontend/assets/images/section/banner-7.jpg"
             alt="Vitamins Every Day"
           />
         </Link>

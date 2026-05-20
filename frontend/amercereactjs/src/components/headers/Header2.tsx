@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 import BrowseByCategoryNav from "./BrowseByCategoryNav";
 import Nav from "./Nav";
@@ -53,7 +53,7 @@ export default function Header2({
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/ecomm/frontend/assets/images/logo/logo.svg"
+                  src="/ilf/frontend/assets/images/logo/logo.svg"
                   alt="Image"
                 />
               </Link>

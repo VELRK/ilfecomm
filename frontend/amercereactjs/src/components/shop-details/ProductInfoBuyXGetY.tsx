@@ -1,4 +1,4 @@
-import { useProduct } from "@/context/useProduct";
+﻿import { useProduct } from "@/context/useProduct";
 import type { ProductCardItem } from "@/types/productCard";
 import { Link } from "react-router-dom";
 import {
@@ -51,7 +51,7 @@ export default function ProductInfoBuyXGetY({
                 <div className="img-product">
                   <img
                     loading="lazy"
-                    src="/ecomm/frontend/assets/images/product/product-2.jpg"
+                    src="/ilf/frontend/assets/images/product/product-2.jpg"
                     alt="img-product"
                   />
                 </div>
@@ -88,7 +88,7 @@ export default function ProductInfoBuyXGetY({
                 <div className="img-product">
                   <img
                     loading="lazy"
-                    src="/ecomm/frontend/assets/images/product/product-3.jpg"
+                    src="/ilf/frontend/assets/images/product/product-3.jpg"
                     alt="img-product"
                   />
                 </div>

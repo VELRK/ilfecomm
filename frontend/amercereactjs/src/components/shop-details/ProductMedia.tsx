@@ -1,4 +1,4 @@
-import DriftZoom from "@/components/ui/DriftZoom";
+﻿import DriftZoom from "@/components/ui/DriftZoom";
 import ProductMediaThumbs from "@/components/ui/ProductMediaThumbs";
 import type { ProductCardItem, ProductSingleImage } from "@/types/productCard";
 import { Gallery, Item } from "react-photoswipe-gallery";
@@ -31,7 +31,7 @@ export default function ProductMedia({
         src:
           product.img ||
           extraImages[0]?.src ||
-          "/ecomm/frontend/assets/images/product/single/detail-1.jpg",
+          "/ilf/frontend/assets/images/product/single/detail-1.jpg",
         dataColor: extraImages[0]?.dataColor,
         dataSize: extraImages[0]?.dataSize,
       },

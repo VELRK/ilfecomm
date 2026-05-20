@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { heroSlidesBaby } from "@/data/heros";
 
-const GRAPHIC_IMAGE = "/ecomm/frontend/assets/images/item/graphic-item.png";
+const GRAPHIC_IMAGE = "/ilf/frontend/assets/images/item/graphic-item.png";
 
 function Hero() {
   return (

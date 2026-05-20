@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { testimonialHeadphoneSlides } from "@/data/testimonials";
 import { formatPrice } from "@/utils/formatPrice";
@@ -9,7 +9,7 @@ function Testimonials() {
       <div className="section-testimonials position-relative">
         <div className="banner">
           <img
-            src="/ecomm/frontend/assets/images/testimonial/tes-21.jpg"
+            src="/ilf/frontend/assets/images/testimonial/tes-21.jpg"
             alt="testimonial"
             width={1770}
             height={600}

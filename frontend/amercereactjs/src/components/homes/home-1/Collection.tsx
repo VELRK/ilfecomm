@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function Collection() {
   return (
@@ -12,7 +12,7 @@ function Collection() {
                   loading="lazy"
                   width={700}
                   height={933}
-                  src="/ecomm/frontend/assets/images/collection/cls-6.jpg"
+                  src="/ilf/frontend/assets/images/collection/cls-6.jpg"
                   alt="Image"
                 />
               </Link>
@@ -32,7 +32,7 @@ function Collection() {
                     loading="lazy"
                     width={700}
                     height={461}
-                    src="/ecomm/frontend/assets/images/collection/cls-7.jpg"
+                    src="/ilf/frontend/assets/images/collection/cls-7.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -51,7 +51,7 @@ function Collection() {
                     loading="lazy"
                     width={700}
                     height={461}
-                    src="/ecomm/frontend/assets/images/collection/cls-8.jpg"
+                    src="/ilf/frontend/assets/images/collection/cls-8.jpg"
                     alt="Image"
                   />
                 </Link>

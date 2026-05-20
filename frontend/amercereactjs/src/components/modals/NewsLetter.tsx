@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+﻿import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { siteSettingsAPI } from "@/services/api";
@@ -66,7 +66,7 @@ export default function NewsLetter({
               loading="lazy"
               width={360}
               height={360}
-              src="/ecomm/frontend/assets/images/section/banner-newsletter.jpg"
+              src="/ilf/frontend/assets/images/section/banner-newsletter.jpg"
               alt="Image"
             />
           </div>

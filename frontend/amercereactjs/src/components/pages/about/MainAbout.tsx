@@ -1,4 +1,4 @@
-import { aboutStats } from "@/data/about_stats";
+﻿import { aboutStats } from "@/data/about_stats";
 import TfSwiper from "@/components/ui/TfSwiper";
 
 function MainAbout() {
@@ -11,7 +11,7 @@ function MainAbout() {
               loading="lazy"
               width={1410}
               height={600}
-              src="/ecomm/frontend/assets/images/section/s-contact-1.jpg"
+              src="/ilf/frontend/assets/images/section/s-contact-1.jpg"
               alt="Image"
             />
           </div>

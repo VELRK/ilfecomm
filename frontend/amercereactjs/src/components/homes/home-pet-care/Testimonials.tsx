@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { testimonialPetCareSlides } from "@/data/testimonials";
 import { formatPrice } from "@/utils/formatPrice";
@@ -110,7 +110,7 @@ function Testimonials() {
           </div>
           <div className="s-bg-item">
             <img
-              src="/ecomm/frontend/assets/images/item/pet-leg.png"
+              src="/ilf/frontend/assets/images/item/pet-leg.png"
               alt=""
               width={1770}
               height={716}

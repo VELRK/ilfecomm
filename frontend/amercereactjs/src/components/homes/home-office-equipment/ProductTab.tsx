@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+﻿import { useMemo, useState } from "react";
 
 import TfSwiper from "@/components/ui/TfSwiper";
 import ProductCard from "@/components/ui/ProductCard";
@@ -9,27 +9,27 @@ const OFFICE_TABS = [
   {
     id: "desk",
     label: "Desks",
-    img: "/ecomm/frontend/assets/images/category/png/cate-13.png",
+    img: "/ilf/frontend/assets/images/category/png/cate-13.png",
   },
   {
     id: "chair",
     label: "Chairs",
-    img: "/ecomm/frontend/assets/images/category/png/cate-14.png",
+    img: "/ilf/frontend/assets/images/category/png/cate-14.png",
   },
   {
     id: "arm",
     label: "Monitor Arms",
-    img: "/ecomm/frontend/assets/images/category/png/cate-15.png",
+    img: "/ilf/frontend/assets/images/category/png/cate-15.png",
   },
   {
     id: "mouseKey",
     label: "Mouses & Keyboards",
-    img: "/ecomm/frontend/assets/images/category/png/cate-16.png",
+    img: "/ilf/frontend/assets/images/category/png/cate-16.png",
   },
   {
     id: "access",
     label: "Accessories",
-    img: "/ecomm/frontend/assets/images/category/png/cate-17.png",
+    img: "/ilf/frontend/assets/images/category/png/cate-17.png",
   },
 ];
 

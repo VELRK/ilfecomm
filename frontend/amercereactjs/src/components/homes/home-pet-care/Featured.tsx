@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
@@ -11,7 +11,7 @@ const SLIDE_SIZE = 3;
 /** Hide center banner at or below this width (px); aligns with theme `d-none d-xl-block` (1200px). */
 const DEFAULT_HIDE_BANNER_MAX_WIDTH_PX = 1199;
 const BANNER_SLIDE = {
-  img: "/ecomm/frontend/assets/images/section/banner-16.jpg",
+  img: "/ilf/frontend/assets/images/section/banner-16.jpg",
   desc: "HURRY! PAWLIDAY SALE ENDS SOON",
   title: "Save Up To 50%",
   countdown: 1093120,
