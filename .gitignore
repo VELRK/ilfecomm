@@ -102,11 +102,18 @@ tests/mocks/database/ci_test.sqlite
 # ── Misc project-specific ─────────────────────────────────────
 artifacts/
 docs/
+api/
+vercel.json
 fix_encoding.php
 about.html
 blog.html
 contact.html
 projects.html
+seed_colors.php
+seed_colors.sql
+seed_multicolor.php
+verify_colors.php
+frontend-dist/
 
 # ── Claude / AI tooling ───────────────────────────────────────
 .claude/
