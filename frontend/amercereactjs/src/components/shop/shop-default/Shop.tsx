@@ -8,7 +8,7 @@ import { ShopMainColumn } from "./ShopMainColumn";
 import { ShopPageLayout } from "./ShopPageLayout";
 import { ShopOffcanvas } from "./ShopOffcanvas";
 import { ShopProvider, type ShopContextValue } from "./ShopContext";
-import type { GridCols } from "./shopGridCols";
+import { clampGridColsForWidth, type GridCols } from "./shopGridCols";
 import {
   computePageItems,
   normalizeShopVariants,
@@ -27,7 +27,9 @@ export default function Shop({
   const variants = useMemo(() => normalizeShopVariants(variant), [variant]);
 
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
-  const [gridCols, setGridCols] = useState<GridCols>("tf-col-4");
+  const [gridCols, setGridCols] = useState<GridCols>(() =>
+    clampGridColsForWidth(typeof window !== "undefined" ? window.innerWidth : 1200, "tf-col-4")
+  );
   const [sortOpen, setSortOpen] = useState(false);
   const [wideEnoughForSidebar, setWideEnoughForSidebar] = useState(false);
 

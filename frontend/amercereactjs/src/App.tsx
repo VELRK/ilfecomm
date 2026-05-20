@@ -6,7 +6,7 @@ import {
   type ComponentType,
   type LazyExoticComponent,
 } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useAuthStore } from "@/store/authStore";
 import { useWishlistStore } from "@/store/wishlistStore";
 import { useEffect } from "react";
@@ -40,6 +40,11 @@ function ShopRoute({ Page }: { Page: LazyPage }) {
 }
 
 function AccountRoute({ Page }: { Page: LazyPage }) {
+  const { isLoggedIn } = useAuthStore();
+  const location = useLocation();
+  if (!isLoggedIn) {
+    return <Navigate to={`/login?redirect=${encodeURIComponent(location.pathname)}`} replace />;
+  }
   return (
     <AccountLayout>
       <Page />
