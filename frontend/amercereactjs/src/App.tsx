@@ -279,7 +279,7 @@ function App() {
           />
           <Route
             path="/blog-single"
-            element={<Navigate to="/blog-single/1" replace />}
+            element={<Navigate to="/blog" replace />}
           />
 
           {/* Shop */}
