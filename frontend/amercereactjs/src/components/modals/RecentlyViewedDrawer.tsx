@@ -27,6 +27,7 @@ export default function RecentlyViewedDrawer({
       {/* Floating trigger button */}
       <button
         type="button"
+        className="rv-float-btn"
         data-bs-toggle="offcanvas"
         data-bs-target="#recentlyViewedDrawer"
         aria-controls="recentlyViewedDrawer"
