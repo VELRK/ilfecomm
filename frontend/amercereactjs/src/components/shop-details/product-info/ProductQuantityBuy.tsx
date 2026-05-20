@@ -55,19 +55,26 @@ export function ProductQuantityBuy({ product }: { product: ProductCardItem }) {
     }
   };
 
-  return (
-    <div className="tf-product-total-quantity">
-      {/* Stock status badge */}
-      {isOutOfStock ? (
+  if (isOutOfStock) {
+    return (
+      <div className="tf-product-total-quantity">
         <div className="mb-12">
-          <span style={{ display: "inline-block", background: "#fee2e2", color: "#991b1b", fontWeight: 700, fontSize: 13, padding: "4px 12px", borderRadius: 6 }}>
+          <span style={{ display: "inline-block", background: "#fee2e2", color: "#991b1b", fontWeight: 700, fontSize: 14, padding: "6px 16px", borderRadius: 6 }}>
             Out of Stock
           </span>
         </div>
-      ) : isLowStock ? (
+        <p className="cl-text-2 small">This product is currently unavailable. Please check back later.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="tf-product-total-quantity">
+      {/* Stock status badge */}
+      {isLowStock ? (
         <div className="mb-12">
           <span style={{ display: "inline-block", background: "#fef3c7", color: "#92400e", fontWeight: 700, fontSize: 13, padding: "4px 12px", borderRadius: 6 }}>
-            Only {stock} left in stock — order soon!
+            Only {stock} left — order soon!
           </span>
         </div>
       ) : (

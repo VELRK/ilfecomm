@@ -41,6 +41,9 @@ export default function AddToCartButton({
     addProductToCart(product, quantity);
   };
 
+  // Hide button entirely when product is out of stock
+  if (product && (product as { isStockOut?: boolean }).isStockOut) return null;
+
   const activeClass = !isQuickAddTrigger && isAdded ? "added" : "";
 
   /** Bootstrap 5 needs `data-bs-target` on `<button>`; anchors used to rely on `href`. */

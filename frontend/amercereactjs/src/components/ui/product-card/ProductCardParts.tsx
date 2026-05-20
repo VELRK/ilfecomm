@@ -52,8 +52,19 @@ export function ProductCardDualImageLink({
 export function ProductCardBadgeList({
   product,
 }: {
-  product: Pick<ProductCardItem, "badge" | "badgeTrend">;
+  product: Pick<ProductCardItem, "badge" | "badgeTrend" | "isStockOut">;
 }) {
+  const isStockOut = (product as { isStockOut?: boolean }).isStockOut;
+  if (isStockOut) {
+    return (
+      <ul className="product-badge_list">
+        <li className="product-badge_item text-caption-01" style={{ background: "#991b1b", color: "#fff" }}>
+          Sold Out
+        </li>
+      </ul>
+    );
+  }
+
   if (product.badge == null && product.badgeTrend == null) return null;
 
   const badgeClass = badgeClassFromBadge(product.badge);
