@@ -19,4 +19,5 @@ jobs:
           port: 65002
           script: |
             cd /home/u221026474/domains/superfinelabels.in/public_html/ilf
-            git pull origin main
+            git remote -v
+            git pull $(git remote) main
