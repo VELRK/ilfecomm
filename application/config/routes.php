@@ -378,6 +378,10 @@ $route['shopkart/reviews'] = 'admin/Reviews/index';
 $route['shopkart/reviews/approve/(:num)'] = 'admin/Reviews/approve/$1';
 $route['shopkart/reviews/reject/(:num)']  = 'admin/Reviews/reject/$1';
 $route['shopkart/reviews/delete/(:num)']  = 'admin/Reviews/delete/$1';
+// Contacts (admin)
+$route['shopkart/contacts'] = 'admin/Contacts/index';
+$route['shopkart/contacts/mark_read/(:num)'] = 'admin/Contacts/mark_read/$1';
+$route['shopkart/contacts/delete/(:num)'] = 'admin/Contacts/delete/$1';
 // Blogs (admin)
 $route['shopkart/blogs'] = 'admin/Blogs/index';
 $route['shopkart/blogs/store'] = 'admin/Blogs/store';

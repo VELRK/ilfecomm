@@ -1,43 +1,49 @@
-import { useEffect, useMemo, useState } from "react";
-import { products } from "@/data/products/products";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { productsAPI } from "@/services/api";
+import type { ApiProduct } from "@/services/api";
+import { toProductCard } from "@/hooks/useApi";
 import ProductCard from "@/components/ui/ProductCard";
 import TfSwiper from "@/components/ui/TfSwiper";
+
+const FEATURED_KEYWORDS = ["Saree", "Cotton", "Silk", "Ethnic Wear", "Kurti", "Lehenga"];
 
 export default function Search({
   registerModalElement,
 }: {
   registerModalElement?: (el: HTMLElement | null) => void;
 }) {
-  const [query, setQuery] = useState("");
-  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [query, setQuery]           = useState("");
+  const [debouncedQuery, setDebounced] = useState("");
+  const [results, setResults]       = useState<ApiProduct[]>([]);
+  const [featured, setFeatured]     = useState<ApiProduct[]>([]);
+  const [loading, setLoading]       = useState(false);
 
+  // Debounce input
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setDebouncedQuery(query.trim().toLowerCase());
-    }, 300);
-
-    return () => window.clearTimeout(timer);
+    const t = window.setTimeout(() => setDebounced(query.trim()), 350);
+    return () => window.clearTimeout(t);
   }, [query]);
 
-  const featuredKeywords = [
-    "Dresses",
-    "Dresses women",
-    "Dresses midi",
-    "Dress summer",
-  ];
+  // Load featured products once on mount
+  useEffect(() => {
+    productsAPI.getAll({ limit: 8 })
+      .then((r) => setFeatured(r.data.data?.products ?? []))
+      .catch(() => {});
+  }, []);
 
-  const filteredProducts = useMemo(() => {
-    if (!debouncedQuery) return products.slice(0, 8);
-    return products
-      .filter((product) => {
-        const name = product.name?.toLowerCase() ?? "";
-        const category = product.category?.toLowerCase() ?? "";
-        return (
-          name.includes(debouncedQuery) || category.includes(debouncedQuery)
-        );
-      })
-      .slice(0, 8);
+  // Search when query changes
+  useEffect(() => {
+    if (!debouncedQuery) { setResults([]); return; }
+    setLoading(true);
+    productsAPI.search(debouncedQuery)
+      .then((r) => setResults(r.data.data ?? []))
+      .catch(() => setResults([]))
+      .finally(() => setLoading(false));
   }, [debouncedQuery]);
+
+  const displayProducts = debouncedQuery ? results : featured;
+  const sectionLabel    = debouncedQuery ? "Search Results" : "Featured Products";
 
   return (
     <div
@@ -49,74 +55,90 @@ export default function Search({
         <div className="modal-content">
           <div className="d-flex align-items-center justify-content-between gap-10">
             <h3>Search</h3>
-            <span
-              className="icon-close-popup flex-shrink-0"
-              data-bs-dismiss="modal"
-            >
+            <span className="icon-close-popup flex-shrink-0" data-bs-dismiss="modal">
               <i className="icon-X2" />
             </span>
           </div>
-          <form
-            className="form-search-nav style-2"
-            onSubmit={(e) => e.preventDefault()}
-          >
+
+          <form className="form-search-nav style-2" onSubmit={(e) => {
+            e.preventDefault();
+            if (query.trim()) {
+              window.location.href = `/ilf/frontend/search-result?q=${encodeURIComponent(query.trim())}`;
+            }
+          }}>
             <fieldset>
               <input
                 type="text"
-                placeholder="Searching..."
+                placeholder="Search sarees, kurtis, ethnic wear..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 autoComplete="off"
+                autoFocus
               />
             </fieldset>
             <button type="submit" className="btn-action">
               <i className="icon icon-MagnifyingGlass" />
             </button>
           </form>
+
+          {/* Featured keywords */}
           <div className="search-feature">
-            <p className="h5 mb-16">Feature Keywords Today</p>
+            <p className="h5 mb-16">Popular Searches</p>
             <div className="tf-list-tag">
-              {featuredKeywords.map((keyword) => (
+              {FEATURED_KEYWORDS.map((kw) => (
                 <button
-                  key={keyword}
+                  key={kw}
                   type="button"
                   className="link-tag border-0 bg-transparent"
-                  onClick={() => setQuery(keyword)}
+                  onClick={() => setQuery(kw)}
                 >
-                  {keyword}
+                  {kw}
                 </button>
               ))}
             </div>
           </div>
+
+          {/* Results */}
           <div className="recently-view">
-            <p className="h5 mb-16">
-              {debouncedQuery ? "Search Results" : "Recently Viewed Products"}
-            </p>
-            {filteredProducts.length > 0 ? (
+            <p className="h5 mb-16">{sectionLabel}</p>
+
+            {loading && (
+              <div className="text-center py-3">
+                <div className="spinner-border spinner-border-sm text-primary" role="status" />
+              </div>
+            )}
+
+            {!loading && debouncedQuery && results.length === 0 && (
+              <p className="cl-text-2 mb-24">No products found for "<strong>{debouncedQuery}</strong>".</p>
+            )}
+
+            {!loading && displayProducts.length > 0 && (
               <TfSwiper
                 className="mb-24"
-                preview={4}
-                tablet={3}
-                mobileSm={2}
-                mobile={2}
-                spaceLg={30}
-                spaceMd={20}
-                space={10}
-                paginationLg={4}
-                paginationMd={3}
-                paginationSm={2}
-                pagination={2}
+                preview={4} tablet={3} mobileSm={2} mobile={2}
+                spaceLg={30} spaceMd={20} space={10}
+                paginationLg={4} paginationMd={3} paginationSm={2} pagination={2}
                 paginationClassName="sw-dot-default tf-sw-pagination"
               >
-                {filteredProducts.map((product, index) => (
+                {displayProducts.map((product, index) => (
                   <ProductCard
                     key={`${product.id}-${index}`}
-                    product={product}
+                    product={toProductCard(product)}
                   />
                 ))}
               </TfSwiper>
-            ) : (
-              <p className="cl-text-2 mb-24">No products found.</p>
+            )}
+
+            {debouncedQuery && results.length > 0 && (
+              <div className="text-center mb-16">
+                <Link
+                  to={`/search-result?q=${encodeURIComponent(debouncedQuery)}`}
+                  className="tf-btn style-2 btn-sm"
+                  data-bs-dismiss="modal"
+                >
+                  View all results for "{debouncedQuery}"
+                </Link>
+              </div>
             )}
           </div>
         </div>
