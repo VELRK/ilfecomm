@@ -283,6 +283,7 @@ export function toProductCard(p: ApiProduct) {
       if (cj && cj.length > 0) {
         return cj.map((c: { name: string; hex?: string; image?: string }) => ({
           label: c.name,
+          hex: c.hex || undefined,
           swatchClass: c.hex ? "" : "bg-gray",
           img: c.image ? apiImageUrl(c.image) : thumb,
         }));

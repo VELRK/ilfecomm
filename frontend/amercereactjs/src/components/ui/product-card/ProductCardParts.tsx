@@ -148,7 +148,10 @@ export function ProductCardColorSwatches({
           className={`product-color-item color-swatch hover-tooltip tooltip-bot ${activeImage === color.img ? "active" : ""}`}
         >
           <span className="tooltip color-filter">{color.label}</span>
-          <span className={`swatch-value ${color.swatchClass}`} />
+          <span
+            className={`swatch-value ${color.swatchClass}`}
+            style={color.hex ? { background: color.hex, border: "1.5px solid rgba(0,0,0,0.12)" } : { border: "1.5px solid rgba(0,0,0,0.12)" }}
+          />
           <img src={color.img} alt={color.label} width={660} height={880} />
         </li>
       ))}

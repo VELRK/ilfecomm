@@ -3,6 +3,7 @@ export interface ProductColorSwatch {
   /** CSS class for swatch (e.g. "bg-olive-brown") */
   swatchClass: string;
   img: string;
+  hex?: string;
 }
 
 /** One image in a product single gallery (main or thumb). */
