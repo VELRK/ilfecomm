@@ -67,18 +67,38 @@ class Reports extends Sk_Base {
     }
 
     private function _orders_by_status($from, $to) {
+        // Try date range first; if empty fall back to all-time
+        $rows = $this->db->select('status, COUNT(*) as count')
+                         ->where("DATE(created_at) BETWEEN '$from' AND '$to'", null, false)
+                         ->group_by('status')
+                         ->get('orders')->result_array();
+        if (!empty($rows)) return $rows;
+
         return $this->db->select('status, COUNT(*) as count')
-                        ->where("DATE(created_at) BETWEEN '$from' AND '$to'", null, false)
                         ->group_by('status')
                         ->get('orders')->result_array();
     }
 
     private function _revenue_by_day($from, $to) {
-        return $this->db->select('DATE(created_at) as date, SUM(total) as revenue, COUNT(*) as orders')
-                        ->where("DATE(created_at) BETWEEN '$from' AND '$to'", null, false)
-                        ->where('payment_status', 'paid')
-                        ->group_by('DATE(created_at)')
-                        ->order_by('date', 'ASC')
-                        ->get('orders')->result_array();
+        $rows = $this->db
+            ->select('DATE(created_at) as date, SUM(total) as revenue')
+            ->where("DATE(created_at) BETWEEN '$from' AND '$to'", null, false)
+            ->group_by('DATE(created_at)')
+            ->order_by('date', 'ASC')
+            ->get('orders')->result_array();
+
+        // Fill every day in the range with 0 for missing days
+        $map = [];
+        foreach ($rows as $r) $map[$r['date']] = (float) $r['revenue'];
+
+        $result = [];
+        $current = strtotime($from);
+        $end     = strtotime($to);
+        while ($current <= $end) {
+            $d = date('Y-m-d', $current);
+            $result[] = ['date' => date('d M', $current), 'revenue' => $map[$d] ?? 0];
+            $current  = strtotime('+1 day', $current);
+        }
+        return $result;
     }
 }

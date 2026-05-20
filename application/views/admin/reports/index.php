@@ -108,13 +108,21 @@ new Chart(document.getElementById('reportChart').getContext('2d'), {
   },
   options: { responsive: true, plugins: { legend: { display: false } } }
 });
-new Chart(document.getElementById('statusChart').getContext('2d'), {
-  type: 'doughnut',
-  data: {
-    labels: <?= json_encode($st_labels) ?>,
-    datasets: [{ data: <?= json_encode($st_data) ?>,
-      backgroundColor: ['#fbbf24','#3b82f6','#8b5cf6','#10b981','#22d3ee','#ef4444','#6b7280']
-    }]
-  }
-});
+var stLabels = <?= json_encode($st_labels) ?>;
+var stData   = <?= json_encode($st_data) ?>;
+if (stLabels.length > 0) {
+  new Chart(document.getElementById('statusChart').getContext('2d'), {
+    type: 'doughnut',
+    data: {
+      labels: stLabels,
+      datasets: [{ data: stData,
+        backgroundColor: ['#fbbf24','#3b82f6','#8b5cf6','#10b981','#22d3ee','#ef4444','#6b7280']
+      }]
+    },
+    options: { plugins: { legend: { position: 'bottom' } } }
+  });
+} else {
+  document.getElementById('statusChart').parentElement.innerHTML =
+    '<p class="text-muted text-center py-4">No orders yet.</p>';
+}
 </script>
