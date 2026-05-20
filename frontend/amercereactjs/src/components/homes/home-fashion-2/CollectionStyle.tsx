@@ -57,9 +57,9 @@ function CollectionStyle() {
 
             <ul className="list-btn-tab-accordion style-2 wow fadeInUp" role="tablist" id={accordionId}>
               {banners.map((b, idx) => {
-                const tabId      = `tabCls${idx + 1}`;
-                const accordId   = `accordionCls${idx + 1}`;
-                const isFirst    = idx === 0;
+                const tabId = `tabCls${idx + 1}`;
+                const accordId = `accordionCls${idx + 1}`;
+                const isFirst = idx === 0;
 
                 return (
                   <>

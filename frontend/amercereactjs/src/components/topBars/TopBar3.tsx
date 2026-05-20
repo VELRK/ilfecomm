@@ -1,18 +1,48 @@
+import { useEffect, useState } from "react";
 import { useSiteSettings } from "@/hooks/useApi";
+
+const messages = [
+  "Easy Returns & Refunds",
+  "Enjoy FREE DELIVERY on all international orders above Rs. 30,000!",
+  "Order with Confidence. 100% Easy Returns Guaranteed for All Domestic Orders *T&C",
+];
 
 export default function TopBar3() {
   const { settings } = useSiteSettings();
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % messages.length);
+        setIsAnimating(false);
+      }, 500);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   if (settings && settings.top_bar_enabled === false) return null;
 
-  const text = settings?.top_bar_text || "20% Off – Auto Applied at Checkout – Limited Time Only";
-
   return (
-    <div className="tf-topbar topbar-s3 bg-dark">
+    <div className="tf-topbar topbar-s3" style={{ backgroundColor: '#c11069' }}>
       <div className="container-full">
-        <div className="d-flex align-items-center justify-content-center" style={{ minHeight: 36 }}>
-          <p className="text-white text-line-clamp-1 text-center mb-0" style={{ fontSize: 13, letterSpacing: '0.5px' }}>
-            {text}
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{ minHeight: 36, overflow: 'hidden', position: 'relative' }}
+        >
+          <p
+            className="text-white text-line-clamp-1 text-center mb-0"
+            style={{
+              fontSize: 13,
+              letterSpacing: '0.5px',
+              transition: 'transform 0.5s ease, opacity 0.5s ease',
+              transform: isAnimating ? 'translateY(-100%)' : 'translateY(0)',
+              opacity: isAnimating ? 0 : 1,
+            }}
+          >
+            {messages[currentIndex]}
           </p>
         </div>
       </div>

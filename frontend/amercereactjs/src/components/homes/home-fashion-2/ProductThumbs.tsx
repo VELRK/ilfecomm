@@ -10,6 +10,12 @@ function formatPrice(value: number): string {
   return "₹" + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+/** Strip HTML tags and decode common entities to get plain text. */
+function stripHtml(html: string): string {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return doc.body.textContent?.trim() ?? "";
+}
+
 function ProductThumbs() {
   const mainRef = useRef<SwiperType | null>(null);
   const thumbRef = useRef<SwiperType | null>(null);
@@ -38,7 +44,7 @@ function ProductThumbs() {
 
   const mainImages = cards.map((c) => apiImageUrl(
     products.find((p) => p.id === c.id)?.images?.[0]?.image
-      ?? products.find((p) => p.id === c.id)?.thumbnail
+    ?? products.find((p) => p.id === c.id)?.thumbnail
   ));
 
   return (
@@ -77,7 +83,7 @@ function ProductThumbs() {
         <div className="sect-heading type-2 wow fadeInUp">
           <h3 className="s-title">{cards[0]?.name ?? "New Arrivals"}</h3>
           <p className="cl-text-2">
-            {cards[0]?.description ?? "Discover our latest collection."}
+            {stripHtml(cards[0]?.description) || "Discover our latest collection."}
           </p>
         </div>
         <div dir="ltr" className="swiper sw-main-thumb">

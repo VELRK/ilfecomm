@@ -14,16 +14,21 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/shopkart-api": {
-        target: "http://localhost:8080/ecomm",
+        target: "https://superfinelabels.in/ilf",
         changeOrigin: true,
         rewrite: (p) => p,
       },
-      "/ecomm/assets/uploads": {
-        target: "http://localhost:8080",
+      "/ecomm": {
+        target: "https://superfinelabels.in/ilf",
+        changeOrigin: true,
+        rewrite: (p) => p.replace(/^\/ecomm/, ""),
+      },
+      "/ilf/assets": {
+        target: "https://superfinelabels.in",
         changeOrigin: true,
       },
-      "/ecomm/images": {
-        target: "http://localhost:8080",
+      "/ilf/images": {
+        target: "https://superfinelabels.in",
         changeOrigin: true,
       },
     },

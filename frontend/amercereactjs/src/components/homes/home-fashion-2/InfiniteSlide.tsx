@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from "react";
 import { useCategories } from "@/hooks/useApi";
 
@@ -52,10 +52,18 @@ function InfiniteSlide() {
                     <div className="img-cls">
                       <img
                         loading="lazy"
-                        width={80}
-                        height={80}
                         src={item.img}
                         alt={item.name}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          minWidth: "80px",
+                          minHeight: "80px",
+                          borderRadius: "50%",
+                          objectFit: "cover",
+                          objectPosition: "center top",
+                          display: "block",
+                        }}
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = PLACEHOLDER_IMG;
                         }}
