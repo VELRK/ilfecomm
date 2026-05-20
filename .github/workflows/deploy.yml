@@ -1,0 +1,22 @@
+name: Auto Deploy Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 65002
+          script: |
+            cd /home/u221026474/domains/superfinelabels.in/public_html/ilf
+            git pull origin main
