@@ -27,13 +27,15 @@
         <tr id="row-<?= $b['id'] ?>">
           <td class="text-muted small"><?= $i + 1 ?></td>
           <td>
-            <?php if ($b['image']): ?>
-              <img src="<?= base_url($b['image']) ?>" style="width:60px;height:45px;object-fit:cover;border-radius:4px;" alt="">
-            <?php else: ?>
-              <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width:60px;height:45px;">
-                <i class="bi bi-image text-muted"></i>
-              </div>
-            <?php endif; ?>
+            <img src="<?= $b['image'] ? base_url() . $b['image'] : '' ?>"
+                 style="width:60px;height:45px;object-fit:cover;border-radius:4px;<?= $b['image'] ? '' : 'display:none;' ?>"
+                 id="img-<?= $b['id'] ?>"
+                 onerror="this.style.display='none';document.getElementById('ph-<?= $b['id'] ?>').style.display='flex';"
+                 alt="">
+            <div id="ph-<?= $b['id'] ?>" class="bg-light rounded align-items-center justify-content-center"
+                 style="width:60px;height:45px;<?= $b['image'] ? 'display:none;' : 'display:flex;' ?>">
+              <i class="bi bi-image text-muted"></i>
+            </div>
           </td>
           <td>
             <div class="fw-semibold"><?= htmlspecialchars($b['title']) ?></div>
@@ -155,8 +157,10 @@ function openEdit(id) {
       document.getElementById('blogExcerpt').value = b.excerpt || '';
       document.getElementById('blogContent').value = b.content || '';
       document.getElementById('blogTags').value = b.tags || '';
+      const baseUrl = '<?= rtrim(base_url(), '/') ?>/';
       if (b.image) {
-        document.getElementById('previewImg').src = '<?= base_url() ?>' + b.image;
+        document.getElementById('previewImg').src = baseUrl + b.image;
+        document.getElementById('previewImg').onerror = function() { document.getElementById('imagePreview').classList.add('d-none'); };
         document.getElementById('imagePreview').classList.remove('d-none');
       } else {
         document.getElementById('imagePreview').classList.add('d-none');

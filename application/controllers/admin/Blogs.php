@@ -25,6 +25,9 @@ class Blogs extends Sk_Base {
         $image = null;
         if (!empty($_FILES['image']['name'])) {
             $image = $this->upload_file('image', 'blogs');
+            if (!$image) {
+                return $this->json(['success' => false, 'message' => 'Image upload failed: ' . $this->upload->display_errors('', '')]);
+            }
         }
 
         $data = [
