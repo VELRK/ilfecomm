@@ -6,11 +6,11 @@
 
 export const footerStore: FooterStore = {
   supportLabel: "24/7 Support Center:",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  address: "12, Silk Market Road, Kancheepuram, Tamil Nadu - 631502",
-  addressHref: "https://www.google.com/maps?q=Kancheepuram,Tamil+Nadu",
-  email: "support@shopkart.com",
+  phone: "+91 95972 20129",
+  phoneHref: "tel:+919597220129",
+  address: "Opp to SNS Tech Arch, Sathy Main Road, Saravanampatti Post, Coimbatore – 641035",
+  addressHref: "https://www.google.com/maps?q=Saravanampatti,Coimbatore",
+  email: "info@indianladiesfashion.in",
 };
 
 export const footerCompanyLinks: FooterLinkGroup = {

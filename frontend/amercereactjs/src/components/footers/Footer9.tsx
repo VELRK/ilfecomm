@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { features } from "@/data/features";
 import {
@@ -160,7 +160,7 @@ export default function Footer9({
         <div className="container-full">
           <div className="inner-bottom">
             <p className={`text-nocopy ${textColorClass}`}>
-              ©{new Date().getFullYear()} ShopKart. All Rights Reserved.
+              ©{new Date().getFullYear()} Indian Ladies Fashion. All Rights Reserved.
             </p>
             <ul className="tf-list payment-list">
               {footerPaymentIcons.map((icon) => (

@@ -22,7 +22,7 @@ export default function Footer6() {
                       loading="lazy"
                       width={150}
                       height={30}
-                      src="/ilf/frontend/assets/images/logo/logo.svg"
+                      src="/ilf/frontend/assets/logo/logo.png"
                       alt="Image"
                     />
                   </Link>
@@ -170,7 +170,7 @@ export default function Footer6() {
               </div>
             </div>
             <p className="text-nocopy cl-text-2">
-              ©2026 Amerce. All Rights Reserved.
+              ©2026 Indian Ladies Fashion. All Rights Reserved.
             </p>
             <ul className="tf-list payment-list">
               <li>

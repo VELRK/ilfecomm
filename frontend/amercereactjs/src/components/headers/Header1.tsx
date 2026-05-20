@@ -29,8 +29,8 @@ export default function Header1() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ilf/frontend/assets/images/logo/logo.svg"
-                alt="ShopKart"
+                src="/ilf/frontend/assets/logo/logo.png"
+                alt="Indian Ladies Fashion"
               />
             </Link>
             {/* Divider */}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { gallerySneakerItems } from "@/data/gallery";
 
@@ -7,7 +7,7 @@ function Gallery() {
     <section className="px-20 mb-20">
       <div className="sect-heading text-center wow fadeInUp">
         <h3 className="s-title mb-16">Follow Us On Instagram</h3>
-        <p className="s-desc cl-text-2 font-kumbh">@Amerce</p>
+        <p className="s-desc cl-text-2 font-kumbh">@Indian Ladies Fashion</p>
       </div>
       <TfSwiper
         preview={5}

@@ -23,7 +23,7 @@
           </div>
         </div>
         <div className="wg-circular-text">
-          <p className="original-text">AMERCE - AMERCE - AMERCE - AMERCE -</p>
+          <p className="original-text">Indian Ladies Fashion - Indian Ladies Fashion - Indian Ladies Fashion - Indian Ladies Fashion -</p>
           <div className="circular-text" id="circularText" />
         </div>
       </div>

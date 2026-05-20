@@ -1,4 +1,4 @@
-import { create } from "zustand";
+﻿import { create } from "zustand";
 import { persist, type StorageValue } from "zustand/middleware";
 
 import type { ProductCardItem } from "@/types/productCard";
@@ -142,7 +142,7 @@ export const useStore = create<StoreState>()(
         get().compareItem.some((elm) => elm.id === id),
     }),
     {
-      name: "amerce-store",
+      name: "Indian Ladies Fashion-store",
       partialize: (state) => ({
         cartProducts: state.cartProducts,
         wishList: state.wishList,

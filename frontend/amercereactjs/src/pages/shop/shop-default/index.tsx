@@ -1,4 +1,4 @@
-import { useSearchParams, Link } from "react-router-dom";
+﻿import { useSearchParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Shop from "@/components/shop/shop-default/Shop";
 import PageMeta from "@/components/common/PageMeta";
@@ -28,7 +28,7 @@ export default function Page() {
 
   return (
     <>
-      <PageMeta title={`${title} | ShopKart Sarees`} description={desc} />
+      <PageMeta title={`${title} | Indian Ladies Fashion Sarees`} description={desc} />
       <section className="section-page-title text-center flat-spacing-2 pb-0">
         <div className="container">
           <div className="main-page-title">

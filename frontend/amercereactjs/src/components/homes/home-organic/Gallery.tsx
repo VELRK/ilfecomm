@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { galleryOrganicItems } from "@/data/gallery";
 
@@ -10,7 +10,7 @@ function Gallery() {
           <h3 className="s-title font-kumbh letter-space-0">
             Follow Us On Instagram
           </h3>
-          <p className="s-desc font-kumbh">@Amerce</p>
+          <p className="s-desc font-kumbh">@Indian Ladies Fashion</p>
         </div>
       </div>
       <div className="px-20">

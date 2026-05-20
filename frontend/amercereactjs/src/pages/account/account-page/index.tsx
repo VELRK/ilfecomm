@@ -1,4 +1,4 @@
-import AccountPageTitle from "@/components/account/AccountPageTitle";
+﻿import AccountPageTitle from "@/components/account/AccountPageTitle";
 import AccountDashboard from "@/components/account/account-page/AccountDashboard";
 import PageMeta from "@/components/common/PageMeta";
 
@@ -6,8 +6,8 @@ const AccountPage = () => {
   return (
     <>
       <PageMeta
-        title={"My Account | Amerce - Multipurpose eCommerce Reactjs Template"}
-        description={"Amerce - Multipurpose eCommerce Reactjs Template"}
+        title={"My Account | Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
+        description={"Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
       />
       <AccountPageTitle />
       <AccountDashboard />

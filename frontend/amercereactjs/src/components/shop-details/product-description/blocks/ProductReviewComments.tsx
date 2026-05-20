@@ -85,7 +85,7 @@ export function ProductReviewComments({
                 </div>
                 <div className="info_author">
                   <ReviewAuthorName as={authorNameElement}>
-                    Reply from Amerce
+                    Reply from Indian Ladies Fashion
                   </ReviewAuthorName>
                   <p className="author_date text-caption-01 cl-text-3">
                     1 days ago

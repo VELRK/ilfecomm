@@ -1,6 +1,6 @@
-import axios from "axios";
+﻿import axios from "axios";
 
-const BASE = import.meta.env.VITE_API_BASE_URL ?? "/shopkart-api";
+const BASE = import.meta.env.VITE_API_BASE_URL ?? "/Indian Ladies Fashion-api";
 
 const http = axios.create({
   baseURL: BASE,

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+﻿import { useNavigate } from "react-router-dom";
 import { useState, useRef, useCallback } from "react";
 import { useCategories } from "@/hooks/useApi";
 import type { ApiCategory } from "@/services/api";
@@ -154,8 +154,8 @@ export default function MobileMenu({
 
         <div className="need-help-wrap">
           <p className="nd-title h6 fw-medium mb-16">Need Help?</p>
-          <a href="mailto:support@shopkart.com" className="cl-text-2 link mb-8">
-            support@shopkart.com
+          <a href="mailto:support@Indian Ladies Fashion.com" className="cl-text-2 link mb-8">
+            support@Indian Ladies Fashion.com
           </a>
         </div>
       </div>

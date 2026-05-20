@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 
 function InvoiceContent() {
   return (
     <>
       <div className="s-invoice">
         <div className="container">
-          <h1 className="heading fw-semibold text-center">Amerce. Invoice</h1>
+          <h1 className="heading fw-semibold text-center">Indian Ladies Fashion. Invoice</h1>
           <div className="wg-invoice">
             <div className="invoice-head">
               <p className="h4 invoice_number">Number #0079347644</p>
@@ -77,7 +77,7 @@ function InvoiceContent() {
             <ul className="invoice-social">
               <li>
                 <Link to={`/`} className="invoice_link link text-body-1">
-                  www.amerce.com
+                  www.Indian Ladies Fashion.com
                 </Link>
               </li>
               <li>

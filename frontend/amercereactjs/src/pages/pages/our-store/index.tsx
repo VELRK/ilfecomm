@@ -1,4 +1,4 @@
-import PageTitle from "@/components/pages/our-store/PageTitle";
+﻿import PageTitle from "@/components/pages/our-store/PageTitle";
 import OurStore from "@/components/pages/our-store/OurStore";
 import PageMeta from "@/components/common/PageMeta";
 
@@ -6,8 +6,8 @@ const OurStorePage = () => {
   return (
     <>
       <PageMeta
-        title={"Our Store | Amerce - Multipurpose eCommerce Reactjs Template"}
-        description={"Amerce - Multipurpose eCommerce Reactjs Template"}
+        title={"Our Store | Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
+        description={"Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
       />
       <PageTitle />
       <OurStore />

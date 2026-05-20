@@ -1,4 +1,4 @@
-import TopBar3 from "@/components/topBars/TopBar3";
+﻿import TopBar3 from "@/components/topBars/TopBar3";
 import Header1 from "@/components/headers/Header1";
 import Footer9 from "@/components/footers/Footer9";
 import Hero from "@/components/homes/home-fashion-2/Hero";
@@ -16,7 +16,7 @@ export default function HomeFashion2Page() {
   return (
     <>
       <PageMeta
-        title="ShopKart Sarees - Pure Silk & Handloom Sarees Online"
+        title="Indian Ladies Fashion Sarees - Pure Silk & Handloom Sarees Online"
         description="Buy authentic Banarasi, Kanjivaram, Paithani and handloom sarees at best prices."
       />
       <TopBar3 />

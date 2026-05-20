@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/shop-details/Breadcrumb";
+﻿import Breadcrumb from "@/components/shop-details/Breadcrumb";
 import ProductDescription from "@/components/shop-details/ProductDescription";
 import RelatedProducts from "@/components/shop-details/RelatedProducts";
 import ProductSection from "@/components/shop-details/ProductSection";
@@ -87,7 +87,7 @@ export default function Page() {
   return (
     <>
       <PageMeta
-        title={`${card.name} | ShopKart Sarees`}
+        title={`${card.name} | Indian Ladies Fashion Sarees`}
         description={apiProduct.short_desc ?? card.name}
       />
       <Breadcrumb product={card} />

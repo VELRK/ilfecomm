@@ -46,23 +46,23 @@ function Contact() {
                   <div className="d-grid gap-8">
                     <h6>Phone:</h6>
                     <p>
-                      <a href="tel:+916666666666" className="cl-text-2 link">
-                        +91 666 666 6666
+                      <a href="tel:+919597220129" className="cl-text-2 link">
+                        +91 95972 20129
                       </a>
                     </p>
                   </div>
                   <div className="d-grid gap-8">
                     <h6>Email:</h6>
                     <p>
-                      <a href="mailto:info@shopkart.in" className="cl-text-2 link">
-                        info@shopkart.in
+                      <a href="mailto:info@indianladiesfashion.in" className="cl-text-2 link">
+                        info@indianladiesfashion.in
                       </a>
                     </p>
                   </div>
                   <div className="wd-full d-grid gap-8">
                     <h6>Address:</h6>
                     <p className="cl-text-2">
-                      ShopKart, India
+                      Indian Ladies Fashion, Opp to SNS Tech Arch, Sathy Main Road, Saravanampatti Post, Coimbatore – 641035
                     </p>
                   </div>
                   <div className="wd-full d-grid gap-8">

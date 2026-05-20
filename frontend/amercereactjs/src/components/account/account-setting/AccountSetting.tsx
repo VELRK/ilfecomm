@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { AccountSection } from "@/components/account/AccountSection";
 import { userAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
@@ -9,7 +9,7 @@ export default function AccountSetting() {
   const [name,  setName]  = useState(user?.name  ?? "");
   const [phone, setPhone] = useState(user?.phone ?? "");
   const currentEmail = user?.email ?? "";
-  const isPhoneOnly = currentEmail.startsWith("ph_") || currentEmail.includes("@shopkart.app");
+  const isPhoneOnly = currentEmail.startsWith("ph_") || currentEmail.includes("@Indian Ladies Fashion.app");
   const [email, setEmail] = useState(isPhoneOnly ? "" : currentEmail);
 
   const [saving, setSaving] = useState(false);

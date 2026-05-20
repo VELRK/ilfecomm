@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { features } from "@/data/features";
@@ -188,7 +188,7 @@ export default function Footer7() {
               </div>
             </div>
             <p className="text-nocopy cl-text-2">
-              ©2026 Amerce. All Rights Reserved.
+              ©2026 Indian Ladies Fashion. All Rights Reserved.
             </p>
             <ul className="tf-list payment-list">
               {footerPaymentIcons.map((icon) => (

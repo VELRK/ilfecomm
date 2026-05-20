@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+﻿import { Navigate, useParams } from "react-router-dom";
 
 import PageMeta from "@/components/common/PageMeta";
 import PageTileSingle from "@/components/blogs/blog-single/PageTileSingle";
@@ -6,7 +6,7 @@ import BlogSingle from "@/components/blogs/blog-single/BlogSingle";
 import Related from "@/components/blogs/blog-single/Related";
 import { getAdjacentBlogPosts, getBlogPostById } from "@/data/blogs";
 
-const siteName = "Amerce - Multipurpose eCommerce Reactjs Template";
+const siteName = "Indian Ladies Fashion - Online Saree & Ethnic Wear Store";
 
 export default function BlogSingleDynamicPage() {
   const { id = "" } = useParams<{ id: string }>();

@@ -69,7 +69,7 @@ export default function Checkout() {
   /* ── Address form fields ── */
   const [firstName, setFirstName]   = useState("");
   const [lastName, setLastName]     = useState("");
-  // Ignore system-generated placeholder emails (ph_PHONE@shopkart.app)
+  // Ignore system-generated placeholder emails (ph_PHONE@Indian Ladies Fashion.app)
   const realEmail = (email?: string) =>
     email && !email.startsWith("ph_") ? email : "";
   const [addrEmail, setAddrEmail]   = useState(realEmail(user?.email));
@@ -274,7 +274,7 @@ export default function Checkout() {
         amount:      pd.amount,
         currency:    pd.currency,
         order_id:    pd.razorpay_order_id,
-        name:        "ShopKart Sarees",
+        name:        "Indian Ladies Fashion Sarees",
         description: `Order #${pd.order_number}`,
         image:       "/ilf/frontend/assets/images/logo/logo.png",
         prefill:     { name: pd.prefill.name, email: pd.prefill.email, contact: pd.prefill.contact },

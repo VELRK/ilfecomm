@@ -26,7 +26,7 @@
             </div>
             <p className="coupon-copy-wrap h6 fw-medium cs-pointer">
               Code:
-              <span className="coupon-code">Amerce</span>
+              <span className="coupon-code">Indian Ladies Fashion</span>
               <i className="icon icon-CopySimple fs-24" />
             </p>
             <div className="img-item">

@@ -32,7 +32,7 @@ export default function Header9() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ilf/frontend/assets/images/logo/logo-white.svg"
+                src="/ilf/frontend/assets/logo/logo.png"
                 alt="Image"
               />
             </Link>
@@ -48,7 +48,7 @@ export default function Header9() {
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ilf/frontend/assets/images/logo/logo-white.svg"
+                src="/ilf/frontend/assets/logo/logo.png"
                 alt="Image"
               />
             </Link>

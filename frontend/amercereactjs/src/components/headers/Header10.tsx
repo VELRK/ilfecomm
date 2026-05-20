@@ -38,7 +38,7 @@ export default function Header10({
                 loading="lazy"
                 width={150}
                 height={30}
-                src="/ilf/frontend/assets/images/logo/logo.svg"
+                src="/ilf/frontend/assets/logo/logo.png"
                 alt="Image"
               />
             </Link>

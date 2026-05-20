@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 function About() {
   return (
     <>
@@ -8,7 +8,7 @@ function About() {
             <div className="col-lg-10 text-center">
               <p className="h6 text-primary fw-semibold mb-16">TRUE SOUND</p>
               <p className="h3 fw-medium mb-40 text-capitalize ">
-                "There's nothing like experiencing Perfect Immersion. Amerce
+                "There's nothing like experiencing Perfect Immersion. Indian Ladies Fashion
                 designs audio for a smarter world, offering clarity and
                 connection that feels entirely authentic."
               </p>

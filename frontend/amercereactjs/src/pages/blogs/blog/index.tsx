@@ -1,4 +1,4 @@
-import PageTitle from "@/components/blogs/blog/PageTitle";
+﻿import PageTitle from "@/components/blogs/blog/PageTitle";
 import Blog from "@/components/blogs/blog/Blog";
 import PageMeta from "@/components/common/PageMeta";
 
@@ -6,8 +6,8 @@ const BlogPage = () => {
   return (
     <>
       <PageMeta
-        title={"Blog | Amerce - Multipurpose eCommerce Reactjs Template"}
-        description={"Amerce - Multipurpose eCommerce Reactjs Template"}
+        title={"Blog | Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
+        description={"Indian Ladies Fashion - Online Saree & Ethnic Wear Store"}
       />
       <PageTitle />
       <Blog />
