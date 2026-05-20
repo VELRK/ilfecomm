@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
-import { productsAPI, categoriesAPI, bannersAPI, testimonialsAPI, siteSettingsAPI } from "@/services/api";
-import type { ApiProduct, ApiCategory, ApiBanner, ApiTestimonial, ApiSiteSettings, ProductFilters } from "@/services/api";
+import { productsAPI, categoriesAPI, bannersAPI, testimonialsAPI, siteSettingsAPI, blogsAPI } from "@/services/api";
+import type { ApiProduct, ApiCategory, ApiBanner, ApiTestimonial, ApiSiteSettings, ApiBlog, ProductFilters } from "@/services/api";
 
 // ── Request deduplication + TTL cache ─────────────────────────────────────────
 // Prevents 429s caused by multiple components calling the same endpoint
@@ -190,6 +190,39 @@ export function useSiteSettings() {
   }, []);
 
   return { settings, loading };
+}
+
+// ── useBlogs ──────────────────────────────────────────────────────────────────
+
+export function useBlogs() {
+  const [blogs, setBlogs] = useState<ApiBlog[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    dedupeGet(() => blogsAPI.getAll(), "blogs")
+      .then((res) => setBlogs(res.data.data ?? []))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { blogs, loading };
+}
+
+export function useBlog(slug: string) {
+  const [blog, setBlog] = useState<ApiBlog | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!slug) return;
+    setLoading(true);
+    dedupeGet(() => blogsAPI.getOne(slug), `blog:${slug}`)
+      .then((res) => setBlog(res.data.data))
+      .catch(() => setError("Blog post not found."))
+      .finally(() => setLoading(false));
+  }, [slug]);
+
+  return { blog, loading, error };
 }
 
 /** Map an ApiProduct to the ProductCardItem shape used by existing UI components. */

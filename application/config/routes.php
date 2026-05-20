@@ -378,6 +378,13 @@ $route['shopkart/reviews'] = 'admin/Reviews/index';
 $route['shopkart/reviews/approve/(:num)'] = 'admin/Reviews/approve/$1';
 $route['shopkart/reviews/reject/(:num)']  = 'admin/Reviews/reject/$1';
 $route['shopkart/reviews/delete/(:num)']  = 'admin/Reviews/delete/$1';
+// Blogs (admin)
+$route['shopkart/blogs'] = 'admin/Blogs/index';
+$route['shopkart/blogs/store'] = 'admin/Blogs/store';
+$route['shopkart/blogs/edit/(:num)'] = 'admin/Blogs/edit/$1';
+$route['shopkart/blogs/update/(:num)'] = 'admin/Blogs/update/$1';
+$route['shopkart/blogs/toggle/(:num)'] = 'admin/Blogs/toggle/$1';
+$route['shopkart/blogs/delete/(:num)'] = 'admin/Blogs/delete/$1';
 // Testimonials (admin)
 $route['shopkart/testimonials'] = 'admin/Testimonials/index';
 $route['shopkart/testimonials/store'] = 'admin/Testimonials/store';
@@ -442,6 +449,9 @@ $route['shopkart-api/reviews']['POST']                = 'api/Sk_Review/store';
 $route['shopkart-api/site-settings']['GET'] = 'api/Sk_Settings/index';
 // Contact form
 $route['shopkart-api/contact']['POST'] = 'api/Sk_Contact/store';
+// Blogs (public)
+$route['shopkart-api/blogs']['GET']          = 'api/Sk_Blog/index';
+$route['shopkart-api/blog/(:any)']['GET']    = 'api/Sk_Blog/show/$1';
 
 // v1 eCommerce API routes
 $route['api/v1/auth/register']['post'] = 'api/v1/Auth/register';

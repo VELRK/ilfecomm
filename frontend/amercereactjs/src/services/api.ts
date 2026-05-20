@@ -369,4 +369,24 @@ export const siteSettingsAPI = {
   get: () => http.get<{ success: boolean; data: ApiSiteSettings }>("/site-settings"),
 };
 
+// ── Blog ──────────────────────────────────────────────────────────────────────
+export interface ApiBlog {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt?: string;
+  content?: string;
+  author?: string;
+  tags?: string;
+  image?: string;
+  image_url?: string;
+  date: string;
+  created_at: string;
+}
+
+export const blogsAPI = {
+  getAll: () => http.get<{ success: boolean; data: ApiBlog[] }>("/blogs"),
+  getOne: (slug: string) => http.get<{ success: boolean; data: ApiBlog }>(`/blog/${slug}`),
+};
+
 export default http;
