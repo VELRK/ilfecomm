@@ -11,59 +11,34 @@ class CouponReport extends Sk_Base {
         $offset = ($page - 1) * $limit;
 
         // Summary per coupon code
-        $this->db->select('
-            pc.code,
-            pc.type,
-            pc.value,
-            pc.usage_limit,
-            pc.usage_count,
-            SUM(o.discount)  AS total_discount_given,
-            COUNT(pu.id)     AS times_used,
-            MAX(pu.used_at)  AS last_used
-        ')
-        ->from('promo_codes pc')
-        ->join('promo_usage pu', 'pu.promo_id = pc.id', 'left')
-        ->join('orders o',       'o.id = pu.order_id',  'left');
-
-        if ($search) {
-            $this->db->like('pc.code', $search);
-        }
-
-        $this->db->group_by('pc.id');
-        $total = count($this->db->get_compiled_select('', FALSE) ? [] : []);
-
-        $summaries = $this->db
-            ->select('
-                pc.id, pc.code, pc.type, pc.value, pc.usage_limit, pc.usage_count,
-                SUM(o.discount) AS total_discount_given,
-                COUNT(pu.id)    AS times_used,
-                MAX(pu.used_at) AS last_used
-            ')
+        $q = $this->db
+            ->select('pc.id, pc.code, pc.type, pc.value, pc.usage_limit, pc.usage_count,
+                      SUM(o.discount) AS total_discount_given,
+                      COUNT(pu.id)    AS times_used,
+                      MAX(pu.used_at) AS last_used')
             ->from('promo_codes pc')
             ->join('promo_usage pu', 'pu.promo_id = pc.id', 'left')
             ->join('orders o',       'o.id = pu.order_id',  'left');
 
-        if ($search) $this->db->like('pc.code', $search);
+        if ($search) $q->like('pc.code', $search);
 
-        $summaries = $this->db
-            ->group_by('pc.id')
-            ->order_by('times_used DESC')
-            ->limit($limit, $offset)
-            ->get()->result_array();
+        $summaries = $q->group_by('pc.id')
+                       ->order_by('times_used DESC')
+                       ->limit($limit, $offset)
+                       ->get()->result_array();
 
-        // Detailed usage log
-        $this->db->select('pu.used_at, pc.code, u.name AS user_name, u.email AS user_email, o.order_number, o.discount, o.total')
+        // Detailed usage log (fresh query)
+        $this->db->reset_query();
+        $q2 = $this->db
+            ->select('pu.used_at, pc.code, u.name AS user_name, u.email AS user_email, o.order_number, o.discount, o.total')
             ->from('promo_usage pu')
             ->join('promo_codes pc', 'pc.id = pu.promo_id', 'left')
             ->join('users u',        'u.id = pu.user_id',   'left')
             ->join('orders o',       'o.id = pu.order_id',  'left');
 
-        if ($search) $this->db->like('pc.code', $search);
+        if ($search) $q2->like('pc.code', $search);
 
-        $usage_log = $this->db
-            ->order_by('pu.used_at DESC')
-            ->limit(100)
-            ->get()->result_array();
+        $usage_log = $q2->order_by('pu.used_at DESC')->limit(100)->get()->result_array();
 
         $total_discount = array_sum(array_column($summaries, 'total_discount_given'));
 

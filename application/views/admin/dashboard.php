@@ -72,7 +72,7 @@
   <div class="col-lg-8">
     <div class="card sk-table-card shadow-sm h-100">
       <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
-        <span class="fw-semibold">Revenue (Last 30 Days)</span>
+        <span class="fw-semibold">Revenue by Day (Last 30 Days)</span>
         <span class="badge bg-success"><?= $currency . number_format($monthly_revenue, 0) ?> this month</span>
       </div>
       <div class="card-body">

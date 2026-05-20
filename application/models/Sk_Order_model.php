@@ -102,12 +102,24 @@ class Sk_Order_model extends CI_Model {
         return $r->total ?? 0;
     }
     public function revenue_by_day($days = 30) {
-        return $this->db->select('DATE(created_at) as date, SUM(total) as revenue, COUNT(*) as orders')
-                        ->where('payment_status', 'paid')
-                        ->where('created_at >=', date('Y-m-d', strtotime("-{$days} days")))
-                        ->group_by('DATE(created_at)')
-                        ->order_by('date', 'ASC')
-                        ->get('orders')->result_array();
+        $rows = $this->db
+            ->select('DATE(created_at) as date, SUM(total) as revenue, COUNT(*) as orders')
+            ->where('payment_status', 'paid')
+            ->where('created_at >=', date('Y-m-d', strtotime("-{$days} days")))
+            ->group_by('DATE(created_at)')
+            ->order_by('date', 'ASC')
+            ->get('orders')->result_array();
+
+        // Build a full date range so chart shows every day (zero for days with no orders)
+        $map = [];
+        foreach ($rows as $r) $map[$r['date']] = (float) $r['revenue'];
+
+        $result = [];
+        for ($i = $days - 1; $i >= 0; $i--) {
+            $d = date('Y-m-d', strtotime("-{$i} days"));
+            $result[] = ['date' => date('d M', strtotime($d)), 'revenue' => $map[$d] ?? 0];
+        }
+        return $result;
     }
     public function top_products($limit = 5) {
         return $this->db->select('oi.product_name, oi.product_id, SUM(oi.quantity) as qty_sold, SUM(oi.subtotal) as revenue')
