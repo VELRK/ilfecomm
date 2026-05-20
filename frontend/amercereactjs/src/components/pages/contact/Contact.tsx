@@ -88,7 +88,7 @@ function Contact() {
                 <div className="mt-24" style={{ borderRadius: "12px", overflow: "hidden" }}>
                   <iframe
                     title="Indian Ladies Fashion Location"
-                    src="https://maps.google.com/maps?q=Opp+to+SNS+Tech+Arch%2C+Sathy+Main+Road%2C+Saravanampatti%2C+Coimbatore%2C+Tamil+Nadu+641035&output=embed&z=16"
+                    src="https://maps.google.com/maps?ll=11.0779,77.0130&z=15&output=embed&t=m&q=Saravanampatti+Coimbatore+Tamil+Nadu+641035"
                     width="100%"
                     height="240"
                     style={{ border: 0 }}
