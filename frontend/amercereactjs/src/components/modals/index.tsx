@@ -23,6 +23,7 @@ const MobileMenu = lazy(() => import("@/components/modals/MobileMenu"));
 const QuickView = lazy(() => import("@/components/modals/QuickView"));
 const OrderDetails = lazy(() => import("@/components/modals/OrderDetails"));
 const Toolbar         = lazy(() => import("@/components/modals/Toolbar"));
+const RecentlyViewedDrawer = lazy(() => import("@/components/modals/RecentlyViewedDrawer"));
 const PhoneOTP        = lazy(() => import("@/components/modals/PhoneOTP"));
 const ProductViewModal = lazy(() => import("@/components/modals/ProductViewModal"));
 
@@ -167,6 +168,9 @@ export default function LayoutModals() {
 
       <LazyModal>
         <Toolbar />
+      </LazyModal>
+      <LazyModal>
+        <RecentlyViewedDrawer registerOffcanvasElement={registerOffcanvasElement} />
       </LazyModal>
       <LazyModal>
         <PhoneOTP />
