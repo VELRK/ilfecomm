@@ -24,8 +24,12 @@ export default function HomeFashion2Page() {
         <Hero />
         <Category />
         <Products />
-        <ProductThumbs />
-        <InfiniteSlide />
+        <div style={{ marginTop: "10px" }}>
+          <ProductThumbs />
+        </div>
+        <div style={{ marginTop: "10px" }}>
+          <InfiniteSlide />
+        </div>
         <ProductFeature />
         <Testimonials />
         <Gallery />
