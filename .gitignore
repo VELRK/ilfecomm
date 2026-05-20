@@ -64,6 +64,8 @@ react-frontend/
 # ── Build / compiled outputs ──────────────────────────────────
 frontend-dist/
 frontend.zip
+assets.zip
+*.zip
 dist/
 build/
 
