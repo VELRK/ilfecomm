@@ -16,7 +16,7 @@ function bannerSrc(b: ApiBanner): string {
 /* ── Skeleton shown while API is in flight ── */
 function BannerSkeleton() {
   return (
-    <div style={{ width: "100%", aspectRatio: "817/311", background: "#f0f0f0", position: "relative", overflow: "hidden" }}>
+    <div className="hero-banner-img" style={{ width: "100%", background: "#f0f0f0", position: "relative", overflow: "hidden" }}>
       {/* shimmer sweep */}
       <div style={{
         position: "absolute", inset: 0,
@@ -82,7 +82,7 @@ function Hero() {
           const titleParts = slide.title.split("\n");
           return (
             <div key={idx} className="slideshow-wrap">
-              <div className="sld_image" style={{ aspectRatio: "817/311", overflow: "hidden" }}>
+              <div className="sld_image hero-banner-img" style={{ overflow: "hidden" }}>
                 <img
                   src={slide.img}
                   alt={slide.alt}

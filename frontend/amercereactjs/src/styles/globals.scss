@@ -37,6 +37,55 @@
 }
 
 /* ============================================================
+   HERO BANNER — responsive aspect ratio
+   ============================================================ */
+.hero-banner-img {
+  aspect-ratio: 817/311;          /* desktop: wide landscape */
+
+  @media (max-width: 767px) {
+    aspect-ratio: 4/3;            /* tablet/large phone: taller */
+    min-height: 260px;
+  }
+
+  @media (max-width: 480px) {
+    aspect-ratio: 3/4;            /* small phone: portrait/tall */
+    min-height: 320px;
+  }
+}
+
+/* Banner overlay text — scale down on mobile */
+.tf-slideshow {
+  @media (max-width: 767px) {
+    .title_sld {
+      font-size: clamp(18px, 5vw, 32px) !important;
+      line-height: 1.25 !important;
+      margin-bottom: 12px !important;
+    }
+
+    .sub-text_sld { display: none !important; }
+
+    .sld_content {
+      .heading { margin-bottom: 12px !important; }
+    }
+
+    .tf-btn {
+      padding: 10px 20px !important;
+      font-size: 13px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title_sld {
+      font-size: clamp(16px, 4.5vw, 24px) !important;
+    }
+    .tf-btn {
+      padding: 8px 16px !important;
+      font-size: 12px !important;
+    }
+  }
+}
+
+/* ============================================================
    MOBILE RESPONSIVE IMPROVEMENTS (≤767px)
    ============================================================ */
 @media (max-width: 767px) {
