@@ -13,7 +13,7 @@ export interface Member {
 
 export const teamMembers: Member[] = [
   {
-    img: "/assets/images/member/member-1.jpg",
+    img: "/ecomm/frontend/assets/images/member/member-1.jpg",
     name: "Annette Black",
     duty: "Founder/CEO",
     socials: {
@@ -24,7 +24,7 @@ export const teamMembers: Member[] = [
     },
   },
   {
-    img: "/assets/images/member/member-2.jpg",
+    img: "/ecomm/frontend/assets/images/member/member-2.jpg",
     name: "Brooklyn Simmons",
     duty: "Manager",
     socials: {
@@ -35,7 +35,7 @@ export const teamMembers: Member[] = [
     },
   },
   {
-    img: "/assets/images/member/member-3.jpg",
+    img: "/ecomm/frontend/assets/images/member/member-3.jpg",
     name: "Jane Cooper",
     duty: "Sales Director",
     socials: {
@@ -46,7 +46,7 @@ export const teamMembers: Member[] = [
     },
   },
   {
-    img: "/assets/images/member/member-4.jpg",
+    img: "/ecomm/frontend/assets/images/member/member-4.jpg",
     name: "Lisa Bonet",
     duty: "Sales Director",
     socials: {

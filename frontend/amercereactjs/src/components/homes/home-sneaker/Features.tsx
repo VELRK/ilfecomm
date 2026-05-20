@@ -18,7 +18,7 @@ function Features() {
                   loading="lazy"
                   width={687}
                   height={863}
-                  src="/assets/images/item/feature-shoe.png"
+                  src="/ecomm/frontend/assets/images/item/feature-shoe.png"
                   alt="Image"
                 />
               </div>

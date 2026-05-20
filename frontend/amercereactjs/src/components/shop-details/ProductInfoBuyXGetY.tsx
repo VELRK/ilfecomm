@@ -51,7 +51,7 @@ export default function ProductInfoBuyXGetY({
                 <div className="img-product">
                   <img
                     loading="lazy"
-                    src="/assets/images/product/product-2.jpg"
+                    src="/ecomm/frontend/assets/images/product/product-2.jpg"
                     alt="img-product"
                   />
                 </div>
@@ -88,7 +88,7 @@ export default function ProductInfoBuyXGetY({
                 <div className="img-product">
                   <img
                     loading="lazy"
-                    src="/assets/images/product/product-3.jpg"
+                    src="/ecomm/frontend/assets/images/product/product-3.jpg"
                     alt="img-product"
                   />
                 </div>

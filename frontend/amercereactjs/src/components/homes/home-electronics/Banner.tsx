@@ -11,7 +11,7 @@ function Banner() {
                 loading="lazy"
                 width={1410}
                 height={460}
-                src="/assets/images/section/banner-9.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-9.jpg"
                 alt="Image"
               />
             </Link>

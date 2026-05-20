@@ -9,27 +9,27 @@ const OFFICE_TABS = [
   {
     id: "desk",
     label: "Desks",
-    img: "/assets/images/category/png/cate-13.png",
+    img: "/ecomm/frontend/assets/images/category/png/cate-13.png",
   },
   {
     id: "chair",
     label: "Chairs",
-    img: "/assets/images/category/png/cate-14.png",
+    img: "/ecomm/frontend/assets/images/category/png/cate-14.png",
   },
   {
     id: "arm",
     label: "Monitor Arms",
-    img: "/assets/images/category/png/cate-15.png",
+    img: "/ecomm/frontend/assets/images/category/png/cate-15.png",
   },
   {
     id: "mouseKey",
     label: "Mouses & Keyboards",
-    img: "/assets/images/category/png/cate-16.png",
+    img: "/ecomm/frontend/assets/images/category/png/cate-16.png",
   },
   {
     id: "access",
     label: "Accessories",
-    img: "/assets/images/category/png/cate-17.png",
+    img: "/ecomm/frontend/assets/images/category/png/cate-17.png",
   },
 ];
 

@@ -11,7 +11,7 @@ function Highlight() {
           height={720}
           loading="lazy"
           decoding="async"
-          src="/assets/images/section/banner-47.jpg"
+          src="/ecomm/frontend/assets/images/section/banner-47.jpg"
           alt="banner"
         />
         <TfSwiper

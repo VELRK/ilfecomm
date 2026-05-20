@@ -11,7 +11,7 @@ function Collection() {
                 loading="lazy"
                 width={880}
                 height={800}
-                src="/assets/images/section/banner-66.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-66.jpg"
                 alt="Image"
               />
             </Link>
@@ -39,7 +39,7 @@ function Collection() {
                 loading="lazy"
                 width={880}
                 height={800}
-                src="/assets/images/section/banner-67.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-67.jpg"
                 alt="Image"
               />
             </Link>

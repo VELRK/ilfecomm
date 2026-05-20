@@ -149,7 +149,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/assets/images/section/accordion-cls.jpg"
+                    src="/ecomm/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -160,7 +160,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/assets/images/section/accordion-cls.jpg"
+                    src="/ecomm/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -171,7 +171,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/assets/images/section/accordion-cls.jpg"
+                    src="/ecomm/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -182,7 +182,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/assets/images/section/accordion-cls.jpg"
+                    src="/ecomm/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>

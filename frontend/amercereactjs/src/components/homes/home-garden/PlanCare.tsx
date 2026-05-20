@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 
 const PLAN_CARE_ITEMS = [
   {
-    img: "/assets/images/section/plan-item-1.jpg",
-    itemImg: "/assets/images/item/garden-item-2.png",
+    img: "/ecomm/frontend/assets/images/section/plan-item-1.jpg",
+    itemImg: "/ecomm/frontend/assets/images/item/garden-item-2.png",
     title: "Daily Plant Nutrient Care",
     description:
       "This liquid blend enriches soil, balances pH, boosts plant health, and blends easily with watering.",
     price: "12.00",
   },
   {
-    img: "/assets/images/section/plan-item-2.jpg",
-    itemImg: "/assets/images/item/garden-item-2.png",
+    img: "/ecomm/frontend/assets/images/section/plan-item-2.jpg",
+    itemImg: "/ecomm/frontend/assets/images/item/garden-item-2.png",
     title: "Simple Pot Watering Aid",
     description:
       "A simple attachable tool that delivers hydration, making watering smoother and more consistent overall.",

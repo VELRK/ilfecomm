@@ -2,14 +2,10 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PasswordField } from "@/components/forms/PasswordField";
 import { authAPI } from "@/services/api";
+import { useAuthStore } from "@/store/authStore";
+import type { ApiUser } from "@/services/api";
 
-const INDIA_STATES = [
-  "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
-  "Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh",
-  "Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan",
-  "Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal",
-  "Andaman and Nicobar Islands","Chandigarh","Delhi","Jammu and Kashmir","Ladakh","Puducherry",
-];
+
 
 export default function Register({
   registerModalElement,
@@ -17,6 +13,7 @@ export default function Register({
   registerModalElement?: (el: HTMLElement | null) => void;
 }) {
   const navigate = useNavigate();
+  const { login } = useAuthStore();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -25,10 +22,6 @@ export default function Register({
   const emailRef    = useRef<HTMLInputElement>(null);
   const passRef     = useRef<HTMLInputElement>(null);
   const confirmRef  = useRef<HTMLInputElement>(null);
-  const line1Ref    = useRef<HTMLInputElement>(null);
-  const cityRef     = useRef<HTMLInputElement>(null);
-  const pincodeRef  = useRef<HTMLInputElement>(null);
-  const [addrState, setAddrState] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -38,24 +31,17 @@ export default function Register({
     const email   = emailRef.current?.value.trim() ?? "";
     const pass    = passRef.current?.value ?? "";
     const confirm = confirmRef.current?.value ?? "";
-    const line1   = line1Ref.current?.value.trim() ?? "";
-    const city    = cityRef.current?.value.trim() ?? "";
-    const pincode = pincodeRef.current?.value.trim() ?? "";
 
     if (pass !== confirm) { setError("Passwords do not match."); return; }
     if (pass.length < 6)  { setError("Password must be at least 6 characters."); return; }
-    if (pincode && !/^\d{6}$/.test(pincode)) { setError("Enter a valid 6-digit PIN code."); return; }
 
     setLoading(true);
     try {
-      const payload: Parameters<typeof authAPI.register>[0] = {
-        name, email, password: pass, phone,
-      };
-      if (line1) {
-        payload.address = { line1, city, state: addrState, pincode };
-      }
-      const res = await authAPI.register(payload);
+      const res = await authAPI.register({ name, email, password: pass, phone });
       if ((res.data as { success?: boolean }).success) {
+        const { token, user } = (res.data as { success: boolean; data: { token: string; user: ApiUser } }).data;
+        login(token, user);
+
         import("bootstrap").then(({ Modal }) => {
           const el = document.getElementById("register");
           if (el) Modal.getInstance(el)?.hide();
@@ -95,58 +81,53 @@ export default function Register({
                 </div>
               )}
               <div className="form-content">
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <fieldset className="tf-field mb-0">
-                    <label className="tf-lable fw-medium">Full Name <span className="text-primary">*</span></label>
-                    <input ref={nameRef} type="text" placeholder="Your full name" required />
-                  </fieldset>
-                  <fieldset className="tf-field mb-0">
-                    <label className="tf-lable fw-medium">Phone Number <span className="text-primary">*</span></label>
-                    <input ref={phoneRef} type="tel" placeholder="+91 9876543210" required />
-                  </fieldset>
+                {/* Name and Phone */}
+                <div className="row g-3 mb-3">
+                  <div className="col-md-6">
+                    <fieldset className="tf-field">
+                      <label className="tf-lable fw-medium">Full Name <span className="text-primary">*</span></label>
+                      <input ref={nameRef} type="text" placeholder="Your full name" required />
+                    </fieldset>
+                  </div>
+                  <div className="col-md-6">
+                    <fieldset className="tf-field">
+                      <label className="tf-lable fw-medium">Phone Number <span className="text-primary">*</span></label>
+                      <input ref={phoneRef} type="tel" placeholder="+91 9876543210" required />
+                    </fieldset>
+                  </div>
                 </div>
-                <fieldset className="tf-field">
+
+                {/* Email Address */}
+                <fieldset className="tf-field mb-3">
                   <label className="tf-lable fw-medium">Email Address <span className="text-primary">*</span></label>
                   <input ref={emailRef} type="email" placeholder="your@email.com" required />
                 </fieldset>
 
-                <fieldset className="tf-field">
-                  <label className="tf-lable fw-medium">Street Address / Landmark</label>
-                  <input ref={line1Ref} type="text" placeholder="House No., Street, Area..." />
-                </fieldset>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
-                  <fieldset className="tf-field mb-0">
-                    <label className="tf-lable fw-medium">City</label>
-                    <input ref={cityRef} type="text" placeholder="City" />
-                  </fieldset>
-                  <fieldset className="tf-field mb-0">
-                    <label className="tf-lable fw-medium">State</label>
-                    <select value={addrState} onChange={(e) => setAddrState(e.target.value)}
-                      style={{ width: "100%", border: "1px solid #e2e8f0", borderRadius: 8, padding: "10px 12px", fontSize: 14, color: "#334155", background: "#fff" }}>
-                      <option value="">Select State</option>
-                      {INDIA_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </fieldset>
-                  <fieldset className="tf-field mb-0">
-                    <label className="tf-lable fw-medium">PIN Code</label>
-                    <input ref={pincodeRef} type="text" inputMode="numeric" maxLength={6} placeholder="6-digit PIN" />
-                  </fieldset>
+                {/* Password and Confirm */}
+                <div className="row g-3 mb-3">
+                  <div className="col-md-6">
+                    <fieldset className="tf-field password-wrapper">
+                      <label className="tf-lable fw-medium">Password <span className="text-primary">*</span></label>
+                      <PasswordField inputRef={passRef} id="register-password" placeholder="Min. 6 characters" required />
+                    </fieldset>
+                  </div>
+                  <div className="col-md-6">
+                    <fieldset className="tf-field password-wrapper">
+                      <label className="tf-lable fw-medium">Confirm Password <span className="text-primary">*</span></label>
+                      <PasswordField inputRef={confirmRef} id="register-password-confirm" placeholder="Repeat password" required />
+                    </fieldset>
+                  </div>
                 </div>
-
-                <fieldset className="tf-field password-wrapper" style={{ marginTop: 12 }}>
-                  <label className="tf-lable fw-medium">Password <span className="text-primary">*</span></label>
-                  <PasswordField inputRef={passRef} id="register-password" placeholder="Min. 6 characters" required />
-                </fieldset>
-                <fieldset className="tf-field password-wrapper">
-                  <label className="tf-lable fw-medium">Confirm Password <span className="text-primary">*</span></label>
-                  <PasswordField inputRef={confirmRef} id="register-password-confirm" placeholder="Repeat password" required />
-                </fieldset>
               </div>
-              <div className="group-action">
+
+              <div className="group-action mt-4">
                 <button type="submit" className="action-create-account tf-btn animate-btn w-100" disabled={loading}>
-                  {loading ? "Creating…" : "Create Account"}
+                  {loading ? "Creating Account…" : "Create Account"}
                 </button>
-                <a href="#sign" data-bs-toggle="modal" className="tf-btn btn-stroke">Login</a>
+                <div className="text-center mt-3">
+                  <span className="text-muted small">Already have an account? </span>
+                  <a href="#sign" data-bs-toggle="modal" className="text-primary fw-semibold small text-decoration-underline">Login</a>
+                </div>
               </div>
             </form>
           </div>

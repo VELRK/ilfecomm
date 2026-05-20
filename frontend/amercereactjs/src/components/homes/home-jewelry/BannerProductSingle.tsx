@@ -21,17 +21,17 @@ const JEWELRY_COLORS: ColorOption[] = [
   {
     label: "Metal",
     swatchClass: "bg-metal",
-    img: "/assets/images/product/single/detail-5.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
   },
   {
     label: "Brown",
     swatchClass: "bg-brown",
-    img: "/assets/images/product/single/detail-5.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
   },
   {
     label: "Blue",
     swatchClass: "bg-blue",
-    img: "/assets/images/product/single/detail-5.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-5.jpg",
   },
 ];
 

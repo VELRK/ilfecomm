@@ -9,7 +9,7 @@ function BannerWhyChoose() {
                 loading="lazy"
                 width={640}
                 height={480}
-                src="/assets/images/section/s-contact-2.jpg"
+                src="/ecomm/frontend/assets/images/section/s-contact-2.jpg"
                 alt="Image"
               />
             </div>

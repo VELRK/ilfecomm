@@ -18,7 +18,7 @@ const TOP_PICK_TABS = [
 const DEFAULT_TAB_ID = "new";
 
 const BANNER = {
-  img: "/assets/images/section/banner-41.jpg",
+  img: "/ecomm/frontend/assets/images/section/banner-41.jpg",
   title: "Peak Audio",
   desc: "Experience peak audio performance with this top Amerce collection.",
 };

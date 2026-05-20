@@ -154,7 +154,7 @@ const ASSETS_BASE = (import.meta.env.VITE_ASSETS_BASE_URL ?? "").replace(/\/$/, 
 
 /** Convert a backend thumbnail path like "images/products/..." to a full URL. */
 export function apiImageUrl(path?: string | null): string {
-  if (!path) return "/assets/images/product/product-placeholder.jpg";
+  if (!path) return "/ecomm/frontend/assets/images/product/product-placeholder.jpg";
   if (path.startsWith("http")) return path;
   const encoded = path.split("/").map(encodeURIComponent).join("/");
   return ASSETS_BASE ? `${ASSETS_BASE}/${encoded}` : `/ecomm/${encoded}`;
@@ -215,6 +215,7 @@ export function toProductCard(p: ApiProduct) {
     total_sold: p.total_sold ?? 0,
     rating: Math.round(p.avg_rating ?? 0),
     reviewsText: `(${p.review_count ?? 0} reviews)`,
+    stock: p.stock ?? 0,
     inStock: (p.stock ?? 0) > 0,
     isStockOut: (p.stock ?? 0) === 0,
     sku: p.sku,

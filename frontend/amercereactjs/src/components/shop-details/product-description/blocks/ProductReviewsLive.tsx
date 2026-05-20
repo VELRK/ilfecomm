@@ -38,10 +38,11 @@ function StarPicker({ value, onChange }: { value: number; onChange: (v: number) 
   );
 }
 
-export default function ProductReviewsLive() {
-  const { id = "" } = useParams<{ id: string }>();
+export default function ProductReviewsLive({ productId }: { productId?: number }) {
+  const { id: slugParam = "" } = useParams<{ id: string }>();
   const { isLoggedIn } = useAuthStore();
-  const numericId = Number(id);
+  // Prefer the explicitly-passed numeric id; fall back to parsing the URL param
+  const numericId = productId ?? Number(slugParam);
 
   const [reviews, setReviews]       = useState<ApiReview[]>([]);
   const [loadingR, setLoadingR]     = useState(true);

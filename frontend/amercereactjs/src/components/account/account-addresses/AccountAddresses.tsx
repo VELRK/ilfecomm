@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { AccountSection } from "@/components/account/AccountSection";
 import { userAPI } from "@/services/api";
 import type { ApiAddress } from "@/services/api";
@@ -43,9 +44,13 @@ const labelStyle: React.CSSProperties = {
 };
 
 export default function AccountAddresses() {
+  const [searchParams] = useSearchParams();
+  const navigate       = useNavigate();
+  const redirectPath   = searchParams.get("redirect");
+
   const [addresses, setAddresses] = useState<ApiAddress[]>([]);
   const [loading, setLoading]     = useState(true);
-  const [showForm, setShowForm]   = useState(false);
+  const [showForm, setShowForm]   = useState(!!redirectPath); // Auto-show form if redirecting from checkout
   const [form, setForm]           = useState({ ...EMPTY_FORM });
   const [saving, setSaving]       = useState(false);
   const [error, setError]         = useState<string | null>(null);
@@ -77,10 +82,18 @@ export default function AccountAddresses() {
     setSaving(true);
     try {
       const res = await userAPI.saveAddress(form);
-      const saved = (res.data as { data?: { addresses: ApiAddress[] } }).data;
-      if (saved?.addresses) setAddresses(saved.addresses);
-      setShowForm(false);
-      setForm({ ...EMPTY_FORM });
+      const result = (res.data as { success: boolean; data?: { addresses: ApiAddress[] } });
+      
+      if (result.success && result.data?.addresses) {
+        setAddresses(result.data.addresses);
+        setShowForm(false);
+        setForm({ ...EMPTY_FORM });
+        
+        // If we have a redirect path, go back!
+        if (redirectPath) {
+          navigate(redirectPath);
+        }
+      }
     } catch {
       setError("Failed to save address. Please try again.");
     } finally {

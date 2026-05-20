@@ -11,7 +11,7 @@ function BannerText() {
                 loading="lazy"
                 width={1410}
                 height={400}
-                src="/assets/images/section/banner-8.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-8.jpg"
                 alt="Image"
               />
             </Link>

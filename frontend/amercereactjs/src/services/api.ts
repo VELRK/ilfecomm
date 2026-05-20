@@ -343,6 +343,13 @@ export const reviewsAPI = {
     http.post<{ success: boolean; message: string }>("/reviews", data),
 };
 
+// ── Contact ───────────────────────────────────────────────────────────────────
+
+export const contactAPI = {
+  send: (data: { name: string; email: string; message: string }) =>
+    http.post<{ success: boolean; message: string }>("/contact", data),
+};
+
 // ── Site Settings ─────────────────────────────────────────────────────────────
 
 export interface ApiSiteSettings {
@@ -353,6 +360,9 @@ export interface ApiSiteSettings {
   top_bar_text?: string;
   whatsapp_enabled?: boolean;
   whatsapp_number?: string;
+  tax_rate?: number;
+  shipping_charge?: number;
+  free_shipping_above?: number;
 }
 
 export const siteSettingsAPI = {

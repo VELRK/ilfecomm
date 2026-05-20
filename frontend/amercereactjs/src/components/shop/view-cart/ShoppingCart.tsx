@@ -6,22 +6,14 @@ import { useContextElement, type CartProduct } from "@/context/Context";
 import { useAuthStore } from "@/store/authStore";
 import type { ProductId } from "@/context/store";
 import { formatPrice } from "@/utils/formatPrice";
-import { promoAPI } from "@/services/api";
+import { promoAPI, siteSettingsAPI } from "@/services/api";
 
-const FREE_SHIPPING_THRESHOLD = 999;
 
-type ShipOption = "free" | "standard";
-
-const SHIP_PRICES: Record<ShipOption, number> = {
-  free: 0,
-  standard: 50,
-};
 
 export default function ShoppingCart() {
   const { cartProducts, setCartProducts, updateQuantity, totalPrice } =
     useContextElement();
   const { isLoggedIn } = useAuthStore();
-  const [shipOption] = useState<ShipOption>("free");
 
   /* ── Promo code ── */
   const [promoInput,    setPromoInput]    = useState("");
@@ -29,6 +21,22 @@ export default function ShoppingCart() {
   const [promoDiscount, setPromoDiscount] = useState(0);
   const [promoError,    setPromoError]    = useState("");
   const [promoLoading,  setPromoLoading]  = useState(false);
+  
+  /* ── Site Settings ── */
+  const [taxRate, setTaxRate] = useState(18);
+  const [shippingCharge, setShippingCharge] = useState(50);
+  const [freeShippingAbove, setFreeShippingAbove] = useState(999);
+
+  useMemo(() => {
+    siteSettingsAPI.get().then(res => {
+      if (res.data.success && res.data.data) {
+        const s = res.data.data;
+        if (typeof s.tax_rate === 'number') setTaxRate(s.tax_rate);
+        if (typeof s.shipping_charge === 'number') setShippingCharge(s.shipping_charge);
+        if (typeof s.free_shipping_above === 'number') setFreeShippingAbove(s.free_shipping_above);
+      }
+    }).catch(err => console.error("Failed to load settings", err));
+  }, []);
 
   const handleApplyPromo = async () => {
     const code = promoInput.trim().toUpperCase();
@@ -56,14 +64,16 @@ export default function ShoppingCart() {
   const removePromo = () => { setAppliedCode(""); setPromoDiscount(0); setPromoError(""); };
 
   const discount = promoDiscount;
-  const shippingCost = SHIP_PRICES[shipOption];
-  const orderTotal = Math.max(0, totalPrice - discount + shippingCost);
+  const shippingCost = totalPrice >= freeShippingAbove ? 0 : shippingCharge;
+  const subtotalAfterPromo = Math.max(0, totalPrice - discount);
+  const taxAmount = Math.round(subtotalAfterPromo * (taxRate / 100));
+  const orderTotal = subtotalAfterPromo + shippingCost + taxAmount;
 
-  const amountToFreeship = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
+  const amountToFreeship = Math.max(0, freeShippingAbove - totalPrice);
   const shipProgressPercent = Math.min(
     100,
-    FREE_SHIPPING_THRESHOLD > 0
-      ? (totalPrice / FREE_SHIPPING_THRESHOLD) * 100
+    freeShippingAbove > 0
+      ? (totalPrice / freeShippingAbove) * 100
       : 0,
   );
 
@@ -80,7 +90,7 @@ export default function ShoppingCart() {
   };
 
   const freeshipMessage = useMemo(() => {
-    if (totalPrice >= FREE_SHIPPING_THRESHOLD) {
+    if (totalPrice >= freeShippingAbove) {
       return (
         <>
           You qualify for{" "}
@@ -222,25 +232,31 @@ export default function ShoppingCart() {
                           <fieldset className="ship-item">
                             <input type="radio" name="ship-check"
                               className="tf-check-rounded" id="free"
-                              checked={totalPrice >= FREE_SHIPPING_THRESHOLD}
+                              checked={totalPrice >= freeShippingAbove}
                               readOnly />
                             <label htmlFor="free">
-                              <span>Free Shipping {totalPrice < FREE_SHIPPING_THRESHOLD && `(orders above ${formatPrice(FREE_SHIPPING_THRESHOLD)})`}</span>
+                              <span>Free Shipping {totalPrice < freeShippingAbove && `(orders above ${formatPrice(freeShippingAbove)})`}</span>
                               <span className="price text-success">{formatPrice(0)}</span>
                             </label>
                           </fieldset>
                           <fieldset className="ship-item">
                             <input type="radio" name="ship-check"
                               className="tf-check-rounded" id="standard"
-                              checked={totalPrice < FREE_SHIPPING_THRESHOLD}
+                              checked={totalPrice < freeShippingAbove}
                               readOnly />
                             <label htmlFor="standard">
                               <span>Standard Delivery</span>
-                              <span className="price">{totalPrice >= FREE_SHIPPING_THRESHOLD ? <span className="text-success">Free</span> : formatPrice(50)}</span>
+                              <span className="price">{totalPrice >= freeShippingAbove ? <span className="text-success">Free</span> : formatPrice(shippingCharge)}</span>
                             </label>
                           </fieldset>
                         </div>
                       </div>
+                      {taxRate > 0 && (
+                        <div className="tax d-flex justify-content-between align-items-center mb-10">
+                          <p className="fw-medium lh-24">GST ({taxRate}%)</p>
+                          <span className="total fw-medium lh-24">{formatPrice(taxAmount)}</span>
+                        </div>
+                      )}
                       <h5 className="total-order d-flex justify-content-between align-items-center">
                         <span>Total</span>
                         <span className="total each-total-price">
@@ -305,7 +321,7 @@ function CartTableRow({
   onQtyChange: (qty: number) => void;
 }) {
   const imgSrc =
-    item.img ?? item.images?.[0]?.src ?? "/assets/images/product/product-1.jpg";
+    item.img ?? item.images?.[0]?.src ?? "/ecomm/frontend/assets/images/product/product-1.jpg";
 
   const colorLabel = item.selectedColor ?? item.colors?.[0]?.label ?? null;
   const sizeLabel = item.selectedSize ?? null;

@@ -20,7 +20,7 @@ function Search({ initialQuery = "" }: { initialQuery?: string }) {
                   navigate(
                     q
                       ? `/search-result?query=${encodeURIComponent(q)}`
-                      : "/search-result",
+                      : "/search-result"
                   );
                 }}
               >

@@ -11,7 +11,7 @@ function BannerImage() {
               loading="lazy"
               width={633}
               height={856}
-              src="/assets/images/section/banner-38.jpg"
+              src="/ecomm/frontend/assets/images/section/banner-38.jpg"
               alt="Image"
             />
           </div>
@@ -39,7 +39,7 @@ function BannerImage() {
                 loading="lazy"
                 width={654}
                 height={436}
-                src="/assets/images/section/banner-34.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-34.jpg"
                 alt="Image"
               />
             </Link>
@@ -62,7 +62,7 @@ function BannerImage() {
                 loading="lazy"
                 width={654}
                 height={436}
-                src="/assets/images/section/banner-35.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-35.jpg"
                 alt="Image"
               />
             </Link>
@@ -87,7 +87,7 @@ function BannerImage() {
                 loading="lazy"
                 width={654}
                 height={436}
-                src="/assets/images/section/banner-36.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-36.jpg"
                 alt="Image"
               />
             </Link>
@@ -110,7 +110,7 @@ function BannerImage() {
                 loading="lazy"
                 width={654}
                 height={436}
-                src="/assets/images/section/banner-37.jpg"
+                src="/ecomm/frontend/assets/images/section/banner-37.jpg"
                 alt="Image"
               />
             </Link>

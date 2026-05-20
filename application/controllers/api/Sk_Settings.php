@@ -11,7 +11,8 @@ class Sk_Settings extends Sk_Base_Api {
 
         $rows = $this->db->where_in('key', [
             'newsletter_popup_enabled', 'site_name', 'currency_symbol',
-            'top_bar_enabled', 'top_bar_text', 'whatsapp_enabled', 'whatsapp_number'
+            'top_bar_enabled', 'top_bar_text', 'whatsapp_enabled', 'whatsapp_number',
+            'tax_rate', 'shipping_charge', 'free_shipping_above'
         ])->get('settings')->result_array();
 
         $map = [];
@@ -23,6 +24,10 @@ class Sk_Settings extends Sk_Base_Api {
             ? (bool)(int)$map['top_bar_enabled'] : true;
         $map['whatsapp_enabled'] = isset($map['whatsapp_enabled'])
             ? (bool)(int)$map['whatsapp_enabled'] : false;
+        
+        $map['tax_rate']           = isset($map['tax_rate'])           ? (float)$map['tax_rate'] : 0;
+        $map['shipping_charge']    = isset($map['shipping_charge'])    ? (float)$map['shipping_charge'] : 50;
+        $map['free_shipping_above'] = isset($map['free_shipping_above']) ? (float)$map['free_shipping_above'] : 999;
 
         $this->set_cache('site_settings', $map);
         $this->success($map);

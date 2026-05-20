@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  base: "/ecomm/frontend/",
   plugins: [react()],
   resolve: {
     alias: {
@@ -28,8 +29,9 @@ export default defineConfig({
     },
   },
   build: {
-    // On Netlify (CI=true) build into a local dist/; locally build into shared frontend-dist/
-    outDir: process.env.CI ? "dist" : "../../frontend-dist",
-    emptyOutDir: true,
+    // CI (Netlify/Vercel): build into local dist/
+    // Local: build directly into ../  (= ecomm/frontend/) which is what XAMPP serves
+    outDir: process.env.CI ? "dist" : "../",
+    emptyOutDir: false, // don't wipe amercereactjs/ source when building into parent
   },
 });

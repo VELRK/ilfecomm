@@ -5,6 +5,6 @@ import type { BannerCompareImages } from "@/types/bannerCompare";
  * assets when present: `public/assets/images/section/skin-before.jpg` and `skin-after.jpg`.
  */
 export const bannerCompareImages: BannerCompareImages = {
-  beforeSrc: "/assets/images/section/skin-before.jpg",
-  afterSrc: "/assets/images/section/skin-after.jpg",
+  beforeSrc: "/ecomm/frontend/assets/images/section/skin-before.jpg",
+  afterSrc: "/ecomm/frontend/assets/images/section/skin-after.jpg",
 };

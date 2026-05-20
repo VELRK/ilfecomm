@@ -76,7 +76,7 @@ function Hero() {
               <React.Fragment key={index}>
                 <div className="policy-image">
                   <img
-                    src="/assets/images/section/policy-9.jpg"
+                    src="/ecomm/frontend/assets/images/section/policy-9.jpg"
                     alt="Image"
                     width={160}
                     height={80}
@@ -88,7 +88,7 @@ function Hero() {
                 </p>
                 <div className="policy-image">
                   <img
-                    src="/assets/images/section/policy-10.jpg"
+                    src="/ecomm/frontend/assets/images/section/policy-10.jpg"
                     alt="Image"
                     width={160}
                     height={80}
@@ -100,7 +100,7 @@ function Hero() {
                 </p>
                 <div className="policy-image">
                   <img
-                    src="/assets/images/section/policy-11.jpg"
+                    src="/ecomm/frontend/assets/images/section/policy-11.jpg"
                     alt="Image"
                     width={160}
                     height={80}

@@ -6,7 +6,7 @@ import { useContextElement, type CartProduct } from "@/context/Context";
 import type { ProductId } from "@/context/store";
 import { formatPrice } from "@/utils/formatPrice";
 import { useAuthStore } from "@/store/authStore";
-import { userAPI, cartAPI, ordersAPI, promoAPI, paymentAPI } from "@/services/api";
+import { userAPI, cartAPI, ordersAPI, promoAPI, paymentAPI, siteSettingsAPI } from "@/services/api";
 import type { ApiAddress } from "@/services/api";
 
 /* Razorpay global type */
@@ -27,15 +27,7 @@ function loadRazorpayScript(): Promise<boolean> {
   });
 }
 
-const INDIA_STATES = [
-  "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat",
-  "Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh",
-  "Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan",
-  "Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal",
-  "Andaman and Nicobar Islands","Chandigarh","Delhi","Jammu and Kashmir","Ladakh","Puducherry",
-];
 
-const ADDRESS_LABELS = ["Home","Work","Other","Hotel","Parents"];
 
 export default function Checkout() {
   const { cartProducts, setCartProducts, updateQuantity, totalPrice } = useContextElement();
@@ -75,7 +67,6 @@ export default function Checkout() {
   useEffect(() => { loadAddresses(); }, [isLoggedIn]);
 
   /* ── Address form fields ── */
-  const [addrLabel, setAddrLabel]   = useState("Home");
   const [firstName, setFirstName]   = useState("");
   const [lastName, setLastName]     = useState("");
   // Ignore system-generated placeholder emails (ph_PHONE@shopkart.app)
@@ -88,12 +79,13 @@ export default function Checkout() {
   useEffect(() => {
     if (user?.phone && !addrPhone) setAddrPhone(user.phone);
     if (user?.email && !addrEmail) setAddrEmail(realEmail(user.email));
-  }, [user]);
+  }, [user, addrPhone, addrEmail]);
+
   const [addrCity, setAddrCity]     = useState("");
   const [addrStreet, setAddrStreet] = useState("");
   const [addrState, setAddrState]   = useState("");
   const [addrZip, setAddrZip]       = useState("");
-  const [zipError, setZipError]     = useState(false);
+  const [, setZipError]             = useState(false);
   const [orderNote, setOrderNote]   = useState("");
 
   function applyAddress(addr: ApiAddress) {
@@ -110,65 +102,28 @@ export default function Checkout() {
     setShowAddForm(false);
   }
 
-  /* ── Save new address ── */
-  const [savingAddr, setSavingAddr] = useState(false);
-  const [addrSaveError, setAddrSaveError] = useState("");
-
-  const handleSaveAddress = async () => {
-    setAddrSaveError("");
-    // Validate all required fields including phone
-    if (!firstName.trim()) { setAddrSaveError("First name is required."); return; }
-    if (!addrPhone.trim()) { setAddrSaveError("Phone number is required."); return; }
-    if (!addrStreet.trim()) { setAddrSaveError("Street address is required."); return; }
-    if (!addrCity.trim())   { setAddrSaveError("City is required."); return; }
-    if (!addrState)         { setAddrSaveError("Please select a state."); return; }
-    if (!/^\d{6}$/.test(addrZip)) { setAddrSaveError("Enter a valid 6-digit PIN code."); return; }
-
-    setSavingAddr(true);
-    try {
-      const res = await userAPI.saveAddress({
-        label:      addrLabel,
-        full_name:  `${firstName} ${lastName}`.trim(),
-        phone:      addrPhone.trim(),
-        line1:      addrStreet.trim(),
-        city:       addrCity.trim(),
-        state:      addrState,
-        pincode:    addrZip,
-        country:    "India",
-        is_default: addresses.length === 0 ? 1 : 0,
-      });
-
-      // Backend returns updated addresses list directly — use it
-      const result = res.data as { success?: boolean; data?: { addresses?: ApiAddress[] }; message?: string };
-      if (result.success) {
-        const fresh = result.data?.addresses;
-        if (fresh && fresh.length > 0) {
-          setAddresses(fresh);
-          const newIdx = fresh.length - 1;
-          setSelectedAddr(newIdx);
-          applyAddress(fresh[newIdx]);
-        } else {
-          // Fallback: reload from API
-          await loadAddresses();
-        }
-        setShowAddForm(false);
-      } else {
-        setAddrSaveError(result.message ?? "Failed to save address.");
-      }
-    } catch (err: unknown) {
-      const msg = (err as { response?: { data?: { message?: string } } })?.response?.data?.message;
-      setAddrSaveError(msg ?? "Failed to save address. Please try again.");
-    } finally {
-      setSavingAddr(false);
-    }
-  };
-
   /* ── Promo code ── */
   const [promoInput, setPromoInput]       = useState("");
   const [appliedCode, setAppliedCode]     = useState("");
   const [promoDiscount, setPromoDiscount] = useState(0);
   const [promoError, setPromoError]       = useState("");
   const [promoLoading, setPromoLoading]   = useState(false);
+  
+  /* ── Site Settings (Tax & Shipping) ── */
+  const [taxRate, setTaxRate]               = useState(18); // default to 18 if fail
+  const [shippingCharge, setShippingCharge] = useState(50);
+  const [freeShippingAbove, setFreeShippingAbove] = useState(999);
+
+  useEffect(() => {
+    siteSettingsAPI.get().then(res => {
+      if (res.data.success && res.data.data) {
+        const s = res.data.data;
+        if (typeof s.tax_rate === 'number') setTaxRate(s.tax_rate);
+        if (typeof s.shipping_charge === 'number') setShippingCharge(s.shipping_charge);
+        if (typeof s.free_shipping_above === 'number') setFreeShippingAbove(s.free_shipping_above);
+      }
+    }).catch(err => console.error("Failed to load site settings", err));
+  }, []);
 
   const handleApplyPromo = async (e: FormEvent) => {
     e.preventDefault();
@@ -190,11 +145,17 @@ export default function Checkout() {
 
   const removePromo = () => { setAppliedCode(""); setPromoDiscount(0); setPromoError(""); setPromoInput(""); };
 
-  const shippingCost = totalPrice >= 999 ? 0 : 50;
-  const orderTotal   = Math.max(0, totalPrice - promoDiscount + shippingCost);
+  const shippingCost = totalPrice >= freeShippingAbove ? 0 : shippingCharge;
+  const subtotalAfterPromo = Math.max(0, totalPrice - promoDiscount);
+  const taxAmount    = Math.round(subtotalAfterPromo * (taxRate / 100));
+  const orderTotal   = subtotalAfterPromo + shippingCost + taxAmount;
 
-  /* ── Payment ── */
-  const [paymentMethod, setPaymentMethod] = useState<"cod" | "razorpay">("cod");
+  const [paymentMethod, setPaymentMethod] = useState<"cod" | "razorpay">(() => {
+    return (sessionStorage.getItem("checkout_payment_method") as "cod" | "razorpay") || "cod";
+  });
+  useEffect(() => {
+    sessionStorage.setItem("checkout_payment_method", paymentMethod);
+  }, [paymentMethod]);
 
   /* ── Place order ── */
   const [orderError, setOrderError]     = useState("");
@@ -241,18 +202,36 @@ export default function Checkout() {
 
     setOrderPlacing(true);
     try {
-      // Sync local cart → backend cart
+      // 1. Sync local cart → backend cart
       await cartAPI.clear();
       for (const item of cartProducts) {
         await cartAPI.add({ product_id: Number(item.id), quantity: item.quantity });
       }
 
-      // Place order
+      // 2. If a promo code was applied, re-apply it to the fresh backend cart 
+      // to ensure it's not lost after the cart clear/sync.
+      if (appliedCode) {
+        try {
+          await promoAPI.apply({ code: appliedCode, order_amount: totalPrice });
+        } catch (e) {
+          console.error("Failed to re-apply promo code during checkout sync", e);
+        }
+      }
+
+      // 3. Place order
       const res = await ordersAPI.checkout({
         address: addr,
         payment_method: paymentMethod,
-        promo_code: appliedCode || undefined,
-        note: orderNote,
+        promo_code:    appliedCode || undefined,
+        coupon:        appliedCode || undefined, 
+        coupon_code:   appliedCode || undefined,
+        discount_code: appliedCode || undefined,
+        voucher:       appliedCode || undefined,
+        voucher_code:  appliedCode || undefined,
+        subtotal:      totalPrice,
+        discount_amount: promoDiscount,
+        total:         orderTotal,
+        note:          orderNote,
       });
 
       const result = res.data as { success?: boolean; data?: { order?: { id: number } } };
@@ -297,7 +276,7 @@ export default function Checkout() {
         order_id:    pd.razorpay_order_id,
         name:        "ShopKart Sarees",
         description: `Order #${pd.order_number}`,
-        image:       "/assets/images/logo/logo.png",
+        image:       "/ecomm/frontend/assets/images/logo/logo.png",
         prefill:     { name: pd.prefill.name, email: pd.prefill.email, contact: pd.prefill.contact },
         theme:       { color: "#f59e0b" },
         handler: async (response: { razorpay_order_id: string; razorpay_payment_id: string; razorpay_signature: string }) => {
@@ -416,56 +395,34 @@ export default function Checkout() {
                   </div>
                 )}
 
-                {!addressLoading && (showAddForm || !isLoggedIn || addresses.length === 0) && (
-                  <div>
-                    {isLoggedIn && (
-                      <div className="mb-3">
-                        <label className="fw-semibold mb-2 d-block">Address Label</label>
-                        <div className="d-flex gap-2 flex-wrap">
-                          {ADDRESS_LABELS.map((lbl) => (
-                            <button key={lbl} type="button"
-                              className={`btn btn-sm ${addrLabel === lbl ? "btn-dark" : "btn-outline-secondary"}`}
-                              style={{ borderRadius: 8 }}
-                              onClick={() => setAddrLabel(lbl)}>
-                              {lbl === "Home" ? "🏠" : lbl === "Work" ? "💼" : lbl === "Hotel" ? "🏨" : lbl === "Parents" ? "👨👩👧" : "📍"} {lbl}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                {!addressLoading && (addresses.length === 0) && (
+                  <div className="text-center py-5 px-4 rounded-3" style={{ background: "#f8fafc", border: "1px dashed #cbd5e1" }}>
+                    <div style={{ fontSize: 48, marginBottom: 16 }}>📍</div>
+                    <h5 className="fw-bold mb-2">No Delivery Address Found</h5>
+                    <p className="text-muted mb-4 fs-14">Please add a delivery address to your account to continue with your order.</p>
+                    <button 
+                      type="button" 
+                      className="tf-btn animate-btn w-100" 
+                      onClick={() => navigate("/account-addresses?redirect=/checkout")}
+                    >
+                      + Add Delivery Address
+                    </button>
+                  </div>
+                )}
 
-                    <div className="grid-2">
-                      <input type="text" className="premium-input" placeholder="First Name*" required value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                      <input type="text" className="premium-input" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-                    </div>
-                    <div className="grid-2">
-                      <input type="email" className="premium-input" placeholder="Email Address" value={addrEmail} onChange={(e) => setAddrEmail(e.target.value)} />
-                      <input type="tel" className="premium-input" placeholder="Phone Number*" required value={addrPhone} onChange={(e) => setAddrPhone(e.target.value)} />
-                    </div>
-                    <input type="text" className="premium-input" placeholder="Street Address / Landmark*" required value={addrStreet} onChange={(e) => setAddrStreet(e.target.value)} />
-                    <div className="grid-2">
-                      <input type="text" className="premium-input" placeholder="Town / City*" required value={addrCity} onChange={(e) => setAddrCity(e.target.value)} />
-                      <select className="premium-select" value={addrState} onChange={(e) => setAddrState(e.target.value)} required>
-                        <option value="">Select State*</option>
-                        {INDIA_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
-                      </select>
-                    </div>
-                    <div className="grid-2">
-                      <div>
-                        <input type="text" className={`premium-input mb-0 ${zipError ? 'border-danger' : ''}`} inputMode="numeric" placeholder="PIN Code*" required maxLength={6} value={addrZip} onChange={(e) => { setAddrZip(e.target.value.replace(/\D/g, "")); setZipError(false); }} />
-                        {zipError && <div className="text-danger mt-1" style={{ fontSize: 12 }}>Enter a valid 6-digit PIN.</div>}
-                      </div>
-                      <input value="India" readOnly className="premium-input" style={{ background: '#e2e8f0', color: '#64748b' }} />
-                    </div>
-
-                    {isLoggedIn && (
-                      <div className="mt-3">
-                        {addrSaveError && <p className="text-danger text-sm mb-2">{addrSaveError}</p>}
-                        <button type="button" className="tf-btn btn-sm animate-btn" onClick={handleSaveAddress} disabled={savingAddr}>
-                          {savingAddr ? "Saving…" : "Save Address"}
-                        </button>
-                      </div>
-                    )}
+                {!addressLoading && addresses.length > 0 && showAddForm && (
+                  <div className="text-center py-4 px-4 rounded-3 mb-4" style={{ background: "#f8fafc", border: "1px dashed #cbd5e1" }}>
+                    <p className="text-muted mb-3 fs-14">To add a new address, please use your account settings.</p>
+                    <button 
+                      type="button" 
+                      className="tf-btn btn-sm animate-btn" 
+                      onClick={() => navigate("/account-addresses?redirect=/checkout")}
+                    >
+                      Manage Addresses
+                    </button>
+                    <button type="button" className="tf-btn btn-sm ms-2" style={{ background: 'transparent', color: '#64748b' }} onClick={() => setShowAddForm(false)}>
+                      Cancel
+                    </button>
                   </div>
                 )}
                 <textarea className="premium-input mt-4 mb-0" placeholder="Order notes" rows={2} value={orderNote} onChange={(e) => setOrderNote(e.target.value)} />
@@ -591,6 +548,13 @@ export default function Checkout() {
                 <span className="fw-semibold text-dark">{shippingCost === 0 ? <span className="text-success">Free</span> : formatPrice(shippingCost)}</span>
               </div>
               
+              {taxRate > 0 && (
+                <div className="summary-row">
+                  <span>GST ({taxRate}%)</span>
+                  <span className="fw-semibold text-dark">{formatPrice(taxAmount)}</span>
+                </div>
+              )}
+              
               <div className="summary-total">
                 <span>Total</span>
                 <span>{formatPrice(orderTotal)}</span>
@@ -607,7 +571,7 @@ export default function Checkout() {
 function CheckoutOrderItemPremium({ item, onRemove, onQtyChange }: {
   item: CartProduct; onRemove: () => void; onQtyChange: (qty: number) => void;
 }) {
-  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/assets/images/product/product-1.jpg";
+  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/ecomm/frontend/assets/images/product/product-1.jpg";
   const colorLabel = item.selectedColor ?? item.colors?.[0]?.label ?? null;
   const sizeLabel  = item.selectedSize ?? null;
 

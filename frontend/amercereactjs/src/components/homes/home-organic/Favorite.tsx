@@ -4,7 +4,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import { favoriteOrganicProducts } from "@/data/products/products";
 
 const BANNER = {
-  img: "/assets/images/section/banner-33.jpg",
+  img: "/ecomm/frontend/assets/images/section/banner-33.jpg",
   desc: "Naturally sweet and full of flavor.",
   title: "Crispy Organic",
   titleBreak: "Apple Rings",

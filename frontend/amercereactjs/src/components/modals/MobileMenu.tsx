@@ -1,96 +1,149 @@
-import { Link, useNavigate } from "react-router-dom";
-import { PreventDefaultForm } from "@/components/forms/PreventDefaultForm";
+import { useNavigate } from "react-router-dom";
+import { useState, useRef, useCallback } from "react";
 import { useCategories } from "@/hooks/useApi";
 import type { ApiCategory } from "@/services/api";
 
-function catLink(c: ApiCategory) {
-  return `/shop-default?category_id=${c.id}`;
-}
-function subLink(s: ApiCategory) {
-  return `/shop-default?subcategory_id=${s.id}`;
-}
+function catUrl(c: ApiCategory)  { return `/shop-default?category_id=${c.id}`; }
+function subUrl(s: ApiCategory)  { return `/shop-default?subcategory_id=${s.id}`; }
 
 export default function MobileMenu({
   registerOffcanvasElement,
 }: {
   registerOffcanvasElement?: (el: HTMLElement | null) => void;
 }) {
-  const navigate = useNavigate();
-  const { categories } = useCategories(); // GET /shopkart-api/categories
+  const navigate   = useNavigate();
+  const elRef      = useRef<HTMLDivElement | null>(null);
+  const { categories } = useCategories();
+
+  const [search,   setSearch]   = useState("");
+  const [openCats, setOpenCats] = useState<Set<number>>(new Set());
+
+  // Imperatively hide the offcanvas, then navigate
+  const closeAndGo = useCallback((path: string) => {
+    const el = elRef.current;
+    if (el) {
+      import("bootstrap").then(({ Offcanvas }) => {
+        Offcanvas.getInstance(el)?.hide();
+      }).catch(() => {});
+    }
+    navigate(path);
+  }, [navigate]);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const q = search.trim();
+    closeAndGo(q ? `/shop-default?q=${encodeURIComponent(q)}` : "/shop-default");
+    setSearch("");
+  };
+
+  const toggleCat = (id: number) => {
+    setOpenCats((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  };
+
+  const refCb = useCallback((el: HTMLDivElement | null) => {
+    elRef.current = el;
+    registerOffcanvasElement?.(el);
+  }, [registerOffcanvasElement]);
 
   return (
-    <div
-      ref={registerOffcanvasElement}
-      className="offcanvas offcanvas-start canvas-mb"
-      id="mobileMenu"
-    >
-      {/* Search bar */}
+    <div ref={refCb} className="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+
+      {/* ── Header: close + search ── */}
       <div className="canvas-header">
-        <span className="icon-close-popup" data-bs-dismiss="offcanvas">
+        <span className="icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close menu">
           <i className="icon icon-X2" aria-hidden />
         </span>
-        <PreventDefaultForm
-          className="form-search-nav"
-          onSubmit={(e) => {
-            const q = String(new FormData(e.currentTarget).get("q") ?? "").trim();
-            navigate(q ? `/search-result?query=${encodeURIComponent(q)}` : "/search-result");
-          }}
-        >
+        <form className="form-search-nav" onSubmit={handleSearch}>
           <fieldset>
-            <input type="text" name="q" placeholder="What are you looking for?" required />
+            <input
+              type="text"
+              placeholder="What are you looking for?"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              autoComplete="off"
+            />
           </fieldset>
-          <button type="submit" className="btn-action">
+          <button type="submit" className="btn-action" aria-label="Search">
             <i className="icon icon-MagnifyingGlass" aria-hidden />
           </button>
-        </PreventDefaultForm>
+        </form>
       </div>
 
+      {/* ── Body: category tree ── */}
       <div className="canvas-body">
         <div className="mb-content-top">
           <ul className="nav-ul-mb" id="wrapper-menu-navigation">
 
-            {/* Dynamic categories from API */}
-            {categories.map((cat, _idx) => {
-              const hasSub = (cat.children ?? []).length > 0;
-              const collapseId = `mb-cat-${cat.id}`;
+            {categories.map((cat) => {
+              const hasSub  = (cat.children?.length ?? 0) > 0;
+              const isOpen  = openCats.has(cat.id);
 
               return (
                 <li key={cat.id} className="nav-mb-item">
                   {hasSub ? (
                     <>
-                      <a
-                        href={`#${collapseId}`}
-                        className="mb-menu-link collapsed"
-                        data-bs-toggle="collapse"
-                        aria-expanded="false"
-                        aria-controls={collapseId}
+                      {/* Toggle row */}
+                      <button
+                        type="button"
+                        className={`mb-menu-link w-100 d-flex align-items-center justify-content-between${isOpen ? "" : " collapsed"}`}
+                        onClick={() => toggleCat(cat.id)}
+                        style={{ background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}
+                        aria-expanded={isOpen}
                       >
                         <span>{cat.name}</span>
-                        <span className="icon ic-custom" aria-hidden />
-                      </a>
-                      <div id={collapseId} className="collapse">
+                        <span
+                          style={{
+                            fontSize: 20, fontWeight: 400, lineHeight: 1,
+                            color: "inherit", userSelect: "none",
+                          }}
+                          aria-hidden
+                        >
+                          {isOpen ? "−" : "+"}
+                        </span>
+                      </button>
+
+                      {/* Subcategory list */}
+                      {isOpen && (
                         <ul className="sub-nav-menu">
-                          {/* "View all" link for the parent category */}
                           <li>
-                            <Link to={catLink(cat)} className="sub-nav-link" data-bs-dismiss="offcanvas">
+                            <button
+                              type="button"
+                              className="sub-nav-link"
+                              onClick={() => closeAndGo(catUrl(cat))}
+                              style={{ background: "none", border: "none", cursor: "pointer", padding: 0, width: "100%", textAlign: "left" }}
+                            >
                               <span className="cus-text">View All {cat.name}</span>
-                            </Link>
+                            </button>
                           </li>
-                          {/* Subcategory links */}
                           {cat.children!.map((sub) => (
                             <li key={sub.id}>
-                              <Link to={subLink(sub)} className="sub-nav-link" data-bs-dismiss="offcanvas">
+                              <button
+                                type="button"
+                                className="sub-nav-link"
+                                onClick={() => closeAndGo(subUrl(sub))}
+                                style={{ background: "none", border: "none", cursor: "pointer", padding: 0, width: "100%", textAlign: "left" }}
+                              >
                                 <span className="cus-text">{sub.name}</span>
-                              </Link>
+                              </button>
                             </li>
                           ))}
                         </ul>
-                      </div>
+                      )}
                     </>
                   ) : (
-                    <Link to={catLink(cat)} className="mb-menu-link" data-bs-dismiss="offcanvas">
+                    /* Category with no subcategories — direct link */
+                    <button
+                      type="button"
+                      className="mb-menu-link w-100"
+                      onClick={() => closeAndGo(catUrl(cat))}
+                      style={{ background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}
+                    >
                       <span>{cat.name}</span>
-                    </Link>
+                    </button>
                   )}
                 </li>
               );
@@ -99,7 +152,6 @@ export default function MobileMenu({
           </ul>
         </div>
 
-        {/* Contact info */}
         <div className="need-help-wrap">
           <p className="nd-title h6 fw-medium mb-16">Need Help?</p>
           <a href="mailto:support@shopkart.com" className="cl-text-2 link mb-8">
@@ -107,8 +159,6 @@ export default function MobileMenu({
           </a>
         </div>
       </div>
-
-      {/* Footer — no currency/language switchers */}
     </div>
   );
 }

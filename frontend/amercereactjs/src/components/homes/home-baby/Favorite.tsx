@@ -28,7 +28,7 @@ function Favorite() {
             <div className="banner-image-text type-abs style-6 h-100">
               <Link to="/shop-default" className="bn-image img-style">
                 <img
-                  src="/assets/images/section/banner-21.jpg"
+                  src="/ecomm/frontend/assets/images/section/banner-21.jpg"
                   alt=""
                   width={450}
                   height={830}

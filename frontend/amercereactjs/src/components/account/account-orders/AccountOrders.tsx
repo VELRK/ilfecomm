@@ -73,38 +73,36 @@ function StatusTimeline({ status }: { status: string }) {
       </div>
     );
   }
-  const cancelledStatuses = ["cancelled", "returned"];
-  if (cancelledStatuses.includes(status)) return null;
 
   const currentIdx = STATUS_STEPS.findIndex((s) => s.key === status);
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 0, marginTop: 12, overflowX: "auto", paddingBottom: 4 }}>
       {STATUS_STEPS.map((step, idx) => {
-        const done    = idx <= currentIdx;
-        const active  = idx === currentIdx;
+        const completed = idx < currentIdx;   // past steps — show checkmark
+        const active    = idx === currentIdx;  // current step — show icon + glow
         return (
           <div key={step.key} style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
               <div style={{
                 width: 36, height: 36, borderRadius: "50%",
-                background: done ? "#0f172a" : "#f1f5f9",
-                color: done ? "#fff" : "#94a3b8",
+                background: (completed || active) ? "#0f172a" : "#f1f5f9",
+                color: (completed || active) ? "#fff" : "#94a3b8",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: active ? 18 : 14,
-                border: active ? "3px solid #0f172a" : "2px solid " + (done ? "#0f172a" : "#e2e8f0"),
+                border: active ? "3px solid #0f172a" : "2px solid " + (completed ? "#0f172a" : "#e2e8f0"),
                 transition: "all 0.2s",
                 boxShadow: active ? "0 0 0 4px rgba(15,23,42,0.1)" : "none",
               }}>
-                {step.icon}
+                {completed ? "✓" : step.icon}
               </div>
-              <span style={{ fontSize: 10, color: done ? "#0f172a" : "#94a3b8", fontWeight: done ? 600 : 400, whiteSpace: "nowrap" }}>
+              <span style={{ fontSize: 10, color: (completed || active) ? "#0f172a" : "#94a3b8", fontWeight: (completed || active) ? 600 : 400, whiteSpace: "nowrap" }}>
                 {step.label}
               </span>
             </div>
             {idx < STATUS_STEPS.length - 1 && (
               <div style={{
-                height: 2, width: 32, background: idx < currentIdx ? "#0f172a" : "#e2e8f0",
+                height: 2, width: 32, background: completed ? "#0f172a" : "#e2e8f0",
                 marginBottom: 20, flexShrink: 0,
               }} />
             )}

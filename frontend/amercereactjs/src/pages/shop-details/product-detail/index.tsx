@@ -99,7 +99,7 @@ export default function Page() {
         initialSize={initialSize}
         extraImages={card.images}
       />
-      <ProductDescription product={card} />
+      <ProductDescription product={card} productId={apiProduct.id} />
       <RelatedProducts />
     </>
   );

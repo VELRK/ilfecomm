@@ -54,7 +54,7 @@ export function ProductReviewComments({
                   loading="lazy"
                   width={60}
                   height={60}
-                  src="/assets/images/avatar/avatar-2.jpg"
+                  src="/ecomm/frontend/assets/images/avatar/avatar-2.jpg"
                   alt=""
                 />
               </div>
@@ -79,7 +79,7 @@ export function ProductReviewComments({
                     loading="lazy"
                     width={60}
                     height={60}
-                    src="/assets/images/avatar/avatar-1.jpg"
+                    src="/ecomm/frontend/assets/images/avatar/avatar-1.jpg"
                     alt=""
                   />
                 </div>
@@ -105,7 +105,7 @@ export function ProductReviewComments({
                   loading="lazy"
                   width={60}
                   height={60}
-                  src="/assets/images/avatar/avatar-3.jpg"
+                  src="/ecomm/frontend/assets/images/avatar/avatar-3.jpg"
                   alt=""
                 />
               </div>

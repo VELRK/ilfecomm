@@ -21,17 +21,17 @@ const HEADPHONE_COLORS: ColorOption[] = [
   {
     label: "Brown",
     swatchClass: "bg-brown",
-    img: "/assets/images/product/single/detail-4_4.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-4_4.jpg",
   },
   {
     label: "Metal",
     swatchClass: "bg-metal",
-    img: "/assets/images/product/single/detail-4.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-4.jpg",
   },
   {
     label: "Blue",
     swatchClass: "bg-blue",
-    img: "/assets/images/product/single/detail-4_6.jpg",
+    img: "/ecomm/frontend/assets/images/product/single/detail-4_6.jpg",
   },
 ];
 

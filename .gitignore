@@ -1,49 +1,112 @@
-.DS_Store
+# ╔══════════════════════════════════════════════════════════════╗
+# ║                    ShopKart .gitignore                      ║
+# ╚══════════════════════════════════════════════════════════════╝
 
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ── IDE / Editor ──────────────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+nbproject/
+*.swp
+*.swo
+*~
+
+# ── CodeIgniter cache & logs ──────────────────────────────────
 application/cache/*
 !application/cache/index.html
+!application/cache/.htaccess
 
 application/logs/*
 !application/logs/index.html
+!application/logs/.htaccess
 
-!application/*/.htaccess
+# API file-based response cache
+application/cache/api/
 
+# ── PHP / Composer ────────────────────────────────────────────
+vendor/
 composer.lock
-tests/mocks/database/ci_test.sqlite
 
-user_guide_src/build/*
-user_guide_src/cilexer/build/*
-user_guide_src/cilexer/dist/*
-user_guide_src/cilexer/pycilexer.egg-info/*
-/vendor/
+# Database config contains credentials — never commit
+application/config/database.php
 
-# IDE Files
-#-------------------------
-/nbproject/
-.idea/*
+# ── Environment / Secrets ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.env
+config.local.php
 
-## Sublime Text cache files
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-*.sublime-project
-/tests/tests/
-/tests/results/
-
-# ── Node / React ──────────────────────────────────────────────
+# ── Node / React — frontend/amercereactjs (active source) ────
 frontend/amercereactjs/node_modules/
 frontend/amercereactjs/dist/
 frontend/amercereactjs/.env
 frontend/amercereactjs/.env.local
+frontend/amercereactjs/.env.production
+frontend/amercereactjs/.env.staging
 frontend/amercereactjs/.env.*.local
 
-# Local XAMPP build output — not needed in git
-frontend-dist/
-
-# ── Misc ──────────────────────────────────────────────────────
-.vscode/
-.claude/
-artifacts/
+# Old source location — fully removed
+frontend1/
 react-frontend/
+
+# ── Build / compiled outputs ──────────────────────────────────
+frontend-dist/
+frontend.zip
+dist/
+build/
+
+# ── Uploads / large binaries ──────────────────────────────────
+# images/products/     ← uncomment to exclude uploaded product images
+# images/banners/
+# images/categories/
+
+# ── Python scripts & cache ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+download_ai_saree_images.py
+download_product_images.py
+download_saree_images.py
+fill_product_html.sql
+
+# ── Logs ──────────────────────────────────────────────────────
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── CodeIgniter user guide / test artefacts ───────────────────
+user_guide_src/
+tests/tests/
+tests/results/
+tests/mocks/database/ci_test.sqlite
+
+# ── Sublime Text cache ────────────────────────────────────────
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# ── Misc project-specific ─────────────────────────────────────
+artifacts/
+docs/
+fix_encoding.php
+about.html
+blog.html
+contact.html
+projects.html
+
+# ── Claude / AI tooling ───────────────────────────────────────
+.claude/

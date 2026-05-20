@@ -4,7 +4,7 @@ import { ProductDescriptionIntro } from "./product-description/blocks/ProductDes
 import { ProductReturnPolicies } from "./product-description/blocks/ProductReturnPolicies";
 import { ProductShippingReturns } from "./product-description/blocks/ProductShippingReturns";
 
-export default function ProductDescription({ product }: { product?: ProductCardItem }) {
+export default function ProductDescription({ product, productId }: { product?: ProductCardItem; productId?: number }) {
   return (
     <section className="section-product-description flat-spacing flat-animate-tab">
       <div className="container">
@@ -35,7 +35,7 @@ export default function ProductDescription({ product }: { product?: ProductCardI
             <ProductDescriptionIntro product={product} />
           </div>
           <div className="tab-pane" id="customer-reviews" role="tabpanel">
-            <ProductReviewsLive />
+            <ProductReviewsLive productId={productId} />
           </div>
           <div className="tab-pane" id="shipping-returns" role="tabpanel">
             <ProductShippingReturns product={product} />

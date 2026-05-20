@@ -1,6 +1,33 @@
-import { PreventDefaultForm } from "@/components/forms/PreventDefaultForm";
+import { useState } from "react";
+import { contactAPI } from "@/services/api";
 
 function Contact() {
+  const [name, setName]       = useState("");
+  const [email, setEmail]     = useState("");
+  const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [result, setResult]   = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setResult({ type: "error", text: "Please fill in all required fields." });
+      return;
+    }
+    setSubmitting(true);
+    setResult(null);
+    try {
+      const res = await contactAPI.send({ name: name.trim(), email: email.trim(), message: message.trim() });
+      setResult({ type: "success", text: res.data.message ?? "Message sent!" });
+      setName(""); setEmail(""); setMessage("");
+    } catch (err: unknown) {
+      const msg = (err as { response?: { data?: { message?: string } } })?.response?.data?.message;
+      setResult({ type: "error", text: msg ?? "Failed to send message. Please try again." });
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <>
       <section className="section-contact flat-spacing">
@@ -10,7 +37,6 @@ function Contact() {
               <div className="col-left">
                 <div className="heading d-grid gap-8">
                   <h4>Information</h4>
-                  <h5 className="d-none">Perfect Heading SEO</h5>
                   <p className="cl-text-2">
                     Have a question? Please contact us using the customer
                     support channels below.
@@ -20,45 +46,33 @@ function Contact() {
                   <div className="d-grid gap-8">
                     <h6>Phone:</h6>
                     <p>
-                      <a href="tel:16662348888" className="cl-text-2 link">
-                        +1 666 234 8888
+                      <a href="tel:+916666666666" className="cl-text-2 link">
+                        +91 666 666 6666
                       </a>
                     </p>
                   </div>
                   <div className="d-grid gap-8">
                     <h6>Email:</h6>
                     <p>
-                      <a
-                        href="mailto:hi.amere@gmail.com"
-                        className="cl-text-2 link"
-                      >
-                        hi.amere@gmail.com
+                      <a href="mailto:info@shopkart.in" className="cl-text-2 link">
+                        info@shopkart.in
                       </a>
                     </p>
                   </div>
                   <div className="wd-full d-grid gap-8">
                     <h6>Address:</h6>
-                    <p>
-                      <a
-                        href="https://www.google.com/maps?q=600+N+Michigan+Ave+Chicago,+IL+60611+USA"
-                        target="_blank"
-                        className="cl-text-2 link"
-                      >
-                        2163 Phillips Gap Rd, West Jefferson, North Carolina,
-                        United States
-                      </a>
+                    <p className="cl-text-2">
+                      ShopKart, India
                     </p>
                   </div>
                   <div className="wd-full d-grid gap-8">
                     <h6>Open Time:</h6>
                     <ul className="open-text">
                       <li className="d-flex gap-4 mb-4">
-                        <span className="cl-text-2">Mon - Sat:</span>7:30am -
-                        8:00pm PST
+                        <span className="cl-text-2">Mon – Sat:</span>9:00am – 6:00pm IST
                       </li>
                       <li className="d-flex gap-4">
-                        <span className="cl-text-2">Sunday:</span>9:00am -
-                        5:00pm PST
+                        <span className="cl-text-2">Sunday:</span>Closed
                       </li>
                     </ul>
                   </div>
@@ -67,64 +81,65 @@ function Contact() {
             </div>
             <div className="col-md-6">
               <h4 className="mb-8">Get In Touch</h4>
-              <p className="mb-24 cl-text-2">
-                Use the form below to get in touch with the sales team
-              </p>
-              <PreventDefaultForm className="form-get">
+              <p className="mb-24 cl-text-2">Use the form below to send us a message.</p>
+
+              {result && (
+                <div className={`alert alert-${result.type === "success" ? "success" : "danger"} mb-20 py-10 px-16`}>
+                  {result.text}
+                </div>
+              )}
+
+              <form className="form-get" onSubmit={handleSubmit} noValidate>
                 <div className="form-content">
                   <div className="tf-grid-layout sm-col-2">
                     <fieldset className="tf-field">
-                      <label htmlFor="your-name" className="tf-lable fw-medium">
+                      <label htmlFor="contact-name" className="tf-lable fw-medium">
                         Your Name <span className="text-primary">*</span>
                       </label>
                       <input
                         type="text"
-                        id="your-name"
+                        id="contact-name"
                         placeholder="Your Name*"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         required
                       />
                     </fieldset>
                     <fieldset className="tf-field">
-                      <label
-                        htmlFor="your-email"
-                        className="tf-lable fw-medium"
-                      >
+                      <label htmlFor="contact-email" className="tf-lable fw-medium">
                         Your Email <span className="text-primary">*</span>
                       </label>
                       <input
                         type="email"
-                        id="your-email"
+                        id="contact-email"
                         placeholder="Your Email*"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         required
                       />
                     </fieldset>
                   </div>
                   <fieldset className="tf-field">
-                    <label htmlFor="your-email" className="tf-lable fw-medium">
+                    <label htmlFor="contact-message" className="tf-lable fw-medium">
                       Your Message <span className="text-primary">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       placeholder="Your Message*"
                       required
-                      defaultValue={""}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                     />
                   </fieldset>
-                  <div className="checkbox-wrap">
-                    <input
-                      className="tf-check flex-shrink-0"
-                      type="checkbox"
-                      id="agree-term-2"
-                    />
-                    <label htmlFor="agree-term-2">
-                      Save my name, email, and website in this browser for the
-                      next time I comment.
-                    </label>
-                  </div>
                 </div>
-                <button type="submit" className="tf-btn animate-btn">
-                  Send message
+                <button
+                  type="submit"
+                  className="tf-btn animate-btn"
+                  disabled={submitting}
+                >
+                  {submitting ? "Sending…" : "Send Message"}
                 </button>
-              </PreventDefaultForm>
+              </form>
             </div>
           </div>
         </div>

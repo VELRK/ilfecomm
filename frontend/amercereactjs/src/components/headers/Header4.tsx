@@ -54,7 +54,7 @@ export default function Header4({
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/assets/images/logo/logo-white.svg"
+                  src="/ecomm/frontend/assets/images/logo/logo-white.svg"
                   alt="Image"
                 />
               </Link>

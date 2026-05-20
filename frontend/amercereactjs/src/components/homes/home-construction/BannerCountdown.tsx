@@ -12,7 +12,7 @@ function BannerCountdown() {
               height={180}
               loading="lazy"
               decoding="async"
-              src="/assets/images/section/banner-countdown.jpg"
+              src="/ecomm/frontend/assets/images/section/banner-countdown.jpg"
               alt="banner"
             />
           </div>

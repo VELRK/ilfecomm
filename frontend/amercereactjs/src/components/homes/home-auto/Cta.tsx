@@ -15,7 +15,7 @@ function Cta() {
                     loading="lazy"
                     width={690}
                     height={620}
-                    src="/assets/images/section/banner-27.jpg"
+                    src="/ecomm/frontend/assets/images/section/banner-27.jpg"
                     alt="Image"
                   />
                 </Link>

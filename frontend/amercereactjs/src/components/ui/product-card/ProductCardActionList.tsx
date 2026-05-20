@@ -1,12 +1,30 @@
 import AddToCartButton from "@/components/common/AddToCartButton";
-import QuickViewButton from "@/components/common/QuickViewButton";
 import WishlistButton from "@/components/common/WishlistButton";
 import { useProductCard } from "./useProductCard";
+import { useProductViewStore } from "@/store/productViewStore";
+
+function ViewProductButton({ productKey, className }: { productKey: string; className?: string }) {
+  const openView = useProductViewStore((s) => s.openView);
+  return (
+    <button
+      type="button"
+      onClick={(e) => { e.preventDefault(); openView(productKey); }}
+      className={className || "hover-tooltip tooltip-left box-icon"}
+      title="View product"
+      style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
+    >
+      <span className="icon icon-Eye" aria-hidden />
+      <span className="tooltip">View Product</span>
+    </button>
+  );
+}
 
 /** Hover icon row: default vs 02–04 quick add first vs 05/06 compact row. */
 export function ProductCardActionList() {
   const { product, gridVariant, isShopGridHoverBar, shopHoverActionClass } =
     useProductCard();
+
+  const productKey = product.slug ?? String(product.id);
 
   if (gridVariant === "shopGridHover05" || gridVariant === "shopGridHover06") {
     return (
@@ -18,8 +36,8 @@ export function ProductCardActionList() {
           />
         </li>
         <li className="d-sm-none">
-          <QuickViewButton
-            product={product}
+          <ViewProductButton
+            productKey={productKey}
             className="hover-tooltip tooltip-left box-icon"
           />
         </li>
@@ -44,7 +62,7 @@ export function ProductCardActionList() {
           <WishlistButton product={product} className={shopHoverActionClass} />
         </li>
         <li>
-          <QuickViewButton product={product} className={shopHoverActionClass} />
+          <ViewProductButton productKey={productKey} className={shopHoverActionClass} />
         </li>
       </>
     );
@@ -56,7 +74,7 @@ export function ProductCardActionList() {
         <WishlistButton product={product} />
       </li>
       <li>
-        <QuickViewButton product={product} />
+        <ViewProductButton productKey={productKey} />
       </li>
     </>
   );

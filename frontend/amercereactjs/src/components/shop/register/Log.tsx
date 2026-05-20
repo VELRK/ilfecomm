@@ -2,9 +2,12 @@ import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { PasswordField } from "@/components/forms/PasswordField";
 import { authAPI } from "@/services/api";
+import { useAuthStore } from "@/store/authStore";
+import type { ApiUser } from "@/services/api";
 
 function Log() {
   const navigate = useNavigate();
+  const { login } = useAuthStore();
   const [error, setError]     = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -30,6 +33,8 @@ function Log() {
     try {
       const res = await authAPI.register({ name, email, password: pass, phone });
       if ((res.data as { success?: boolean }).success) {
+        const { token, user } = (res.data as { success: boolean; data: { token: string; user: ApiUser } }).data;
+        login(token, user);
         navigate("/account-page");
       } else {
         setError((res.data as { message?: string }).message ?? "Registration failed.");

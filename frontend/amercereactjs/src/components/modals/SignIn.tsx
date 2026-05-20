@@ -4,9 +4,8 @@ import { PasswordField } from "@/components/forms/PasswordField";
 import { authAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
 import type { ApiUser } from "@/services/api";
-import "./SignIn.css";
 
-const OTP_LENGTH = 6;
+const OTP_LENGTH = 4;
 
 export default function SignIn({
   registerModalElement,
@@ -18,12 +17,12 @@ export default function SignIn({
 
   const [tab, setTab]         = useState<"email" | "otp">("email");
   const [otpSent, setOtpSent] = useState(false);
-  const [phone, setPhone]     = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
   const [otpDigits, setOtpDigits] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
   const emailRef   = useRef<HTMLInputElement>(null);
   const passRef    = useRef<HTMLInputElement>(null);
-  const phoneRef   = useRef<HTMLInputElement>(null);
+  const otpEmailRef = useRef<HTMLInputElement>(null);
   const otpRefs    = useRef<(HTMLInputElement | null)[]>([]);
 
   const [error, setError]     = useState("");
@@ -100,12 +99,12 @@ export default function SignIn({
   async function handleOtpRequest(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    const phoneVal = phoneRef.current?.value.trim() ?? "";
-    if (!phoneVal) return;
+    const emailVal = otpEmailRef.current?.value.trim() ?? "";
+    if (!emailVal) return;
     setLoading(true);
     try {
-      await authAPI.otpRequest({ phone: phoneVal });
-      setPhone(phoneVal);
+      await authAPI.otpRequest({ phone: emailVal });
+      setLoginEmail(emailVal);
       setOtpSent(true);
       setOtpDigits(Array(OTP_LENGTH).fill(""));
       setTimeout(() => otpRefs.current[0]?.focus(), 100);
@@ -121,13 +120,13 @@ export default function SignIn({
   async function handleOtpVerify(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    if (!phone || otpValue.length < OTP_LENGTH) {
+    if (!loginEmail || otpValue.length < OTP_LENGTH) {
       setError(`Please enter all ${OTP_LENGTH} digits.`);
       return;
     }
     setLoading(true);
     try {
-      const res = await authAPI.otpVerify({ phone, otp: otpValue });
+      const res = await authAPI.otpVerify({ phone: loginEmail, otp: otpValue });
       const { token, user } = (res.data as { success: boolean; data: { token: string; user: ApiUser } }).data;
       login(token, user);
       closeModal();
@@ -144,154 +143,146 @@ export default function SignIn({
   return (
     <div
       ref={registerModalElement}
-      className="modal modalCentered fade signin-modal"
+      className="modal modalCentered fade modal-log"
       id="sign"
     >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
+          <span className="icon-close-popup" data-bs-dismiss="modal">
+            <i className="icon-X2" />
+          </span>
 
-          {/* ── Brand header ── */}
-          <div className="signin-brand">
-            <button
-              type="button"
-              className="signin-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-            <div className="signin-brand-icon">🛍️</div>
-            <h3>Welcome Back</h3>
-            <p>Sign in to continue shopping</p>
+          <div className="modal-heading text-center">
+            <h3 className="title-pop mb-8">Login</h3>
+            <p className="desc-pop cl-text-2">
+              Welcome back. Sign in to access your account.
+            </p>
           </div>
 
-          {/* ── Form body ── */}
-          <div className="signin-body">
-
-            {/* Tab switcher */}
-            <div className="signin-tabs">
+          <div className="modal-main">
+            {/* Tab switcher using standard theme style */}
+            <div className="d-flex mb-24 pb-2" style={{ borderBottom: "1px solid #eee" }}>
               <button
                 type="button"
-                className={`signin-tab ${tab === "email" ? "active" : ""}`}
+                className={`flex-grow-1 border-0 bg-transparent fw-semibold pb-10 transition ${tab === "email" ? "text-primary border-bottom border-primary border-2" : "text-muted"}`}
                 onClick={() => switchTab("email")}
+                style={{ fontSize: "15px" }}
               >
-                ✉️ Email
+                Sign in with Password
               </button>
               <button
                 type="button"
-                className={`signin-tab ${tab === "otp" ? "active" : ""}`}
+                className={`flex-grow-1 border-0 bg-transparent fw-semibold pb-10 transition ${tab === "otp" ? "text-primary border-bottom border-primary border-2" : "text-muted"}`}
                 onClick={() => switchTab("otp")}
+                style={{ fontSize: "15px" }}
               >
-                📱 OTP
+                Sign in with OTP
               </button>
             </div>
 
-            {/* Error */}
             {error && (
-              <div className="signin-error" role="alert">
-                ⚠️ {error}
+              <div className="alert alert-danger py-2 px-3 mb-16 text-caption-01" role="alert">
+                {error}
               </div>
             )}
 
             {/* ── Email form ── */}
             {tab === "email" && (
-              <form onSubmit={handleEmailSubmit} noValidate>
-                <div className="signin-field">
-                  <label className="signin-label" htmlFor="si-email">Email Address</label>
-                  <input
-                    ref={emailRef}
-                    id="si-email"
-                    type="email"
-                    className="signin-input"
-                    placeholder="your@email.com"
-                    autoComplete="email"
-                    required
-                  />
+              <form className="form-log" onSubmit={handleEmailSubmit} noValidate>
+                <div className="form-content">
+                  <fieldset className="tf-field">
+                    <label className="tf-lable fw-medium" htmlFor="si-email">
+                      Email Address <span className="text-primary">*</span>
+                    </label>
+                    <input
+                      ref={emailRef}
+                      id="si-email"
+                      type="email"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </fieldset>
+
+                  <fieldset className="tf-field password-wrapper">
+                    <label className="tf-lable fw-medium" htmlFor="si-pass">
+                      Password <span className="text-primary">*</span>
+                    </label>
+                    <PasswordField
+                      inputRef={passRef}
+                      id="si-pass"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </fieldset>
+
+                  <fieldset className="field-bottom mb-20">
+                    <div className="checkbox-wrap">
+                      <input className="tf-check style-2" type="checkbox" id="si-remember" />
+                      <label htmlFor="si-remember"> Remember me </label>
+                    </div>
+                    <a href="#modalForgot" data-bs-toggle="modal" className="link text-decoration-underline">
+                      <span className="text-caption-01 fw-semibold">Forgot Password?</span>
+                    </a>
+                  </fieldset>
                 </div>
 
-                <div className="signin-field">
-                  <label className="signin-label" htmlFor="si-pass">Password</label>
-                  <PasswordField
-                    inputRef={passRef}
-                    id="si-pass"
-                    placeholder="Enter your password"
-                    required
-                    className="signin-input"
-                  />
-                </div>
-
-                <div className="signin-row">
-                  <label className="signin-remember">
-                    <input type="checkbox" id="si-remember" />
-                    Remember me
-                  </label>
-                  <a href="#modalForgot" data-bs-toggle="modal" className="signin-forgot">
-                    Forgot Password?
+                <div className="group-action">
+                  <button
+                    type="submit"
+                    className="action-create-account tf-btn animate-btn w-100"
+                    disabled={loading}
+                  >
+                    {loading ? "Signing in…" : "Sign In"}
+                  </button>
+                  <a href="#register" data-bs-toggle="modal" className="tf-btn btn-stroke w-100 mt-12">
+                    Create New Account
                   </a>
                 </div>
-
-                <button
-                  type="submit"
-                  className={`signin-btn ${loading ? "loading" : ""}`}
-                  disabled={loading}
-                >
-                  {loading ? <><span className="signin-spinner" /> Signing in…</> : <>Sign In →</>}
-                </button>
-
-                <div className="signin-divider">or</div>
-
-                <a href="#register" data-bs-toggle="modal" className="signin-register">
-                  Create New Account
-                </a>
               </form>
             )}
 
-            {/* ── OTP: phone entry ── */}
+            {/* ── OTP: email entry ── */}
             {tab === "otp" && !otpSent && (
-              <form onSubmit={handleOtpRequest} noValidate>
-                <div className="signin-field">
-                  <label className="signin-label" htmlFor="si-phone">Mobile Number</label>
-                  <div className="signin-phone-wrap">
-                    <span className="signin-phone-prefix">🇮🇳 +91</span>
+              <form className="form-log" onSubmit={handleOtpRequest} noValidate>
+                <div className="form-content">
+                  <fieldset className="tf-field">
+                    <label className="tf-lable fw-medium" htmlFor="si-otp-email">
+                      Email Address <span className="text-primary">*</span>
+                    </label>
                     <input
-                      ref={phoneRef}
-                      id="si-phone"
-                      type="tel"
-                      inputMode="numeric"
-                      maxLength={10}
-                      className="signin-phone-input"
-                      placeholder="10-digit mobile number"
-                      autoComplete="tel"
+                      ref={otpEmailRef}
+                      id="si-otp-email"
+                      type="email"
+                      placeholder="Enter your email"
                       required
                     />
-                  </div>
+                  </fieldset>
                 </div>
 
-                <button
-                  type="submit"
-                  className={`signin-btn ${loading ? "loading" : ""}`}
-                  disabled={loading}
-                >
-                  {loading ? <><span className="signin-spinner" /> Sending OTP…</> : <>Send OTP →</>}
-                </button>
-
-                <div className="signin-divider">or</div>
-
-                <a href="#register" data-bs-toggle="modal" className="signin-register">
-                  Create New Account
-                </a>
+                <div className="group-action">
+                  <button
+                    type="submit"
+                    className="action-create-account tf-btn animate-btn w-100"
+                    disabled={loading}
+                  >
+                    {loading ? "Sending OTP…" : "Send OTP"}
+                  </button>
+                  <a href="#register" data-bs-toggle="modal" className="tf-btn btn-stroke w-100 mt-12">
+                    Create New Account
+                  </a>
+                </div>
               </form>
             )}
 
             {/* ── OTP: digit entry ── */}
             {tab === "otp" && otpSent && (
-              <form onSubmit={handleOtpVerify} noValidate>
-                <div className="otp-sent-info">
-                  <p>OTP sent to <strong>+91-{phone}</strong></p>
-                  <p style={{ fontSize: 12, color: "#94a3b8" }}>Enter the 6-digit code below</p>
+              <form className="form-log" onSubmit={handleOtpVerify} noValidate>
+                <div className="text-center mb-24">
+                  <p className="mb-4">OTP sent to <strong>{loginEmail}</strong></p>
+                  <p className="text-muted small">Enter the 4-digit code (e.g. 1234)</p>
                 </div>
 
-                <div className="otp-boxes" onPaste={handleOtpPaste}>
+                <div className="d-flex justify-content-center gap-2 mb-24" onPaste={handleOtpPaste}>
                   {otpDigits.map((d, i) => (
                     <input
                       key={i}
@@ -300,38 +291,49 @@ export default function SignIn({
                       inputMode="numeric"
                       maxLength={1}
                       value={d}
-                      className={`otp-box ${d ? "filled" : ""}`}
+                      style={{
+                        width: "48px",
+                        height: "54px",
+                        textAlign: "center",
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        border: "1px solid #ddd",
+                        borderRadius: "8px",
+                        backgroundColor: d ? "#f8f9fa" : "#fff"
+                      }}
                       onChange={(e) => handleOtpDigit(i, e.target.value)}
                       onKeyDown={(e) => handleOtpKeyDown(i, e)}
                     />
                   ))}
                 </div>
 
-                <button
-                  type="submit"
-                  className={`signin-btn ${loading ? "loading" : ""}`}
-                  disabled={loading || otpValue.length < OTP_LENGTH}
-                >
-                  {loading ? <><span className="signin-spinner" /> Verifying…</> : <>Verify & Sign In →</>}
-                </button>
-
-                <div className="signin-resend">
-                  Didn't receive it?{" "}
+                <div className="group-action">
                   <button
-                    type="button"
-                    onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(""); }}
+                    type="submit"
+                    className="action-create-account tf-btn animate-btn w-100"
+                    disabled={loading || otpValue.length < OTP_LENGTH}
                   >
-                    Resend OTP
+                    {loading ? "Verifying…" : "Verify & Sign In"}
                   </button>
-                </div>
 
-                <button
-                  type="button"
-                  className="signin-back"
-                  onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(""); }}
-                >
-                  ← Change number
-                </button>
+                  <div className="d-flex justify-content-between align-items-center mt-16">
+                    <button
+                      type="button"
+                      className="bg-transparent border-0 text-primary small text-decoration-underline"
+                      onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(""); }}
+                    >
+                      ← Change email
+                    </button>
+
+                    <button
+                      type="button"
+                      className="bg-transparent border-0 text-muted small"
+                      onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(""); }}
+                    >
+                      Resend OTP
+                    </button>
+                  </div>
+                </div>
               </form>
             )}
 

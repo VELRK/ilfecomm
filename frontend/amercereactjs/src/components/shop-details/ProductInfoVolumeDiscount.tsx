@@ -37,7 +37,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 39.99,
       priceOld: 49.99,
       save: 15,
-      img: "/assets/images/product/product-1.jpg",
+      img: "/ecomm/frontend/assets/images/product/product-1.jpg",
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 59.99,
       priceOld: 69.99,
       save: 20,
-      img: "/assets/images/product/product-2.jpg",
+      img: "/ecomm/frontend/assets/images/product/product-2.jpg",
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export default function ProductInfoVolumeDiscount({
       priceNew: 79.99,
       priceOld: 89.99,
       save: 25,
-      img: "/assets/images/product/product-3.jpg",
+      img: "/ecomm/frontend/assets/images/product/product-3.jpg",
     },
   ];
 

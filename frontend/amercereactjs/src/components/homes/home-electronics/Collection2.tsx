@@ -11,7 +11,7 @@ export default function Collection2() {
                 loading="lazy"
                 width={690}
                 height={388}
-                src="/assets/images/collection/cls-11.jpg"
+                src="/ecomm/frontend/assets/images/collection/cls-11.jpg"
                 alt="Image"
               />
             </Link>
@@ -36,7 +36,7 @@ export default function Collection2() {
                 loading="lazy"
                 width={690}
                 height={388}
-                src="/assets/images/collection/cls-12.jpg"
+                src="/ecomm/frontend/assets/images/collection/cls-12.jpg"
                 alt="Image"
               />
             </Link>

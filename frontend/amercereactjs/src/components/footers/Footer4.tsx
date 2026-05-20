@@ -204,7 +204,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/visa.svg"
+                  src="/ecomm/frontend/assets/images/payment/visa.svg"
                   alt="Image"
                 />
               </li>
@@ -213,7 +213,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/master-card.svg"
+                  src="/ecomm/frontend/assets/images/payment/master-card.svg"
                   alt="Image"
                 />
               </li>
@@ -222,7 +222,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/amex.svg"
+                  src="/ecomm/frontend/assets/images/payment/amex.svg"
                   alt="Image"
                 />
               </li>
@@ -231,7 +231,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/paypal.svg"
+                  src="/ecomm/frontend/assets/images/payment/paypal.svg"
                   alt="Image"
                 />
               </li>
@@ -240,7 +240,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/water.svg"
+                  src="/ecomm/frontend/assets/images/payment/water.svg"
                   alt="Image"
                 />
               </li>
@@ -249,7 +249,7 @@ export default function Footer4() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/assets/images/payment/discover.svg"
+                  src="/ecomm/frontend/assets/images/payment/discover.svg"
                   alt="Image"
                 />
               </li>

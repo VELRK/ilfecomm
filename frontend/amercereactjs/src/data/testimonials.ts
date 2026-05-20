@@ -4,14 +4,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Fashion (slide 1-2)
   {
     id: 401,
-    img: "/assets/images/product/product-4.jpg",
+    img: "/ecomm/frontend/assets/images/product/product-4.jpg",
     name: "High neck midi wool coat",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 402,
-    img: "/assets/images/product/product-6.jpg",
+    img: "/ecomm/frontend/assets/images/product/product-6.jpg",
     name: "Square metallic frame sunglasses",
     cardVariant: "square",
     price: 29.99,
@@ -19,28 +19,28 @@ export const testimonialProducts: ProductCardItem[] = [
   // Baby (slide 3-6)
   {
     id: 403,
-    img: "/assets/images/product/baby/product-12.jpg",
+    img: "/ecomm/frontend/assets/images/product/baby/product-12.jpg",
     name: "Gentle Comfort for Mess...",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 404,
-    img: "/assets/images/product/baby/product-9.jpg",
+    img: "/ecomm/frontend/assets/images/product/baby/product-9.jpg",
     name: "Frigg Moon Natural...",
     cardVariant: "square",
     price: 69.99,
   },
   {
     id: 405,
-    img: "/assets/images/product/baby/product-10.jpg",
+    img: "/ecomm/frontend/assets/images/product/baby/product-10.jpg",
     name: "Little Dine Wooden High...",
     cardVariant: "square",
     price: 69.99,
   },
   {
     id: 406,
-    img: "/assets/images/product/baby/product-13.jpg",
+    img: "/ecomm/frontend/assets/images/product/baby/product-13.jpg",
     name: "Activity Walk Behind...",
     cardVariant: "square",
     price: 69.99,
@@ -48,14 +48,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Bag (slide 7-8)
   {
     id: 407,
-    img: "/assets/images/product/bag/square/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/bag/square/product-1.jpg",
     name: "Suede Bowling Bag",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 408,
-    img: "/assets/images/product/bag/square/product-2.jpg",
+    img: "/ecomm/frontend/assets/images/product/bag/square/product-2.jpg",
     name: "Patent Leather Shoes With Straps And Buckle",
     cardVariant: "square",
     price: 29.99,
@@ -63,28 +63,28 @@ export const testimonialProducts: ProductCardItem[] = [
   // Construction (slide 9-12)
   {
     id: 409,
-    img: "/assets/images/product/construction/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/construction/product-1.jpg",
     name: "Gentle Comfort for Mess...",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 410,
-    img: "/assets/images/product/construction/product-9.jpg",
+    img: "/ecomm/frontend/assets/images/product/construction/product-9.jpg",
     name: "Frigg Moon Natural...",
     cardVariant: "square",
     price: 69.99,
   },
   {
     id: 411,
-    img: "/assets/images/product/construction/product-5.jpg",
+    img: "/ecomm/frontend/assets/images/product/construction/product-5.jpg",
     name: "Little Dine Wooden High...",
     cardVariant: "square",
     price: 69.99,
   },
   {
     id: 412,
-    img: "/assets/images/product/construction/product-6.jpg",
+    img: "/ecomm/frontend/assets/images/product/construction/product-6.jpg",
     name: "Activity Walk Behind...",
     cardVariant: "square",
     price: 69.99,
@@ -92,14 +92,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Cosmetic (slide 13-14)
   {
     id: 413,
-    img: "/assets/images/product/cosmetic/product-5.jpg",
+    img: "/ecomm/frontend/assets/images/product/cosmetic/product-5.jpg",
     name: "Moon Oil Rosemay & Bakuchiol",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 414,
-    img: "/assets/images/product/cosmetic/product-6.jpg",
+    img: "/ecomm/frontend/assets/images/product/cosmetic/product-6.jpg",
     name: "Unreal Blush Healthy Glow Stick",
     cardVariant: "square",
     price: 29.99,
@@ -107,21 +107,21 @@ export const testimonialProducts: ProductCardItem[] = [
   // Electronics (slide 15-17)
   {
     id: 415,
-    img: "/assets/images/product/electronics/product-10.jpg",
+    img: "/ecomm/frontend/assets/images/product/electronics/product-10.jpg",
     name: "DeePoon M2 Virtual Reality Headset - Super AMOLED display",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 416,
-    img: "/assets/images/product/electronics/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/electronics/product-1.jpg",
     name: "DeePoon M2 Virtual Reality Headset - Super AMOLED display",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 417,
-    img: "/assets/images/product/electronics/product-2.jpg",
+    img: "/ecomm/frontend/assets/images/product/electronics/product-2.jpg",
     name: "DeePoon M2 Virtual Reality Headset - Super AMOLED display",
     cardVariant: "square",
     price: 29.99,
@@ -129,14 +129,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Decor (slide 18-19)
   {
     id: 418,
-    img: "/assets/images/product/decor/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/decor/product-1.jpg",
     name: "Milano",
     cardVariant: "square",
     price: 60.0,
   },
   {
     id: 419,
-    img: "/assets/images/product/decor/product-2.jpg",
+    img: "/ecomm/frontend/assets/images/product/decor/product-2.jpg",
     name: "Openest Sprig",
     cardVariant: "square",
     price: 60.0,
@@ -144,21 +144,21 @@ export const testimonialProducts: ProductCardItem[] = [
   // Fashion 2 (slide 20-22)
   {
     id: 420,
-    img: "/assets/images/product/fashion-2/square/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/fashion-2/square/product-1.jpg",
     name: "Asymmetrical Long-Sleeved T-Shirt",
     cardVariant: "square",
     price: 60.0,
   },
   {
     id: 421,
-    img: "/assets/images/product/fashion-2/square/product-2.jpg",
+    img: "/ecomm/frontend/assets/images/product/fashion-2/square/product-2.jpg",
     name: "Peplum Top With Seam Detail",
     cardVariant: "square",
     price: 39.99,
   },
   {
     id: 422,
-    img: "/assets/images/product/fashion-2/square/product-3.jpg",
+    img: "/ecomm/frontend/assets/images/product/fashion-2/square/product-3.jpg",
     name: "Faux-Laether Jacket With Pockets",
     cardVariant: "square",
     price: 89.99,
@@ -166,7 +166,7 @@ export const testimonialProducts: ProductCardItem[] = [
   // Furniture (slide 23-25)
   {
     id: 423,
-    img: "/assets/images/product/furniture/product-6.jpg",
+    img: "/ecomm/frontend/assets/images/product/furniture/product-6.jpg",
     name: "Office Chair V Leg",
     cardVariant: "square",
     price: 74.99,
@@ -174,7 +174,7 @@ export const testimonialProducts: ProductCardItem[] = [
   },
   {
     id: 424,
-    img: "/assets/images/product/furniture/product-11.jpg",
+    img: "/ecomm/frontend/assets/images/product/furniture/product-11.jpg",
     name: "Angular Ceramic Vase, Beige",
     cardVariant: "square",
     price: 74.99,
@@ -183,7 +183,7 @@ export const testimonialProducts: ProductCardItem[] = [
   // Headphone (slide 26-28)
   {
     id: 425,
-    img: "/assets/images/product/headphone/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/headphone/product-1.jpg",
     name: "MC300 Wireless Over-Ear",
     cardVariant: "square",
     price: 29.99,
@@ -191,7 +191,7 @@ export const testimonialProducts: ProductCardItem[] = [
   },
   {
     id: 426,
-    img: "/assets/images/product/headphone/product-2.jpg",
+    img: "/ecomm/frontend/assets/images/product/headphone/product-2.jpg",
     name: "MC300 Wireless Over-Ear",
     cardVariant: "square",
     price: 29.99,
@@ -199,7 +199,7 @@ export const testimonialProducts: ProductCardItem[] = [
   },
   {
     id: 427,
-    img: "/assets/images/product/headphone/product-3.jpg",
+    img: "/ecomm/frontend/assets/images/product/headphone/product-3.jpg",
     name: "MC300 Wireless Over-Ear",
     cardVariant: "square",
     price: 29.99,
@@ -208,7 +208,7 @@ export const testimonialProducts: ProductCardItem[] = [
   // Mental (slide 29-31)
   {
     id: 428,
-    img: "/assets/images/product/mental/product-1.jpg",
+    img: "/ecomm/frontend/assets/images/product/mental/product-1.jpg",
     name: "Gaia Herbs Relax Gummies",
     cardVariant: "square",
     price: 74.99,
@@ -216,7 +216,7 @@ export const testimonialProducts: ProductCardItem[] = [
   },
   {
     id: 429,
-    img: "/assets/images/product/mental/product-3.jpg",
+    img: "/ecomm/frontend/assets/images/product/mental/product-3.jpg",
     name: "Blooming Blends Sleep Drops",
     cardVariant: "square",
     price: 74.99,
@@ -225,21 +225,21 @@ export const testimonialProducts: ProductCardItem[] = [
   // Organic (slide 32-34)
   {
     id: 430,
-    img: "/assets/images/product/organic/product-7.jpg",
+    img: "/ecomm/frontend/assets/images/product/organic/product-7.jpg",
     name: "Fuji Apple",
     cardVariant: "square",
     price: 60.0,
   },
   {
     id: 431,
-    img: "/assets/images/product/organic/product-8.jpg",
+    img: "/ecomm/frontend/assets/images/product/organic/product-8.jpg",
     name: "Peach",
     cardVariant: "square",
     price: 60.0,
   },
   {
     id: 432,
-    img: "/assets/images/product/organic/product-9.jpg",
+    img: "/ecomm/frontend/assets/images/product/organic/product-9.jpg",
     name: "Potato",
     cardVariant: "square",
     price: 60.0,
@@ -247,14 +247,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Pet (slide 35-37)
   {
     id: 433,
-    img: "/assets/images/product/pet/product-13.jpg",
+    img: "/ecomm/frontend/assets/images/product/pet/product-13.jpg",
     name: 'Woody Woodpecker 4"...',
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 434,
-    img: "/assets/images/product/pet/product-14.jpg",
+    img: "/ecomm/frontend/assets/images/product/pet/product-14.jpg",
     name: "Dog Treats Fish Fingers...",
     cardVariant: "square",
     price: 59.99,
@@ -262,14 +262,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Pod (slide 38-40)
   {
     id: 435,
-    img: "/assets/images/product/personal/product-13.jpg",
+    img: "/ecomm/frontend/assets/images/product/personal/product-13.jpg",
     name: "Kids Personalized Reindeer Hot Chocolate Mug",
     cardVariant: "square",
     price: 29.99,
   },
   {
     id: 436,
-    img: "/assets/images/product/personal/product-14.jpg",
+    img: "/ecomm/frontend/assets/images/product/personal/product-14.jpg",
     name: "Family of 4 Christmas Night Light Custom",
 
     cardVariant: "square",
@@ -278,14 +278,14 @@ export const testimonialProducts: ProductCardItem[] = [
   // Sport (slide 41-43)
   {
     id: 437,
-    img: "/assets/images/product/sport/product-9_2.jpg",
+    img: "/ecomm/frontend/assets/images/product/sport/product-9_2.jpg",
     name: "Trail Running Hydration Vest",
     cardVariant: "square",
     price: 79.99,
   },
   {
     id: 438,
-    img: "/assets/images/product/sport/product-10.jpg",
+    img: "/ecomm/frontend/assets/images/product/sport/product-10.jpg",
     name: "7.5kg hexagonal dumbbell",
     cardVariant: "square",
     price: 29.99,
@@ -294,7 +294,7 @@ export const testimonialProducts: ProductCardItem[] = [
 
 export const testimonialSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-1.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-1.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     quote:
@@ -302,7 +302,7 @@ export const testimonialSlides = [
     product: testimonialProducts[0],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-2.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-2.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     quote:
@@ -313,7 +313,7 @@ export const testimonialSlides = [
 
 export const testimonialBabySlides = [
   {
-    authorImg: "/assets/images/avatar/avatar-4.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-4.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     quote:
@@ -321,7 +321,7 @@ export const testimonialBabySlides = [
     product: testimonialProducts[2],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-5.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-5.jpg",
     authorAlt: "Image",
     authorName: "Michael Carter",
     quote:
@@ -329,7 +329,7 @@ export const testimonialBabySlides = [
     product: testimonialProducts[3],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-6.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-6.jpg",
     authorAlt: "Image",
     authorName: "Olivia Brooks",
     quote:
@@ -337,7 +337,7 @@ export const testimonialBabySlides = [
     product: testimonialProducts[4],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-7.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-7.jpg",
     authorAlt: "Image",
     authorName: "Daniel Walker",
     quote:
@@ -348,7 +348,7 @@ export const testimonialBabySlides = [
 
 export const testimonialBagAccessoriesSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-25.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-25.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     quote:
@@ -356,7 +356,7 @@ export const testimonialBagAccessoriesSlides = [
     product: testimonialProducts[6],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-26.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-26.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     quote:
@@ -367,7 +367,7 @@ export const testimonialBagAccessoriesSlides = [
 
 export const testimonialConstructionSlides = [
   {
-    authorImg: "/assets/images/avatar/avatar-4.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-4.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     quote:
@@ -375,7 +375,7 @@ export const testimonialConstructionSlides = [
     product: testimonialProducts[8],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-5.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-5.jpg",
     authorAlt: "Image",
     authorName: "Michael Carter",
     quote:
@@ -383,7 +383,7 @@ export const testimonialConstructionSlides = [
     product: testimonialProducts[9],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-6.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-6.jpg",
     authorAlt: "Image",
     authorName: "Olivia Brooks",
     quote:
@@ -391,7 +391,7 @@ export const testimonialConstructionSlides = [
     product: testimonialProducts[10],
   },
   {
-    authorImg: "/assets/images/avatar/avatar-7.jpg",
+    authorImg: "/ecomm/frontend/assets/images/avatar/avatar-7.jpg",
     authorAlt: "Image",
     authorName: "Daniel Walker",
     quote:
@@ -402,7 +402,7 @@ export const testimonialConstructionSlides = [
 
 export const testimonialCosmeticSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-11.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-11.jpg",
     authorAlt: "Image",
     authorName: "Olivia Brooks",
     quote:
@@ -410,7 +410,7 @@ export const testimonialCosmeticSlides = [
     product: testimonialProducts[12],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-12.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-12.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     quote:
@@ -421,7 +421,7 @@ export const testimonialCosmeticSlides = [
 
 export const testimonialElectronicsSlides = [
   {
-    authorImg: "/assets/images/testimonial/thumbs/thumb-1.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/thumbs/thumb-1.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     verifiedLabel: "Verified Buyer",
@@ -430,7 +430,7 @@ export const testimonialElectronicsSlides = [
     product: testimonialProducts[14],
   },
   {
-    authorImg: "/assets/images/testimonial/thumbs/thumb-2.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/thumbs/thumb-2.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     verifiedLabel: "Verified Buyer",
@@ -439,7 +439,7 @@ export const testimonialElectronicsSlides = [
     product: testimonialProducts[15],
   },
   {
-    authorImg: "/assets/images/testimonial/thumbs/thumb-3.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/thumbs/thumb-3.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     verifiedLabel: "Verified Buyer",
@@ -451,7 +451,7 @@ export const testimonialElectronicsSlides = [
 
 export const testimonialDecorSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-7.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-7.jpg",
     authorAlt: "Image",
     authorName: "Martin Culhane",
     quote:
@@ -459,7 +459,7 @@ export const testimonialDecorSlides = [
     product: testimonialProducts[17],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-8.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-8.jpg",
     authorAlt: "Image",
     authorName: "Talan Baptista",
     quote:
@@ -470,28 +470,28 @@ export const testimonialDecorSlides = [
 
 export const testimonialFashionSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-16.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-16.jpg",
     authorAlt: "Image",
     authorName: "Jenna L.",
     quote: "Super comfortable and breathable — perfect for my daily workouts.",
     role: "Yoga Instructor",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-17.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-17.jpg",
     authorAlt: "Image",
     authorName: "Jenna L.",
     quote: "The fit is amazing. Stylish, flexible, and great for the gym.",
     role: "Yoga Instructor",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-18.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-18.jpg",
     authorAlt: "Image",
     authorName: "Jenna L.",
     quote: "Quality is top-notch. I feel more confident every time I wear it.",
     role: "Yoga Instructor",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-19.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-19.jpg",
     authorAlt: "Image",
     authorName: "Jenna L.",
     quote:
@@ -550,7 +550,7 @@ export const testimonialFurnitureSlides = [
 
 export const testimonialGardenSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-22.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-22.jpg",
     authorAlt: "testimonial",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -558,7 +558,7 @@ export const testimonialGardenSlides = [
       "They arrived healthy, and even more beautiful than the photos. I've already recommended them to all my friends!",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-23.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-23.jpg",
     authorAlt: "testimonial",
     authorName: "Marcus R.",
     verifiedLabel: "Verified Buyer",
@@ -566,7 +566,7 @@ export const testimonialGardenSlides = [
       "I'm seriously impressed with this shop. The packaging was secure, the plant looked perfect",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-24.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-24.jpg",
     authorAlt: "testimonial",
     authorName: "Daniel K.",
     verifiedLabel: "Verified Buyer",
@@ -625,7 +625,7 @@ export const testimonialMentalSlides = [
 
 export const testimonialOrganicSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-13.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-13.jpg",
     authorAlt: "Image",
     authorName: "Emily R.",
     quote:
@@ -633,7 +633,7 @@ export const testimonialOrganicSlides = [
     product: testimonialProducts[29],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-14.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-14.jpg",
     authorAlt: "Image",
     authorName: "Sarah",
     quote:
@@ -641,7 +641,7 @@ export const testimonialOrganicSlides = [
     product: testimonialProducts[30],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-15.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-15.jpg",
     authorAlt: "Image",
     authorName: "Daniel",
     quote:
@@ -652,7 +652,7 @@ export const testimonialOrganicSlides = [
 
 export const testimonialPetCareSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-5.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-5.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -661,7 +661,7 @@ export const testimonialPetCareSlides = [
     product: testimonialProducts[32],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-6.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-6.jpg",
     authorAlt: "Image",
     authorName: "Daniel Parker",
     verifiedLabel: "Verified Buyer",
@@ -670,7 +670,7 @@ export const testimonialPetCareSlides = [
     product: testimonialProducts[33],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-5.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-5.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -682,7 +682,7 @@ export const testimonialPetCareSlides = [
 
 export const testimonialPodSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-3.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-3.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -691,7 +691,7 @@ export const testimonialPodSlides = [
     product: testimonialProducts[34],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-4.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-4.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     verifiedLabel: "Verified Buyer",
@@ -700,7 +700,7 @@ export const testimonialPodSlides = [
     product: testimonialProducts[35],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-3.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-3.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -712,21 +712,21 @@ export const testimonialPodSlides = [
 
 export const testimonialSneakerSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-29.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-29.jpg",
     authorAlt: "Image",
     authorName: "Emma Roberts",
     quote:
       "Lightweight, cushioned, and great grip. Perfect for both gym sessions and running. Totally worth it!",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-30.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-30.jpg",
     authorAlt: "Image",
     authorName: "Daniel Parker",
     quote:
       "Sleek design and very breathable. Feels snug without being tight — comfortable even after a full day.",
   },
   {
-    authorImg: "/assets/images/testimonial/tes-29.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-29.jpg",
     authorAlt: "Image",
     authorName: "Emma Roberts",
     quote:
@@ -736,7 +736,7 @@ export const testimonialSneakerSlides = [
 
 export const testimonialSportSlides = [
   {
-    authorImg: "/assets/images/testimonial/tes-27.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-27.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",
@@ -745,7 +745,7 @@ export const testimonialSportSlides = [
     product: testimonialProducts[36],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-28.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-28.jpg",
     authorAlt: "Image",
     authorName: "Sophia Ramirez",
     verifiedLabel: "Verified Buyer",
@@ -754,7 +754,7 @@ export const testimonialSportSlides = [
     product: testimonialProducts[37],
   },
   {
-    authorImg: "/assets/images/testimonial/tes-27.jpg",
+    authorImg: "/ecomm/frontend/assets/images/testimonial/tes-27.jpg",
     authorAlt: "Image",
     authorName: "Emma Collins",
     verifiedLabel: "Verified Buyer",

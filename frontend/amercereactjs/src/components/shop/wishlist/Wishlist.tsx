@@ -13,7 +13,7 @@ function WishlistItem({
   product: ProductCardItem;
   removeFromWishlist: (id: string | number) => void;
 }) {
-  const defaultImage = product.img || "/assets/images/product/product-1.jpg";
+  const defaultImage = product.img || "/ecomm/frontend/assets/images/product/product-1.jpg";
   const [activeImage, setActiveImage] = useState(defaultImage);
   const activeHoverImage =
     activeImage === defaultImage

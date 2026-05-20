@@ -147,7 +147,7 @@ function Lookbook() {
           <div>
             <img
               className="img-banner"
-              src="/assets/images/section/banner-lookbook-11.jpg"
+              src="/ecomm/frontend/assets/images/section/banner-lookbook-11.jpg"
               alt=""
               width={960}
               height={801}

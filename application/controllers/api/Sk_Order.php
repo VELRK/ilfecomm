@@ -54,8 +54,9 @@ class Sk_Order extends Sk_Base_Api {
         }
 
         $shipping = $subtotal >= ($settings['free_shipping_above'] ?? 999) ? 0 : ($settings['shipping_charge'] ?? 50);
-        $tax      = round($subtotal * ($settings['tax_rate'] ?? 18) / 100, 2);
-        $total    = round($subtotal - $discount + $shipping + $tax, 2);
+        $taxable_amount = max(0, $subtotal - $discount);
+        $tax      = round($taxable_amount * ($settings['tax_rate'] ?? 18) / 100, 2);
+        $total    = round($taxable_amount + $shipping + $tax, 2);
 
         $order_data = [
             'user_id'          => $user_id,

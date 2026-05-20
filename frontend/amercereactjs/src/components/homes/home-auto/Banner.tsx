@@ -12,7 +12,7 @@ function Banner() {
                   loading="lazy"
                   width={690}
                   height={388}
-                  src="/assets/images/section/banner-28.jpg"
+                  src="/ecomm/frontend/assets/images/section/banner-28.jpg"
                   alt="Image"
                 />
               </Link>
@@ -41,7 +41,7 @@ function Banner() {
                   loading="lazy"
                   width={690}
                   height={388}
-                  src="/assets/images/section/banner-22.jpg"
+                  src="/ecomm/frontend/assets/images/section/banner-22.jpg"
                   alt="Image"
                 />
               </Link>

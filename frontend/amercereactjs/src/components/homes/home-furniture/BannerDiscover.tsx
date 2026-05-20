@@ -9,7 +9,7 @@ function BannerDiscover() {
             className="banner-v03 parallaxie"
             style={{
               backgroundImage:
-                'url("/assets/images/section/furniture-banner-1.jpg")',
+                'url("/ecomm/frontend/assets/images/section/furniture-banner-1.jpg")',
             }}
           >
             <div className="bn_image">
@@ -18,7 +18,7 @@ function BannerDiscover() {
                 loading="lazy"
                 width={1770}
                 height={440}
-                src="/assets/images/section/furniture-banner-1.jpg"
+                src="/ecomm/frontend/assets/images/section/furniture-banner-1.jpg"
                 alt="Image"
               />
             </div>

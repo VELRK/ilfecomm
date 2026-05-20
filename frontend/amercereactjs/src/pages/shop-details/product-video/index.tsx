@@ -10,43 +10,43 @@ import PageMeta from "@/components/common/PageMeta";
 
 const videoImages: ProductSingleImage[] = [
   {
-    src: "/assets/images/product/single/detail-1.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1.jpg",
     dataColor: "green",
     dataSize: "S",
   },
   {
-    src: "/assets/images/product/single/detail-1_3.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_3.jpg",
     dataColor: "green",
     dataSize: "M",
-    video: "/assets/images/video/video-product.mp4",
+    video: "/ecomm/frontend/assets/images/video/video-product.mp4",
   },
   {
-    src: "/assets/images/product/single/detail-1_2.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_2.jpg",
     dataColor: "green",
     dataSize: "L",
   },
   {
-    src: "/assets/images/product/single/detail-1_4.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_4.jpg",
     dataColor: "green",
     dataSize: "XL",
   },
   {
-    src: "/assets/images/product/single/detail-1_5.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_5.jpg",
     dataColor: "gray",
     dataSize: "M",
   },
   {
-    src: "/assets/images/product/single/detail-1_6.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_6.jpg",
     dataColor: "gray",
     dataSize: "M",
   },
   {
-    src: "/assets/images/product/single/detail-1_7.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_7.jpg",
     dataColor: "black",
     dataSize: "L",
   },
   {
-    src: "/assets/images/product/single/detail-1_8.jpg",
+    src: "/ecomm/frontend/assets/images/product/single/detail-1_8.jpg",
     dataColor: "black",
     dataSize: "L",
   },

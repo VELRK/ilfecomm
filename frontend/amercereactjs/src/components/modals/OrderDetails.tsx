@@ -72,7 +72,7 @@ export default function OrderDetails({
                     loading="lazy"
                     width={100}
                     height={133}
-                    src="/assets/images/product/product-3.jpg"
+                    src="/ecomm/frontend/assets/images/product/product-3.jpg"
                     alt=""
                   />
                 </a>
@@ -100,7 +100,7 @@ export default function OrderDetails({
                     loading="lazy"
                     width={100}
                     height={133}
-                    src="/assets/images/product/product-6.jpg"
+                    src="/ecomm/frontend/assets/images/product/product-6.jpg"
                     alt=""
                   />
                 </a>

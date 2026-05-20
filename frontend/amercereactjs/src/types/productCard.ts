@@ -78,6 +78,7 @@ export interface ProductCardItem extends Partial<ShopProductFacetFields> {
   slug?: string;
 
   // ── Live DB fields ────────────────────────────────────────────────────────
+  stock?: number;
   subtitle?: string;
   model_name?: string;
   brand_name?: string;

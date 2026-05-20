@@ -32,7 +32,7 @@ export default function QuickAdd({
   const previewImage  = selectedColor?.img
     ?? product?.img
     ?? product?.images?.[0]?.src
-    ?? "/assets/images/product/product-1.jpg";
+    ?? "/ecomm/frontend/assets/images/product/product-1.jpg";
 
   const handleAddToCart = () => {
     if (!product) return;

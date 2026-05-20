@@ -103,7 +103,7 @@ export default function SizeGuide({
                     loading="lazy"
                     width={270}
                     height={270}
-                    src="/assets/images/section/size-chart.jpg"
+                    src="/ecomm/frontend/assets/images/section/size-chart.jpg"
                     alt="Image"
                   />
                 </div>

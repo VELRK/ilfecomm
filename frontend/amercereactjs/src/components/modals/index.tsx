@@ -22,8 +22,9 @@ const Compare = lazy(() => import("@/components/modals/Compare"));
 const MobileMenu = lazy(() => import("@/components/modals/MobileMenu"));
 const QuickView = lazy(() => import("@/components/modals/QuickView"));
 const OrderDetails = lazy(() => import("@/components/modals/OrderDetails"));
-const Toolbar   = lazy(() => import("@/components/modals/Toolbar"));
-const PhoneOTP  = lazy(() => import("@/components/modals/PhoneOTP"));
+const Toolbar         = lazy(() => import("@/components/modals/Toolbar"));
+const PhoneOTP        = lazy(() => import("@/components/modals/PhoneOTP"));
+const ProductViewModal = lazy(() => import("@/components/modals/ProductViewModal"));
 
 type BootstrapModalInstance = {
   hide: () => void;
@@ -169,6 +170,9 @@ export default function LayoutModals() {
       </LazyModal>
       <LazyModal>
         <PhoneOTP />
+      </LazyModal>
+      <LazyModal>
+        <ProductViewModal />
       </LazyModal>
     </>
   );

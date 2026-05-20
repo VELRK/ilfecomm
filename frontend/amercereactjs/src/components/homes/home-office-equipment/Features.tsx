@@ -20,7 +20,7 @@ function Features() {
                   loading="lazy"
                   width={471}
                   height={471}
-                  src="/assets/images/section/feature-tech.jpg"
+                  src="/ecomm/frontend/assets/images/section/feature-tech.jpg"
                   alt="Image"
                 />
               </div>

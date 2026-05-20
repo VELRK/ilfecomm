@@ -37,9 +37,9 @@ export default function QuickView({
 
     return [
       product?.img,
-      "/assets/images/product/product-2.jpg",
-      "/assets/images/product/product-3.jpg",
-      "/assets/images/product/product-4.jpg",
+      "/ecomm/frontend/assets/images/product/product-2.jpg",
+      "/ecomm/frontend/assets/images/product/product-3.jpg",
+      "/ecomm/frontend/assets/images/product/product-4.jpg",
     ];
   }, [product]);
 

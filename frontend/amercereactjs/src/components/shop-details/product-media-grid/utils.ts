@@ -18,7 +18,7 @@ export function buildProductGalleryImages(
       src:
         productImg ||
         extraImages[0]?.src ||
-        "/assets/images/product/single/detail-1.jpg",
+        "/ecomm/frontend/assets/images/product/single/detail-1.jpg",
       dataColor: extraImages[0]?.dataColor,
       dataSize: extraImages[0]?.dataSize,
     },

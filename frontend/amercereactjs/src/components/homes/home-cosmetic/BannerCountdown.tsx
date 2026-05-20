@@ -10,7 +10,7 @@ function BannerCountdown() {
             loading="lazy"
             width={1920}
             height={600}
-            src="/assets/images/section/banner-32.jpg"
+            src="/ecomm/frontend/assets/images/section/banner-32.jpg"
             alt="Image"
           />
         </div>

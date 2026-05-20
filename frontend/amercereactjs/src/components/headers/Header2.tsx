@@ -53,7 +53,7 @@ export default function Header2({
                   loading="lazy"
                   width={150}
                   height={30}
-                  src="/assets/images/logo/logo.svg"
+                  src="/ecomm/frontend/assets/images/logo/logo.svg"
                   alt="Image"
                 />
               </Link>

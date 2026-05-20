@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { useCategories } from "@/hooks/useApi";
 
-const PLACEHOLDER = "/assets/images/category/fashion-2/cate-1.jpg";
+const PLACEHOLDER = "/ecomm/frontend/assets/images/category/fashion-2/cate-1.jpg";
 
 function catImgSrc(img?: string): string {
   if (!img) return PLACEHOLDER;

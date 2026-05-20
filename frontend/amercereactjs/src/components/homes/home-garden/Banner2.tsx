@@ -6,7 +6,7 @@ export default function Banner2() {
       <div
         className="banner-v02 parallaxie "
         style={{
-          backgroundImage: 'url("/assets/images/section/banner-53.jpg")',
+          backgroundImage: 'url("/ecomm/frontend/assets/images/section/banner-53.jpg")',
         }}
       >
         <div className="bn_image">
@@ -15,7 +15,7 @@ export default function Banner2() {
             loading="lazy"
             width={1920}
             height={620}
-            src="/assets/images/section/banner-53.jpg"
+            src="/ecomm/frontend/assets/images/section/banner-53.jpg"
             alt="Image"
           />
         </div>

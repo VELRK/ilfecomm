@@ -5,6 +5,6 @@ import type { BannerCompareImages } from "@/types/bannerCompare";
  * `public/assets/images/section/`. Remote URLs keep the slider working before assets exist.
  */
 export const headphoneCompareImages: BannerCompareImages = {
-  beforeSrc: "/assets/images/section/headphone-before.jpg",
-  afterSrc: "/assets/images/section/headphone-after.jpg",
+  beforeSrc: "/ecomm/frontend/assets/images/section/headphone-before.jpg",
+  afterSrc: "/ecomm/frontend/assets/images/section/headphone-after.jpg",
 };
