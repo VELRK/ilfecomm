@@ -16,6 +16,7 @@ class Reports extends Sk_Base {
         $data['order_count']  = $this->_order_count_in_range($from, $to);
         $data['top_products'] = $this->_top_products_in_range($from, $to, 10);
         $data['by_status']    = $this->_orders_by_status($from, $to);
+        $data['by_payment']   = $this->_orders_by_payment($from, $to);
         $data['by_day']       = $this->_revenue_by_day($from, $to);
         $this->render('reports/index', $data);
     }
@@ -64,6 +65,15 @@ class Reports extends Sk_Base {
                         ->group_by('oi.product_id')
                         ->order_by('qty_sold', 'DESC')
                         ->limit($limit)->get()->result_array();
+    }
+
+    private function _orders_by_payment($from, $to) {
+        $rows = $this->db->select('payment_status, COUNT(*) as count')
+                         ->where("DATE(created_at) BETWEEN '$from' AND '$to'", null, false)
+                         ->group_by('payment_status')->get('orders')->result_array();
+        if (!empty($rows)) return $rows;
+        return $this->db->select('payment_status, COUNT(*) as count')
+                        ->group_by('payment_status')->get('orders')->result_array();
     }
 
     private function _orders_by_status($from, $to) {

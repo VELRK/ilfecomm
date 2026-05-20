@@ -62,10 +62,76 @@
       <div class="card-body"><canvas id="reportChart" height="110"></canvas></div>
     </div>
   </div>
-  <div class="col-lg-4">
-    <div class="card sk-table-card shadow-sm h-100">
+  <div class="col-lg-4 d-flex flex-column gap-3">
+    <div class="card sk-table-card shadow-sm">
       <div class="card-header bg-white border-0 py-3 fw-semibold">Orders by Status</div>
-      <div class="card-body"><canvas id="statusChart"></canvas></div>
+      <div class="card-body p-0">
+        <?php
+        $statusColors = [
+          'pending'    => 'warning',
+          'confirmed'  => 'primary',
+          'processing' => 'info',
+          'shipped'    => 'secondary',
+          'delivered'  => 'success',
+          'cancelled'  => 'danger',
+          'refunded'   => 'dark',
+        ];
+        $totalCount = array_sum(array_column($by_status, 'count'));
+        ?>
+        <?php if (!empty($by_status)): ?>
+        <ul class="list-group list-group-flush">
+          <?php foreach ($by_status as $bs): ?>
+          <?php $pct = $totalCount > 0 ? round(($bs['count'] / $totalCount) * 100) : 0; ?>
+          <?php $color = $statusColors[$bs['status']] ?? 'secondary'; ?>
+          <li class="list-group-item px-3 py-2">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="badge bg-<?= $color ?>"><?= ucfirst($bs['status']) ?></span>
+              <span class="fw-semibold"><?= number_format($bs['count']) ?> <small class="text-muted fw-normal">(<?= $pct ?>%)</small></span>
+            </div>
+            <div class="progress" style="height:5px;">
+              <div class="progress-bar bg-<?= $color ?>" style="width:<?= $pct ?>%"></div>
+            </div>
+          </li>
+          <?php endforeach; ?>
+          <li class="list-group-item px-3 py-2 d-flex justify-content-between">
+            <span class="text-muted small">Total</span>
+            <span class="fw-bold"><?= number_format($totalCount) ?></span>
+          </li>
+        </ul>
+        <?php else: ?>
+        <p class="text-muted text-center py-4 mb-0">No orders yet.</p>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <!-- Payment Status breakdown -->
+    <div class="card sk-table-card shadow-sm">
+      <div class="card-header bg-white border-0 py-3 fw-semibold">Payment Status</div>
+      <div class="card-body p-0">
+        <?php
+        $payColors = ['paid'=>'success','pending'=>'warning','failed'=>'danger','refunded'=>'info'];
+        $payTotal  = array_sum(array_column($by_payment, 'count'));
+        ?>
+        <?php if (!empty($by_payment)): ?>
+        <ul class="list-group list-group-flush">
+          <?php foreach ($by_payment as $ps): ?>
+          <?php $pct = $payTotal > 0 ? round(($ps['count'] / $payTotal) * 100) : 0; ?>
+          <?php $c = $payColors[$ps['payment_status']] ?? 'secondary'; ?>
+          <li class="list-group-item px-3 py-2">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="badge bg-<?= $c ?>"><?= ucfirst($ps['payment_status']) ?></span>
+              <span class="fw-semibold"><?= number_format($ps['count']) ?> <small class="text-muted fw-normal">(<?= $pct ?>%)</small></span>
+            </div>
+            <div class="progress" style="height:5px;">
+              <div class="progress-bar bg-<?= $c ?>" style="width:<?= $pct ?>%"></div>
+            </div>
+          </li>
+          <?php endforeach; ?>
+        </ul>
+        <?php else: ?>
+        <p class="text-muted text-center py-4 mb-0">No orders yet.</p>
+        <?php endif; ?>
+      </div>
     </div>
   </div>
 </div>
@@ -96,8 +162,6 @@
 <?php
 $labels = array_column($by_day, 'date');
 $revs   = array_column($by_day, 'revenue');
-$st_labels = array_column($by_status, 'status');
-$st_data   = array_column($by_status, 'count');
 ?>
 <script>
 new Chart(document.getElementById('reportChart').getContext('2d'), {
@@ -106,23 +170,8 @@ new Chart(document.getElementById('reportChart').getContext('2d'), {
     labels: <?= json_encode($labels) ?>,
     datasets: [{ label: 'Revenue', data: <?= json_encode($revs) ?>, backgroundColor: 'rgba(245,158,11,0.7)' }]
   },
-  options: { responsive: true, plugins: { legend: { display: false } } }
+  options: { responsive: true, plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, ticks: { callback: v => '₹' + v.toLocaleString() } }, x: { ticks: { maxTicksLimit: 15 } } }
+  }
 });
-var stLabels = <?= json_encode($st_labels) ?>;
-var stData   = <?= json_encode($st_data) ?>;
-if (stLabels.length > 0) {
-  new Chart(document.getElementById('statusChart').getContext('2d'), {
-    type: 'doughnut',
-    data: {
-      labels: stLabels,
-      datasets: [{ data: stData,
-        backgroundColor: ['#fbbf24','#3b82f6','#8b5cf6','#10b981','#22d3ee','#ef4444','#6b7280']
-      }]
-    },
-    options: { plugins: { legend: { position: 'bottom' } } }
-  });
-} else {
-  document.getElementById('statusChart').parentElement.innerHTML =
-    '<p class="text-muted text-center py-4">No orders yet.</p>';
-}
 </script>
