@@ -1,6 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
 import { formatPrice } from "@/utils/formatPrice";
+
+function closeDrawer() {
+  const el = document.getElementById("recentlyViewedDrawer");
+  if (!el) return;
+  const bs = (window as unknown as { bootstrap?: { Offcanvas?: { getInstance?: (el: HTMLElement) => { hide(): void } | null } } }).bootstrap;
+  bs?.Offcanvas?.getInstance?.(el)?.hide();
+}
 
 export default function RecentlyViewedDrawer({
   registerOffcanvasElement,
@@ -8,6 +15,12 @@ export default function RecentlyViewedDrawer({
   registerOffcanvasElement?: (el: HTMLElement | null) => void;
 }) {
   const { products, loading } = useRecentlyViewed();
+  const navigate = useNavigate();
+
+  const goTo = (path: string) => {
+    closeDrawer();
+    setTimeout(() => navigate(path), 50);
+  };
 
   return (
     <>
@@ -89,10 +102,10 @@ export default function RecentlyViewedDrawer({
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 16 }}>
                 {products.map((p) => (
                   <li key={p.id} style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                    <Link
-                      to={`/product-detail/${p.id}`}
-                      data-bs-dismiss="offcanvas"
-                      style={{ flexShrink: 0 }}
+                    <button
+                      type="button"
+                      onClick={() => goTo(`/product-detail/${p.id}`)}
+                      style={{ flexShrink: 0, background: "none", border: "none", padding: 0, cursor: "pointer" }}
                     >
                       <img
                         src={p.img}
@@ -100,19 +113,20 @@ export default function RecentlyViewedDrawer({
                         width={72}
                         height={96}
                         loading="lazy"
-                        style={{ width: 72, height: 96, objectFit: "cover", borderRadius: 6, background: "#f5f5f5" }}
+                        style={{ width: 72, height: 96, objectFit: "cover", borderRadius: 6, background: "#f5f5f5", display: "block" }}
                         onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                       />
-                    </Link>
+                    </button>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <Link
-                        to={`/product-detail/${p.id}`}
-                        data-bs-dismiss="offcanvas"
-                        className="link-underline-text"
-                        style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 4, color: "#1a1a1a", textDecoration: "none", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}
+                      <button
+                        type="button"
+                        onClick={() => goTo(`/product-detail/${p.id}`)}
+                        style={{ background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left", width: "100%" }}
                       >
-                        {p.name}
-                      </Link>
+                        <span style={{ fontSize: 13, fontWeight: 600, display: "block", marginBottom: 4, color: "#1a1a1a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          {p.name}
+                        </span>
+                      </button>
                       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                         <span style={{ fontSize: 13, fontWeight: 700, color: "#1a1a1a" }}>
                           {formatPrice(p.price)}
@@ -126,13 +140,13 @@ export default function RecentlyViewedDrawer({
                       {p.isStockOut ? (
                         <span style={{ fontSize: 11, color: "#991b1b", fontWeight: 600, marginTop: 4, display: "block" }}>Out of Stock</span>
                       ) : (
-                        <Link
-                          to={`/product-detail/${p.id}`}
-                          data-bs-dismiss="offcanvas"
-                          style={{ fontSize: 11, color: "#666", marginTop: 4, display: "block", textDecoration: "underline" }}
+                        <button
+                          type="button"
+                          onClick={() => goTo(`/product-detail/${p.id}`)}
+                          style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 11, color: "#666", marginTop: 4, display: "block", textDecoration: "underline" }}
                         >
                           View Product
-                        </Link>
+                        </button>
                       )}
                     </div>
                   </li>
@@ -144,14 +158,14 @@ export default function RecentlyViewedDrawer({
           {/* Footer */}
           {!loading && products.length > 0 && (
             <div style={{ padding: "16px 20px", borderTop: "1px solid #f0f0f0" }}>
-              <Link
-                to="/shop-default"
-                data-bs-dismiss="offcanvas"
+              <button
+                type="button"
+                onClick={() => goTo("/shop-default")}
                 className="tf-btn animate-btn w-100 text-center"
-                style={{ display: "block" }}
+                style={{ display: "block", width: "100%" }}
               >
                 Continue Shopping
-              </Link>
+              </button>
             </div>
           )}
         </div>
