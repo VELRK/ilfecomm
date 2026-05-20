@@ -1,6 +1,7 @@
 ﻿import Breadcrumb from "@/components/shop-details/Breadcrumb";
 import ProductDescription from "@/components/shop-details/ProductDescription";
 import RelatedProducts from "@/components/shop-details/RelatedProducts";
+import RecentlyViewed from "@/components/shop-details/RecentlyViewed";
 import ProductSection from "@/components/shop-details/ProductSection";
 import { useParams } from "react-router-dom";
 import PageMeta from "@/components/common/PageMeta";
@@ -8,6 +9,7 @@ import { useProduct, toProductCard, apiImageUrl } from "@/hooks/useApi";
 import type { ColorOption, SizeOption } from "@/context/ProductContext";
 import { useCurrentProductStore } from "@/store/currentProductStore";
 import { useEffect } from "react";
+import { trackView } from "@/hooks/useRecentlyViewed";
 
 export default function Page() {
   const { id = "" } = useParams<{ id: string }>();
@@ -15,6 +17,11 @@ export default function Page() {
   const setCurrentProduct = useCurrentProductStore((s) => s.setCurrentProduct);
 
   // Must be before any early returns — Rules of Hooks
+  // Track this product as recently viewed
+  useEffect(() => {
+    if (id) trackView(id);
+  }, [id]);
+
   useEffect(() => {
     if (!apiProduct) return;
     const card = {
@@ -101,6 +108,7 @@ export default function Page() {
       />
       <ProductDescription product={card} productId={apiProduct.id} />
       <RelatedProducts />
+      <RecentlyViewed excludeSlug={id} />
     </>
   );
 }
