@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/ecomm/frontend/",
+  base: "/ilf/frontend/",
   plugins: [react()],
   resolve: {
     alias: {
