@@ -15,7 +15,7 @@ export function ProductQuantityBuy({ product }: { product: ProductCardItem }) {
   const isInCart = isAddedToCartProducts(product.id);
   const [adding, setAdding] = useState(false);
 
-  const stock = product.stock ?? 0;
+  const stock = Number(product.stock ?? 0);
   const isOutOfStock = stock === 0;
   const isLowStock = stock > 0 && stock <= LOW_STOCK_THRESHOLD;
 
