@@ -30,12 +30,12 @@ export default function TopBar3() {
       <div className="container-full">
         <div
           className="d-flex align-items-center justify-content-center"
-          style={{ minHeight: 36, overflow: 'hidden', position: 'relative' }}
+          style={{ minHeight: 26, overflow: 'hidden', position: 'relative' }}
         >
           <p
             className="text-white text-line-clamp-1 text-center mb-0"
             style={{
-              fontSize: 13,
+              fontSize: 14,
               letterSpacing: '0.5px',
               transition: 'transform 0.5s ease, opacity 0.5s ease',
               transform: isAnimating ? 'translateY(-100%)' : 'translateY(0)',

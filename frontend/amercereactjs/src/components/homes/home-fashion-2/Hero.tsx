@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { heroFashion2Slides } from "@/data/heros";
 import { useBanners } from "@/hooks/useApi";
@@ -49,26 +49,27 @@ function Hero() {
 
   const slides = banners.length > 0
     ? banners.map((b) => ({
-        img: bannerSrc(b),
-        alt: b.title,
-        subtitle: b.subtitle,
-        title: b.title,
-        ctaText: b.cta_text,
-        ctaLink: b.cta_link,
-      }))
+      img: bannerSrc(b),
+      alt: b.title,
+      subtitle: b.subtitle,
+      title: b.title,
+      ctaText: b.cta_text,
+      ctaLink: b.cta_link,
+    }))
     : heroFashion2Slides.map((s) => ({
-        img: s.img,
-        alt: s.alt ?? "Image",
-        subtitle: s.subtitle,
-        title: s.title,
-        ctaText: s.ctaText,
-        ctaLink: "/shop-default",
-      }));
+      img: s.img,
+      alt: s.alt ?? "Image",
+      subtitle: s.subtitle,
+      title: s.title,
+      ctaText: s.ctaText,
+      ctaLink: "/shop-default",
+    }));
 
   return (
     <div className="tf-slideshow tf-btn-swiper-main hover-sw-nav">
       <TfSwiper
         loop
+        auto
         effect="fade"
         delay={3000}
         className="sw-slide-show slider_effect_fade"
@@ -82,41 +83,43 @@ function Hero() {
           const titleParts = slide.title.split("\n");
           return (
             <div key={idx} className="slideshow-wrap">
-              <div className="sld_image hero-banner-img" style={{ overflow: "hidden" }}>
-                <img
-                  src={slide.img}
-                  alt={slide.alt}
-                  width={817}
-                  height={311}
-                  loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              </div>
-              <div className="sld_content pst-5">
-                <div className="container">
-                  <div className="content-sld_wrap">
-                    <div className="heading">
-                      <p className="sub-text_sld text-body-1 fade-item fade-item-1 mb-15">
-                        {slide.subtitle}
-                      </p>
-                      <p className="title_sld text-display fw-medium fade-item fade-item-2">
-                        {titleParts[0]}
-                        {titleParts[1] != null && (
-                          <>
-                            <br />
-                            {titleParts[1]}
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    <div className="fade-item fade-item-3">
-                      <Link to={slide.ctaLink} className="tf-btn animate-btn">
-                        {slide.ctaText}
-                      </Link>
+              <Link to={slide.ctaLink} style={{ display: "block", width: "100%", height: "100%" }}>
+                <div className="sld_image hero-banner-img" style={{ overflow: "hidden", width: "100%", height: "100%" }}>
+                  <img
+                    src={slide.img}
+                    alt={slide.alt}
+                    width={817}
+                    height={311}
+                    loading="lazy"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
+                <div className="sld_content pst-5" style={{ pointerEvents: "none" }}>
+                  <div className="container">
+                    <div className="content-sld_wrap">
+                      <div className="heading d-none">
+                        <p className="sub-text_sld text-body-1 fade-item fade-item-1 mb-15">
+                          {slide.subtitle}
+                        </p>
+                        <p className="title_sld text-display fw-medium fade-item fade-item-2">
+                          {titleParts[0]}
+                          {titleParts[1] != null && (
+                            <>
+                              <br />
+                              {titleParts[1]}
+                            </>
+                          )}
+                        </p>
+                      </div>
+                      <div className="fade-item fade-item-3 d-none">
+                        <span className="tf-btn animate-btn">
+                          {slide.ctaText}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}
@@ -124,10 +127,10 @@ function Hero() {
       <div className="group-nav-action">
         <div className="container-full">
           <div className="d-flex align-items-center justify-content-between">
-            <div className="tf-sw-nav-2 d-lg-flex d-none nav-prev-swiper">
+            <div className="tf-sw-nav-2 d-lg-flex d-none nav-prev-swiper" style={{ opacity: 0 }}>
               <i className="icon icon-ArrowLeft" aria-hidden />
             </div>
-            <div className="tf-sw-nav-2 d-lg-flex d-none nav-next-swiper">
+            <div className="tf-sw-nav-2 d-lg-flex d-none nav-next-swiper" style={{ opacity: 0 }}>
               <i className="icon icon-ArrowRight" aria-hidden />
             </div>
           </div>

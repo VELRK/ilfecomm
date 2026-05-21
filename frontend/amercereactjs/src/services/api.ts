@@ -1,6 +1,6 @@
-﻿import axios from "axios";
+import axios from "axios";
 
-const BASE = import.meta.env.VITE_API_BASE_URL ?? "/Indian Ladies Fashion-api";
+const BASE = import.meta.env.VITE_API_BASE_URL ?? "/shopkart-api";
 
 const http = axios.create({
   baseURL: BASE,
@@ -185,14 +185,14 @@ export interface ApiAddress {
 type AuthResponse = { success: boolean; message: string; data: { token: string; user: ApiUser } };
 
 export const authAPI = {
-  login:       (data: { email: string; password: string }) =>
+  login: (data: { email: string; password: string }) =>
     http.post<AuthResponse>("/login", data),
-  register:    (data: { name: string; email: string; password: string; phone?: string; address?: { line1: string; city?: string; state?: string; pincode?: string } }) =>
+  register: (data: { name: string; email: string; password: string; phone?: string; address?: { line1: string; city?: string; state?: string; pincode?: string } }) =>
     http.post<AuthResponse>("/register", data),
   forgotPassword: (data: { email: string }) => http.post("/forgot-password", data),
-  otpRequest:  (data: { phone: string }) =>
+  otpRequest: (data: { phone: string }) =>
     http.post<{ success: boolean; message: string }>("/otp-request", data),
-  otpVerify:   (data: { phone: string; otp: string }) =>
+  otpVerify: (data: { phone: string; otp: string }) =>
     http.post<AuthResponse>("/otp-verify", data),
 };
 
@@ -235,27 +235,27 @@ export const categoriesAPI = {
 // ── Cart ──────────────────────────────────────────────────────────────────────
 
 export const cartAPI = {
-  get:    () =>
+  get: () =>
     http.get<{ success: boolean; data: { items: CartItem[]; summary: CartSummary } }>("/cart"),
-  add:    (data: { product_id: number; quantity: number }) => http.post("/cart/add", data),
+  add: (data: { product_id: number; quantity: number }) => http.post("/cart/add", data),
   update: (data: { product_id: number; quantity: number }) => http.post("/cart/update", data),
   remove: (data: { product_id: number }) => http.post("/cart/remove", data),
-  clear:  () => http.post("/cart/clear", {}),
+  clear: () => http.post("/cart/clear", {}),
 };
 
 // ── Wishlist ──────────────────────────────────────────────────────────────────
 
 export const wishlistAPI = {
-  get:    () => http.get("/wishlist"),
+  get: () => http.get("/wishlist"),
   toggle: (data: { product_id: number }) => http.post("/wishlist/toggle", data),
 };
 
 // ── Orders ────────────────────────────────────────────────────────────────────
 
 export const ordersAPI = {
-  checkout:    (data: object) => http.post("/checkout", data),
-  getAll:      () => http.get("/orders"),
-  getOne:      (id: number) => http.get(`/order/${id}`),
+  checkout: (data: object) => http.post("/checkout", data),
+  getAll: () => http.get("/orders"),
+  getOne: (id: number) => http.get(`/order/${id}`),
   cancelOrder: (id: number) => http.post(`/order/${id}/cancel`, {}),
 };
 
@@ -263,7 +263,7 @@ export const ordersAPI = {
 
 export const paymentAPI = {
   createOrder: (data: { order_id: number }) => http.post("/payment/create-order", data),
-  verify:      (data: object) => http.post("/payment/verify", data),
+  verify: (data: object) => http.post("/payment/verify", data),
 };
 
 // ── Promo ─────────────────────────────────────────────────────────────────────
@@ -275,14 +275,14 @@ export const promoAPI = {
 // ── User ──────────────────────────────────────────────────────────────────────
 
 export const userAPI = {
-  profile:        () => http.get<{ success: boolean; data: ApiUser }>("/user/profile"),
-  updateProfile:  (data: object) => http.put("/user/profile", data),
-  dashboard:      () => http.get("/user/dashboard"),
+  profile: () => http.get<{ success: boolean; data: ApiUser }>("/user/profile"),
+  updateProfile: (data: object) => http.put("/user/profile", data),
+  dashboard: () => http.get("/user/dashboard"),
   changePassword: (data: { current_password: string; new_password: string; confirm_password: string }) =>
     http.post("/user/change-password", data),
-  getAddresses:   () => http.get<{ success: boolean; data: ApiAddress[] }>("/user/addresses"),
-  saveAddress:    (data: object) => http.post("/user/addresses", data),
-  deleteAddress:  (id: number) => http.delete(`/user/addresses/${id}`),
+  getAddresses: () => http.get<{ success: boolean; data: ApiAddress[] }>("/user/addresses"),
+  saveAddress: (data: object) => http.post("/user/addresses", data),
+  deleteAddress: (id: number) => http.delete(`/user/addresses/${id}`),
 };
 
 export interface ApiBanner {
@@ -299,8 +299,8 @@ export interface ApiBanner {
 }
 
 export const bannersAPI = {
-  getAll:        () => http.get<{ success: boolean; data: ApiBanner[] }>("/banners"),
-  getOffer:      () => http.get<{ success: boolean; data: ApiBanner | null }>("/offer-banner"),
+  getAll: () => http.get<{ success: boolean; data: ApiBanner[] }>("/banners"),
+  getOffer: () => http.get<{ success: boolean; data: ApiBanner | null }>("/offer-banner"),
   getCollection: () => http.get<{ success: boolean; data: ApiBanner[] }>("/collection-banners"),
 };
 
