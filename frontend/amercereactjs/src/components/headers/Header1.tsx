@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartIconCount from "./CartIconCount";
 import AccountIcon from "./AccountIcon";
 import Nav from "./Nav";
@@ -10,10 +10,10 @@ export default function Header1() {
   return (
     <header
       className={`tf-header header-s2 scr-box-shadow${headerSticky ? " header-sticky" : ""}`}
-      style={{ top: headerSticky ? "0px" : "-80px", transition: "top 0.3s ease-in-out" }}
+      style={{ top: headerSticky ? "0px" : "-200px", transition: "top 0.3s ease-in-out" }}
     >
       <div className="container-full">
-        <div className="header-inner">
+        <div className="header-inner" style={{ padding: "0", minHeight: "50px" }}>
 
           {/* Mobile hamburger */}
           <div className="box-open-menu-mobile d-xl-none">
@@ -27,10 +27,9 @@ export default function Header1() {
             <Link to="/" className="logo-site flex-shrink-0 me-4">
               <img
                 loading="lazy"
-                width={150}
-                height={30}
                 src="/ilf/frontend/assets/logo/logo.png"
                 alt="Indian Ladies Fashion"
+                style={{ width: "80px", height: "80px", objectFit: "contain" }}
               />
             </Link>
             {/* Divider */}

@@ -12,20 +12,20 @@ export default function SignIn({
 }: {
   registerModalElement?: (el: HTMLElement | null) => void;
 }) {
-  const navigate  = useNavigate();
+  const navigate = useNavigate();
   const { login } = useAuthStore();
 
-  const [tab, setTab]         = useState<"email" | "otp">("email");
+  const [tab, setTab] = useState<"email" | "otp">("email");
   const [otpSent, setOtpSent] = useState(false);
   const [loginEmail, setLoginEmail] = useState("");
   const [otpDigits, setOtpDigits] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
-  const emailRef   = useRef<HTMLInputElement>(null);
-  const passRef    = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
   const otpEmailRef = useRef<HTMLInputElement>(null);
-  const otpRefs    = useRef<(HTMLInputElement | null)[]>([]);
+  const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   function closeModal() {
@@ -77,7 +77,7 @@ export default function SignIn({
   async function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    const email    = emailRef.current?.value.trim() ?? "";
+    const email = emailRef.current?.value.trim() ?? "";
     const password = passRef.current?.value ?? "";
     if (!email || !password) return;
     setLoading(true);

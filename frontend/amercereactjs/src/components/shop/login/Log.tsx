@@ -8,8 +8,8 @@ import type { ApiUser } from "@/services/api";
 const OTP_LENGTH = 4;
 
 function Log() {
-  const navigate             = useNavigate();
-  const location             = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { login, isLoggedIn } = useAuthStore();
 
   // Honour ?redirect= so e.g. /login?redirect=/checkout goes back there after login
@@ -24,12 +24,12 @@ function Log() {
   const [loginEmail, setLoginEmail] = useState("");
   const [otpDigits, setOtpDigits] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
-  const emailRef  = useRef<HTMLInputElement>(null);
-  const passRef   = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
   const otpEmailRef = useRef<HTMLInputElement>(null);
-  const otpRefs    = useRef<(HTMLInputElement | null)[]>([]);
+  const otpRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   /* ── Email login ── */
@@ -123,7 +123,7 @@ function Log() {
             <div className="col-md-5 ms-auto">
               <div className="col-left">
                 <h4 className="title mb-20">Login</h4>
-                
+
                 {/* Tab switcher */}
                 <div className="d-flex mb-20 pb-2" style={{ borderBottom: "1px solid #eee" }}>
                   <button
@@ -188,13 +188,13 @@ function Log() {
                     <div className="form-content">
                       <fieldset className="tf-field">
                         <label htmlFor="otp-email" className="tf-lable fw-medium">
-                          Email Address <span className="text-primary">*</span>
+                          Phone Number <span className="text-primary">*</span>
                         </label>
                         <input
                           ref={otpEmailRef}
-                          type="email"
-                          id="otp-email"
-                          placeholder="your@email.com"
+                          type="number"
+                          id="otp-phone"
+                          placeholder="+91 XXXXXXXXXX"
                           required
                         />
                       </fieldset>
