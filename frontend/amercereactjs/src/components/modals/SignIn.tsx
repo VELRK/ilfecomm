@@ -22,7 +22,7 @@ export default function SignIn({
 
   const emailRef   = useRef<HTMLInputElement>(null);
   const passRef    = useRef<HTMLInputElement>(null);
-  const otpEmailRef = useRef<HTMLInputElement>(null);
+  const otpPhoneRef = useRef<HTMLInputElement>(null);
   const otpRefs    = useRef<(HTMLInputElement | null)[]>([]);
 
   const [error, setError]     = useState("");
@@ -99,12 +99,12 @@ export default function SignIn({
   async function handleOtpRequest(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    const emailVal = otpEmailRef.current?.value.trim() ?? "";
-    if (!emailVal) return;
+    const phoneVal = otpPhoneRef.current?.value.trim().replace(/\D/g, "") ?? "";
+    if (phoneVal.length < 10) { setError("Enter a valid 10-digit mobile number."); return; }
     setLoading(true);
     try {
-      await authAPI.otpRequest({ phone: emailVal });
-      setLoginEmail(emailVal);
+      await authAPI.otpRequest({ phone: phoneVal });
+      setLoginEmail(phoneVal);
       setOtpSent(true);
       setOtpDigits(Array(OTP_LENGTH).fill(""));
       setTimeout(() => otpRefs.current[0]?.focus(), 100);
@@ -241,21 +241,27 @@ export default function SignIn({
               </form>
             )}
 
-            {/* ── OTP: email entry ── */}
+            {/* ── OTP: phone entry ── */}
             {tab === "otp" && !otpSent && (
               <form className="form-log" onSubmit={handleOtpRequest} noValidate>
                 <div className="form-content">
                   <fieldset className="tf-field">
-                    <label className="tf-lable fw-medium" htmlFor="si-otp-email">
-                      Email Address <span className="text-primary">*</span>
+                    <label className="tf-lable fw-medium" htmlFor="si-otp-phone">
+                      Mobile Number <span className="text-primary">*</span>
                     </label>
-                    <input
-                      ref={otpEmailRef}
-                      id="si-otp-email"
-                      type="email"
-                      placeholder="Enter your email"
-                      required
-                    />
+                    <div className="input-group">
+                      <span className="input-group-text fw-medium">+91</span>
+                      <input
+                        ref={otpPhoneRef}
+                        id="si-otp-phone"
+                        type="tel"
+                        inputMode="numeric"
+                        maxLength={10}
+                        placeholder="10-digit mobile number"
+                        onChange={(e) => { e.target.value = e.target.value.replace(/\D/g, ""); setError(""); }}
+                        required
+                      />
+                    </div>
                   </fieldset>
                 </div>
 
@@ -278,7 +284,7 @@ export default function SignIn({
             {tab === "otp" && otpSent && (
               <form className="form-log" onSubmit={handleOtpVerify} noValidate>
                 <div className="text-center mb-24">
-                  <p className="mb-4">OTP sent to <strong>{loginEmail}</strong></p>
+                  <p className="mb-4">OTP sent to <strong>+91-{loginEmail}</strong></p>
                   <p className="text-muted small">Enter the 4-digit code (e.g. 1234)</p>
                 </div>
 
@@ -322,7 +328,7 @@ export default function SignIn({
                       className="bg-transparent border-0 text-primary small text-decoration-underline"
                       onClick={() => { setOtpSent(false); setOtpDigits(Array(OTP_LENGTH).fill("")); setError(""); }}
                     >
-                      ← Change email
+                      ← Change number
                     </button>
 
                     <button
