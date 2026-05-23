@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { AccountSection } from "@/components/account/AccountSection";
 import { userAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
@@ -37,55 +37,179 @@ export default function AccountSetting() {
 
   return (
     <AccountSection title="Account Details">
-      <div className="account-details">
-        {/* Prompt when user has no real email */}
-        {isPhoneOnly && (
-          <div className="alert alert-warning py-2 px-3 mb-4 fs-14" style={{ borderRadius: 10 }}>
-            📧 Your account doesn't have an email address yet. Add one below to enable email login.
-          </div>
-        )}
+      <div className="settings-container-custom">
+        <style>{`
+          .settings-container-custom {
+            font-family: 'Outfit', sans-serif;
+            color: #111111;
+          }
 
-        {msg && (
-          <div className={`alert ${msg.type === 'success' ? 'alert-success' : 'alert-danger'} py-2 px-3 mb-4 fs-14`}>
-            {msg.type === 'success' ? '✓ ' : '✕ '}{msg.text}
-          </div>
-        )}
+          .settings-card-custom {
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid rgba(193, 16, 105, 0.06);
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(193, 16, 105, 0.02);
+          }
 
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-12 mb-4">
-              <fieldset className="tf-field">
-                <label className="fw-medium mb-1 fs-13">Full Name*</label>
+          @media (max-width: 576px) {
+            .settings-card-custom {
+              padding: 20px;
+            }
+          }
+
+          .settings-title-custom {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 24px;
+            border-bottom: 1px solid rgba(193, 16, 105, 0.08);
+            padding-bottom: 12px;
+          }
+
+          .form-label-custom {
+            font-weight: 600;
+            font-size: 13px;
+            color: #333333;
+            margin-bottom: 6px;
+            display: block;
+          }
+
+          .form-input-custom {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(193, 16, 105, 0.15);
+            border-radius: 10px;
+            font-size: 14px;
+            color: #111111;
+            background: #ffffff;
+            outline: none;
+            transition: all 0.25s ease;
+          }
+
+          .form-input-custom:focus {
+            border-color: #c11069;
+            box-shadow: 0 0 0 3px rgba(193, 16, 105, 0.1);
+          }
+
+          .form-input-custom:read-only {
+            background: #f8fafc;
+            border-color: #e2e8f0;
+            color: #64748b;
+            cursor: not-allowed;
+          }
+
+          .alert-custom {
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 13.5px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+          }
+
+          .alert-custom.warning {
+            background: #fffbeb;
+            color: #b45309;
+            border: 1px solid #fef3c7;
+          }
+
+          .alert-custom.success {
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+          }
+
+          .alert-custom.danger {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fee2e2;
+          }
+
+          .btn-primary-custom {
+            background: #c11069;
+            color: #ffffff;
+            border: 1px solid #c11069;
+            border-radius: 10px;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+          }
+
+          .btn-primary-custom:hover {
+            background: #920b4e;
+            border-color: #920b4e;
+          }
+
+          .btn-primary-custom:disabled {
+            background: #cbd5e1;
+            border-color: #cbd5e1;
+            color: #94a3b8;
+            cursor: not-allowed;
+          }
+
+          .form-desc-custom {
+            margin-top: 6px;
+            color: #64748b;
+            font-size: 12px;
+          }
+        `}</style>
+
+        <div className="settings-card-custom">
+          <h5 className="settings-title-custom">Personal Details</h5>
+
+          {/* Prompt when user has no real email */}
+          {isPhoneOnly && (
+            <div className="alert-custom warning">
+              <span>📧</span>
+              <span>Your account doesn't have an email address yet. Add one below to enable email login.</span>
+            </div>
+          )}
+
+          {msg && (
+            <div className={`alert-custom ${msg.type === 'success' ? 'success' : 'danger'}`}>
+              <span>{msg.type === 'success' ? '✓' : '✕'}</span>
+              <span>{msg.text}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-12 mb-4">
+                <label className="form-label-custom">Full Name <span style={{ color: "#dc2626" }}>*</span></label>
                 <input
-                  className="form-control"
+                  className="form-input-custom"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your full name"
                   required
                 />
-              </fieldset>
-            </div>
-            <div className="col-12 mb-4">
-              <fieldset className="tf-field">
-                <label className="fw-medium mb-1 fs-13">Phone Number</label>
+              </div>
+
+              <div className="col-12 mb-4">
+                <label className="form-label-custom">Phone Number</label>
                 <input
-                  className="form-control"
+                  className="form-input-custom"
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
                   placeholder="10-digit mobile number"
                 />
-              </fieldset>
-            </div>
-            <div className="col-12 mb-4">
-              <fieldset className="tf-field">
-                <label className="fw-medium mb-1 fs-13">
+              </div>
+
+              <div className="col-12 mb-4">
+                <label className="form-label-custom">
                   Email Address {isPhoneOnly ? <span className="text-muted fw-normal">(optional — enables email login)</span> : "(Read-only)"}
                 </label>
                 {isPhoneOnly ? (
                   <input
-                    className="form-control"
+                    className="form-input-custom"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -93,26 +217,25 @@ export default function AccountSetting() {
                   />
                 ) : (
                   <input
-                    className="form-control"
+                    className="form-input-custom"
                     type="email"
                     value={currentEmail}
                     readOnly
-                    style={{ background: "var(--bg)", cursor: "not-allowed" }}
                   />
                 )}
-              </fieldset>
-              {!isPhoneOnly && (
-                <p className="mt-2 text-muted" style={{ fontSize: 12 }}>Email address cannot be modified.</p>
-              )}
+                {!isPhoneOnly && (
+                  <p className="form-desc-custom">Account email address cannot be modified.</p>
+                )}
+              </div>
             </div>
-          </div>
 
-          <div className="mt-4">
-            <button type="submit" className="tf-btn btn-sm animate-btn" disabled={saving}>
-              {saving ? "Saving Changes..." : "Save Changes"}
-            </button>
-          </div>
-        </form>
+            <div className="mt-4">
+              <button type="submit" className="btn-primary-custom" disabled={saving}>
+                {saving ? "Saving Changes..." : "Save Changes"}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </AccountSection>
   );
