@@ -31,7 +31,7 @@ export const footerCustomerLinks: FooterLinkGroup = {
     { label: "Return & Refund",    href: "/return-refund" },
     { label: "Privacy Policy",     href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },
-    { label: "Orders FAQs",        href: "/contact" },
+    { label: "Orders FAQs",        href: "/orders-faq" },
   ],
 };
 

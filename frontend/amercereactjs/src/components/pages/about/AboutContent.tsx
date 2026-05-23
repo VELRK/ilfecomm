@@ -30,7 +30,7 @@ function AboutContent() {
         .about-hero-image-wrap {
           height: 100%;
           min-height: 380px;
-          background-image: url('https://lh3.googleusercontent.com/p/AF1QipOui1zmA0PqHsvpr5dpSXWnJd-EqEHocX7FHA9T=s680-w680-h510-rw');
+          background-image: url('/ilf/frontend/assets/images/about-storefront.png');
           background-size: cover;
           background-position: center;
         }
