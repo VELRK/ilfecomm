@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 function AboutContent() {
   return (
     <section className="about-us-section bg-light-pink-subtle">

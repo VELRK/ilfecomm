@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface Section {
   id: string;
@@ -21,7 +21,6 @@ const sections: Section[] = [
 
 function ReturnRefundContent() {
   const [activeSection, setActiveSection] = useState<string>("business-info");
-  const observerRefs = useRef<{ [key: string]: IntersectionObserver }>({});
 
   useEffect(() => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
