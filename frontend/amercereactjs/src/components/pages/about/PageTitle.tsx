@@ -15,10 +15,9 @@ function PageTitle() {
             </div>
             <h3>About Us</h3>
             <p className="text-body-1 cl-text-2">
-              With over 15 years of experience, we craft timeless collections
-              that transcend
+              Coimbatore's destination for elegant ethnic fashion, precision tailoring,
               <br className="d-none d-lg-block" />
-              trends and inspire lasting elegance.
+              and timeless handcrafted Aari embroidery.
             </p>
           </div>
         </div>

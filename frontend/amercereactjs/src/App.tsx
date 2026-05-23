@@ -165,6 +165,7 @@ const BlogSingleById = lazy(() => import("./pages/blogs/blog-single/index"));
 const PageCompare = lazy(() => import("./pages/pages/compare/index"));
 const PageAbout = lazy(() => import("./pages/pages/about/index"));
 const PageContact = lazy(() => import("./pages/pages/contact/index"));
+const PageReturnRefund = lazy(() => import("./pages/pages/return-refund/index"));
 const Page404 = lazy(() => import("./pages/pages/404/index"));
 const PageOurStore = lazy(() => import("./pages/pages/our-store/index"));
 const PageInvoice = lazy(() => import("./pages/invoice/index"));
@@ -414,6 +415,10 @@ function App() {
           <Route
             path="/contact"
             element={<PagesSectionRoute Page={PageContact} />}
+          />
+          <Route
+            path="/return-refund"
+            element={<PagesSectionRoute Page={PageReturnRefund} />}
           />
           <Route
             path="/our-store"
