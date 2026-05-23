@@ -169,6 +169,8 @@ const PageReturnRefund = lazy(() => import("./pages/pages/return-refund/index"))
 const Page404 = lazy(() => import("./pages/pages/404/index"));
 const PageOurStore = lazy(() => import("./pages/pages/our-store/index"));
 const PageInvoice = lazy(() => import("./pages/invoice/index"));
+const PagePrivacyPolicy = lazy(() => import("./pages/pages/privacy-policy/index"));
+const PageTermsAndConditions = lazy(() => import("./pages/pages/terms-and-conditions/index"));
 
 
 /* —— Product detail variants (:id) —— */
@@ -432,6 +434,14 @@ function App() {
           <Route
             path="/invoice"
             element={<PagesSectionRoute Page={PageInvoice} />}
+          />
+          <Route
+            path="/privacy-policy"
+            element={<PagesSectionRoute Page={PagePrivacyPolicy} />}
+          />
+          <Route
+            path="/terms-and-conditions"
+            element={<PagesSectionRoute Page={PageTermsAndConditions} />}
           />
 
 

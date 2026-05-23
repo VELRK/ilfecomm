@@ -27,11 +27,11 @@ export const footerCompanyLinks: FooterLinkGroup = {
 export const footerCustomerLinks: FooterLinkGroup = {
   title: "CUSTOMER",
   links: [
-    { label: "Track Order", href: "/track-order" },
-    { label: "Return & Refund", href: "/return-refund" },
-    { label: "Privacy Policy", href: "/about" },
-    { label: "Terms & Conditions", href: "/about" },
-    { label: "Orders FAQs", href: "/contact" },
+    { label: "Track Order",        href: "/track-order" },
+    { label: "Return & Refund",    href: "/return-refund" },
+    { label: "Privacy Policy",     href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms-and-conditions" },
+    { label: "Orders FAQs",        href: "/contact" },
   ],
 };
 
