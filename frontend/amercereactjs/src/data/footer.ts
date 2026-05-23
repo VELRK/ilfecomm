@@ -29,8 +29,8 @@ export const footerCustomerLinks: FooterLinkGroup = {
   links: [
     { label: "Track Order",       href: "/track-order" },
     { label: "Return & Refund",   href: "/contact" },
-    { label: "Privacy Policy",    href: "/about" },
-    { label: "Terms & Conditions",href: "/about" },
+    { label: "Privacy Policy",    href: "/privacy-policy" },
+    { label: "Terms & Conditions",href: "/terms-and-conditions" },
     { label: "Orders FAQs",       href: "/contact" },
   ],
 };
