@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   FooterLinkGroup,
   FooterStore,
   FooterPaymentIcon,
@@ -16,22 +16,22 @@ export const footerStore: FooterStore = {
 export const footerCompanyLinks: FooterLinkGroup = {
   title: "COMPANY",
   links: [
-    { label: "About Us",    href: "/about" },
-    { label: "Our Store",   href: "/our-store" },
-    { label: "Contact Us",  href: "/contact" },
-    { label: "Blog",        href: "/blog" },
-    { label: "My Account",  href: "/account-page" },
+    { label: "About Us", href: "/about" },
+    // { label: "Our Store",   href: "/our-store" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Blog", href: "/blog" },
+    { label: "My Account", href: "/account-page" },
   ],
 };
 
 export const footerCustomerLinks: FooterLinkGroup = {
   title: "CUSTOMER",
   links: [
-    { label: "Track Order",       href: "/track-order" },
-    { label: "Return & Refund",   href: "/contact" },
-    { label: "Privacy Policy",    href: "/about" },
-    { label: "Terms & Conditions",href: "/about" },
-    { label: "Orders FAQs",       href: "/contact" },
+    { label: "Track Order", href: "/track-order" },
+    { label: "Return & Refund", href: "/return-refund" },
+    { label: "Privacy Policy", href: "/about" },
+    { label: "Terms & Conditions", href: "/about" },
+    { label: "Orders FAQs", href: "/contact" },
   ],
 };
 
@@ -39,10 +39,10 @@ export const footerCustomerLinks: FooterLinkGroup = {
 export const footerAccountLinksModal: FooterLinkGroup = {
   title: "MY ACCOUNT",
   links: [
-    { label: "Login",       href: "#sign" },
-    { label: "Sign up",     href: "#register" },
-    { label: "My Account",  href: "/account-page" },
-    { label: "Wish List",   href: "/wishlist" },
+    { label: "Login", href: "#sign" },
+    { label: "Sign up", href: "#register" },
+    { label: "My Account", href: "/account-page" },
+    { label: "Wish List", href: "/wishlist" },
   ],
 };
 
@@ -50,19 +50,19 @@ export const footerAccountLinksModal: FooterLinkGroup = {
 export const footerAccountLinksPage: FooterLinkGroup = {
   title: "MY ACCOUNT",
   links: [
-    { label: "Login",       href: "/login" },
-    { label: "Sign up",     href: "/register" },
-    { label: "My Account",  href: "/account-page" },
-    { label: "My Orders",   href: "/account-orders" },
-    { label: "Wish List",   href: "/wishlist" },
-    { label: "View Cart",   href: "/view-cart" },
+    { label: "Login", href: "/login" },
+    { label: "Sign up", href: "/register" },
+    { label: "My Account", href: "/account-page" },
+    { label: "My Orders", href: "/account-orders" },
+    { label: "Wish List", href: "/wishlist" },
+    { label: "View Cart", href: "/view-cart" },
   ],
 };
 
 export const footerPaymentIcons: FooterPaymentIcon[] = [
-  { src: "/ilf/frontend/assets/images/payment/visa.svg",        alt: "Visa" },
+  { src: "/ilf/frontend/assets/images/payment/visa.svg", alt: "Visa" },
   { src: "/ilf/frontend/assets/images/payment/master-card.svg", alt: "Mastercard" },
-  { src: "/ilf/frontend/assets/images/payment/amex.svg",        alt: "Amex" },
-  { src: "/ilf/frontend/assets/images/payment/paypal.svg",      alt: "PayPal" },
-  { src: "/ilf/frontend/assets/images/payment/discover.svg",    alt: "Discover" },
+  { src: "/ilf/frontend/assets/images/payment/amex.svg", alt: "Amex" },
+  { src: "/ilf/frontend/assets/images/payment/paypal.svg", alt: "PayPal" },
+  { src: "/ilf/frontend/assets/images/payment/discover.svg", alt: "Discover" },
 ];

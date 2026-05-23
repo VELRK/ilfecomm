@@ -1,150 +1,73 @@
-﻿import { Link } from "react-router-dom";
-
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useWishlistStore } from "@/store/wishlistStore";
 import type { ProductCardItem } from "@/types/productCard";
+import { formatPrice } from "@/utils/formatPrice";
 
-function WishlistItem({
-  cardVariant,
+function WishlistTableRow({
   product,
   removeFromWishlist,
 }: {
-  cardVariant: string;
   product: ProductCardItem;
   removeFromWishlist: (id: string | number) => void;
 }) {
-  const defaultImage = product.img || "/ilf/frontend/assets/images/product/product-1.jpg";
-  const [activeImage, setActiveImage] = useState(defaultImage);
-  const activeHoverImage =
-    activeImage === defaultImage
-      ? (product.imgHover ?? defaultImage)
-      : activeImage;
+  const imgSrc =
+    product.img || "/ilf/frontend/assets/images/product/product-1.jpg";
 
   return (
-    <div className="card-product">
-      <div className={`card-product_wrapper ${cardVariant}`}>
-        <Link to={`/product-detail/${product.id}`} className="product-img">
-          <img
-            className="img-product"
-            loading="lazy"
-            width={330}
-            height={440}
-            src={activeImage}
-            alt={product.name}
-          />
-          <img
-            className="img-hover"
-            loading="lazy"
-            width={330}
-            height={440}
-            src={activeHoverImage}
-            alt={product.name}
-          />
+    <tr className="tf-cart_item each-prd file-delete">
+      <td className="cart_product">
+        <Link to={`/product-detail/${product.id}`} className="img-prd">
+          <img loading="lazy" width={100} height={133} src={imgSrc} alt={product.name} />
         </Link>
-        <ul className="product-action_list">
-          <li className="compare">
-            <a
-              href="#compare"
-              data-bs-toggle="offcanvas"
-              className="hover-tooltip tooltip-left box-icon"
-            >
-              <span className="icon icon-ArrowsLeftRight" />
-              <span className="tooltip">Compare</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#quickView"
-              data-bs-toggle="offcanvas"
-              className="hover-tooltip tooltip-left box-icon"
-            >
-              <span className="icon icon-Eye" />
-              <span className="tooltip">Quick view</span>
-            </a>
-          </li>
-        </ul>
-        {product.badge && (
-          <ul className="product-badge_list">
-            <li
-              className={`product-badge_item text-caption-01 ${
-                product.badge.toLowerCase() === "new" ? "new" : "sale"
-              }`}
-            >
-              {product.badge}
-            </li>
-          </ul>
-        )}
-        <span
-          className="product-action_remove remove box-icon hover-tooltip tooltip-left"
-          onClick={() => removeFromWishlist(product.id)}
-          style={{ cursor: "pointer" }}
-        >
-          <i className="icon icon-trash" />
-          <span className="tooltip">Remove</span>
-        </span>
-        <div className="product-action_bot">
-          <a
-            href="#quickAdd"
-            data-bs-toggle="modal"
-            className="tf-btn btn-white small w-100"
+        <div className="infor-prd">
+          <Link
+            to={`/product-detail/${product.id}`}
+            className="prd_name fw-medium link lh-24"
           >
-            Quick Add
-          </a>
-        </div>
-        {product.marquee && (
-          <div className="product-marquee_sale">
-            <div className="marquee-wrapper">
-              <div className="initial-child-container">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="marquee-child-item">
-                    {product.marquee}
-                  </div>
-                ))}
-              </div>
-            </div>
+            {product.name}
+          </Link>
+          <div className="star-wrap d-flex align-items-center mt-2 mb-2">
+            {[...Array(5)].map((_, i) => (
+              <i key={i} className="icon icon-Star" style={{ fontSize: "12px", color: "#fca120", marginRight: "2px" }} />
+            ))}
           </div>
-        )}
-      </div>
-      <div className="card-product_info">
-        <Link
-          to={`/product-detail/${product.id}`}
-          className="name-product lh-24 fw-medium link-underline-text"
-        >
-          {product.name}
-        </Link>
-        <div className="star-wrap d-flex align-items-center">
-          {[...Array(5)].map((_, i) => (
-            <i key={i} className="icon icon-Star" />
-          ))}
+          <button
+            type="button"
+            className="cart_remove tf-btn-line-3 type-primary remove border-0 bg-transparent p-0"
+            onClick={() => removeFromWishlist(product.id)}
+          >
+            <span className="text-caption-01 fw-semibold">Remove</span>
+          </button>
         </div>
-        <div className="price-wrap">
-          <span className="price-new text-primary fw-semibold">
-            ${product.price}
-          </span>
+      </td>
+      <td
+        className="cart_price each-price fw-semibold"
+        data-cart-title="Price"
+      >
+        <div className="d-flex flex-column">
+          <span className="price-new text-primary fw-semibold">{formatPrice(product.price)}</span>
           {product.priceOld && (
-            <span className="price-old text-caption-01 cl-text-3">
-              ${product.priceOld}
+            <span className="price-old text-caption-01 cl-text-3 text-decoration-line-through">
+              {formatPrice(product.priceOld)}
             </span>
           )}
         </div>
-        {product.colors && product.colors.length > 0 && (
-          <ul className="product-color_list">
-            {product.colors.map((color, idx) => (
-              <li
-                key={idx}
-                onMouseEnter={() => setActiveImage(color.img)}
-                className={`product-color-item color-swatch hover-tooltip tooltip-bot ${
-                  activeImage === color.img ? "active" : ""
-                }`}
-              >
-                <span className="tooltip color-filter">{color.label}</span>
-                <span className={`swatch-value ${color.swatchClass}`} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
+      </td>
+      <td className="cart_stock" data-cart-title="Stock Status">
+        <div className="stock-status text-success fw-medium">
+          In Stock
+        </div>
+      </td>
+      <td className="cart_action text-end">
+        <a
+          href="#quickAdd"
+          data-bs-toggle="modal"
+          className="tf-btn animate-btn"
+        >
+          Add to Cart
+        </a>
+      </td>
+    </tr>
   );
 }
 
@@ -157,30 +80,53 @@ function Wishlist() {
 
   return (
     <>
-      <div className="section-wishlist flat-spacing">
+      <div className="section-wishlist flat-spacing-2">
         <div className="container">
           {loading ? (
             <div className="d-flex justify-content-center py-5">
               <div className="spinner-border text-secondary" role="status" />
             </div>
           ) : items && items.length > 0 ? (
-            <div className="tf-grid-layout tf-col-2 md-col-3 xl-col-4 wrapper-wishlist">
-              {items.map((product) => (
-                <WishlistItem
-                  cardVariant={"square"}
-                  key={product.id}
-                  product={product as ProductCardItem}
-                  removeFromWishlist={removeFromWishlist}
-                />
-              ))}
+            <div className="row">
+              <div className="col-12">
+                <div className="overflow-auto">
+                  <table className="tf-table-page-cart">
+                    <thead>
+                      <tr>
+                        <th>
+                          <p className="h6 fw-medium">Products</p>
+                        </th>
+                        <th>
+                          <p className="h6 fw-medium">Price</p>
+                        </th>
+                        <th>
+                          <p className="h6 fw-medium">Stock Status</p>
+                        </th>
+                        <th className="text-end">
+                          <p className="h6 fw-medium">Actions</p>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {items.map((product) => (
+                        <WishlistTableRow
+                          key={product.id}
+                          product={product as ProductCardItem}
+                          removeFromWishlist={removeFromWishlist}
+                        />
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="text-center py-5">
-              <h3>Your wishlist is empty</h3>
-              <p className="mb-4">
+              <h3 className="mb-3">Your wishlist is empty</h3>
+              <p className="mb-4 text-secondary">
                 You haven't added any products to your wishlist yet.
               </p>
-              <Link to="/shop-default" className="tf-btn btn-primary">
+              <Link to="/shop-default" className="tf-btn btn-primary animate-btn">
                 Return to Shop
               </Link>
             </div>
