@@ -49,7 +49,7 @@ function ProductThumbs() {
 
   return (
     <section className="section-thumbs-v2 tf-sw-thumbs">
-      <div className="col-right">
+      <div className="col-right d-none d-lg-block">
         <Swiper
           modules={[Controller, EffectFade]}
           effect="fade"
@@ -72,7 +72,7 @@ function ProductThumbs() {
                   width={960}
                   height={960}
                   loading="lazy"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
                 />
               </div>
             </SwiperSlide>

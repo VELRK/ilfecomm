@@ -1,4 +1,4 @@
-﻿import TopBar3 from "@/components/topBars/TopBar3";
+import TopBar3 from "@/components/topBars/TopBar3";
 import Header1 from "@/components/headers/Header1";
 import Footer9 from "@/components/footers/Footer9";
 import Hero from "@/components/homes/home-fashion-2/Hero";
@@ -11,6 +11,8 @@ import Testimonials from "@/components/homes/home-fashion-2/Testimonials";
 import Gallery from "@/components/homes/home-fashion-2/Gallery";
 import OfferPopup from "@/components/homes/home-fashion-2/OfferPopup";
 import PageMeta from "@/components/common/PageMeta";
+import RecentlyViewed from "@/components/shop-details/RecentlyViewed";
+
 export default function HomeFashion2Page() {
   return (
     <>
@@ -24,15 +26,17 @@ export default function HomeFashion2Page() {
         <Hero />
         <Category />
         <Products />
-        <div style={{ marginTop: "10px" }}>
-          <ProductThumbs />
-        </div>
-        <div style={{ marginTop: "10px" }}>
-          <InfiniteSlide />
-        </div>
+        <ProductThumbs />
+
         <ProductFeature />
+        <InfiniteSlide />
+        <div style={{ marginTop: "20px" }}>
+
+          <Gallery />
+        </div>
+
         <Testimonials />
-        <Gallery />
+        <RecentlyViewed />
       </>
 
       <Footer9 parentClass="tf-footer footer-s5 bg-white" />
