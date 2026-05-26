@@ -1,10 +1,18 @@
 import type { ProductCardItem } from "@/types/productCard";
+import React from "react";
 
 type IntroProps = {
   gridClassName?: string;
   titleTag?: "h5" | "div";
   product?: ProductCardItem;
 };
+
+const DetailRow = ({ label, value }: { label: string; value: React.ReactNode }) => (
+  <div className="d-flex justify-content-between align-items-center py-3 border-bottom">
+    <span className="fw-medium text-dark">{label}</span>
+    <span className="cl-text-2 text-end">{value}</span>
+  </div>
+);
 
 export function ProductDescriptionIntro({
   gridClassName = "tab-content_desc tf-grid-layout md-col-2",
@@ -13,8 +21,8 @@ export function ProductDescriptionIntro({
 }: IntroProps) {
   const Title = ({ children }: { children: React.ReactNode }) =>
     titleTag === "h5"
-      ? <h5 className="desc_title">{children}</h5>
-      : <div className="h6 desc_title">{children}</div>;
+      ? <h5 className="desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</h5>
+      : <div className="h6 desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</div>;
 
   const hasDetails = product && (
     product.fabric || product.occasion || product.color ||
@@ -42,70 +50,84 @@ export function ProductDescriptionIntro({
   }
 
   return (
-    <div className={gridClassName}>
-      {/* Description + Features */}
+    <div className={gridClassName} style={{ gap: '3rem' }}>
+      {/* Column 1: Description + Features */}
       <div className="box-desc">
-        <Title>{product.name}</Title>
+        <Title>Overview</Title>
         <div className="desc_info">
           {product.description && (
             <div
-              className="cl-text-2 mb-12 product-html-content"
+              className="cl-text-2 mb-4 product-html-content"
+              style={{ lineHeight: '1.8', fontSize: '15px' }}
               dangerouslySetInnerHTML={{ __html: product.description }}
             />
           )}
+          
           {product.features && product.features.length > 0 && (
-            <ul className="list mt-8">
-              {product.features.map((f, i) => (
-                <li key={i} className="cl-text-2">– {f}</li>
-              ))}
-            </ul>
+            <div className="mt-4 pt-2">
+              <h6 className="mb-3 fw-bold text-dark">Key Features</h6>
+              <ul className="list-unstyled">
+                {product.features.map((f, i) => (
+                  <li key={i} className="cl-text-2 mb-2 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                    <span className="me-2 text-dark opacity-50">•</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
+
           {hasDetails && (
-            <ul className="list mt-12">
-              {product.saree_type && <li className="cl-text-2">– Type: {product.saree_type}</li>}
-              {product.fabric     && <li className="cl-text-2">– Fabric: {product.fabric}</li>}
-              {product.pattern    && <li className="cl-text-2">– Pattern: {product.pattern}</li>}
-              {product.fit_type   && <li className="cl-text-2">– Fit: {product.fit_type}</li>}
-              {product.neck_type  && <li className="cl-text-2">– Neck: {product.neck_type}</li>}
-              {product.sleeve_length && <li className="cl-text-2">– Sleeve: {product.sleeve_length}</li>}
-              {product.length_type   && <li className="cl-text-2">– Length: {product.length_type}</li>}
-              {product.occasion      && <li className="cl-text-2">– Occasion: {product.occasion}</li>}
-              {product.suitable_for  && <li className="cl-text-2">– Ideal For: {product.suitable_for}</li>}
-              {product.color         && <li className="cl-text-2">– Colour: {product.color}{product.color2 ? ` / ${product.color2}` : ""}</li>}
-              {product.pack_of && product.pack_of > 1 && <li className="cl-text-2">– Pack of: {product.pack_of}</li>}
-            </ul>
+            <div className="mt-5">
+              <h6 className="mb-3 fw-bold text-dark">Product Details</h6>
+              <div className="d-flex flex-column border-top">
+                {product.saree_type && <DetailRow label="Type" value={product.saree_type} />}
+                {product.fabric     && <DetailRow label="Fabric" value={product.fabric} />}
+                {product.pattern    && <DetailRow label="Pattern" value={product.pattern} />}
+                {product.fit_type   && <DetailRow label="Fit" value={product.fit_type} />}
+                {product.neck_type  && <DetailRow label="Neck" value={product.neck_type} />}
+                {product.sleeve_length && <DetailRow label="Sleeve" value={product.sleeve_length} />}
+                {product.length_type   && <DetailRow label="Length" value={product.length_type} />}
+                {product.occasion      && <DetailRow label="Occasion" value={product.occasion} />}
+                {product.suitable_for  && <DetailRow label="Ideal For" value={product.suitable_for} />}
+                {product.color         && <DetailRow label="Colour" value={`${product.color}${product.color2 ? ` / ${product.color2}` : ""}`} />}
+                {product.pack_of && product.pack_of > 1 && <DetailRow label="Pack of" value={product.pack_of} />}
+              </div>
+            </div>
           )}
         </div>
       </div>
 
-      {/* Composition, Origin & Care */}
-      {hasComposition && (
-        <div className="box-desc">
-          <Title>Composition, Origin &amp; Care</Title>
-          <ul className="list">
-            {product.fabric            && <li className="cl-text-2">– Fabric: {product.fabric}</li>}
-            {product.weave_type        && <li className="cl-text-2">– Weave: {product.weave_type}</li>}
-            {product.wash_care         && <li className="cl-text-2">– Care: {product.wash_care}</li>}
-            {product.origin_state      && <li className="cl-text-2">– Origin: {product.origin_state}, India</li>}
-            {product.manufacturer_name && <li className="cl-text-2">– By: {product.manufacturer_name}</li>}
-            {product.ean               && <li className="cl-text-2">– EAN: {product.ean}</li>}
-            {product.hsn_code          && <li className="cl-text-2">– HSN: {product.hsn_code}</li>}
-            {product.tax_code          && <li className="cl-text-2">– Tax: {product.tax_code}</li>}
-          </ul>
-        </div>
-      )}
+      {/* Column 2: Composition, Origin & Care + Specs */}
+      <div className="d-flex flex-column" style={{ gap: '3rem' }}>
+        {hasComposition && (
+          <div className="box-desc">
+            <Title>Composition &amp; Care</Title>
+            <div className="d-flex flex-column border-top">
+              {product.fabric            && <DetailRow label="Fabric" value={product.fabric} />}
+              {product.weave_type        && <DetailRow label="Weave" value={product.weave_type} />}
+              {product.wash_care         && <DetailRow label="Care" value={product.wash_care} />}
+              {product.origin_state      && <DetailRow label="Origin" value={`${product.origin_state}, India`} />}
+              {product.manufacturer_name && <DetailRow label="Manufacturer" value={product.manufacturer_name} />}
+              {product.ean               && <DetailRow label="EAN" value={product.ean} />}
+              {product.hsn_code          && <DetailRow label="HSN" value={product.hsn_code} />}
+              {product.tax_code          && <DetailRow label="Tax" value={product.tax_code} />}
+            </div>
+          </div>
+        )}
 
-      {/* Category attributes */}
-      {product.category_attributes && Object.keys(product.category_attributes).length > 0 && (
-        <div className="box-desc">
-          <Title>Specifications</Title>
-          <ul className="list">
-            {Object.entries(product.category_attributes).map(([k, v]) => (
-              <li key={k} className="cl-text-2">– {k}: {v}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+        {/* Category attributes */}
+        {product.category_attributes && Object.keys(product.category_attributes).length > 0 && (
+          <div className="box-desc">
+            <Title>Specifications</Title>
+            <div className="d-flex flex-column border-top">
+              {Object.entries(product.category_attributes).map(([k, v]) => (
+                <DetailRow key={k} label={k} value={String(v)} />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -8,8 +8,8 @@ type Props = {
 
 function DescTitle({ tag, children }: { tag: "h5" | "div"; children: React.ReactNode }) {
   return tag === "h5"
-    ? <h5 className="desc_title">{children}</h5>
-    : <div className="h6 desc_title">{children}</div>;
+    ? <h5 className="desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</h5>
+    : <div className="h6 desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</div>;
 }
 
 export function ProductShippingReturns({
@@ -17,27 +17,37 @@ export function ProductShippingReturns({
   titleTag = "h5",
   product,
 }: Props) {
-  const sla          = product?.procurement_sla ?? null;
-  const rawShipping  = product?.shipping_info ?? "";
+  const sla = product?.procurement_sla ?? null;
+  const rawShipping = product?.shipping_info ?? "";
   const shippingInfo = rawShipping && !rawShipping.toLowerCase().includes("we ship across")
     ? rawShipping
     : null;
 
   return (
-    <div className={gridClassName}>
+    <div className={gridClassName} style={{ gap: '3rem' }}>
       <div className="box-desc">
         <DescTitle tag={titleTag}>Shipping Info</DescTitle>
-        <div className="desc_info">
+        <div className="desc_info mt-2">
           {shippingInfo ? (
             <div
               className="cl-text-2 product-html-content"
+              style={{ lineHeight: '1.8', fontSize: '15px' }}
               dangerouslySetInnerHTML={{ __html: shippingInfo }}
             />
           ) : (
-            <ul className="list">
-              <li className="cl-text-2">– Free shipping on orders above ₹999</li>
-              <li className="cl-text-2">– Cash on Delivery available pan-India</li>
-              <li className="cl-text-2">– Tracked dispatch via courier</li>
+            <ul className="list-unstyled">
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Free shipping on orders above ₹999</span>
+              </li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Cash on Delivery available pan-India</span>
+              </li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Tracked dispatch via courier</span>
+              </li>
             </ul>
           )}
         </div>
@@ -46,13 +56,22 @@ export function ProductShippingReturns({
       {sla != null && (
         <div className="box-desc">
           <DescTitle tag={titleTag}>Estimated Delivery</DescTitle>
-          <ul className="list">
-            <li className="cl-text-2">– Standard: {sla}–{sla + 3} business days</li>
+          <ul className="list-unstyled mt-2">
+            <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+              <span className="me-2 text-dark opacity-50">•</span>
+              <span>Standard: {sla}–{sla + 3} business days</span>
+            </li>
             {product?.procurement_type === "MADE_TO_ORDER" && (
-              <li className="cl-text-2">– Made to order — allow extra production time</li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Made to order — allow extra production time</span>
+              </li>
             )}
             {product?.origin_state && (
-              <li className="cl-text-2">– Ships from {product.origin_state}, India</li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Ships from {product.origin_state}, India</span>
+              </li>
             )}
           </ul>
         </div>
@@ -60,9 +79,15 @@ export function ProductShippingReturns({
 
       <div className="box-desc">
         <DescTitle tag={titleTag}>Need Help?</DescTitle>
-        <ul className="list">
-          <li className="cl-text-2">– Contact our support team</li>
-          <li className="cl-text-2">– WhatsApp assistance available</li>
+        <ul className="list-unstyled mt-2">
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>Contact our support team</span>
+          </li>
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>WhatsApp assistance available</span>
+          </li>
         </ul>
       </div>
     </div>
