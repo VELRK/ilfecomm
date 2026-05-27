@@ -44,8 +44,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 
-# ShopKart admin panel → CodeIgniter
-RewriteCond %{REQUEST_URI} ^/shopkart/
+# ShopKart admin panel and legacy /admin → CodeIgniter
+RewriteCond %{REQUEST_URI} ^/(shopkart|admin)/? [NC]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
@@ -54,5 +54,5 @@ RewriteRule ^(.*)$ index.php/$1 [L]
 RewriteRule ^$ frontend/index.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/(shopkart-api|shopkart|uploads)/
+RewriteCond %{REQUEST_URI} !^/(shopkart-api|shopkart|admin|uploads)/
 RewriteRule ^(.*)$ frontend/index.html [L]
