@@ -18,6 +18,10 @@ jobs:
           key: ${{ secrets.SSH_KEY_ILF }}
           port: 65002
           script: |
-            cd /home/u221026474/domains/indianladiesfashion.com/public_html
-            git remote -v
-            git pull $(git remote) main
+            TARGET=/home/u221026474/domains/indianladiesfashion.com/public_html
+            if [ -d "$TARGET/.git" ]; then
+              cd $TARGET
+              git pull origin main
+            else
+              git clone https://github.com/VELRK/ilfecomm.git $TARGET
+            fi
