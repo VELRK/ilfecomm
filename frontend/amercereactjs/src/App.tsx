@@ -272,7 +272,7 @@ const ProductSwatchDropdownColor = lazy(
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename="/">
       <Suspense fallback={routeSuspenseFallback}>
         <Routes>
           <Route path="/" element={<IndexPage />} />
