@@ -19,9 +19,12 @@ jobs:
           port: 65002
           script: |
             TARGET=/home/u221026474/domains/indianladiesfashion.com/public_html
-            if [ -d "$TARGET/.git" ]; then
-              cd $TARGET
-              git pull origin main
+            cd $TARGET
+            if [ ! -d ".git" ]; then
+              git init
+              git remote add origin https://github.com/VELRK/ilfecomm.git
+              git fetch origin main
+              git reset --hard origin/main
             else
-              git clone https://github.com/VELRK/ilfecomm.git $TARGET
+              git pull origin main
             fi
