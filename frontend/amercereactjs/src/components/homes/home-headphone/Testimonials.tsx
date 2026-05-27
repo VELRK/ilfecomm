@@ -9,7 +9,7 @@ function Testimonials() {
       <div className="section-testimonials position-relative">
         <div className="banner">
           <img
-            src="/ilf/frontend/assets/images/testimonial/tes-21.jpg"
+            src="/frontend/assets/images/testimonial/tes-21.jpg"
             alt="testimonial"
             width={1770}
             height={600}

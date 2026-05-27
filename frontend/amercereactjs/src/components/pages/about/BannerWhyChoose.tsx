@@ -9,7 +9,7 @@
                 loading="lazy"
                 width={640}
                 height={480}
-                src="/ilf/frontend/assets/images/section/s-contact-2.jpg"
+                src="/frontend/assets/images/section/s-contact-2.jpg"
                 alt="Image"
               />
             </div>

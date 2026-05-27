@@ -87,7 +87,7 @@ function Blog() {
                               loading="lazy"
                               width={90}
                               height={90}
-                              src={post.image_url || "/ilf/frontend/assets/images/blog/img-blog-1.jpg"}
+                              src={post.image_url || "/frontend/assets/images/blog/img-blog-1.jpg"}
                               alt={post.title}
                             />
                           </Link>

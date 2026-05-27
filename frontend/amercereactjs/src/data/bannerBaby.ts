@@ -2,14 +2,14 @@
 
 export const bannerBabySlides: ImageBannerSlide[] = [
   {
-    img: "/ilf/frontend/assets/images/section/banner-19.jpg",
+    img: "/frontend/assets/images/section/banner-19.jpg",
     alt: "Image",
     title: "Little Joys, Big Savings!",
     desc: "Up to 50% OFF on baby must-haves",
     btnText: "View All Products",
   },
   {
-    img: "/ilf/frontend/assets/images/section/banner-20.jpg",
+    img: "/frontend/assets/images/section/banner-20.jpg",
     alt: "Image",
     title: "Fresh Finds for Little Smiles",
     desc: "Soft, safe, and ready for every cuddle.",

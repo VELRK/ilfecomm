@@ -11,7 +11,7 @@ function BannerText() {
                 loading="lazy"
                 width={1410}
                 height={400}
-                src="/ilf/frontend/assets/images/section/banner-8.jpg"
+                src="/frontend/assets/images/section/banner-8.jpg"
                 alt="Image"
               />
             </Link>

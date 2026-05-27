@@ -10,7 +10,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-1.jpg"
+                  src="/frontend/assets/images/section/store-1.jpg"
                   alt="Image"
                 />
               </div>
@@ -58,7 +58,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-2.jpg"
+                  src="/frontend/assets/images/section/store-2.jpg"
                   alt="Image"
                 />
               </div>
@@ -106,7 +106,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-3.jpg"
+                  src="/frontend/assets/images/section/store-3.jpg"
                   alt="Image"
                 />
               </div>
@@ -154,7 +154,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-4.jpg"
+                  src="/frontend/assets/images/section/store-4.jpg"
                   alt="Image"
                 />
               </div>
@@ -202,7 +202,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-5.jpg"
+                  src="/frontend/assets/images/section/store-5.jpg"
                   alt="Image"
                 />
               </div>
@@ -250,7 +250,7 @@
                   loading="lazy"
                   width={450}
                   height={338}
-                  src="/ilf/frontend/assets/images/section/store-1.jpg"
+                  src="/frontend/assets/images/section/store-1.jpg"
                   alt="Image"
                 />
               </div>

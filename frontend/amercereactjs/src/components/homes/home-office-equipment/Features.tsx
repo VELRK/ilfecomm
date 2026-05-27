@@ -20,7 +20,7 @@
                   loading="lazy"
                   width={471}
                   height={471}
-                  src="/ilf/frontend/assets/images/section/feature-tech.jpg"
+                  src="/frontend/assets/images/section/feature-tech.jpg"
                   alt="Image"
                 />
               </div>

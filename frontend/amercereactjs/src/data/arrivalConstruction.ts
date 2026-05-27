@@ -7,7 +7,7 @@ export const arrivalConstruction = {
     "Beautiful foliage, crafted planters, and must-have tools that help you build a relaxing green sanctuary indoors.",
   product: arrivalConstructionProduct,
   banners: [
-    { img: "/ilf/frontend/assets/images/section/banner-55.jpg", width: 580, height: 580 },
-    { img: "/ilf/frontend/assets/images/section/banner-56.jpg", width: 580, height: 580 },
+    { img: "/frontend/assets/images/section/banner-55.jpg", width: 580, height: 580 },
+    { img: "/frontend/assets/images/section/banner-56.jpg", width: 580, height: 580 },
   ],
 };

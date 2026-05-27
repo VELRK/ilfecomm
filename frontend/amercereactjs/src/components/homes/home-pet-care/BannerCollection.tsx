@@ -16,7 +16,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={1170}
                     height={794}
-                    src="/ilf/frontend/assets/images/section/banner-15.jpg"
+                    src="/frontend/assets/images/section/banner-15.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -50,7 +50,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={580}
                     height={387}
-                    src="/ilf/frontend/assets/images/collection/cls-18.jpg"
+                    src="/frontend/assets/images/collection/cls-18.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -78,7 +78,7 @@ function BannerCollection() {
                     loading="lazy"
                     width={580}
                     height={387}
-                    src="/ilf/frontend/assets/images/collection/cls-17.jpg"
+                    src="/frontend/assets/images/collection/cls-17.jpg"
                     alt="Image"
                   />
                 </Link>

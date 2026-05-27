@@ -31,7 +31,7 @@ export default function ProductMedia({
         src:
           product.img ||
           extraImages[0]?.src ||
-          "/ilf/frontend/assets/images/product/single/detail-1.jpg",
+          "/frontend/assets/images/product/single/detail-1.jpg",
         dataColor: extraImages[0]?.dataColor,
         dataSize: extraImages[0]?.dataSize,
       },

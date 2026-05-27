@@ -10,43 +10,43 @@ import PageMeta from "@/components/common/PageMeta";
 
 const threeDImages: ProductSingleImage[] = [
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1.jpg",
+    src: "/frontend/assets/images/product/single/detail-1.jpg",
     dataColor: "green",
     dataSize: "S",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_2.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_2.jpg",
     dataColor: "green",
     dataSize: "M",
-    model3d: "/ilf/frontend/assets/images/video/clothing-3d.glb",
+    model3d: "/frontend/assets/images/video/clothing-3d.glb",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_3.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_3.jpg",
     dataColor: "green",
     dataSize: "L",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_4.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_4.jpg",
     dataColor: "green",
     dataSize: "XL",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_5.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_5.jpg",
     dataColor: "gray",
     dataSize: "M",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_6.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_6.jpg",
     dataColor: "gray",
     dataSize: "L",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_7.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_7.jpg",
     dataColor: "black",
     dataSize: "L",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_8.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_8.jpg",
     dataColor: "black",
     dataSize: "XL",
   },

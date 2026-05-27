@@ -12,7 +12,7 @@ function BannerProduct() {
                   loading="lazy"
                   width={875}
                   height={680}
-                  src="/ilf/frontend/assets/images/section/banner-17.jpg"
+                  src="/frontend/assets/images/section/banner-17.jpg"
                   alt="Image"
                 />
               </Link>
@@ -41,7 +41,7 @@ function BannerProduct() {
                   loading="lazy"
                   width={875}
                   height={680}
-                  src="/ilf/frontend/assets/images/section/banner-18.jpg"
+                  src="/frontend/assets/images/section/banner-18.jpg"
                   alt="Image"
                 />
               </Link>

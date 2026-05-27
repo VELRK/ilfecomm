@@ -8,7 +8,7 @@ function Banner() {
           <div
             className="banner-v04 parallaxie"
             style={{
-              backgroundImage: 'url("/ilf/frontend/assets/images/section/banner-65.jpg")',
+              backgroundImage: 'url("/frontend/assets/images/section/banner-65.jpg")',
             }}
           >
             <div className="bn_image">
@@ -17,7 +17,7 @@ function Banner() {
                 loading="lazy"
                 width={1410}
                 height={460}
-                src="/ilf/frontend/assets/images/section/banner-65.jpg"
+                src="/frontend/assets/images/section/banner-65.jpg"
                 alt="Image"
               />
             </div>

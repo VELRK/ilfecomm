@@ -6,7 +6,7 @@ import type { ApiBanner } from "@/services/api";
 
 function bannerSrc(b: ApiBanner): string {
   const img = b.image;
-  if (!img) return "/ilf/frontend/assets/images/slider/fashion-2/slider-1.jpg";
+  if (!img) return "/frontend/assets/images/slider/fashion-2/slider-1.jpg";
   if (img.startsWith("http")) return img;
   if (img.startsWith("assets/images/")) return `/${img}`;
   const encoded = img.split("/").map(encodeURIComponent).join("/");

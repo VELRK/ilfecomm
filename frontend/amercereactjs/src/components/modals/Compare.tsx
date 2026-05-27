@@ -70,7 +70,7 @@ function CompareOffcanvasItem({
   onRemove: () => void;
 }) {
   const imgSrc =
-    item.img ?? item.images?.[0]?.src ?? "/ilf/frontend/assets/images/product/product-1.jpg";
+    item.img ?? item.images?.[0]?.src ?? "/frontend/assets/images/product/product-1.jpg";
 
   return (
     <div className="tf-compare-item file-delete">

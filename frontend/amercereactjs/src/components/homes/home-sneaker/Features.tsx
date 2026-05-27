@@ -18,7 +18,7 @@
                   loading="lazy"
                   width={687}
                   height={863}
-                  src="/ilf/frontend/assets/images/item/feature-shoe.png"
+                  src="/frontend/assets/images/item/feature-shoe.png"
                   alt="Image"
                 />
               </div>

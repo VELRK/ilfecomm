@@ -103,7 +103,7 @@
                     loading="lazy"
                     width={270}
                     height={270}
-                    src="/ilf/frontend/assets/images/section/size-chart.jpg"
+                    src="/frontend/assets/images/section/size-chart.jpg"
                     alt="Image"
                   />
                 </div>

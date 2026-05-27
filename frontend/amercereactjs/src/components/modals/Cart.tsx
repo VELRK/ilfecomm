@@ -166,7 +166,7 @@ function CartMiniLine({
   onQtyChange: (qty: number) => void;
   onProductClick: () => void;
 }) {
-  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/ilf/frontend/assets/images/product/product-1.jpg";
+  const imgSrc = item.img ?? item.images?.[0]?.src ?? "/frontend/assets/images/product/product-1.jpg";
   const colorLabel = item.selectedColor ?? item.colors?.[0]?.label ?? null;
   const sizeLabel  = item.selectedSize ?? null;
 

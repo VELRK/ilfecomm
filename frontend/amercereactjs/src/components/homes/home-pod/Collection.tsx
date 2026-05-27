@@ -12,7 +12,7 @@ function Collection() {
                   loading="lazy"
                   width={450}
                   height={608}
-                  src="/ilf/frontend/assets/images/section/banner-12.jpg"
+                  src="/frontend/assets/images/section/banner-12.jpg"
                   alt="Image"
                 />
               </Link>
@@ -42,7 +42,7 @@ function Collection() {
                     loading="lazy"
                     width={450}
                     height={294}
-                    src="/ilf/frontend/assets/images/category/cate-12.jpg"
+                    src="/frontend/assets/images/category/cate-12.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -62,7 +62,7 @@ function Collection() {
                     loading="lazy"
                     width={450}
                     height={294}
-                    src="/ilf/frontend/assets/images/category/cate-13.jpg"
+                    src="/frontend/assets/images/category/cate-13.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -84,7 +84,7 @@ function Collection() {
                     loading="lazy"
                     width={450}
                     height={294}
-                    src="/ilf/frontend/assets/images/category/cate-14.jpg"
+                    src="/frontend/assets/images/category/cate-14.jpg"
                     alt="Image"
                   />
                 </Link>
@@ -104,7 +104,7 @@ function Collection() {
                     loading="lazy"
                     width={450}
                     height={294}
-                    src="/ilf/frontend/assets/images/category/cate-15.jpg"
+                    src="/frontend/assets/images/category/cate-15.jpg"
                     alt="Image"
                   />
                 </Link>

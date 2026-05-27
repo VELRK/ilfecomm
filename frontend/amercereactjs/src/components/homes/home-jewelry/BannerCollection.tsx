@@ -149,7 +149,7 @@
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/ilf/frontend/assets/images/section/accordion-cls.jpg"
+                    src="/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -160,7 +160,7 @@
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/ilf/frontend/assets/images/section/accordion-cls.jpg"
+                    src="/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -171,7 +171,7 @@
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/ilf/frontend/assets/images/section/accordion-cls.jpg"
+                    src="/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>
@@ -182,7 +182,7 @@
                     loading="lazy"
                     width={760}
                     height={700}
-                    src="/ilf/frontend/assets/images/section/accordion-cls.jpg"
+                    src="/frontend/assets/images/section/accordion-cls.jpg"
                     alt="Image"
                   />
                 </div>

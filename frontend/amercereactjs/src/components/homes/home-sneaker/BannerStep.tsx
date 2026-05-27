@@ -2,7 +2,7 @@
 import { bannerStepSneakerProducts } from "@/data/products/products";
 
 const BANNER = {
-  img: "/ilf/frontend/assets/images/section/banner-68.jpg",
+  img: "/frontend/assets/images/section/banner-68.jpg",
   title: "Step Into Better",
   titleBreak: "Movement",
 };

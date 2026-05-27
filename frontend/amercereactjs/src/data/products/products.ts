@@ -7,8 +7,8 @@ import { testimonialProducts } from "@/data/testimonials";
 export const topPicksProducts: ProductCardItem[] = [
   {
     id: 1,
-    img: "/ilf/frontend/assets/images/product/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-5_2.jpg",
+    img: "/frontend/assets/images/product/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/product-5_2.jpg",
     name: "High neck midi wool coat",
     price: 9.99,
     priceOld: 19.99,
@@ -17,17 +17,17 @@ export const topPicksProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-olive-brown",
-        img: "/ilf/frontend/assets/images/product/product-5.jpg",
+        img: "/frontend/assets/images/product/product-5.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-dark-blue",
-        img: "/ilf/frontend/assets/images/product/product-5_3.jpg",
+        img: "/frontend/assets/images/product/product-5_3.jpg",
       },
       {
         label: "Beige",
         swatchClass: "bg-beige",
-        img: "/ilf/frontend/assets/images/product/product-5_4.jpg",
+        img: "/frontend/assets/images/product/product-5_4.jpg",
       },
     ],
     cardVariant: "",
@@ -43,8 +43,8 @@ export const topPicksProducts: ProductCardItem[] = [
   },
   {
     id: 2,
-    img: "/ilf/frontend/assets/images/product/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-6_2.jpg",
+    img: "/frontend/assets/images/product/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/product-6_2.jpg",
     name: "Square metallic frame sunglasses",
     price: 34.99,
     priceOld: 59.99,
@@ -54,12 +54,12 @@ export const topPicksProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-brown-2",
-        img: "/ilf/frontend/assets/images/product/product-6.jpg",
+        img: "/frontend/assets/images/product/product-6.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-cool-gray",
-        img: "/ilf/frontend/assets/images/product/product-6_3.jpg",
+        img: "/frontend/assets/images/product/product-6_3.jpg",
       },
     ],
     cardVariant: "",
@@ -75,8 +75,8 @@ export const topPicksProducts: ProductCardItem[] = [
   },
   {
     id: 3,
-    img: "/ilf/frontend/assets/images/product/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-7_2.jpg",
+    img: "/frontend/assets/images/product/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/product-7_2.jpg",
     name: "Leather shopper bag with stitching",
     price: 22.99,
     priceOld: 39.99,
@@ -86,17 +86,17 @@ export const topPicksProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-beige",
-        img: "/ilf/frontend/assets/images/product/product-7.jpg",
+        img: "/frontend/assets/images/product/product-7.jpg",
       },
       {
         label: "Warm Brown",
         swatchClass: "bg-caramel",
-        img: "/ilf/frontend/assets/images/product/product-7_3.jpg",
+        img: "/frontend/assets/images/product/product-7_3.jpg",
       },
       {
         label: "Beige",
         swatchClass: "bg-sand-beige",
-        img: "/ilf/frontend/assets/images/product/product-7_4.jpg",
+        img: "/frontend/assets/images/product/product-7_4.jpg",
       },
     ],
     cardVariant: "",
@@ -112,8 +112,8 @@ export const topPicksProducts: ProductCardItem[] = [
   },
   {
     id: 4,
-    img: "/ilf/frontend/assets/images/product/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-8_2.jpg",
+    img: "/frontend/assets/images/product/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/product-8_2.jpg",
     name: "Leather shopper bag with stitching",
     price: 67.99,
     priceOld: 99.99,
@@ -122,17 +122,17 @@ export const topPicksProducts: ProductCardItem[] = [
       {
         label: "Pink",
         swatchClass: "bg-rose-taupe",
-        img: "/ilf/frontend/assets/images/product/product-8.jpg",
+        img: "/frontend/assets/images/product/product-8.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-dark-blue-2",
-        img: "/ilf/frontend/assets/images/product/product-8_3.jpg",
+        img: "/frontend/assets/images/product/product-8_3.jpg",
       },
       {
         label: "Pink",
         swatchClass: "bg-blush-pink",
-        img: "/ilf/frontend/assets/images/product/product-8_4.jpg",
+        img: "/frontend/assets/images/product/product-8_4.jpg",
       },
     ],
     cardVariant: "",
@@ -152,8 +152,8 @@ export const topPicksProducts: ProductCardItem[] = [
 export const topPicsProducts: ProductCardItem[] = [
   {
     id: 5,
-    img: "/ilf/frontend/assets/images/product/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-1_2.jpg",
+    img: "/frontend/assets/images/product/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/product-1_2.jpg",
     name: "Lyocell wrap top",
     price: 69.99,
     priceOld: 99.99,
@@ -163,17 +163,17 @@ export const topPicsProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-beige",
-        img: "/ilf/frontend/assets/images/product/product-1.jpg",
+        img: "/frontend/assets/images/product/product-1.jpg",
       },
       {
         label: "Dark Blue",
         swatchClass: "bg-midnight-blue",
-        img: "/ilf/frontend/assets/images/product/product-1_3.jpg",
+        img: "/frontend/assets/images/product/product-1_3.jpg",
       },
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-1_4.jpg",
+        img: "/frontend/assets/images/product/product-1_4.jpg",
       },
     ],
     filterTabIds: ["related"],
@@ -190,8 +190,8 @@ export const topPicsProducts: ProductCardItem[] = [
   },
   {
     id: 6,
-    img: "/ilf/frontend/assets/images/product/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-2_2.jpg",
+    img: "/frontend/assets/images/product/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/product-2_2.jpg",
     name: "Buttons cotton top",
     price: 29.99,
     priceOld: 49.99,
@@ -200,12 +200,12 @@ export const topPicsProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-brown",
-        img: "/ilf/frontend/assets/images/product/product-2.jpg",
+        img: "/frontend/assets/images/product/product-2.jpg",
       },
       {
         label: "Beige",
         swatchClass: "bg-beige",
-        img: "/ilf/frontend/assets/images/product/product-2_3.jpg",
+        img: "/frontend/assets/images/product/product-2_3.jpg",
       },
     ],
     filterTabIds: ["related", "recently"],
@@ -222,8 +222,8 @@ export const topPicsProducts: ProductCardItem[] = [
   },
   {
     id: 7,
-    img: "/ilf/frontend/assets/images/product/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-3_2.jpg",
+    img: "/frontend/assets/images/product/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/product-3_2.jpg",
     name: "Wool Midi Coat",
     price: 15.99,
     priceOld: 25.99,
@@ -234,17 +234,17 @@ export const topPicsProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-olive-brown",
-        img: "/ilf/frontend/assets/images/product/product-3.jpg",
+        img: "/frontend/assets/images/product/product-3.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-dark-blue",
-        img: "/ilf/frontend/assets/images/product/product-3_3.jpg",
+        img: "/frontend/assets/images/product/product-3_3.jpg",
       },
       {
         label: "Light",
         swatchClass: "bg-warm-beige",
-        img: "/ilf/frontend/assets/images/product/product-3_4.jpg",
+        img: "/frontend/assets/images/product/product-3_4.jpg",
       },
     ],
     filterTabIds: ["related", "recently"],
@@ -261,8 +261,8 @@ export const topPicsProducts: ProductCardItem[] = [
   },
   {
     id: 8,
-    img: "/ilf/frontend/assets/images/product/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-4_2.jpg",
+    img: "/frontend/assets/images/product/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/product-4_2.jpg",
     name: "linen slim-fit shirt",
     price: 45.99,
     priceOld: 79.99,
@@ -272,7 +272,7 @@ export const topPicsProducts: ProductCardItem[] = [
       {
         label: "Blue",
         swatchClass: "bg-dark-blue-2",
-        img: "/ilf/frontend/assets/images/product/product-4.jpg",
+        img: "/frontend/assets/images/product/product-4.jpg",
       },
     ],
     filterTabIds: ["related", "recently"],
@@ -293,7 +293,7 @@ export const topPicsProducts: ProductCardItem[] = [
 export const bestDealsAutoProducts: ProductCardItem[] = [
   {
     id: 9,
-    img: "/ilf/frontend/assets/images/product/auto/product-1.jpg",
+    img: "/frontend/assets/images/product/auto/product-1.jpg",
     name: "Merino Wool Knit Booties with Drawstring – Snug Comfort for Newborns",
     price: 69.99,
     cardVariant: "square",
@@ -309,7 +309,7 @@ export const bestDealsAutoProducts: ProductCardItem[] = [
   },
   {
     id: 10,
-    img: "/ilf/frontend/assets/images/product/auto/product-2.jpg",
+    img: "/frontend/assets/images/product/auto/product-2.jpg",
     name: "Soft Cotton Dribble Bibs 3 Pack – Gentle Protection for Little Messes",
     price: 79.99,
     priceOld: 99.99,
@@ -328,7 +328,7 @@ export const bestDealsAutoProducts: ProductCardItem[] = [
   },
   {
     id: 11,
-    img: "/ilf/frontend/assets/images/product/auto/product-3.jpg",
+    img: "/frontend/assets/images/product/auto/product-3.jpg",
     name: "Cozy Bunny Hooded Towel for Newborns and Toddlers",
     price: 29.99,
     priceOld: 59.99,
@@ -347,7 +347,7 @@ export const bestDealsAutoProducts: ProductCardItem[] = [
   },
   {
     id: 12,
-    img: "/ilf/frontend/assets/images/product/auto/product-4.jpg",
+    img: "/frontend/assets/images/product/auto/product-4.jpg",
     name: "MUSHIE Frigg Baby's First Pacifier Floral Heart | Kido Bebe",
     price: 59.99,
     badge: "-25%",
@@ -368,7 +368,7 @@ export const bestDealsAutoProducts: ProductCardItem[] = [
 export const featuredAutoProducts: ProductCardItem[] = [
   {
     id: 13,
-    img: "/ilf/frontend/assets/images/product/auto/product-5.jpg",
+    img: "/frontend/assets/images/product/auto/product-5.jpg",
     name: "The Ultimate In Dash Camera Technology From Blackvue",
     price: 69.99,
     filterTabIds: ["brake", "air"],
@@ -385,7 +385,7 @@ export const featuredAutoProducts: ProductCardItem[] = [
   },
   {
     id: 14,
-    img: "/ilf/frontend/assets/images/product/auto/product-6.jpg",
+    img: "/frontend/assets/images/product/auto/product-6.jpg",
     name: "Black Projector Headlights Sequential PAIR DRL",
     price: 79.99,
     priceOld: 99.99,
@@ -405,7 +405,7 @@ export const featuredAutoProducts: ProductCardItem[] = [
   },
   {
     id: 15,
-    img: "/ilf/frontend/assets/images/product/auto/product-7.jpg",
+    img: "/frontend/assets/images/product/auto/product-7.jpg",
     name: "Black Projector Headlights Sequential PAIR DRL",
     price: 29.99,
     priceOld: 59.99,
@@ -425,7 +425,7 @@ export const featuredAutoProducts: ProductCardItem[] = [
   },
   {
     id: 16,
-    img: "/ilf/frontend/assets/images/product/auto/product-8.jpg",
+    img: "/frontend/assets/images/product/auto/product-8.jpg",
     name: "Sports Research® Organic Greens Superfood Powder.",
     price: 59.99,
     badge: "-25%",
@@ -443,7 +443,7 @@ export const featuredAutoProducts: ProductCardItem[] = [
   },
   {
     id: 17,
-    img: "/ilf/frontend/assets/images/product/auto/product-9.jpg",
+    img: "/frontend/assets/images/product/auto/product-9.jpg",
     name: "Sports Research® Organic Greens Superfood Powder.",
     price: 79.99,
     filterTabIds: ["brake", "air", "roto", "hydraulic"],
@@ -464,7 +464,7 @@ export const featuredAutoProducts: ProductCardItem[] = [
 export const featured2AutoProducts: ProductCardItem[] = [
   {
     id: 18,
-    img: "/ilf/frontend/assets/images/product/auto/product-10.jpg",
+    img: "/frontend/assets/images/product/auto/product-10.jpg",
     name: "High Performance Metal Cylinder Head Gasket Set Fits",
     price: 69.99,
     priceOld: 89.99,
@@ -481,7 +481,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
   },
   {
     id: 19,
-    img: "/ilf/frontend/assets/images/product/auto/product-11.jpg",
+    img: "/frontend/assets/images/product/auto/product-11.jpg",
     name: "Silver Alloy Sport Wheel Rim 18x8.5 Inch Fits Honda",
     price: 59.99,
     cardVariant: "square",
@@ -497,7 +497,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
   },
   {
     id: 20,
-    img: "/ilf/frontend/assets/images/product/auto/product-12.jpg",
+    img: "/frontend/assets/images/product/auto/product-12.jpg",
     name: "4K Front and Rear Camera Dual Lens Night Vision Fits",
     price: 74.99,
     priceOld: 89.99,
@@ -514,7 +514,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
   },
   {
     id: 21,
-    img: "/ilf/frontend/assets/images/product/auto/product-8.jpg",
+    img: "/frontend/assets/images/product/auto/product-8.jpg",
     name: "LED Bi-Projector Headlight Lens Retrofit Kit Dual Beam",
     price: 73.99,
     priceOld: 97.99,
@@ -531,7 +531,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
   },
   {
     id: 22,
-    img: "/ilf/frontend/assets/images/product/auto/product-2.jpg",
+    img: "/frontend/assets/images/product/auto/product-2.jpg",
     name: "Super Bright V45 Auto Car Led Lights 90W 32000lm H4 Led",
     price: 61.99,
     cardVariant: "square",
@@ -547,7 +547,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
   },
   {
     id: 23,
-    img: "/ilf/frontend/assets/images/product/auto/product-4.jpg",
+    img: "/frontend/assets/images/product/auto/product-4.jpg",
     name: "Vented & Drilled Brake Rotors for Ferrari 360 – Superior",
     price: 74.99,
     priceOld: 89.99,
@@ -568,7 +568,7 @@ export const featured2AutoProducts: ProductCardItem[] = [
 export const babyHighlightsNewProducts: ProductCardItem[] = [
   {
     id: 24,
-    img: "/ilf/frontend/assets/images/product/baby/product-1.jpg",
+    img: "/frontend/assets/images/product/baby/product-1.jpg",
     name: "Merino Wool Knit Booties with Drawstring – Snug Comfort for Newborns",
     price: 69.99,
     filterTabIds: ["new", "baby", "popular"],
@@ -585,7 +585,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 25,
-    img: "/ilf/frontend/assets/images/product/baby/product-2.jpg",
+    img: "/frontend/assets/images/product/baby/product-2.jpg",
     name: "Soft Cotton Dribble Bibs 3 Pack – Gentle Protection for Little Messes",
     price: 79.99,
     priceOld: 99.99,
@@ -605,7 +605,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 26,
-    img: "/ilf/frontend/assets/images/product/baby/product-3.jpg",
+    img: "/frontend/assets/images/product/baby/product-3.jpg",
     name: "Cozy Bunny Hooded Towel for Newborns and Toddlers",
     price: 29.99,
     priceOld: 59.99,
@@ -625,7 +625,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 27,
-    img: "/ilf/frontend/assets/images/product/baby/product-4.jpg",
+    img: "/frontend/assets/images/product/baby/product-4.jpg",
     name: "MUSHIE Frigg Baby's First Pacifier Floral Heart | Kido Bebe",
     price: 59.99,
     badge: "-25%",
@@ -643,7 +643,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 28,
-    img: "/ilf/frontend/assets/images/product/baby/product-5.jpg",
+    img: "/frontend/assets/images/product/baby/product-5.jpg",
     name: "Baby Glass Bottle Set 4oz with Latex Nipple – Blush Pink for Little Moments",
     price: 79.99,
     filterTabIds: ["new", "baby", "kids"],
@@ -660,7 +660,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 29,
-    img: "/ilf/frontend/assets/images/product/baby/product-6.jpg",
+    img: "/frontend/assets/images/product/baby/product-6.jpg",
     name: "Silicone Fork and Spoon Set – Perfect for Self-Feeding Babies",
     price: 49.99,
     priceOld: 69.99,
@@ -680,7 +680,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 30,
-    img: "/ilf/frontend/assets/images/product/baby/product-7.jpg",
+    img: "/frontend/assets/images/product/baby/product-7.jpg",
     name: "Teal Blue 5 Pack Baby Bodysuits – 100% Cotton for Everyday Comfort",
     price: 79.99,
     priceOld: 89.99,
@@ -700,7 +700,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
   },
   {
     id: 31,
-    img: "/ilf/frontend/assets/images/product/baby/product-8.jpg",
+    img: "/frontend/assets/images/product/baby/product-8.jpg",
     name: "White Delicate Double Pom Baby Hat – Soft & Cozy Warmth for Little Heads",
     price: 39.99,
     badge: "-25%",
@@ -722,7 +722,7 @@ export const babyHighlightsNewProducts: ProductCardItem[] = [
 export const favoriteBabyProducts: ProductCardItem[] = [
   {
     id: 32,
-    img: "/ilf/frontend/assets/images/product/baby/product-9.jpg",
+    img: "/frontend/assets/images/product/baby/product-9.jpg",
     name: "Frigg Moon Natural Rubber Baby Pacifier Gentle Comfort",
     price: 69.99,
     cardVariant: "square",
@@ -738,7 +738,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
   },
   {
     id: 33,
-    img: "/ilf/frontend/assets/images/product/baby/product-10.jpg",
+    img: "/frontend/assets/images/product/baby/product-10.jpg",
     name: "Little Dine Wooden High Chair Elegant Comfort for Tiny Foodies",
     price: 79.99,
     priceOld: 99.99,
@@ -757,7 +757,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
   },
   {
     id: 34,
-    img: "/ilf/frontend/assets/images/product/baby/product-11.jpg",
+    img: "/frontend/assets/images/product/baby/product-11.jpg",
     name: "Soft Totoro Plushie – Perfect for Cuddles & Sweet Dreams",
     price: 29.99,
     priceOld: 59.99,
@@ -776,7 +776,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
   },
   {
     id: 35,
-    img: "/ilf/frontend/assets/images/product/baby/product-12.jpg",
+    img: "/frontend/assets/images/product/baby/product-12.jpg",
     name: "Blush Silicone Bib – Gentle Comfort for Mess-Free Mealtime",
     price: 79.99,
     cardVariant: "square",
@@ -792,7 +792,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
   },
   {
     id: 36,
-    img: "/ilf/frontend/assets/images/product/baby/product-13.jpg",
+    img: "/frontend/assets/images/product/baby/product-13.jpg",
     name: "Organic Cotton Muslin Swaddle Blanket",
     price: 79.99,
     priceOld: 99.99,
@@ -810,7 +810,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
   },
   {
     id: 37,
-    img: "/ilf/frontend/assets/images/product/baby/product-14.jpg",
+    img: "/frontend/assets/images/product/baby/product-14.jpg",
     name: "Gentle Baby Shampoo & Body Wash Set",
     price: 29.99,
     cardVariant: "square",
@@ -830,7 +830,7 @@ export const favoriteBabyProducts: ProductCardItem[] = [
 export const bundleBabyPinProducts: ProductCardItem[] = [
   {
     id: 3001,
-    img: "/ilf/frontend/assets/images/product/baby/product-14.jpg",
+    img: "/frontend/assets/images/product/baby/product-14.jpg",
     name: "Organic Baby Bodysuit...",
     price: 29.99,
     priceOld: 39.99,
@@ -847,7 +847,7 @@ export const bundleBabyPinProducts: ProductCardItem[] = [
   },
   {
     id: 3002,
-    img: "/ilf/frontend/assets/images/product/baby/product-9.jpg",
+    img: "/frontend/assets/images/product/baby/product-9.jpg",
     name: "Frigg Moon Natural Rubber...",
     price: 69.99,
     priceOld: 79.99,
@@ -864,7 +864,7 @@ export const bundleBabyPinProducts: ProductCardItem[] = [
   },
   {
     id: 3003,
-    img: "/ilf/frontend/assets/images/product/baby/product-14.jpg",
+    img: "/frontend/assets/images/product/baby/product-14.jpg",
     name: "Organic Baby Bodysuit...",
     price: 59.99,
     priceOld: 69.99,
@@ -881,7 +881,7 @@ export const bundleBabyPinProducts: ProductCardItem[] = [
   },
   {
     id: 3004,
-    img: "/ilf/frontend/assets/images/product/baby/product-9.jpg",
+    img: "/frontend/assets/images/product/baby/product-9.jpg",
     name: "Frigg Moon Natural Rubber...",
     price: 99.99,
     priceOld: 109.99,
@@ -913,8 +913,8 @@ export const shopDefaultProducts = [
 export const bestChoiceBagProducts: ProductCardItem[] = [
   {
     id: 38,
-    img: "/ilf/frontend/assets/images/product/bag/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-1_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-1_2.jpg",
     name: "Suede Tote Bag",
     price: 69.99,
     priceOld: 99.99,
@@ -924,8 +924,8 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
   },
   {
     id: 39,
-    img: "/ilf/frontend/assets/images/product/bag/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-2_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-2_2.jpg",
     name: "Suede Mini Bag",
     price: 29.99,
     priceOld: 49.99,
@@ -934,8 +934,8 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
   },
   {
     id: 40,
-    img: "/ilf/frontend/assets/images/product/bag/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-3_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-3_2.jpg",
     name: "Mini Sue Crossbody Bag",
     price: 15.99,
     priceOld: 25.99,
@@ -946,19 +946,19 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-muted-brown",
-        img: "/ilf/frontend/assets/images/product/bag/product-3.jpg",
+        img: "/frontend/assets/images/product/bag/product-3.jpg",
       },
       {
         label: "Sand",
         swatchClass: "bg-sand-brown",
-        img: "/ilf/frontend/assets/images/product/bag/product-3_3.jpg",
+        img: "/frontend/assets/images/product/bag/product-3_3.jpg",
       },
     ],
   },
   {
     id: 41,
-    img: "/ilf/frontend/assets/images/product/bag/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-4_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-4_2.jpg",
     name: "Shearling-Suede Tote Bag",
     price: 45.99,
     priceOld: 79.99,
@@ -968,8 +968,8 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
   },
   {
     id: 42,
-    img: "/ilf/frontend/assets/images/product/bag/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-5_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-5_2.jpg",
     name: "Small Nappa Leather Pouch With Button",
     price: 9.99,
     priceOld: 19.99,
@@ -978,20 +978,20 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
       {
         label: "Dark",
         swatchClass: "bg-charcoal-green",
-        img: "/ilf/frontend/assets/images/product/bag/product-5.jpg",
+        img: "/frontend/assets/images/product/bag/product-5.jpg",
       },
       {
         label: "Gray",
         swatchClass: "bg-soft-gray",
-        img: "/ilf/frontend/assets/images/product/bag/product-5_3.jpg",
+        img: "/frontend/assets/images/product/bag/product-5_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 43,
-    img: "/ilf/frontend/assets/images/product/bag/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-6_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-6_2.jpg",
     name: "Long Leaf Shaped Earrings",
     price: 34.99,
     priceOld: 59.99,
@@ -1000,8 +1000,8 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
   },
   {
     id: 44,
-    img: "/ilf/frontend/assets/images/product/bag/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-7_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-7_2.jpg",
     name: "Leather Crossbody Bag",
     price: 22.99,
     priceOld: 39.99,
@@ -1011,20 +1011,20 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
       {
         label: "Charcoal",
         swatchClass: "bg-charcoal-green",
-        img: "/ilf/frontend/assets/images/product/bag/product-7.jpg",
+        img: "/frontend/assets/images/product/bag/product-7.jpg",
       },
       {
         label: "Plum",
         swatchClass: "bg-dark-plum",
-        img: "/ilf/frontend/assets/images/product/bag/product-7_3.jpg",
+        img: "/frontend/assets/images/product/bag/product-7_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 45,
-    img: "/ilf/frontend/assets/images/product/bag/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-8_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-8_2.jpg",
     name: "Suede Bowling Bag",
     price: 67.99,
     priceOld: 99.99,
@@ -1037,8 +1037,8 @@ export const bestChoiceBagProducts: ProductCardItem[] = [
 export const productCountdownBagProducts: ProductCardItem[] = [
   {
     id: 46,
-    img: "/ilf/frontend/assets/images/product/bag/product-9.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-9_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-9.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-9_2.jpg",
     name: "Soft Velvet Leather Crossbody Bag",
     price: 69.99,
     priceOld: 99.99,
@@ -1048,8 +1048,8 @@ export const productCountdownBagProducts: ProductCardItem[] = [
   },
   {
     id: 47,
-    img: "/ilf/frontend/assets/images/product/bag/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-10_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-10_2.jpg",
     name: "Gold-Plated Oval Earrings",
     price: 29.99,
     priceOld: 49.99,
@@ -1058,8 +1058,8 @@ export const productCountdownBagProducts: ProductCardItem[] = [
   },
   {
     id: 48,
-    img: "/ilf/frontend/assets/images/product/bag/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-7_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-7_2.jpg",
     name: "Leather Crossbody Bag",
     price: 22.99,
     priceOld: 39.99,
@@ -1069,20 +1069,20 @@ export const productCountdownBagProducts: ProductCardItem[] = [
       {
         label: "Charcoal",
         swatchClass: "bg-charcoal-green",
-        img: "/ilf/frontend/assets/images/product/bag/product-7.jpg",
+        img: "/frontend/assets/images/product/bag/product-7.jpg",
       },
       {
         label: "Plum",
         swatchClass: "bg-dark-plum",
-        img: "/ilf/frontend/assets/images/product/bag/product-7_3.jpg",
+        img: "/frontend/assets/images/product/bag/product-7_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 49,
-    img: "/ilf/frontend/assets/images/product/bag/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/bag/product-8_2.jpg",
+    img: "/frontend/assets/images/product/bag/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/bag/product-8_2.jpg",
     name: "Suede Bowling Bag",
     price: 67.99,
     priceOld: 99.99,
@@ -1095,7 +1095,7 @@ export const productCountdownBagProducts: ProductCardItem[] = [
 export const topPicksConstructionProducts: ProductCardItem[] = [
   {
     id: 50,
-    img: "/ilf/frontend/assets/images/product/construction/product-4.jpg",
+    img: "/frontend/assets/images/product/construction/product-4.jpg",
     name: 'M18 FUEL™ 7" / 9" Large Angle Grinder (Tool Only)',
     price: 39.99,
     filterTabIds: ["medications", "devices"],
@@ -1103,7 +1103,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 51,
-    img: "/ilf/frontend/assets/images/product/construction/product-5.jpg",
+    img: "/frontend/assets/images/product/construction/product-5.jpg",
     name: "Plumeria Champa White Flower Plant",
     price: 44.99,
     priceOld: 54.99,
@@ -1114,7 +1114,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 52,
-    img: "/ilf/frontend/assets/images/product/construction/product-1.jpg",
+    img: "/frontend/assets/images/product/construction/product-1.jpg",
     name: "Milwaukee M12 FUEL 1/2inch Hammer Drill (Bare Tool)",
     price: 35.99,
     priceOld: 49.99,
@@ -1124,7 +1124,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 53,
-    img: "/ilf/frontend/assets/images/product/construction/product-2.jpg",
+    img: "/frontend/assets/images/product/construction/product-2.jpg",
     name: "Klein Tools Digital Angle Gauge/Level",
     price: 20,
     badge: "NEW",
@@ -1133,7 +1133,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 54,
-    img: "/ilf/frontend/assets/images/product/construction/product-3.jpg",
+    img: "/frontend/assets/images/product/construction/product-3.jpg",
     name: "ProFlex Impact Driver Bit Set, 40-Piece - 33801 | Klein Tools",
     price: 14.99,
     priceOld: 19.99,
@@ -1143,7 +1143,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 55,
-    img: "/ilf/frontend/assets/images/product/construction/product-6.jpg",
+    img: "/frontend/assets/images/product/construction/product-6.jpg",
     name: "General Purpose Gloves - Milwaukee® Impact",
     price: 11.99,
     priceOld: 15.99,
@@ -1153,7 +1153,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 56,
-    img: "/ilf/frontend/assets/images/product/construction/product-7.jpg",
+    img: "/frontend/assets/images/product/construction/product-7.jpg",
     name: "Smart Helmet Will Boost Industrial Safety & Efficiency",
     price: 16.5,
     priceOld: 21.99,
@@ -1163,7 +1163,7 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
   },
   {
     id: 57,
-    img: "/ilf/frontend/assets/images/product/construction/product-8.jpg",
+    img: "/frontend/assets/images/product/construction/product-8.jpg",
     name: "Tracer Complete Deep Hole Marking Kit",
     price: 12,
     priceOld: 16.99,
@@ -1177,14 +1177,14 @@ export const topPicksConstructionProducts: ProductCardItem[] = [
 export const topPicksConstruction2Products: ProductCardItem[] = [
   {
     id: 58,
-    img: "/ilf/frontend/assets/images/product/construction/product-9.jpg",
+    img: "/frontend/assets/images/product/construction/product-9.jpg",
     name: "Makita A-94786 12-Inch 40 Tooth Ultra Coated Mitersaw Blade.",
     price: 19.99,
     cardVariant: "square",
   },
   {
     id: 59,
-    img: "/ilf/frontend/assets/images/product/construction/product-10.jpg",
+    img: "/frontend/assets/images/product/construction/product-10.jpg",
     name: "Cancelling Hearing Protection Earmuffs For Slotted Hard Hats.",
     price: 44.99,
     priceOld: 59.99,
@@ -1194,7 +1194,7 @@ export const topPicksConstruction2Products: ProductCardItem[] = [
   },
   {
     id: 60,
-    img: "/ilf/frontend/assets/images/product/construction/product-2.jpg",
+    img: "/frontend/assets/images/product/construction/product-2.jpg",
     name: "Rubber Hammer, 16oz rubber mallet With fiberglass Handle",
     price: 15.49,
     badge: "NEW",
@@ -1202,7 +1202,7 @@ export const topPicksConstruction2Products: ProductCardItem[] = [
   },
   {
     id: 61,
-    img: "/ilf/frontend/assets/images/product/construction/product-11.jpg",
+    img: "/frontend/assets/images/product/construction/product-11.jpg",
     name: "SKIL 15 Amp 7-1/4 Inch Circular Saw with Single Beam Laser Guide",
     price: 34.99,
     priceOld: 59.99,
@@ -1215,7 +1215,7 @@ export const topPicksConstruction2Products: ProductCardItem[] = [
 export const lookbookPinProducts: ProductCardItem[] = [
   {
     id: 62,
-    img: "/ilf/frontend/assets/images/product/square/product-10.jpg",
+    img: "/frontend/assets/images/product/square/product-10.jpg",
     name: "High neck midi wool coat",
     price: 29.99,
     priceOld: 39.99,
@@ -1223,7 +1223,7 @@ export const lookbookPinProducts: ProductCardItem[] = [
   },
   {
     id: 63,
-    img: "/ilf/frontend/assets/images/product/square/product-3_3.jpg",
+    img: "/frontend/assets/images/product/square/product-3_3.jpg",
     name: "High neck midi wool coat",
     price: 49.99,
     priceOld: 59.99,
@@ -1231,7 +1231,7 @@ export const lookbookPinProducts: ProductCardItem[] = [
   },
   {
     id: 64,
-    img: "/ilf/frontend/assets/images/product/square/product-11.jpg",
+    img: "/frontend/assets/images/product/square/product-11.jpg",
     name: "High neck midi wool coat",
     price: 69.99,
     priceOld: 79.99,
@@ -1243,8 +1243,8 @@ export const lookbookPinProducts: ProductCardItem[] = [
 export const topPicksCosmeticProducts: ProductCardItem[] = [
   {
     id: 65,
-    img: "/ilf/frontend/assets/images/product/cosmetic/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/cosmetic/product-1_2.jpg",
+    img: "/frontend/assets/images/product/cosmetic/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/cosmetic/product-1_2.jpg",
     name: "Pillow talk plump effect lip",
     price: 69.99,
     priceOld: 99.99,
@@ -1254,8 +1254,8 @@ export const topPicksCosmeticProducts: ProductCardItem[] = [
   },
   {
     id: 66,
-    img: "/ilf/frontend/assets/images/product/cosmetic/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/cosmetic/product-2_2.jpg",
+    img: "/frontend/assets/images/product/cosmetic/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/cosmetic/product-2_2.jpg",
     name: "Origins",
     price: 29.99,
     priceOld: 49.99,
@@ -1264,19 +1264,19 @@ export const topPicksCosmeticProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-brown",
-        img: "/ilf/frontend/assets/images/product/cosmetic/product-2.jpg",
+        img: "/frontend/assets/images/product/cosmetic/product-2.jpg",
       },
       {
         label: "Beige",
         swatchClass: "bg-beige",
-        img: "/ilf/frontend/assets/images/product/cosmetic/product-2_3.jpg",
+        img: "/frontend/assets/images/product/cosmetic/product-2_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 67,
-    img: "/ilf/frontend/assets/images/product/cosmetic/product-3.jpg",
+    img: "/frontend/assets/images/product/cosmetic/product-3.jpg",
     name: "Vanish Airbrush Pressed Powder",
     price: 15.99,
     priceOld: 25.99,
@@ -1285,20 +1285,20 @@ export const topPicksCosmeticProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-olive-brown",
-        img: "/ilf/frontend/assets/images/product/cosmetic/product-3.jpg",
+        img: "/frontend/assets/images/product/cosmetic/product-3.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-dark-blue",
-        img: "/ilf/frontend/assets/images/product/cosmetic/product-3_2.jpg",
+        img: "/frontend/assets/images/product/cosmetic/product-3_2.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 68,
-    img: "/ilf/frontend/assets/images/product/cosmetic/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/cosmetic/product-4_2.jpg",
+    img: "/frontend/assets/images/product/cosmetic/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/cosmetic/product-4_2.jpg",
     name: "Supremya Baume",
     price: 45.99,
     priceOld: 79.99,
@@ -1311,14 +1311,14 @@ export const topPicksCosmeticProducts: ProductCardItem[] = [
 export const topPicksDecorProducts: ProductCardItem[] = [
   {
     id: 69,
-    img: "/ilf/frontend/assets/images/product/decor/product-1.jpg",
+    img: "/frontend/assets/images/product/decor/product-1.jpg",
     name: "Paris",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 70,
-    img: "/ilf/frontend/assets/images/product/decor/product-2.jpg",
+    img: "/frontend/assets/images/product/decor/product-2.jpg",
     name: "Very Conference",
     price: 79.99,
     priceOld: 99.99,
@@ -1328,7 +1328,7 @@ export const topPicksDecorProducts: ProductCardItem[] = [
   },
   {
     id: 71,
-    img: "/ilf/frontend/assets/images/product/decor/product-3.jpg",
+    img: "/frontend/assets/images/product/decor/product-3.jpg",
     name: "Madrid",
     price: 29.99,
     priceOld: 59.99,
@@ -1338,7 +1338,7 @@ export const topPicksDecorProducts: ProductCardItem[] = [
   },
   {
     id: 72,
-    img: "/ilf/frontend/assets/images/product/decor/product-4.jpg",
+    img: "/frontend/assets/images/product/decor/product-4.jpg",
     name: "Poppy with Tablet",
     price: 59.99,
     badge: "-25%",
@@ -1350,7 +1350,7 @@ export const topPicksDecorProducts: ProductCardItem[] = [
 export const bestSellerElectronicsHeadphone: ProductCardItem[] = [
   {
     id: 73,
-    img: "/ilf/frontend/assets/images/product/electronics/product-1.jpg",
+    img: "/frontend/assets/images/product/electronics/product-1.jpg",
     name: "Apple iPhone 17 Pro Max – Titanium Design, A19 Pro Chip",
     price: 69.99,
     filterTabIds: ["headphone", "keyboard"],
@@ -1358,7 +1358,7 @@ export const bestSellerElectronicsHeadphone: ProductCardItem[] = [
   },
   {
     id: 74,
-    img: "/ilf/frontend/assets/images/product/electronics/product-2.jpg",
+    img: "/frontend/assets/images/product/electronics/product-2.jpg",
     name: "Apple Watch Series 10 GPS + Cellular 46mm - Sport Band M/L",
     price: 79.99,
     priceOld: 99.99,
@@ -1369,7 +1369,7 @@ export const bestSellerElectronicsHeadphone: ProductCardItem[] = [
   },
   {
     id: 75,
-    img: "/ilf/frontend/assets/images/product/electronics/product-3.jpg",
+    img: "/frontend/assets/images/product/electronics/product-3.jpg",
     name: "MC100 Wireless Charge Pad For MW09 True Wireless Earphones",
     price: 29.99,
     priceOld: 59.99,
@@ -1380,7 +1380,7 @@ export const bestSellerElectronicsHeadphone: ProductCardItem[] = [
   },
   {
     id: 76,
-    img: "/ilf/frontend/assets/images/product/electronics/product-4.jpg",
+    img: "/frontend/assets/images/product/electronics/product-4.jpg",
     name: "JVC Wireless Headphones with Bluetooth 5.2, Microphone",
     price: 59.99,
     badge: "-25%",
@@ -1393,7 +1393,7 @@ export const bestSellerElectronicsHeadphone: ProductCardItem[] = [
 export const bestSellerElectronicsMouse: ProductCardItem[] = [
   {
     id: 77,
-    img: "/ilf/frontend/assets/images/product/electronics/product-5.jpg",
+    img: "/frontend/assets/images/product/electronics/product-5.jpg",
     name: "Apple iPhone 17 Pro Max – Titanium Design, A19 Pro Chip",
     price: 69.99,
     filterTabIds: ["headphone", "mouse"],
@@ -1401,7 +1401,7 @@ export const bestSellerElectronicsMouse: ProductCardItem[] = [
   },
   {
     id: 78,
-    img: "/ilf/frontend/assets/images/product/electronics/product-6.jpg",
+    img: "/frontend/assets/images/product/electronics/product-6.jpg",
     name: "Apple Watch Series 10 GPS + Cellular 46mm - Sport Band M/L",
     price: 79.99,
     priceOld: 99.99,
@@ -1412,7 +1412,7 @@ export const bestSellerElectronicsMouse: ProductCardItem[] = [
   },
   {
     id: 79,
-    img: "/ilf/frontend/assets/images/product/electronics/product-7.jpg",
+    img: "/frontend/assets/images/product/electronics/product-7.jpg",
     name: "MC100 Wireless Charge Pad For MW09 True Wireless Earphones",
     price: 29.99,
     priceOld: 59.99,
@@ -1423,7 +1423,7 @@ export const bestSellerElectronicsMouse: ProductCardItem[] = [
   },
   {
     id: 80,
-    img: "/ilf/frontend/assets/images/product/electronics/product-8.jpg",
+    img: "/frontend/assets/images/product/electronics/product-8.jpg",
     name: "JVC Wireless Headphones with Bluetooth 5.2, Microphone",
     price: 59.99,
     badge: "-25%",
@@ -1436,42 +1436,42 @@ export const bestSellerElectronicsMouse: ProductCardItem[] = [
 export const gearBundleProducts: ProductCardItem[] = [
   {
     id: 801,
-    img: "/ilf/frontend/assets/images/product/electronics/product-5.jpg",
+    img: "/frontend/assets/images/product/electronics/product-5.jpg",
     name: "MW09 Active Noise-Cancelling True Wireless Earphones",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 802,
-    img: "/ilf/frontend/assets/images/product/electronics/product-8.jpg",
+    img: "/frontend/assets/images/product/electronics/product-8.jpg",
     name: "Samsung Galaxy Watch 7 LE 40mm With Nano Sim",
     price: 49.99,
     cardVariant: "square",
   },
   {
     id: 803,
-    img: "/ilf/frontend/assets/images/product/electronics/product-6.jpg",
+    img: "/frontend/assets/images/product/electronics/product-6.jpg",
     name: "Master & Dynamic MG20 Wireless Over-Ear Headphones",
     price: 79.99,
     cardVariant: "square",
   },
   {
     id: 804,
-    img: "/ilf/frontend/assets/images/product/electronics/product-9.jpg",
+    img: "/frontend/assets/images/product/electronics/product-9.jpg",
     name: "Micro Rode NT USB Mini ( Rode NT-USB Mini )",
     price: 39.99,
     cardVariant: "square",
   },
   {
     id: 805,
-    img: "/ilf/frontend/assets/images/product/electronics/product-7.jpg",
+    img: "/frontend/assets/images/product/electronics/product-7.jpg",
     name: "USB-C to USB-C Braided Charging Cable For Wireless Headphones",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 806,
-    img: "/ilf/frontend/assets/images/product/electronics/product-10.jpg",
+    img: "/frontend/assets/images/product/electronics/product-10.jpg",
     name: "DeePoon M2 Virtual Reality Headset - Super AMOLED display",
     price: 69.99,
     cardVariant: "square",
@@ -1482,8 +1482,8 @@ export const gearBundleProducts: ProductCardItem[] = [
 export const bannerHighlightFashionProducts: ProductCardItem[] = [
   {
     id: 81,
-    img: "/ilf/frontend/assets/images/product/product-18.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-18_2.jpg",
+    img: "/frontend/assets/images/product/product-18.jpg",
+    imgHover: "/frontend/assets/images/product/product-18_2.jpg",
     name: "Lyocell wrap top",
     price: 29.99,
     badge: "NEW",
@@ -1492,20 +1492,20 @@ export const bannerHighlightFashionProducts: ProductCardItem[] = [
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-18.jpg",
+        img: "/frontend/assets/images/product/product-18.jpg",
       },
       {
         label: "Dark",
         swatchClass: "bg-dark",
-        img: "/ilf/frontend/assets/images/product/product-18_3.jpg",
+        img: "/frontend/assets/images/product/product-18_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 82,
-    img: "/ilf/frontend/assets/images/product/product-19.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-19_2.jpg",
+    img: "/frontend/assets/images/product/product-19.jpg",
+    imgHover: "/frontend/assets/images/product/product-19_2.jpg",
     name: "Buttons cotton top",
     price: 29.99,
     priceOld: 39.99,
@@ -1514,25 +1514,25 @@ export const bannerHighlightFashionProducts: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-warm-beige",
-        img: "/ilf/frontend/assets/images/product/product-19.jpg",
+        img: "/frontend/assets/images/product/product-19.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-rosewood",
-        img: "/ilf/frontend/assets/images/product/product-19_3.jpg",
+        img: "/frontend/assets/images/product/product-19_3.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-dark-blue-gray",
-        img: "/ilf/frontend/assets/images/product/product-19_4.jpg",
+        img: "/frontend/assets/images/product/product-19_4.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 83,
-    img: "/ilf/frontend/assets/images/product/product-20.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-20_2.jpg",
+    img: "/frontend/assets/images/product/product-20.jpg",
+    imgHover: "/frontend/assets/images/product/product-20_2.jpg",
     name: "Buttons cotton top",
     price: 29.99,
     priceOld: 39.99,
@@ -1541,20 +1541,20 @@ export const bannerHighlightFashionProducts: ProductCardItem[] = [
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-20.jpg",
+        img: "/frontend/assets/images/product/product-20.jpg",
       },
       {
         label: "Pink",
         swatchClass: "bg-peach-blush",
-        img: "/ilf/frontend/assets/images/product/product-20_3.jpg",
+        img: "/frontend/assets/images/product/product-20_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 84,
-    img: "/ilf/frontend/assets/images/product/product-21.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-21_2.jpg",
+    img: "/frontend/assets/images/product/product-21.jpg",
+    imgHover: "/frontend/assets/images/product/product-21_2.jpg",
     name: "Lyocell wrap top",
     price: 69.99,
     priceOld: 99.99,
@@ -1564,12 +1564,12 @@ export const bannerHighlightFashionProducts: ProductCardItem[] = [
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-21.jpg",
+        img: "/frontend/assets/images/product/product-21.jpg",
       },
       {
         label: "Dark",
         swatchClass: "bg-dark",
-        img: "/ilf/frontend/assets/images/product/product-21_3.jpg",
+        img: "/frontend/assets/images/product/product-21_3.jpg",
       },
     ],
     cardVariant: "square",
@@ -1580,8 +1580,8 @@ export const bannerHighlightFashionProducts: ProductCardItem[] = [
 export const todayFashionProducts: ProductCardItem[] = [
   {
     id: 85,
-    img: "/ilf/frontend/assets/images/product/product-14.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-14_2.jpg",
+    img: "/frontend/assets/images/product/product-14.jpg",
+    imgHover: "/frontend/assets/images/product/product-14_2.jpg",
     name: "Lyocell wrap top",
     price: 69.99,
     priceOld: 99.99,
@@ -1591,24 +1591,24 @@ export const todayFashionProducts: ProductCardItem[] = [
       {
         label: "Pink",
         swatchClass: "bg-peach-blush",
-        img: "/ilf/frontend/assets/images/product/product-14.jpg",
+        img: "/frontend/assets/images/product/product-14.jpg",
       },
       {
         label: "Brown",
         swatchClass: "bg-rose-taupe",
-        img: "/ilf/frontend/assets/images/product/product-14_3.jpg",
+        img: "/frontend/assets/images/product/product-14_3.jpg",
       },
       {
         label: "Green",
         swatchClass: "bg-sage-gray",
-        img: "/ilf/frontend/assets/images/product/product-14_4.jpg",
+        img: "/frontend/assets/images/product/product-14_4.jpg",
       },
     ],
   },
   {
     id: 86,
-    img: "/ilf/frontend/assets/images/product/product-15.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-15_2.jpg",
+    img: "/frontend/assets/images/product/product-15.jpg",
+    imgHover: "/frontend/assets/images/product/product-15_2.jpg",
     name: "Wool Midi Coat",
     price: 15.99,
     priceOld: 25.99,
@@ -1617,24 +1617,24 @@ export const todayFashionProducts: ProductCardItem[] = [
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-15.jpg",
+        img: "/frontend/assets/images/product/product-15.jpg",
       },
       {
         label: "Black",
         swatchClass: "bg-dark-blue",
-        img: "/ilf/frontend/assets/images/product/product-15_4.jpg",
+        img: "/frontend/assets/images/product/product-15_4.jpg",
       },
       {
         label: "Light",
         swatchClass: "bg-cream",
-        img: "/ilf/frontend/assets/images/product/product-15_3.jpg",
+        img: "/frontend/assets/images/product/product-15_3.jpg",
       },
     ],
   },
   {
     id: 87,
-    img: "/ilf/frontend/assets/images/product/product-16.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-16_2.jpg",
+    img: "/frontend/assets/images/product/product-16.jpg",
+    imgHover: "/frontend/assets/images/product/product-16_2.jpg",
     name: "Buttons cotton top",
     price: 29.99,
     priceOld: 49.99,
@@ -1644,19 +1644,19 @@ export const todayFashionProducts: ProductCardItem[] = [
       {
         label: "Pink",
         swatchClass: "bg-peach-blush",
-        img: "/ilf/frontend/assets/images/product/product-16.jpg",
+        img: "/frontend/assets/images/product/product-16.jpg",
       },
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/product-16_3.jpg",
+        img: "/frontend/assets/images/product/product-16_3.jpg",
       },
     ],
   },
   {
     id: 88,
-    img: "/ilf/frontend/assets/images/product/product-17.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/product-17_2.jpg",
+    img: "/frontend/assets/images/product/product-17.jpg",
+    imgHover: "/frontend/assets/images/product/product-17_2.jpg",
     name: "linen slim-fit shirt",
     price: 45.99,
     priceOld: 79.99,
@@ -1665,12 +1665,12 @@ export const todayFashionProducts: ProductCardItem[] = [
       {
         label: "Blue",
         swatchClass: "bg-sky-blue",
-        img: "/ilf/frontend/assets/images/product/product-17.jpg",
+        img: "/frontend/assets/images/product/product-17.jpg",
       },
       {
         label: "Black",
         swatchClass: "bg-dark",
-        img: "/ilf/frontend/assets/images/product/product-17_3.jpg",
+        img: "/frontend/assets/images/product/product-17_3.jpg",
       },
     ],
   },
@@ -1680,8 +1680,8 @@ export const todayFashionProducts: ProductCardItem[] = [
 export const productFeatureFashion2Products: ProductCardItem[] = [
   {
     id: 89,
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-9.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-9_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-9.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-9_2.jpg",
     name: "Turtleneck Sweater With Zip",
     price: 69.99,
     priceOld: 99.99,
@@ -1692,20 +1692,20 @@ export const productFeatureFashion2Products: ProductCardItem[] = [
       {
         label: "Gray",
         swatchClass: "bg-soft-gray",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-9.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-9.jpg",
       },
       {
         label: "Blue",
         swatchClass: "bg-sky-blue",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-9_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-9_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 90,
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-10_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-10_2.jpg",
     name: "Mesh Shoe With Heel",
     price: 29.99,
     priceOld: 49.99,
@@ -1714,8 +1714,8 @@ export const productFeatureFashion2Products: ProductCardItem[] = [
   },
   {
     id: 91,
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-11.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-11_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-11.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-11_2.jpg",
     name: "City Shoulder Bag With Flap",
     price: 15.99,
     priceOld: 25.99,
@@ -1725,17 +1725,17 @@ export const productFeatureFashion2Products: ProductCardItem[] = [
       {
         label: "Pink",
         swatchClass: "bg-powder-pink",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-11.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-11.jpg",
       },
       {
         label: "Plum",
         swatchClass: "bg-dark-plum",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-11_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-11_3.jpg",
       },
       {
         label: "Dark",
         swatchClass: "bg-dark",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-11_4.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-11_4.jpg",
       },
     ],
     cardVariant: "square",
@@ -1747,8 +1747,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 92,
     filterTabIds: ["new", "best", "sale"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-1_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-1_2.jpg",
     name: "Cotton Short-Sleeved T-Shirt",
     price: 69.99,
     priceOld: 99.99,
@@ -1759,17 +1759,17 @@ export const productsFashion2: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-muted-brown",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-1.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-1.jpg",
       },
       {
         label: "Dark Blue",
         swatchClass: "bg-dark-blue-gray",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-1_4.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-1_4.jpg",
       },
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-1_6.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-1_6.jpg",
       },
     ],
     cardVariant: "square",
@@ -1777,8 +1777,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 93,
     filterTabIds: ["new", "best"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-2_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-2_2.jpg",
     name: "Fabric Shopping Bag",
     price: 29.99,
     priceOld: 49.99,
@@ -1788,8 +1788,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 94,
     filterTabIds: ["new", "best"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-3_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-3_2.jpg",
     name: "Embossed Wallet With Logo",
     price: 15.99,
     priceOld: 25.99,
@@ -1800,8 +1800,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 95,
     filterTabIds: ["new", "best"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-4_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-4_2.jpg",
     name: "Pendant Crystals Earrings",
     price: 45.99,
     priceOld: 79.99,
@@ -1812,8 +1812,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 96,
     filterTabIds: ["new", "best"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-5_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-5_2.jpg",
     name: "Shoulder Bag With Buckle",
     price: 9.99,
     priceOld: 19.99,
@@ -1822,12 +1822,12 @@ export const productsFashion2: ProductCardItem[] = [
       {
         label: "Pink",
         swatchClass: "bg-dusty-rose",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-5.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-5.jpg",
       },
       {
         label: "Orange",
         swatchClass: "bg-salmon-orange",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-5_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-5_3.jpg",
       },
     ],
     cardVariant: "square",
@@ -1835,8 +1835,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 97,
     filterTabIds: ["new", "sale"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-6_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-6_2.jpg",
     name: "Ruched Fitted Dress",
     price: 34.99,
     priceOld: 59.99,
@@ -1846,12 +1846,12 @@ export const productsFashion2: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-muted-brown",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-6.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-6.jpg",
       },
       {
         label: "Gray",
         swatchClass: "bg-steel-gray",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-6_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-6_3.jpg",
       },
     ],
     cardVariant: "square",
@@ -1859,8 +1859,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 98,
     filterTabIds: ["new", "sale"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-7_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-7_2.jpg",
     name: "Ribbed Polo-Neck Sweater With Buttons",
     price: 22.99,
     priceOld: 39.99,
@@ -1870,12 +1870,12 @@ export const productsFashion2: ProductCardItem[] = [
       {
         label: "Green",
         swatchClass: "bg-charcoal-green",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-7.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-7.jpg",
       },
       {
         label: "Navy",
         swatchClass: "bg-dark-blue-gray",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-7_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-7_3.jpg",
       },
     ],
     cardVariant: "square",
@@ -1883,8 +1883,8 @@ export const productsFashion2: ProductCardItem[] = [
   {
     id: 99,
     filterTabIds: ["new", "sale"],
-    img: "/ilf/frontend/assets/images/product/fashion-2/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-2/product-8_2.jpg",
+    img: "/frontend/assets/images/product/fashion-2/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-2/product-8_2.jpg",
     name: "Turtleneck Knit Sweater",
     price: 67.99,
     priceOld: 99.99,
@@ -1893,17 +1893,17 @@ export const productsFashion2: ProductCardItem[] = [
       {
         label: "Brown",
         swatchClass: "bg-muted-brown",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-8.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-8.jpg",
       },
       {
         label: "Pink",
         swatchClass: "bg-powder-pink",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-8_3.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-8_3.jpg",
       },
       {
         label: "Rose",
         swatchClass: "bg-dusty-rose",
-        img: "/ilf/frontend/assets/images/product/fashion-2/product-8_4.jpg",
+        img: "/frontend/assets/images/product/fashion-2/product-8_4.jpg",
       },
     ],
     cardVariant: "square",
@@ -1914,16 +1914,16 @@ export const productsFashion2: ProductCardItem[] = [
 export const productsFurniture: ProductCardItem[] = [
   {
     id: 100,
-    img: "/ilf/frontend/assets/images/product/furniture/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-1_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-1_2.jpg",
     name: "Imola armchair with swivel",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 101,
-    img: "/ilf/frontend/assets/images/product/furniture/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-2_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-2_2.jpg",
     name: "Expose side table",
     price: 29.99,
     priceOld: 49.99,
@@ -1933,8 +1933,8 @@ export const productsFurniture: ProductCardItem[] = [
   },
   {
     id: 102,
-    img: "/ilf/frontend/assets/images/product/furniture/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-3_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-3_2.jpg",
     name: "Element night stand",
     price: 35.99,
     priceOld: 49.99,
@@ -1943,24 +1943,24 @@ export const productsFurniture: ProductCardItem[] = [
   },
   {
     id: 103,
-    img: "/ilf/frontend/assets/images/product/furniture/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-4_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-4_2.jpg",
     name: "Modena armchair",
     price: 89.99,
     cardVariant: "square",
   },
   {
     id: 104,
-    img: "/ilf/frontend/assets/images/product/furniture/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-5_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-5_2.jpg",
     name: "Ball-shaped interior lamp with soft light",
     price: 45.99,
     cardVariant: "square",
   },
   {
     id: 105,
-    img: "/ilf/frontend/assets/images/product/furniture/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-6_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-6_2.jpg",
     name: "Office Chair V Leg",
     price: 199.99,
     priceOld: 249.99,
@@ -1969,8 +1969,8 @@ export const productsFurniture: ProductCardItem[] = [
   },
   {
     id: 106,
-    img: "/ilf/frontend/assets/images/product/furniture/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-7_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-7_2.jpg",
     name: "Expose side table",
     price: 79.99,
     priceOld: 99.99,
@@ -1979,8 +1979,8 @@ export const productsFurniture: ProductCardItem[] = [
   },
   {
     id: 107,
-    img: "/ilf/frontend/assets/images/product/furniture/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-8_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-8_2.jpg",
     name: "JVC Wireless Headphones with Bluetooth 5.2, Microphone",
     price: 59.99,
     cardVariant: "square",
@@ -1991,8 +1991,8 @@ export const productsFurniture: ProductCardItem[] = [
 export const topSellerFurnitureProducts: ProductCardItem[] = [
   {
     id: 108,
-    img: "/ilf/frontend/assets/images/product/furniture/product-9.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-9_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-9.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-9_2.jpg",
     name: "Bukowski Chair New York",
     price: 69.99,
     filterTabIds: ["bedside", "bedroom"],
@@ -2000,8 +2000,8 @@ export const topSellerFurnitureProducts: ProductCardItem[] = [
   },
   {
     id: 109,
-    img: "/ilf/frontend/assets/images/product/furniture/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-10_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-10_2.jpg",
     name: "Bilboquet Flos",
     price: 79.99,
     priceOld: 99.99,
@@ -2012,8 +2012,8 @@ export const topSellerFurnitureProducts: ProductCardItem[] = [
   },
   {
     id: 110,
-    img: "/ilf/frontend/assets/images/product/furniture/product-11.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-11_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-11.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-11_2.jpg",
     name: "Furniture item",
     price: 249.99,
     badge: "NEW",
@@ -2022,8 +2022,8 @@ export const topSellerFurnitureProducts: ProductCardItem[] = [
   },
   {
     id: 111,
-    img: "/ilf/frontend/assets/images/product/furniture/product-12.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/furniture/product-12_2.jpg",
+    img: "/frontend/assets/images/product/furniture/product-12.jpg",
+    imgHover: "/frontend/assets/images/product/furniture/product-12_2.jpg",
     name: "Table lamp",
     price: 49.99,
     priceOld: 69.99,
@@ -2037,8 +2037,8 @@ export const topSellerFurnitureProducts: ProductCardItem[] = [
 export const popularOrganicProducts: ProductCardItem[] = [
   {
     id: 112,
-    img: "/ilf/frontend/assets/images/product/organic/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-10_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-10_2.jpg",
     name: "Organic Blueberry Almond Granola",
     price: 69.99,
     priceOld: 99.99,
@@ -2048,8 +2048,8 @@ export const popularOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 113,
-    img: "/ilf/frontend/assets/images/product/organic/product-11.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-11_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-11.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-11_2.jpg",
     name: "Organic Half-Decaf Blend Coffee",
     price: 29.99,
     priceOld: 49.99,
@@ -2058,8 +2058,8 @@ export const popularOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 114,
-    img: "/ilf/frontend/assets/images/product/organic/product-12.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-12_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-12.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-12_2.jpg",
     name: "Chocolate Covered Almonds",
     price: 15.99,
     priceOld: 25.99,
@@ -2068,8 +2068,8 @@ export const popularOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 115,
-    img: "/ilf/frontend/assets/images/product/organic/product-13.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-13_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-13.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-13_2.jpg",
     name: "Organic Rooibos Coconut Tea",
     price: 45.99,
     priceOld: 59.99,
@@ -2082,8 +2082,8 @@ export const popularOrganicProducts: ProductCardItem[] = [
 export const favoriteOrganicProducts: ProductCardItem[] = [
   {
     id: 116,
-    img: "/ilf/frontend/assets/images/product/organic/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-1_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-1_2.jpg",
     name: "Organic Dragon Fruit",
     price: 69.99,
     badge: "NEW",
@@ -2091,8 +2091,8 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 117,
-    img: "/ilf/frontend/assets/images/product/organic/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-2_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-2_2.jpg",
     name: "Organic Shredded Coconut",
     price: 79.99,
     priceOld: 99.99,
@@ -2101,8 +2101,8 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 118,
-    img: "/ilf/frontend/assets/images/product/organic/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-3_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-3_2.jpg",
     name: "Organic product",
     price: 29.99,
     priceOld: 39.99,
@@ -2111,8 +2111,8 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 119,
-    img: "/ilf/frontend/assets/images/product/organic/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-4_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-4_2.jpg",
     name: "Organic product",
     price: 18.99,
     badge: "NEW",
@@ -2120,8 +2120,8 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 120,
-    img: "/ilf/frontend/assets/images/product/organic/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-5_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-5_2.jpg",
     name: "Organic product",
     price: 8.99,
     priceOld: 12.99,
@@ -2130,8 +2130,8 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
   },
   {
     id: 121,
-    img: "/ilf/frontend/assets/images/product/organic/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/organic/product-6_2.jpg",
+    img: "/frontend/assets/images/product/organic/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/organic/product-6_2.jpg",
     name: "Organic product",
     price: 11.99,
     priceOld: 15.99,
@@ -2144,7 +2144,7 @@ export const favoriteOrganicProducts: ProductCardItem[] = [
 export const bestSaleGardenProducts: ProductCardItem[] = [
   {
     id: 122,
-    img: "/ilf/frontend/assets/images/product/garden/product-1.jpg",
+    img: "/frontend/assets/images/product/garden/product-1.jpg",
     name: "Epipremnum Aureum",
     price: 39.99,
     priceOld: 49.99,
@@ -2153,21 +2153,21 @@ export const bestSaleGardenProducts: ProductCardItem[] = [
   },
   {
     id: 123,
-    img: "/ilf/frontend/assets/images/product/garden/product-2.jpg",
+    img: "/frontend/assets/images/product/garden/product-2.jpg",
     name: "Hoya Carnosa",
     price: 39.99,
     cardVariant: "square",
   },
   {
     id: 124,
-    img: "/ilf/frontend/assets/images/product/garden/product-3.jpg",
+    img: "/frontend/assets/images/product/garden/product-3.jpg",
     name: "Garden plant",
     price: 29.99,
     cardVariant: "square",
   },
   {
     id: 125,
-    img: "/ilf/frontend/assets/images/product/garden/product-4.jpg",
+    img: "/frontend/assets/images/product/garden/product-4.jpg",
     name: "Garden plant",
     price: 34.99,
     badge: "NEW",
@@ -2175,7 +2175,7 @@ export const bestSaleGardenProducts: ProductCardItem[] = [
   },
   {
     id: 126,
-    img: "/ilf/frontend/assets/images/product/garden/product-5.jpg",
+    img: "/frontend/assets/images/product/garden/product-5.jpg",
     name: "Garden plant",
     price: 24.99,
     priceOld: 32.99,
@@ -2184,7 +2184,7 @@ export const bestSaleGardenProducts: ProductCardItem[] = [
   },
   {
     id: 127,
-    img: "/ilf/frontend/assets/images/product/garden/product-6.jpg",
+    img: "/frontend/assets/images/product/garden/product-6.jpg",
     name: "Garden plant",
     price: 44.99,
     cardVariant: "square",
@@ -2195,14 +2195,14 @@ export const bestSaleGardenProducts: ProductCardItem[] = [
 export const trendingFindsGardenProducts: ProductCardItem[] = [
   {
     id: 128,
-    img: "/ilf/frontend/assets/images/product/garden/product-7.jpg",
+    img: "/frontend/assets/images/product/garden/product-7.jpg",
     name: "Trending plant",
     price: 27.99,
     cardVariant: "square",
   },
   {
     id: 129,
-    img: "/ilf/frontend/assets/images/product/garden/product-8.jpg",
+    img: "/frontend/assets/images/product/garden/product-8.jpg",
     name: "Trending plant",
     price: 35.99,
     priceOld: 45.99,
@@ -2211,14 +2211,14 @@ export const trendingFindsGardenProducts: ProductCardItem[] = [
   },
   {
     id: 130,
-    img: "/ilf/frontend/assets/images/product/garden/product-9.jpg",
+    img: "/frontend/assets/images/product/garden/product-9.jpg",
     name: "Trending plant",
     price: 22.99,
     cardVariant: "square",
   },
   {
     id: 131,
-    img: "/ilf/frontend/assets/images/product/garden/product-10.jpg",
+    img: "/frontend/assets/images/product/garden/product-10.jpg",
     name: "Trending plant",
     price: 31.99,
     badge: "NEW",
@@ -2226,21 +2226,21 @@ export const trendingFindsGardenProducts: ProductCardItem[] = [
   },
   {
     id: 132,
-    img: "/ilf/frontend/assets/images/product/garden/product-1.jpg",
+    img: "/frontend/assets/images/product/garden/product-1.jpg",
     name: "Trending plant",
     price: 29.99,
     cardVariant: "square",
   },
   {
     id: 133,
-    img: "/ilf/frontend/assets/images/product/garden/product-2.jpg",
+    img: "/frontend/assets/images/product/garden/product-2.jpg",
     name: "Trending plant",
     price: 39.99,
     cardVariant: "square",
   },
   {
     id: 134,
-    img: "/ilf/frontend/assets/images/product/garden/product-3.jpg",
+    img: "/frontend/assets/images/product/garden/product-3.jpg",
     name: "Trending plant",
     price: 19.99,
     cardVariant: "square",
@@ -2251,8 +2251,8 @@ export const trendingFindsGardenProducts: ProductCardItem[] = [
 export const topPickHeadphoneProducts: ProductCardItem[] = [
   {
     id: 135,
-    img: "/ilf/frontend/assets/images/product/headphone/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-1_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-1_1.jpg",
     name: "MH40 L/UNIFORM Wireless Over-Ear Headphones",
     price: 29.99,
     priceOld: 39.99,
@@ -2262,8 +2262,8 @@ export const topPickHeadphoneProducts: ProductCardItem[] = [
   },
   {
     id: 136,
-    img: "/ilf/frontend/assets/images/product/headphone/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-2_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-2_1.jpg",
     name: "Over-ear headphone",
     price: 89.99,
     priceOld: 119.99,
@@ -2273,8 +2273,8 @@ export const topPickHeadphoneProducts: ProductCardItem[] = [
   },
   {
     id: 137,
-    img: "/ilf/frontend/assets/images/product/headphone/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-3_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-3_1.jpg",
     name: "Noise cancelling headphone",
     price: 199.99,
     filterTabIds: ["new", "gaming", "wireless", "popular"],
@@ -2286,16 +2286,16 @@ export const topPickHeadphoneProducts: ProductCardItem[] = [
 export const bestSaleJewelryProducts: ProductCardItem[] = [
   {
     id: 138,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-1_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-1_1.jpg",
     name: "Jewelry item",
     price: 89.99,
     cardVariant: "square",
   },
   {
     id: 139,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-2_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-2_1.jpg",
     name: "Jewelry item",
     price: 129.99,
     priceOld: 159.99,
@@ -2304,8 +2304,8 @@ export const bestSaleJewelryProducts: ProductCardItem[] = [
   },
   {
     id: 140,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-3_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-3_1.jpg",
     name: "Jewelry item",
     price: 69.99,
     badge: "NEW",
@@ -2313,24 +2313,24 @@ export const bestSaleJewelryProducts: ProductCardItem[] = [
   },
   {
     id: 141,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-4_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-4_1.jpg",
     name: "Jewelry item",
     price: 149.99,
     cardVariant: "square",
   },
   {
     id: 142,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-5_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-5_1.jpg",
     name: "Jewelry item",
     price: 99.99,
     cardVariant: "square",
   },
   {
     id: 143,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-6_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-6_1.jpg",
     name: "Jewelry item",
     price: 79.99,
     priceOld: 99.99,
@@ -2339,8 +2339,8 @@ export const bestSaleJewelryProducts: ProductCardItem[] = [
   },
   {
     id: 144,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-7_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-7_1.jpg",
     name: "Jewelry item",
     price: 119.99,
     cardVariant: "square",
@@ -2351,16 +2351,16 @@ export const bestSaleJewelryProducts: ProductCardItem[] = [
 export const newArrivalsJewelryProducts: ProductCardItem[] = [
   {
     id: 145,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-5_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-5_1.jpg",
     name: "New arrival jewelry",
     price: 99.99,
     cardVariant: "square",
   },
   {
     id: 146,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-6_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-6_1.jpg",
     name: "New arrival jewelry",
     price: 79.99,
     priceOld: 99.99,
@@ -2369,16 +2369,16 @@ export const newArrivalsJewelryProducts: ProductCardItem[] = [
   },
   {
     id: 147,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-7_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-7_1.jpg",
     name: "New arrival jewelry",
     price: 119.99,
     cardVariant: "square",
   },
   {
     id: 148,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-8_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-8_1.jpg",
     name: "New arrival jewelry",
     price: 159.99,
     badge: "NEW",
@@ -2386,33 +2386,33 @@ export const newArrivalsJewelryProducts: ProductCardItem[] = [
   },
   {
     id: 149,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-1.jpg",
 
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-1_1.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-1_1.jpg",
     name: "New arrival jewelry",
     price: 89.99,
     cardVariant: "square",
   },
   {
     id: 150,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-2_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-2_1.jpg",
     name: "New arrival jewelry",
     price: 129.99,
     cardVariant: "square",
   },
   {
     id: 151,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-3_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-3_1.jpg",
     name: "New arrival jewelry",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 152,
-    img: "/ilf/frontend/assets/images/product/jewellry/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/jewellry/product-4_1.jpg",
+    img: "/frontend/assets/images/product/jewellry/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/jewellry/product-4_1.jpg",
     name: "New arrival jewelry",
     price: 149.99,
     cardVariant: "square",
@@ -2423,7 +2423,7 @@ export const newArrivalsJewelryProducts: ProductCardItem[] = [
 export const featuredMentalProducts: ProductCardItem[] = [
   {
     id: 153,
-    img: "/ilf/frontend/assets/images/product/mental/product-4.jpg",
+    img: "/frontend/assets/images/product/mental/product-4.jpg",
     name: "Sports Research® Organic Greens Superfood Powder.",
     price: 69.99,
     priceOld: 89.99,
@@ -2431,14 +2431,14 @@ export const featuredMentalProducts: ProductCardItem[] = [
   },
   {
     id: 154,
-    img: "/ilf/frontend/assets/images/product/mental/product-5.jpg",
+    img: "/frontend/assets/images/product/mental/product-5.jpg",
     name: "PureNature® Daily Greens Superfood Powder.",
     price: 59.99,
     cardVariant: "square",
   },
   {
     id: 155,
-    img: "/ilf/frontend/assets/images/product/mental/product-6.jpg",
+    img: "/frontend/assets/images/product/mental/product-6.jpg",
     name: "GreenFuel® Organic Super Greens Formula.",
     price: 74.99,
     priceOld: 89.99,
@@ -2446,7 +2446,7 @@ export const featuredMentalProducts: ProductCardItem[] = [
   },
   {
     id: 156,
-    img: "/ilf/frontend/assets/images/product/mental/product-7.jpg",
+    img: "/frontend/assets/images/product/mental/product-7.jpg",
     name: "Organic Super Greens Performance & Wellness Powder for Active Lifestyles.",
     price: 73.99,
     priceOld: 97.99,
@@ -2454,14 +2454,14 @@ export const featuredMentalProducts: ProductCardItem[] = [
   },
   {
     id: 157,
-    img: "/ilf/frontend/assets/images/product/mental/product-8.jpg",
+    img: "/frontend/assets/images/product/mental/product-8.jpg",
     name: "Vital Earth® Organic Greens Health Formula.",
     price: 61.99,
     cardVariant: "square",
   },
   {
     id: 158,
-    img: "/ilf/frontend/assets/images/product/mental/product-9.jpg",
+    img: "/frontend/assets/images/product/mental/product-9.jpg",
     name: "Green Origin® Plant-Based Super Greens Powder.",
     price: 74.99,
     priceOld: 89.99,
@@ -2473,7 +2473,7 @@ export const featuredMentalProducts: ProductCardItem[] = [
 export const topPickMentalProducts: ProductCardItem[] = [
   {
     id: 159,
-    img: "/ilf/frontend/assets/images/product/mental/product-1.jpg",
+    img: "/frontend/assets/images/product/mental/product-1.jpg",
     name: "Top pick product",
     price: 29.99,
     filterTabIds: ["medications", "devices"],
@@ -2481,7 +2481,7 @@ export const topPickMentalProducts: ProductCardItem[] = [
   },
   {
     id: 160,
-    img: "/ilf/frontend/assets/images/product/mental/product-2.jpg",
+    img: "/frontend/assets/images/product/mental/product-2.jpg",
     name: "Top pick product",
     price: 44.99,
     priceOld: 54.99,
@@ -2491,7 +2491,7 @@ export const topPickMentalProducts: ProductCardItem[] = [
   },
   {
     id: 161,
-    img: "/ilf/frontend/assets/images/product/mental/product-3.jpg",
+    img: "/frontend/assets/images/product/mental/product-3.jpg",
     name: "Top pick product",
     price: 38.99,
     badge: "NEW",
@@ -2500,7 +2500,7 @@ export const topPickMentalProducts: ProductCardItem[] = [
   },
   {
     id: 162,
-    img: "/ilf/frontend/assets/images/product/mental/product-4.jpg",
+    img: "/frontend/assets/images/product/mental/product-4.jpg",
     name: "Top pick product",
     price: 52.99,
     filterTabIds: ["medications", "devices", "wellness", "offers"],
@@ -2512,8 +2512,8 @@ export const topPickMentalProducts: ProductCardItem[] = [
 export const productsOfficeEquipment: ProductCardItem[] = [
   {
     id: 163,
-    img: "/ilf/frontend/assets/images/product/office/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-1_2.jpg",
+    img: "/frontend/assets/images/product/office/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-1_2.jpg",
     name: "Airy Pro Ergonomic Chair",
     price: 69.99,
     priceOld: 99.99,
@@ -2523,8 +2523,8 @@ export const productsOfficeEquipment: ProductCardItem[] = [
   },
   {
     id: 164,
-    img: "/ilf/frontend/assets/images/product/office/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-2_2.jpg",
+    img: "/frontend/assets/images/product/office/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-2_2.jpg",
     name: "Office equipment",
     price: 129.99,
     priceOld: 159.99,
@@ -2533,8 +2533,8 @@ export const productsOfficeEquipment: ProductCardItem[] = [
   },
   {
     id: 165,
-    img: "/ilf/frontend/assets/images/product/office/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-3_2.jpg",
+    img: "/frontend/assets/images/product/office/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-3_2.jpg",
     name: "Office equipment",
     price: 69.99,
     badge: "NEW",
@@ -2542,8 +2542,8 @@ export const productsOfficeEquipment: ProductCardItem[] = [
   },
   {
     id: 166,
-    img: "/ilf/frontend/assets/images/product/office/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-4_2.jpg",
+    img: "/frontend/assets/images/product/office/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-4_2.jpg",
     name: "Office equipment",
     price: 149.99,
     cardVariant: "square",
@@ -2554,8 +2554,8 @@ export const productsOfficeEquipment: ProductCardItem[] = [
 export const productTabOfficeProducts: ProductCardItem[] = [
   {
     id: 167,
-    img: "/ilf/frontend/assets/images/product/office/product-9.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-9_2.jpg",
+    img: "/frontend/assets/images/product/office/product-9.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-9_2.jpg",
     name: "Office product",
     price: 79.99,
     badge: "NEW",
@@ -2565,8 +2565,8 @@ export const productTabOfficeProducts: ProductCardItem[] = [
   },
   {
     id: 168,
-    img: "/ilf/frontend/assets/images/product/office/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-10_2.jpg",
+    img: "/frontend/assets/images/product/office/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-10_2.jpg",
     name: "Office product",
     price: 99.99,
     priceOld: 119.99,
@@ -2576,8 +2576,8 @@ export const productTabOfficeProducts: ProductCardItem[] = [
   },
   {
     id: 169,
-    img: "/ilf/frontend/assets/images/product/office/product-11.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-11_2.jpg",
+    img: "/frontend/assets/images/product/office/product-11.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-11_2.jpg",
     name: "Office product",
     price: 59.99,
     badge: "NEW",
@@ -2586,8 +2586,8 @@ export const productTabOfficeProducts: ProductCardItem[] = [
   },
   {
     id: 170,
-    img: "/ilf/frontend/assets/images/product/office/product-12.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/office/product-12_2.jpg",
+    img: "/frontend/assets/images/product/office/product-12.jpg",
+    imgHover: "/frontend/assets/images/product/office/product-12_2.jpg",
     name: "Office product",
     price: 89.99,
     filterTabIds: ["desk", "chair"],
@@ -2599,7 +2599,7 @@ export const productTabOfficeProducts: ProductCardItem[] = [
 export const featuredPetProducts: ProductCardItem[] = [
   {
     id: 171,
-    img: "/ilf/frontend/assets/images/product/pet/product-4.jpg",
+    img: "/frontend/assets/images/product/pet/product-4.jpg",
     name: "Sports Research® Organic Greens Superfood Powder.",
     price: 69.99,
     priceOld: 89.99,
@@ -2607,14 +2607,14 @@ export const featuredPetProducts: ProductCardItem[] = [
   },
   {
     id: 172,
-    img: "/ilf/frontend/assets/images/product/pet/product-5.jpg",
+    img: "/frontend/assets/images/product/pet/product-5.jpg",
     name: "PureNature® Daily Greens Superfood Powder.",
     price: 59.99,
     cardVariant: "square",
   },
   {
     id: 173,
-    img: "/ilf/frontend/assets/images/product/pet/product-6.jpg",
+    img: "/frontend/assets/images/product/pet/product-6.jpg",
     name: "GreenFuel® Organic Super Greens Formula.",
     price: 74.99,
     priceOld: 89.99,
@@ -2622,7 +2622,7 @@ export const featuredPetProducts: ProductCardItem[] = [
   },
   {
     id: 174,
-    img: "/ilf/frontend/assets/images/product/pet/product-7.jpg",
+    img: "/frontend/assets/images/product/pet/product-7.jpg",
     name: "Pet product",
     price: 39.99,
     priceOld: 49.99,
@@ -2630,14 +2630,14 @@ export const featuredPetProducts: ProductCardItem[] = [
   },
   {
     id: 175,
-    img: "/ilf/frontend/assets/images/product/pet/product-8.jpg",
+    img: "/frontend/assets/images/product/pet/product-8.jpg",
     name: "Pet product",
     price: 44.99,
     cardVariant: "square",
   },
   {
     id: 176,
-    img: "/ilf/frontend/assets/images/product/pet/product-9.jpg",
+    img: "/frontend/assets/images/product/pet/product-9.jpg",
     name: "Pet product",
     price: 52.99,
     priceOld: 64.99,
@@ -2649,14 +2649,14 @@ export const featuredPetProducts: ProductCardItem[] = [
 export const topPickPetProducts: ProductCardItem[] = [
   {
     id: 177,
-    img: "/ilf/frontend/assets/images/product/pet/product-1.jpg",
+    img: "/frontend/assets/images/product/pet/product-1.jpg",
     name: "Scrumbles Complete Adult & Senior Dry Cat Food Chicken 2.5kg",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 178,
-    img: "/ilf/frontend/assets/images/product/pet/product-2.jpg",
+    img: "/frontend/assets/images/product/pet/product-2.jpg",
     name: "Pet product",
     price: 29.99,
     priceOld: 39.99,
@@ -2665,7 +2665,7 @@ export const topPickPetProducts: ProductCardItem[] = [
   },
   {
     id: 179,
-    img: "/ilf/frontend/assets/images/product/pet/product-3.jpg",
+    img: "/frontend/assets/images/product/pet/product-3.jpg",
     name: "Pet product",
     price: 34.99,
     badge: "NEW",
@@ -2673,14 +2673,14 @@ export const topPickPetProducts: ProductCardItem[] = [
   },
   {
     id: 180,
-    img: "/ilf/frontend/assets/images/product/pet/product-4.jpg",
+    img: "/frontend/assets/images/product/pet/product-4.jpg",
     name: "Pet product",
     price: 24.99,
     cardVariant: "square",
   },
   {
     id: 181,
-    img: "/ilf/frontend/assets/images/product/pet/product-5.jpg",
+    img: "/frontend/assets/images/product/pet/product-5.jpg",
     name: "Pet product",
     price: 44.99,
     priceOld: 54.99,
@@ -2689,14 +2689,14 @@ export const topPickPetProducts: ProductCardItem[] = [
   },
   {
     id: 182,
-    img: "/ilf/frontend/assets/images/product/pet/product-6.jpg",
+    img: "/frontend/assets/images/product/pet/product-6.jpg",
     name: "Pet product",
     price: 19.99,
     cardVariant: "square",
   },
   {
     id: 183,
-    img: "/ilf/frontend/assets/images/product/pet/product-7.jpg",
+    img: "/frontend/assets/images/product/pet/product-7.jpg",
     name: "Pet product",
     price: 49.99,
     badge: "NEW",
@@ -2704,7 +2704,7 @@ export const topPickPetProducts: ProductCardItem[] = [
   },
   {
     id: 184,
-    img: "/ilf/frontend/assets/images/product/pet/product-8.jpg",
+    img: "/frontend/assets/images/product/pet/product-8.jpg",
     name: "Pet product",
     price: 39.99,
     priceOld: 49.99,
@@ -2717,7 +2717,7 @@ export const topPickPetProducts: ProductCardItem[] = [
 export const productTabPodProducts: ProductCardItem[] = [
   {
     id: 185,
-    img: "/ilf/frontend/assets/images/product/personal/product-9.jpg",
+    img: "/frontend/assets/images/product/personal/product-9.jpg",
     name: "Pod product",
     price: 69.99,
     filterTabIds: ["hot", "seller"],
@@ -2725,7 +2725,7 @@ export const productTabPodProducts: ProductCardItem[] = [
   },
   {
     id: 186,
-    img: "/ilf/frontend/assets/images/product/personal/product-10.jpg",
+    img: "/frontend/assets/images/product/personal/product-10.jpg",
     name: "Pod product",
     price: 79.99,
     priceOld: 99.99,
@@ -2735,7 +2735,7 @@ export const productTabPodProducts: ProductCardItem[] = [
   },
   {
     id: 187,
-    img: "/ilf/frontend/assets/images/product/personal/product-11.jpg",
+    img: "/frontend/assets/images/product/personal/product-11.jpg",
     name: "Pod product",
     price: 59.99,
     badge: "NEW",
@@ -2744,7 +2744,7 @@ export const productTabPodProducts: ProductCardItem[] = [
   },
   {
     id: 188,
-    img: "/ilf/frontend/assets/images/product/personal/product-12.jpg",
+    img: "/frontend/assets/images/product/personal/product-12.jpg",
     name: "Pod product",
     price: 89.99,
     filterTabIds: ["hot", "seller", "arrival"],
@@ -2756,14 +2756,14 @@ export const productTabPodProducts: ProductCardItem[] = [
 export const topTrendPodProducts: ProductCardItem[] = [
   {
     id: 189,
-    img: "/ilf/frontend/assets/images/product/personal/product-1.jpg",
+    img: "/frontend/assets/images/product/personal/product-1.jpg",
     name: "Snoopy Astronaut Case",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 190,
-    img: "/ilf/frontend/assets/images/product/personal/product-2.jpg",
+    img: "/frontend/assets/images/product/personal/product-2.jpg",
     name: "Pod product",
     price: 49.99,
     priceOld: 59.99,
@@ -2772,7 +2772,7 @@ export const topTrendPodProducts: ProductCardItem[] = [
   },
   {
     id: 191,
-    img: "/ilf/frontend/assets/images/product/personal/product-3.jpg",
+    img: "/frontend/assets/images/product/personal/product-3.jpg",
     name: "Pod product",
     price: 39.99,
     badge: "NEW",
@@ -2780,14 +2780,14 @@ export const topTrendPodProducts: ProductCardItem[] = [
   },
   {
     id: 192,
-    img: "/ilf/frontend/assets/images/product/personal/product-4.jpg",
+    img: "/frontend/assets/images/product/personal/product-4.jpg",
     name: "Pod product",
     price: 54.99,
     cardVariant: "square",
   },
   {
     id: 193,
-    img: "/ilf/frontend/assets/images/product/personal/product-5.jpg",
+    img: "/frontend/assets/images/product/personal/product-5.jpg",
     name: "Pod product",
     price: 44.99,
     priceOld: 54.99,
@@ -2796,14 +2796,14 @@ export const topTrendPodProducts: ProductCardItem[] = [
   },
   {
     id: 194,
-    img: "/ilf/frontend/assets/images/product/personal/product-6.jpg",
+    img: "/frontend/assets/images/product/personal/product-6.jpg",
     name: "Pod product",
     price: 29.99,
     cardVariant: "square",
   },
   {
     id: 195,
-    img: "/ilf/frontend/assets/images/product/personal/product-7.jpg",
+    img: "/frontend/assets/images/product/personal/product-7.jpg",
     name: "Pod product",
     price: 64.99,
     badge: "NEW",
@@ -2811,7 +2811,7 @@ export const topTrendPodProducts: ProductCardItem[] = [
   },
   {
     id: 196,
-    img: "/ilf/frontend/assets/images/product/personal/product-8.jpg",
+    img: "/frontend/assets/images/product/personal/product-8.jpg",
     name: "Pod product",
     price: 59.99,
     priceOld: 74.99,
@@ -2824,8 +2824,8 @@ export const topTrendPodProducts: ProductCardItem[] = [
 export const bannerStepSneakerProducts: ProductCardItem[] = [
   {
     id: 197,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-10_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-10_2.jpg",
     name: "Men Duramo",
     price: 45.99,
     priceOld: 79.99,
@@ -2834,8 +2834,8 @@ export const bannerStepSneakerProducts: ProductCardItem[] = [
   },
   {
     id: 198,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-11.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-11_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-11.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-11_2.jpg",
     name: "Running Sports Shoes",
     price: 45.99,
     priceOld: 79.99,
@@ -2848,8 +2848,8 @@ export const bannerStepSneakerProducts: ProductCardItem[] = [
 export const productsSneaker: ProductCardItem[] = [
   {
     id: 199,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-1_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-1_2.jpg",
     name: "Sneaker product",
     price: 89.99,
     badge: "NEW",
@@ -2857,8 +2857,8 @@ export const productsSneaker: ProductCardItem[] = [
   },
   {
     id: 200,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-2_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-2_2.jpg",
     name: "Sneaker product",
     price: 79.99,
     priceOld: 99.99,
@@ -2867,16 +2867,16 @@ export const productsSneaker: ProductCardItem[] = [
   },
   {
     id: 201,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-3_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-3_2.jpg",
     name: "Sneaker product",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 202,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-4_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-4_2.jpg",
     name: "Sneaker product",
     price: 94.99,
     badge: "NEW",
@@ -2884,8 +2884,8 @@ export const productsSneaker: ProductCardItem[] = [
   },
   {
     id: 203,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-5_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-5_2.jpg",
     name: "Sneaker product",
     price: 84.99,
     priceOld: 104.99,
@@ -2897,8 +2897,8 @@ export const productsSneaker: ProductCardItem[] = [
 export const featuredSneakerProducts: ProductCardItem[] = [
   {
     id: 220,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-6_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-6_2.jpg",
     name: "Men Panelled Athleisure Shoes",
     price: 69.99,
     priceOld: 99.99,
@@ -2908,8 +2908,8 @@ export const featuredSneakerProducts: ProductCardItem[] = [
   },
   {
     id: 221,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-7_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-7_2.jpg",
     name: "Up Casual Shoes with Rubber Sole",
     price: 29.99,
     priceOld: 49.99,
@@ -2918,20 +2918,20 @@ export const featuredSneakerProducts: ProductCardItem[] = [
       {
         label: "Blue",
         swatchClass: "bg-muted-blue",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-7.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-7.jpg",
       },
       {
         label: "Gray",
         swatchClass: "bg-steel-gray",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-7_3.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-7_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 222,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-8_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-8_2.jpg",
     name: "Men Flat Low",
     price: 15.99,
     priceOld: 25.99,
@@ -2942,8 +2942,8 @@ export const featuredSneakerProducts: ProductCardItem[] = [
   },
   {
     id: 223,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-9.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-9_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-9.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-9_2.jpg",
     name: "Men Casual Shoes with PU Upper",
     price: 45.99,
     priceOld: 79.99,
@@ -2953,20 +2953,20 @@ export const featuredSneakerProducts: ProductCardItem[] = [
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-9.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-9.jpg",
       },
       {
         label: "Dark",
         swatchClass: "bg-dark",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-9_3.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-9_3.jpg",
       },
     ],
     cardVariant: "square",
   },
   {
     id: 224,
-    img: "/ilf/frontend/assets/images/product/fashion-3/product-10.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/fashion-3/product-10_2.jpg",
+    img: "/frontend/assets/images/product/fashion-3/product-10.jpg",
+    imgHover: "/frontend/assets/images/product/fashion-3/product-10_2.jpg",
     name: "Men Duramo",
     price: 69.99,
     priceOld: 99.99,
@@ -2976,12 +2976,12 @@ export const featuredSneakerProducts: ProductCardItem[] = [
       {
         label: "Purple",
         swatchClass: "bg-soft-violet",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-10.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-10.jpg",
       },
       {
         label: "White",
         swatchClass: "bg-white",
-        img: "/ilf/frontend/assets/images/product/fashion-3/product-10_3.jpg",
+        img: "/frontend/assets/images/product/fashion-3/product-10_3.jpg",
       },
     ],
     cardVariant: "square",
@@ -2992,8 +2992,8 @@ export const featuredSneakerProducts: ProductCardItem[] = [
 export const bestChoiceSportProducts: ProductCardItem[] = [
   {
     id: 204,
-    img: "/ilf/frontend/assets/images/product/sport/product-1.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-1_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-1.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-1_2.jpg",
     name: "Sport product",
     price: 89.99,
     badge: "NEW",
@@ -3002,8 +3002,8 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
   },
   {
     id: 205,
-    img: "/ilf/frontend/assets/images/product/sport/product-2.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-2_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-2.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-2_2.jpg",
     name: "Sport product",
     price: 79.99,
     priceOld: 99.99,
@@ -3012,16 +3012,16 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
   },
   {
     id: 206,
-    img: "/ilf/frontend/assets/images/product/sport/product-3.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-3_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-3.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-3_2.jpg",
     name: "Sport product",
     price: 69.99,
     cardVariant: "square",
   },
   {
     id: 207,
-    img: "/ilf/frontend/assets/images/product/sport/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-4_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-4_2.jpg",
     name: "Sport product",
     price: 94.99,
     badge: "NEW",
@@ -3029,8 +3029,8 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
   },
   {
     id: 208,
-    img: "/ilf/frontend/assets/images/product/sport/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-5_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-5_2.jpg",
     name: "Sport product",
     price: 84.99,
     priceOld: 104.99,
@@ -3039,16 +3039,16 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
   },
   {
     id: 209,
-    img: "/ilf/frontend/assets/images/product/sport/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-6_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-6_2.jpg",
     name: "Sport product",
     price: 74.99,
     cardVariant: "square",
   },
   {
     id: 210,
-    img: "/ilf/frontend/assets/images/product/sport/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-7_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-7_2.jpg",
     name: "Sport product",
     price: 99.99,
     badge: "NEW",
@@ -3056,8 +3056,8 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
   },
   {
     id: 211,
-    img: "/ilf/frontend/assets/images/product/sport/product-8.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/sport/product-8_2.jpg",
+    img: "/frontend/assets/images/product/sport/product-8.jpg",
+    imgHover: "/frontend/assets/images/product/sport/product-8_2.jpg",
     name: "Sport product",
     price: 89.99,
     priceOld: 109.99,
@@ -3070,20 +3070,20 @@ export const bestChoiceSportProducts: ProductCardItem[] = [
 export const bannerProductSingleItems: ProductCardItem[] = [
   {
     id: 212,
-    img: "/ilf/frontend/assets/images/product/single/detail-2.jpg",
+    img: "/frontend/assets/images/product/single/detail-2.jpg",
     images: [
-      { src: "/ilf/frontend/assets/images/product/single/detail-2.jpg", dataSize: "30ml" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-2_2.jpg", dataSize: "30ml" },
+      { src: "/frontend/assets/images/product/single/detail-2.jpg", dataSize: "30ml" },
+      { src: "/frontend/assets/images/product/single/detail-2_2.jpg", dataSize: "30ml" },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-2_3.jpg",
+        src: "/frontend/assets/images/product/single/detail-2_3.jpg",
         dataSize: "100ml",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-2_4.jpg",
+        src: "/frontend/assets/images/product/single/detail-2_4.jpg",
         dataSize: "100ml",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-2_5.jpg",
+        src: "/frontend/assets/images/product/single/detail-2_5.jpg",
         dataSize: "100ml",
       },
     ],
@@ -3103,13 +3103,13 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 213,
-    img: "/ilf/frontend/assets/images/product/single/detail-10.jpg",
+    img: "/frontend/assets/images/product/single/detail-10.jpg",
     images: [
-      { src: "/ilf/frontend/assets/images/product/single/detail-10.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-10_1.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-10_2.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-10_3.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-10_4.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-10.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-10_1.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-10_2.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-10_3.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-10_4.jpg" },
     ],
     category: "Plant Decor",
     name: "Anthurium Hybrid",
@@ -3130,40 +3130,40 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 214,
-    img: "/ilf/frontend/assets/images/product/single/detail-4.jpg",
+    img: "/frontend/assets/images/product/single/detail-4.jpg",
     images: [
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4.jpg",
+        src: "/frontend/assets/images/product/single/detail-4.jpg",
         dataColor: "metal",
         dataSize: "L",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_2.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_2.jpg",
         dataColor: "metal",
         dataSize: "S",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_3.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_3.jpg",
         dataColor: "metal",
         dataSize: "M",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_4.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_4.jpg",
         dataColor: "brown",
         dataSize: "XL",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_5.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_5.jpg",
         dataColor: "metal",
         dataSize: "M",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_6.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_6.jpg",
         dataColor: "blue",
         dataSize: "M",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-4_7.jpg",
+        src: "/frontend/assets/images/product/single/detail-4_7.jpg",
         dataColor: "blue",
         dataSize: "M",
       },
@@ -3180,19 +3180,19 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 215,
-    img: "/ilf/frontend/assets/images/product/single/detail-5.jpg",
+    img: "/frontend/assets/images/product/single/detail-5.jpg",
     images: [
-      { src: "/ilf/frontend/assets/images/product/single/detail-5.jpg", dataColor: "metal" },
+      { src: "/frontend/assets/images/product/single/detail-5.jpg", dataColor: "metal" },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-5_1.jpg",
+        src: "/frontend/assets/images/product/single/detail-5_1.jpg",
         dataColor: "brown",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-5_2.jpg",
+        src: "/frontend/assets/images/product/single/detail-5_2.jpg",
         dataColor: "blue",
       },
       {
-        src: "/ilf/frontend/assets/images/product/single/detail-5_4.jpg",
+        src: "/frontend/assets/images/product/single/detail-5_4.jpg",
         dataColor: "metal",
       },
     ],
@@ -3210,11 +3210,11 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 216,
-    img: "/ilf/frontend/assets/images/product/single/detail-3.jpg",
+    img: "/frontend/assets/images/product/single/detail-3.jpg",
     images: [
-      { src: "/ilf/frontend/assets/images/product/single/detail-3.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-3_2.jpg" },
-      { src: "/ilf/frontend/assets/images/product/single/detail-3_3.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-3.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-3_2.jpg" },
+      { src: "/frontend/assets/images/product/single/detail-3_3.jpg" },
     ],
     category: "Organic",
     name: "Wunder Workshop Superior Chaga 40g",
@@ -3228,8 +3228,8 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 217,
-    img: "/ilf/frontend/assets/images/product/single/pet/detail-1.jpg",
-    images: [{ src: "/ilf/frontend/assets/images/product/single/pet/detail-1.jpg" }],
+    img: "/frontend/assets/images/product/single/pet/detail-1.jpg",
+    images: [{ src: "/frontend/assets/images/product/single/pet/detail-1.jpg" }],
     category: "PET CARE",
     name: "Hammock Cat Tower Grey",
     reviewsText: "(134 reviews)",
@@ -3249,12 +3249,12 @@ export const bannerProductSingleItems: ProductCardItem[] = [
   },
   {
     id: 218,
-    img: "/ilf/frontend/assets/images/product/sport/product-9.jpg",
+    img: "/frontend/assets/images/product/sport/product-9.jpg",
     images: [
-      { src: "/ilf/frontend/assets/images/product/sport/product-9.jpg" },
-      { src: "/ilf/frontend/assets/images/product/sport/product-9_2.jpg" },
-      { src: "/ilf/frontend/assets/images/product/sport/product-9_3.jpg" },
-      { src: "/ilf/frontend/assets/images/product/sport/product-9_4.jpg" },
+      { src: "/frontend/assets/images/product/sport/product-9.jpg" },
+      { src: "/frontend/assets/images/product/sport/product-9_2.jpg" },
+      { src: "/frontend/assets/images/product/sport/product-9_3.jpg" },
+      { src: "/frontend/assets/images/product/sport/product-9_4.jpg" },
     ],
     category: "Backpack",
     name: "Black Travel Mountaineering",
@@ -3275,32 +3275,32 @@ export const bannerProductSingleConstruction: ProductCardItem = {
   id: 219,
   images: [
     {
-      src: "/ilf/frontend/assets/images/product/single/detail-11.jpg",
+      src: "/frontend/assets/images/product/single/detail-11.jpg",
       dataColor: "yellow",
       dataSize: "L",
     },
     {
-      src: "/ilf/frontend/assets/images/product/single/detail-11_1.jpg",
+      src: "/frontend/assets/images/product/single/detail-11_1.jpg",
       dataColor: "yellow",
       dataSize: "S",
     },
     {
-      src: "/ilf/frontend/assets/images/product/single/detail-11_2.jpg",
+      src: "/frontend/assets/images/product/single/detail-11_2.jpg",
       dataColor: "yellow",
       dataSize: "M",
     },
     {
-      src: "/ilf/frontend/assets/images/product/single/detail-11_3.jpg",
+      src: "/frontend/assets/images/product/single/detail-11_3.jpg",
       dataColor: "yellow",
       dataSize: "XL",
     },
     {
-      src: "/ilf/frontend/assets/images/product/single/detail-11_4.jpg",
+      src: "/frontend/assets/images/product/single/detail-11_4.jpg",
       dataColor: "orange",
       dataSize: "M",
     },
   ],
-  img: "/ilf/frontend/assets/images/product/single/detail-11.jpg",
+  img: "/frontend/assets/images/product/single/detail-11.jpg",
   category: "Construction",
   name: "Cordless Impact Driver Kit",
   reviewsText: "(134 reviews)",
@@ -3318,21 +3318,21 @@ export const bannerProductSingleConstruction: ProductCardItem = {
 export const newArrivalDecorProducts: ProductCardItem[] = [
   {
     id: 2001,
-    img: "/ilf/frontend/assets/images/product/decor/product-6.jpg",
+    img: "/frontend/assets/images/product/decor/product-6.jpg",
     name: "Very Conference",
     price: 79.99,
     cardVariant: "square",
   },
   {
     id: 2002,
-    img: "/ilf/frontend/assets/images/product/decor/product-5.jpg",
+    img: "/frontend/assets/images/product/decor/product-5.jpg",
     name: "Very Conference",
     price: 79.99,
     cardVariant: "square",
   },
   {
     id: 2003,
-    img: "/ilf/frontend/assets/images/product/decor/product-4.jpg",
+    img: "/frontend/assets/images/product/decor/product-4.jpg",
     name: "Very Conference",
     price: 79.99,
     cardVariant: "square",
@@ -3343,8 +3343,8 @@ export const newArrivalDecorProducts: ProductCardItem[] = [
 export const collectionHeadphoneProducts: ProductCardItem[] = [
   {
     id: 1001,
-    img: "/ilf/frontend/assets/images/product/headphone/product-4.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-4_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-4.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-4_1.jpg",
     name: "MW75 BUGATTI Active Noise-Cancelling Wireless Headphones",
     price: 29.99,
     badge: "NEW",
@@ -3352,8 +3352,8 @@ export const collectionHeadphoneProducts: ProductCardItem[] = [
   },
   {
     id: 1002,
-    img: "/ilf/frontend/assets/images/product/headphone/product-5.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-5_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-5.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-5_1.jpg",
     name: "SMH40 L/UNIFORM Wireless Over-Ear Headphones",
     price: 29.99,
     priceOld: 39.99,
@@ -3363,16 +3363,16 @@ export const collectionHeadphoneProducts: ProductCardItem[] = [
   },
   {
     id: 1003,
-    img: "/ilf/frontend/assets/images/product/headphone/product-6.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-6_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-6.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-6_1.jpg",
     name: "MW65 Lamborghini Active Noise-Cancelling Wireless Headphones",
     price: 29.99,
     cardVariant: "square",
   },
   {
     id: 1004,
-    img: "/ilf/frontend/assets/images/product/headphone/product-7.jpg",
-    imgHover: "/ilf/frontend/assets/images/product/headphone/product-7_1.jpg",
+    img: "/frontend/assets/images/product/headphone/product-7.jpg",
+    imgHover: "/frontend/assets/images/product/headphone/product-7_1.jpg",
     name: "MH40 Wired RE-Release Over-Ear Headphones",
     price: 29.99,
     badge: "-25%",
@@ -3384,7 +3384,7 @@ export const collectionHeadphoneProducts: ProductCardItem[] = [
 /** ArrivalConstruction (home-construction) */
 export const arrivalConstructionProduct: ProductCardItem = {
   id: 345,
-  img: "/ilf/frontend/assets/images/product/construction/product-arrival.jpg",
+  img: "/frontend/assets/images/product/construction/product-arrival.jpg",
   name: "Boat neck sweater",
   price: 29.99,
   priceOld: 39.99,
@@ -3393,7 +3393,7 @@ export const arrivalConstructionProduct: ProductCardItem = {
 
 export const miniPopupProduct: ProductCardItem = {
   id: 999,
-  img: "/ilf/frontend/assets/images/product/product-5.jpg",
+  img: "/frontend/assets/images/product/product-5.jpg",
   name: "High neck midi wool coat",
   price: 9.99,
 };
@@ -3401,7 +3401,7 @@ export const miniPopupProduct: ProductCardItem = {
 /** Sticky Add-to-Cart bar product */
 export const stickyBarProduct: ProductCardItem = {
   id: 5001,
-  img: "/ilf/frontend/assets/images/product/single/detail-1_2.jpg",
+  img: "/frontend/assets/images/product/single/detail-1_2.jpg",
   name: "Lyocell wrap top",
   price: 79.0,
   category: "Green, XS, Cotton",

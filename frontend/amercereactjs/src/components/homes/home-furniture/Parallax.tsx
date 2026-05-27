@@ -7,7 +7,7 @@
             className="banner-image-parallax parallaxie"
             style={{
               backgroundImage:
-                'url("/ilf/frontend/assets/images/slider/furniture/slider-1.jpg")',
+                'url("/frontend/assets/images/slider/furniture/slider-1.jpg")',
             }}
           >
             <div className="bn-image">
@@ -16,7 +16,7 @@
                 loading="lazy"
                 width={1770}
                 height={560}
-                src="/ilf/frontend/assets/images/slider/furniture/slider-1.jpg"
+                src="/frontend/assets/images/slider/furniture/slider-1.jpg"
                 alt="Image"
               />
             </div>

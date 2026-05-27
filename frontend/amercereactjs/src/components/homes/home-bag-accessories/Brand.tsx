@@ -12,7 +12,7 @@ function Brand() {
                   <img
                     width={159}
                     height={44}
-                    src="/ilf/frontend/assets/images/brand/shangxi.svg"
+                    src="/frontend/assets/images/brand/shangxi.svg"
                     alt="Image"
                   />
                 </div>
@@ -20,7 +20,7 @@ function Brand() {
                   <img
                     width={109}
                     height={44}
-                    src="/ilf/frontend/assets/images/brand/cheryl.svg"
+                    src="/frontend/assets/images/brand/cheryl.svg"
                     alt="Image"
                   />
                 </div>
@@ -28,7 +28,7 @@ function Brand() {
                   <img
                     width={139}
                     height={32}
-                    src="/ilf/frontend/assets/images/brand/vanfaba.svg"
+                    src="/frontend/assets/images/brand/vanfaba.svg"
                     alt="Image"
                   />
                 </div>
@@ -36,7 +36,7 @@ function Brand() {
                   <img
                     width={128}
                     height={36}
-                    src="/ilf/frontend/assets/images/brand/carolin.svg"
+                    src="/frontend/assets/images/brand/carolin.svg"
                     alt="Image"
                   />
                 </div>
@@ -44,7 +44,7 @@ function Brand() {
                   <img
                     width={156}
                     height={33}
-                    src="/ilf/frontend/assets/images/brand/panadoxn.svg"
+                    src="/frontend/assets/images/brand/panadoxn.svg"
                     alt="Image"
                   />
                 </div>
@@ -52,7 +52,7 @@ function Brand() {
                   <img
                     width={126}
                     height={40}
-                    src="/ilf/frontend/assets/images/brand/textitles.svg"
+                    src="/frontend/assets/images/brand/textitles.svg"
                     alt="Image"
                   />
                 </div>

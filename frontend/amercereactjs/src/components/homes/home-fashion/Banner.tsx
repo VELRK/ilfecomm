@@ -11,7 +11,7 @@ function Banner() {
             loading="lazy"
             width={1920}
             height={620}
-            src="/ilf/frontend/assets/images/section/banner-40.jpg"
+            src="/frontend/assets/images/section/banner-40.jpg"
             alt="Image"
           />
         </div>

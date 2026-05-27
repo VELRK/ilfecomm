@@ -60,7 +60,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={100}
                       height={100}
-                      src="/ilf/frontend/assets/images/product/furniture/no-bg/product-1.png"
+                      src="/frontend/assets/images/product/furniture/no-bg/product-1.png"
                       alt="Image"
                     />
                   </li>
@@ -70,7 +70,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={100}
                       height={100}
-                      src="/ilf/frontend/assets/images/product/furniture/no-bg/product-5.png"
+                      src="/frontend/assets/images/product/furniture/no-bg/product-5.png"
                       alt="Image"
                     />
                   </li>
@@ -80,7 +80,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={100}
                       height={100}
-                      src="/ilf/frontend/assets/images/product/furniture/no-bg/product-7.png"
+                      src="/frontend/assets/images/product/furniture/no-bg/product-7.png"
                       alt="Image"
                     />
                   </li>
@@ -107,7 +107,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={805}
                       height={604}
-                      src="/ilf/frontend/assets/images/section/furniture-banner-2.jpg"
+                      src="/frontend/assets/images/section/furniture-banner-2.jpg"
                       alt="Image"
                     />
                   </div>
@@ -118,7 +118,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={805}
                       height={604}
-                      src="/ilf/frontend/assets/images/section/furniture-banner-2.jpg"
+                      src="/frontend/assets/images/section/furniture-banner-2.jpg"
                       alt="Image"
                     />
                   </div>
@@ -129,7 +129,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={805}
                       height={604}
-                      src="/ilf/frontend/assets/images/section/furniture-banner-2.jpg"
+                      src="/frontend/assets/images/section/furniture-banner-2.jpg"
                       alt="Image"
                     />
                   </div>
@@ -140,7 +140,7 @@ function BannerProduct() {
                       loading="lazy"
                       width={805}
                       height={604}
-                      src="/ilf/frontend/assets/images/section/furniture-banner-2.jpg"
+                      src="/frontend/assets/images/section/furniture-banner-2.jpg"
                       alt="Image"
                     />
                   </div>

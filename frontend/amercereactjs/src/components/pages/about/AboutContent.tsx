@@ -28,7 +28,7 @@ function AboutContent() {
         .about-hero-image-wrap {
           height: 100%;
           min-height: 380px;
-          background-image: url('/ilf/frontend/assets/images/about-storefront.png');
+          background-image: url('/frontend/assets/images/about-storefront.png');
           background-size: cover;
           background-position: center;
         }

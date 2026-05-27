@@ -14,7 +14,7 @@ export interface BundleBabySlide {
 /** Two bundle banner slides with pins (position4, position5). */
 export const bundleBabySlides: BundleBabySlide[] = [
   {
-    img: "/ilf/frontend/assets/images/section/banner-lookbook-6.jpg",
+    img: "/frontend/assets/images/section/banner-lookbook-6.jpg",
     pins: [
       {
         position: "position4",
@@ -27,7 +27,7 @@ export const bundleBabySlides: BundleBabySlide[] = [
     ],
   },
   {
-    img: "/ilf/frontend/assets/images/section/banner-lookbook-7.jpg",
+    img: "/frontend/assets/images/section/banner-lookbook-7.jpg",
     pins: [
       {
         position: "position4",

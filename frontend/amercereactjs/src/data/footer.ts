@@ -60,9 +60,9 @@ export const footerAccountLinksPage: FooterLinkGroup = {
 };
 
 export const footerPaymentIcons: FooterPaymentIcon[] = [
-  { src: "/ilf/frontend/assets/images/payment/visa.svg", alt: "Visa" },
-  { src: "/ilf/frontend/assets/images/payment/master-card.svg", alt: "Mastercard" },
-  { src: "/ilf/frontend/assets/images/payment/amex.svg", alt: "Amex" },
-  { src: "/ilf/frontend/assets/images/payment/paypal.svg", alt: "PayPal" },
-  { src: "/ilf/frontend/assets/images/payment/discover.svg", alt: "Discover" },
+  { src: "/frontend/assets/images/payment/visa.svg", alt: "Visa" },
+  { src: "/frontend/assets/images/payment/master-card.svg", alt: "Mastercard" },
+  { src: "/frontend/assets/images/payment/amex.svg", alt: "Amex" },
+  { src: "/frontend/assets/images/payment/paypal.svg", alt: "PayPal" },
+  { src: "/frontend/assets/images/payment/discover.svg", alt: "Discover" },
 ];

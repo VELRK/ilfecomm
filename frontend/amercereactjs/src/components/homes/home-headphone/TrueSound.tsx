@@ -16,7 +16,7 @@ function TrueSound() {
                     loading="lazy"
                     width={454}
                     height={331}
-                    src="/ilf/frontend/assets/images/section/true-sound.png"
+                    src="/frontend/assets/images/section/true-sound.png"
                     alt="Image"
                   />
                 </div>

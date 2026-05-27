@@ -4,7 +4,7 @@ import PageMeta from "@/components/common/PageMeta";
 import { useBlog, useBlogs } from "@/hooks/useApi";
 
 const siteName = "Indian Ladies Fashion - Online Saree & Ethnic Wear Store";
-const PLACEHOLDER = "/ilf/frontend/assets/images/blog/img-blog-1.jpg";
+const PLACEHOLDER = "/frontend/assets/images/blog/img-blog-1.jpg";
 
 export default function BlogSingleDynamicPage() {
   const { id: slug = "" } = useParams<{ id: string }>();

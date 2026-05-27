@@ -14,11 +14,11 @@ interface CurrencySelectProps {
 const currencies: Currency[] = [
   {
     code: "USD $",
-    image: "/ilf/frontend/assets/images/country/us.png",
+    image: "/frontend/assets/images/country/us.png",
   },
   {
     code: "VND ₫",
-    image: "/ilf/frontend/assets/images/country/vn.png",
+    image: "/frontend/assets/images/country/vn.png",
   },
 ];
 

@@ -63,7 +63,7 @@ export default function Search({
           <form className="form-search-nav style-2" onSubmit={(e) => {
             e.preventDefault();
             if (query.trim()) {
-              window.location.href = `/ilf/frontend/search-result?q=${encodeURIComponent(query.trim())}`;
+              window.location.href = `/frontend/search-result?q=${encodeURIComponent(query.trim())}`;
             }
           }}>
             <fieldset>

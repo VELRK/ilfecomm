@@ -66,7 +66,7 @@ export default function NewsLetter({
               loading="lazy"
               width={360}
               height={360}
-              src="/ilf/frontend/assets/images/section/banner-newsletter.jpg"
+              src="/frontend/assets/images/section/banner-newsletter.jpg"
               alt="Image"
             />
           </div>

@@ -14,37 +14,37 @@ import PageMeta from "@/components/common/PageMeta";
  */
 const productStackedImages: ProductSingleImage[] = [
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1.jpg",
+    src: "/frontend/assets/images/product/single/detail-1.jpg",
     dataColor: "green",
     dataSize: "L",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_2.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_2.jpg",
     dataColor: "green",
     dataSize: "S",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_3.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_3.jpg",
     dataColor: "green",
     dataSize: "L",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_5.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_5.jpg",
     dataColor: "gray",
     dataSize: "M",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_6.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_6.jpg",
     dataColor: "gray",
     dataSize: "XL",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_7.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_7.jpg",
     dataColor: "black",
     dataSize: "M",
   },
   {
-    src: "/ilf/frontend/assets/images/product/single/detail-1_8.jpg",
+    src: "/frontend/assets/images/product/single/detail-1_8.jpg",
     dataColor: "black",
     dataSize: "L",
   },

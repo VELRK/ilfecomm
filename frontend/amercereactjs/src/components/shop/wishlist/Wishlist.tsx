@@ -11,7 +11,7 @@ function WishlistTableRow({
   removeFromWishlist: (id: string | number) => void;
 }) {
   const imgSrc =
-    product.img || "/ilf/frontend/assets/images/product/product-1.jpg";
+    product.img || "/frontend/assets/images/product/product-1.jpg";
 
   return (
     <tr className="tf-cart_item each-prd file-delete">

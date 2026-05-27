@@ -40,7 +40,7 @@ function Compare() {
                             height={356}
                             src={
                               product.img ||
-                              "/ilf/frontend/assets/images/product/product-1.jpg"
+                              "/frontend/assets/images/product/product-1.jpg"
                             }
                             alt={product.name}
                           />

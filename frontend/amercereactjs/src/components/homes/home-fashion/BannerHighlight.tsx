@@ -3,7 +3,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import { bannerHighlightFashionProducts } from "@/data/products/products";
 
 const BANNER = {
-  img: "/ilf/frontend/assets/images/section/banner-39.jpg",
+  img: "/frontend/assets/images/section/banner-39.jpg",
   desc: "Built for every move.",
   title: "Gear Up For",
   titleBreak: "Greatness",

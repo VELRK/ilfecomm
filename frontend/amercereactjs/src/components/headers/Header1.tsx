@@ -27,7 +27,7 @@ export default function Header1() {
             <Link to="/" className="logo-site flex-shrink-0 me-4">
               <img
                 loading="lazy"
-                src="/ilf/frontend/assets/logo/logo.png"
+                src="/frontend/assets/logo/logo.png"
                 alt="Indian Ladies Fashion"
                 style={{ width: "80px", height: "80px", objectFit: "contain" }}
               />

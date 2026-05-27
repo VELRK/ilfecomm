@@ -50,7 +50,7 @@ function FeaturedProducts2() {
               <div className="banner-image-text type-abs style-6">
                 <Link to="/shop-default" className="bn-image img-style">
                   <img
-                    src="/ilf/frontend/assets/images/section/banner-26.jpg"
+                    src="/frontend/assets/images/section/banner-26.jpg"
                     alt=""
                     width={450}
                     height={608}

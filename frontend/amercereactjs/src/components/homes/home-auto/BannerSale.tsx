@@ -9,7 +9,7 @@
                 loading="lazy"
                 width={1410}
                 height={144}
-                src="/ilf/frontend/assets/images/section/bg-percent.png"
+                src="/frontend/assets/images/section/bg-percent.png"
                 alt="Image"
               />
             </div>
@@ -35,7 +35,7 @@
                 loading="lazy"
                 width={390}
                 height={390}
-                src="/ilf/frontend/assets/images/item/graphic-item-2.png"
+                src="/frontend/assets/images/item/graphic-item-2.png"
                 alt="Image"
               />
             </div>

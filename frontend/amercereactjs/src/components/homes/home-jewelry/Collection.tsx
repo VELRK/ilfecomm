@@ -11,7 +11,7 @@ function Collection() {
                 loading="lazy"
                 width={457}
                 height={320}
-                src="/ilf/frontend/assets/images/collection/cls-27.jpg"
+                src="/frontend/assets/images/collection/cls-27.jpg"
                 alt="Image"
               />
             </Link>
@@ -36,7 +36,7 @@ function Collection() {
                 loading="lazy"
                 width={457}
                 height={320}
-                src="/ilf/frontend/assets/images/collection/cls-28.jpg"
+                src="/frontend/assets/images/collection/cls-28.jpg"
                 alt="Image"
               />
             </Link>
@@ -61,7 +61,7 @@ function Collection() {
                 loading="lazy"
                 width={457}
                 height={320}
-                src="/ilf/frontend/assets/images/collection/cls-29.jpg"
+                src="/frontend/assets/images/collection/cls-29.jpg"
                 alt="Image"
               />
             </Link>

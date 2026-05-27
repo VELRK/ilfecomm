@@ -45,7 +45,7 @@ function Gallery() {
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
-                    "/ilf/frontend/assets/images/product/product-placeholder.jpg";
+                    "/frontend/assets/images/product/product-placeholder.jpg";
                 }}
               />
             </div>

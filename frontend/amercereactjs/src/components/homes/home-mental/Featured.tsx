@@ -14,7 +14,7 @@ function FeaturedBannersSlide() {
             loading="lazy"
             width={450}
             height={294}
-            src="/ilf/frontend/assets/images/section/banner-6.jpg"
+            src="/frontend/assets/images/section/banner-6.jpg"
             alt="Vitamins Every Day"
           />
         </Link>
@@ -39,7 +39,7 @@ function FeaturedBannersSlide() {
             loading="lazy"
             width={450}
             height={294}
-            src="/ilf/frontend/assets/images/section/banner-7.jpg"
+            src="/frontend/assets/images/section/banner-7.jpg"
             alt="Vitamins Every Day"
           />
         </Link>

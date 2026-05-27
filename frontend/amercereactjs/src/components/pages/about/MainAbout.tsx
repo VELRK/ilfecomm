@@ -11,7 +11,7 @@ function MainAbout() {
               loading="lazy"
               width={1410}
               height={600}
-              src="/ilf/frontend/assets/images/section/s-contact-1.jpg"
+              src="/frontend/assets/images/section/s-contact-1.jpg"
               alt="Image"
             />
           </div>

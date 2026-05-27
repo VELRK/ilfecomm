@@ -14,7 +14,7 @@ function ReturnShipping() {
                     loading="lazy"
                     width={160}
                     height={80}
-                    src="/ilf/frontend/assets/images/section/policy-5.jpg"
+                    src="/frontend/assets/images/section/policy-5.jpg"
                     alt="Image"
                   />
                 </div>
@@ -24,7 +24,7 @@ function ReturnShipping() {
                     loading="lazy"
                     width={160}
                     height={80}
-                    src="/ilf/frontend/assets/images/section/policy-6.jpg"
+                    src="/frontend/assets/images/section/policy-6.jpg"
                     alt="Image"
                   />
                 </div>
@@ -34,7 +34,7 @@ function ReturnShipping() {
                     loading="lazy"
                     width={160}
                     height={80}
-                    src="/ilf/frontend/assets/images/section/policy-7.jpg"
+                    src="/frontend/assets/images/section/policy-7.jpg"
                     alt="Image"
                   />
                 </div>

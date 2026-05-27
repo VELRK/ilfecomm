@@ -12,7 +12,7 @@ function NotFoundPage() {
                   loading="lazy"
                   width={930}
                   height={579}
-                  src="/ilf/frontend/assets/images/section/404.svg"
+                  src="/frontend/assets/images/section/404.svg"
                   alt="Image"
                 />
               </div>

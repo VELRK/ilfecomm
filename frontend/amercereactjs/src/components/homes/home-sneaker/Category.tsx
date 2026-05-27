@@ -12,7 +12,7 @@ function Category() {
                   loading="lazy"
                   width={200}
                   height={200}
-                  src="/ilf/frontend/assets/images/category/fashion-3/cate-1.jpg"
+                  src="/frontend/assets/images/category/fashion-3/cate-1.jpg"
                   alt="Image"
                 />
               </div>
@@ -26,7 +26,7 @@ function Category() {
                   loading="lazy"
                   width={200}
                   height={200}
-                  src="/ilf/frontend/assets/images/category/fashion-3/cate-2.jpg"
+                  src="/frontend/assets/images/category/fashion-3/cate-2.jpg"
                   alt="Image"
                 />
               </div>
@@ -40,7 +40,7 @@ function Category() {
                   loading="lazy"
                   width={200}
                   height={200}
-                  src="/ilf/frontend/assets/images/category/fashion-3/cate-3.jpg"
+                  src="/frontend/assets/images/category/fashion-3/cate-3.jpg"
                   alt="Image"
                 />
               </div>
@@ -54,7 +54,7 @@ function Category() {
                   loading="lazy"
                   width={200}
                   height={200}
-                  src="/ilf/frontend/assets/images/category/fashion-3/cate-4.jpg"
+                  src="/frontend/assets/images/category/fashion-3/cate-4.jpg"
                   alt="Image"
                 />
               </div>
@@ -68,7 +68,7 @@ function Category() {
                   loading="lazy"
                   width={200}
                   height={200}
-                  src="/ilf/frontend/assets/images/category/fashion-3/cate-5.jpg"
+                  src="/frontend/assets/images/category/fashion-3/cate-5.jpg"
                   alt="Image"
                 />
               </div>

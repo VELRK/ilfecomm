@@ -5,6 +5,6 @@
  * assets when present: `public/assets/images/section/skin-before.jpg` and `skin-after.jpg`.
  */
 export const bannerCompareImages: BannerCompareImages = {
-  beforeSrc: "/ilf/frontend/assets/images/section/skin-before.jpg",
-  afterSrc: "/ilf/frontend/assets/images/section/skin-after.jpg",
+  beforeSrc: "/frontend/assets/images/section/skin-before.jpg",
+  afterSrc: "/frontend/assets/images/section/skin-after.jpg",
 };

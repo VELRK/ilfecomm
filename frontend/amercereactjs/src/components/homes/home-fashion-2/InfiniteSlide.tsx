@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { useCategories } from "@/hooks/useApi";
 
-const PLACEHOLDER_IMG = "/ilf/frontend/assets/images/collection/cls-34.jpg";
+const PLACEHOLDER_IMG = "/frontend/assets/images/collection/cls-34.jpg";
 
 function catImgSrc(img?: string): string {
   if (!img) return PLACEHOLDER_IMG;
@@ -16,12 +16,12 @@ function catImgSrc(img?: string): string {
 }
 
 const STATIC_ITEMS = [
-  { name: "Modern Minimalism", img: "/ilf/frontend/assets/images/collection/cls-34.jpg", slug: "" },
-  { name: "Artisan Craftsmanship", img: "/ilf/frontend/assets/images/collection/cls-35.jpg", slug: "" },
-  { name: "Sustainable Luxury", img: "/ilf/frontend/assets/images/collection/cls-36.jpg", slug: "" },
-  { name: "Luxe and Livable", img: "/ilf/frontend/assets/images/collection/cls-37.jpg", slug: "" },
-  { name: "Confidence in Every Step", img: "/ilf/frontend/assets/images/collection/cls-38.jpg", slug: "" },
-  { name: "Curated Confidence", img: "/ilf/frontend/assets/images/collection/cls-3.jpg", slug: "" },
+  { name: "Modern Minimalism", img: "/frontend/assets/images/collection/cls-34.jpg", slug: "" },
+  { name: "Artisan Craftsmanship", img: "/frontend/assets/images/collection/cls-35.jpg", slug: "" },
+  { name: "Sustainable Luxury", img: "/frontend/assets/images/collection/cls-36.jpg", slug: "" },
+  { name: "Luxe and Livable", img: "/frontend/assets/images/collection/cls-37.jpg", slug: "" },
+  { name: "Confidence in Every Step", img: "/frontend/assets/images/collection/cls-38.jpg", slug: "" },
+  { name: "Curated Confidence", img: "/frontend/assets/images/collection/cls-3.jpg", slug: "" },
 ];
 
 function InfiniteSlide() {

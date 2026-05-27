@@ -7,7 +7,7 @@ import { computePageItems } from "@/components/shop/shop-default/shopLayoutUtils
 
 const ITEMS_PER_PAGE = 6;
 
-const PLACEHOLDER = "/ilf/frontend/assets/images/blog/img-blog-1.jpg";
+const PLACEHOLDER = "/frontend/assets/images/blog/img-blog-1.jpg";
 
 export default function BlogListingClient() {
   const { blogs, loading } = useBlogs();

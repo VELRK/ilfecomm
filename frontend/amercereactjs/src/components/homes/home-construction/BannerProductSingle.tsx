@@ -20,12 +20,12 @@ const CONSTRUCTION_COLORS: ColorOption[] = [
   {
     label: "Yellow",
     swatchClass: "bg-yellow",
-    img: "/ilf/frontend/assets/images/product/single/detail-11.jpg",
+    img: "/frontend/assets/images/product/single/detail-11.jpg",
   },
   {
     label: "Orange",
     swatchClass: "bg-orange",
-    img: "/ilf/frontend/assets/images/product/single/detail-11_4.jpg",
+    img: "/frontend/assets/images/product/single/detail-11_4.jpg",
   },
 ];
 

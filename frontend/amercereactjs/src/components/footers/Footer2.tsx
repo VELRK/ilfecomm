@@ -197,7 +197,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/visa.svg"
+                  src="/frontend/assets/images/payment/visa.svg"
                   alt="Image"
                 />
               </li>
@@ -206,7 +206,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/master-card.svg"
+                  src="/frontend/assets/images/payment/master-card.svg"
                   alt="Image"
                 />
               </li>
@@ -215,7 +215,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/amex.svg"
+                  src="/frontend/assets/images/payment/amex.svg"
                   alt="Image"
                 />
               </li>
@@ -224,7 +224,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/paypal.svg"
+                  src="/frontend/assets/images/payment/paypal.svg"
                   alt="Image"
                 />
               </li>
@@ -233,7 +233,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/water.svg"
+                  src="/frontend/assets/images/payment/water.svg"
                   alt="Image"
                 />
               </li>
@@ -242,7 +242,7 @@ export default function Footer2() {
                   loading="lazy"
                   width={38}
                   height={24}
-                  src="/ilf/frontend/assets/images/payment/discover.svg"
+                  src="/frontend/assets/images/payment/discover.svg"
                   alt="Image"
                 />
               </li>

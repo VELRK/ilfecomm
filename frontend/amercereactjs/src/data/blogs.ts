@@ -3,7 +3,7 @@
 export const blogPetCarePosts: BlogPost[] = [
   {
     id: "7",
-    img: "/ilf/frontend/assets/images/blog/blog-13.jpg",
+    img: "/frontend/assets/images/blog/blog-13.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Keep Your Pet Calm and Happy at Home",
@@ -11,7 +11,7 @@ export const blogPetCarePosts: BlogPost[] = [
   },
   {
     id: "8",
-    img: "/ilf/frontend/assets/images/blog/blog-14.jpg",
+    img: "/frontend/assets/images/blog/blog-14.jpg",
     alt: "Image",
     date: "15 August",
     title: "Choosing the Right Food for Your Active, Growing Dog",
@@ -19,7 +19,7 @@ export const blogPetCarePosts: BlogPost[] = [
   },
   {
     id: "9",
-    img: "/ilf/frontend/assets/images/blog/blog-15.jpg",
+    img: "/frontend/assets/images/blog/blog-15.jpg",
     alt: "Image",
     date: "18 August",
     title: "Why Your Playful Cat Needs More Fun Every Day",
@@ -30,7 +30,7 @@ export const blogPetCarePosts: BlogPost[] = [
 export const blogBabyPosts: BlogPost[] = [
   {
     id: "10",
-    img: "/ilf/frontend/assets/images/blog/blog-16.jpg",
+    img: "/frontend/assets/images/blog/blog-16.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Soothe and Comfort Your Baby Before Sleep",
@@ -38,7 +38,7 @@ export const blogBabyPosts: BlogPost[] = [
   },
   {
     id: "11",
-    img: "/ilf/frontend/assets/images/blog/blog-17.jpg",
+    img: "/frontend/assets/images/blog/blog-17.jpg",
     alt: "Image",
     date: "15 August",
     title: "Creating a Cozy Morning Routine for Your Little One",
@@ -46,7 +46,7 @@ export const blogBabyPosts: BlogPost[] = [
   },
   {
     id: "12",
-    img: "/ilf/frontend/assets/images/blog/blog-18.jpg",
+    img: "/frontend/assets/images/blog/blog-18.jpg",
     alt: "Image",
     date: "18 August",
     title: "How to Build a Strong Bond Through Everyday Moments",
@@ -57,7 +57,7 @@ export const blogBabyPosts: BlogPost[] = [
 export const blogConstructionPosts: BlogPost[] = [
   {
     id: "13",
-    img: "/ilf/frontend/assets/images/blog/blog-35.jpg",
+    img: "/frontend/assets/images/blog/blog-35.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Keep Your Pet Calm and Happy at Home",
@@ -66,7 +66,7 @@ export const blogConstructionPosts: BlogPost[] = [
   },
   {
     id: "14",
-    img: "/ilf/frontend/assets/images/blog/blog-36.jpg",
+    img: "/frontend/assets/images/blog/blog-36.jpg",
     alt: "Image",
     date: "15 August",
     title: "Choosing the Right Food for Your Active, Growing Dog",
@@ -75,7 +75,7 @@ export const blogConstructionPosts: BlogPost[] = [
   },
   {
     id: "15",
-    img: "/ilf/frontend/assets/images/blog/blog-37.jpg",
+    img: "/frontend/assets/images/blog/blog-37.jpg",
     alt: "Image",
     date: "18 August",
     title: "Why Your Playful Cat Needs More Fun Every Day",
@@ -87,7 +87,7 @@ export const blogConstructionPosts: BlogPost[] = [
 export const blogCosmeticPosts: BlogPost[] = [
   {
     id: "16",
-    img: "/ilf/frontend/assets/images/blog/blog-23.jpg",
+    img: "/frontend/assets/images/blog/blog-23.jpg",
     alt: "Image",
     date: "13 August",
     title: "Makeup Made Easy: Effortless Beauty For Every Day",
@@ -95,7 +95,7 @@ export const blogCosmeticPosts: BlogPost[] = [
   },
   {
     id: "17",
-    img: "/ilf/frontend/assets/images/blog/blog-24.jpg",
+    img: "/frontend/assets/images/blog/blog-24.jpg",
     alt: "Image",
     date: "15 August",
     title: "The Glow Edit: Secrets To Radiant, Healthy Skin",
@@ -106,7 +106,7 @@ export const blogCosmeticPosts: BlogPost[] = [
 export const blogElectronicsPosts: BlogPost[] = [
   {
     id: "18",
-    img: "/ilf/frontend/assets/images/blog/blog-10.jpg",
+    img: "/frontend/assets/images/blog/blog-10.jpg",
     alt: "Image",
     date: "13 August",
     title: "The Small Daily Rituals That Truly Change Your Day",
@@ -114,7 +114,7 @@ export const blogElectronicsPosts: BlogPost[] = [
   },
   {
     id: "19",
-    img: "/ilf/frontend/assets/images/blog/blog-11.jpg",
+    img: "/frontend/assets/images/blog/blog-11.jpg",
     alt: "Image",
     date: "15 August",
     title: "Finding Your Everyday Calm in Life's Quiet Moments",
@@ -122,7 +122,7 @@ export const blogElectronicsPosts: BlogPost[] = [
   },
   {
     id: "20",
-    img: "/ilf/frontend/assets/images/blog/blog-12.jpg",
+    img: "/frontend/assets/images/blog/blog-12.jpg",
     alt: "Image",
     date: "18 August",
     title: "How Gentle Mornings Can Transform Your Entire Day",
@@ -133,7 +133,7 @@ export const blogElectronicsPosts: BlogPost[] = [
 export const blogOfficeEquipmentPosts: BlogPost[] = [
   {
     id: "21",
-    img: "/ilf/frontend/assets/images/blog/blog-42.jpg",
+    img: "/frontend/assets/images/blog/blog-42.jpg",
     alt: "Image",
     date: "13 August",
     title: "5 Gear Must-Haves For Max Productivity",
@@ -141,7 +141,7 @@ export const blogOfficeEquipmentPosts: BlogPost[] = [
   },
   {
     id: "22",
-    img: "/ilf/frontend/assets/images/blog/blog-43.jpg",
+    img: "/frontend/assets/images/blog/blog-43.jpg",
     alt: "Image",
     date: "18 August",
     title: "Necessary? Build An Efficient Workspace On A Budget",
@@ -149,7 +149,7 @@ export const blogOfficeEquipmentPosts: BlogPost[] = [
   },
   {
     id: "23",
-    img: "/ilf/frontend/assets/images/blog/blog-44.jpg",
+    img: "/frontend/assets/images/blog/blog-44.jpg",
     alt: "Image",
     date: "22 August",
     title: "Designing The Perfect Workspace To Say Goodbye To Back Pain",
@@ -160,7 +160,7 @@ export const blogOfficeEquipmentPosts: BlogPost[] = [
 export const blogSneakerPosts: BlogPost[] = [
   {
     id: "24",
-    img: "/ilf/frontend/assets/images/blog/blog-45.jpg",
+    img: "/frontend/assets/images/blog/blog-45.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Choose the Right Shoes for Everyday Comfort",
@@ -168,7 +168,7 @@ export const blogSneakerPosts: BlogPost[] = [
   },
   {
     id: "25",
-    img: "/ilf/frontend/assets/images/blog/blog-46.jpg",
+    img: "/frontend/assets/images/blog/blog-46.jpg",
     alt: "Image",
     date: "15 August",
     title: "The Technology Behind Modern Athletic Shoes",
@@ -176,7 +176,7 @@ export const blogSneakerPosts: BlogPost[] = [
   },
   {
     id: "26",
-    img: "/ilf/frontend/assets/images/blog/blog-47.jpg",
+    img: "/frontend/assets/images/blog/blog-47.jpg",
     alt: "Image",
     date: "18 August",
     title: "Why Traction and Cushioning Matter in Every Step",
@@ -187,7 +187,7 @@ export const blogSneakerPosts: BlogPost[] = [
 export const blogMentalPosts: BlogPost[] = [
   {
     id: "27",
-    img: "/ilf/frontend/assets/images/blog/blog-7.jpg",
+    img: "/frontend/assets/images/blog/blog-7.jpg",
     alt: "Image",
     date: "13 August",
     title: "The Small Daily Rituals That Truly Change Your Day",
@@ -195,7 +195,7 @@ export const blogMentalPosts: BlogPost[] = [
   },
   {
     id: "28",
-    img: "/ilf/frontend/assets/images/blog/blog-8.jpg",
+    img: "/frontend/assets/images/blog/blog-8.jpg",
     alt: "Image",
     date: "15 August",
     title: "Finding Your Everyday Calm in Life's Quiet Moments",
@@ -203,7 +203,7 @@ export const blogMentalPosts: BlogPost[] = [
   },
   {
     id: "29",
-    img: "/ilf/frontend/assets/images/blog/blog-9.jpg",
+    img: "/frontend/assets/images/blog/blog-9.jpg",
     alt: "Image",
     date: "18 August",
     title: "How Gentle Mornings Can Transform Your Entire Day",
@@ -214,7 +214,7 @@ export const blogMentalPosts: BlogPost[] = [
 export const blogGardenPosts: BlogPost[] = [
   {
     id: "30",
-    img: "/ilf/frontend/assets/images/blog/blog-32.jpg",
+    img: "/frontend/assets/images/blog/blog-32.jpg",
     alt: "Image",
     date: "13 August",
     title: "Finding Balance In Everyday Moments With Simple Daily Mindfulness",
@@ -223,7 +223,7 @@ export const blogGardenPosts: BlogPost[] = [
   },
   {
     id: "31",
-    img: "/ilf/frontend/assets/images/blog/blog-33.jpg",
+    img: "/frontend/assets/images/blog/blog-33.jpg",
     alt: "Image",
     date: "15 August",
     title: "Creating Calm Through Green Spaces For A Peaceful Home Life",
@@ -232,7 +232,7 @@ export const blogGardenPosts: BlogPost[] = [
   },
   {
     id: "32",
-    img: "/ilf/frontend/assets/images/blog/blog-34.jpg",
+    img: "/frontend/assets/images/blog/blog-34.jpg",
     alt: "Image",
     date: "18 August",
     title: "Habits That Support A Happier Mind And Stronger Inner Wellbeing",
@@ -245,7 +245,7 @@ export const blogGardenPosts: BlogPost[] = [
 export const blogJewelryPosts: BlogPost[] = [
   {
     id: "33",
-    img: "/ilf/frontend/assets/images/blog/blog-28.jpg",
+    img: "/frontend/assets/images/blog/blog-28.jpg",
     alt: "Image",
     date: "15 August",
     title: "Simple Tips To Keep Your Jewellery Sparkling Forever",
@@ -254,7 +254,7 @@ export const blogJewelryPosts: BlogPost[] = [
   },
   {
     id: "34",
-    img: "/ilf/frontend/assets/images/blog/blog-29.jpg",
+    img: "/frontend/assets/images/blog/blog-29.jpg",
     alt: "Image",
     date: "15 August",
     title: "How To Shine Bright With Diamonds Everyday Style",
@@ -263,7 +263,7 @@ export const blogJewelryPosts: BlogPost[] = [
   },
   {
     id: "35",
-    img: "/ilf/frontend/assets/images/blog/blog-30.jpg",
+    img: "/frontend/assets/images/blog/blog-30.jpg",
     alt: "Image",
     date: "15 August",
     title: "Top Gold Jewellery Pieces Every Wardrobe Should Own",
@@ -272,7 +272,7 @@ export const blogJewelryPosts: BlogPost[] = [
   },
   {
     id: "36",
-    img: "/ilf/frontend/assets/images/blog/blog-31.jpg",
+    img: "/frontend/assets/images/blog/blog-31.jpg",
     alt: "Image",
     date: "15 August",
     title: "Exploring Colourful Gemstones And Their Hidden Meanings",
@@ -285,7 +285,7 @@ export const blogJewelryPosts: BlogPost[] = [
 export const blogHeadphonePosts: BlogPost[] = [
   {
     id: "37",
-    img: "/ilf/frontend/assets/images/blog/blog-25.jpg",
+    img: "/frontend/assets/images/blog/blog-25.jpg",
     alt: "Image",
     date: "13 August",
     title: "ANC Technology Explained How It Works",
@@ -293,7 +293,7 @@ export const blogHeadphonePosts: BlogPost[] = [
   },
   {
     id: "38",
-    img: "/ilf/frontend/assets/images/blog/blog-26.jpg",
+    img: "/frontend/assets/images/blog/blog-26.jpg",
     alt: "Image",
     date: "15 August",
     title: "The Ultimate Guide to Choosing Your Next Perfect Wireless Earbuds",
@@ -301,7 +301,7 @@ export const blogHeadphonePosts: BlogPost[] = [
   },
   {
     id: "39",
-    img: "/ilf/frontend/assets/images/blog/blog-27.jpg",
+    img: "/frontend/assets/images/blog/blog-27.jpg",
     alt: "Image",
     date: "17 August",
     title:
@@ -314,7 +314,7 @@ export const blogHeadphonePosts: BlogPost[] = [
 export const blogFurniturePosts: BlogPost[] = [
   {
     id: "40",
-    img: "/ilf/frontend/assets/images/blog/blog-38.jpg",
+    img: "/frontend/assets/images/blog/blog-38.jpg",
     alt: "Image",
     date: "13 August",
     title: "How Furniture Shapes Everyday Living.",
@@ -322,7 +322,7 @@ export const blogFurniturePosts: BlogPost[] = [
   },
   {
     id: "41",
-    img: "/ilf/frontend/assets/images/blog/blog-39.jpg",
+    img: "/frontend/assets/images/blog/blog-39.jpg",
     alt: "Image",
     date: "8 August",
     title: "Creating Calm Spaces Through Design.",
@@ -330,7 +330,7 @@ export const blogFurniturePosts: BlogPost[] = [
   },
   {
     id: "42",
-    img: "/ilf/frontend/assets/images/blog/blog-40.jpg",
+    img: "/frontend/assets/images/blog/blog-40.jpg",
     alt: "Image",
     date: "22 August",
     title: "The Beauty Of Natural Materials Today.",
@@ -338,7 +338,7 @@ export const blogFurniturePosts: BlogPost[] = [
   },
   {
     id: "43",
-    img: "/ilf/frontend/assets/images/blog/blog-41.jpg",
+    img: "/frontend/assets/images/blog/blog-41.jpg",
     alt: "Image",
     date: "13 August",
     title: "Designing Homes For Real Life Living.",
@@ -350,7 +350,7 @@ export const blogFurniturePosts: BlogPost[] = [
 export const blogAutoPosts: BlogPost[] = [
   {
     id: "44",
-    img: "/ilf/frontend/assets/images/blog/blog-19.jpg",
+    img: "/frontend/assets/images/blog/blog-19.jpg",
     alt: "Image",
     date: "13 August",
     title: "Why Books Still Matter in Our Modern World.",
@@ -358,7 +358,7 @@ export const blogAutoPosts: BlogPost[] = [
   },
   {
     id: "45",
-    img: "/ilf/frontend/assets/images/blog/blog-20.jpg",
+    img: "/frontend/assets/images/blog/blog-20.jpg",
     alt: "Image",
     date: "13 August",
     title: "Why Books Still Matter in Our Modern World.",
@@ -366,7 +366,7 @@ export const blogAutoPosts: BlogPost[] = [
   },
   {
     id: "46",
-    img: "/ilf/frontend/assets/images/blog/blog-21.jpg",
+    img: "/frontend/assets/images/blog/blog-21.jpg",
     alt: "Image",
     date: "13 August",
     title: "Why Books Still Matter in Our Modern World.",
@@ -374,7 +374,7 @@ export const blogAutoPosts: BlogPost[] = [
   },
   {
     id: "47",
-    img: "/ilf/frontend/assets/images/blog/blog-22.jpg",
+    img: "/frontend/assets/images/blog/blog-22.jpg",
     alt: "Image",
     date: "13 August",
     title: "Why Books Still Matter in Our Modern World.",
@@ -385,7 +385,7 @@ export const blogAutoPosts: BlogPost[] = [
 export const allBlogPosts: BlogPost[] = [
   {
     id: "1",
-    img: "/ilf/frontend/assets/images/blog/blog-1.jpg",
+    img: "/frontend/assets/images/blog/blog-1.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Build a Capsule Wardrobe That Fits Your Lifestyle",
@@ -393,7 +393,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "2",
-    img: "/ilf/frontend/assets/images/blog/blog-2.jpg",
+    img: "/frontend/assets/images/blog/blog-2.jpg",
     alt: "Image",
     date: "15 August",
     title: "The Secret to Effortless Elegance in Every Season",
@@ -401,7 +401,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "3",
-    img: "/ilf/frontend/assets/images/blog/blog-3.jpg",
+    img: "/frontend/assets/images/blog/blog-3.jpg",
     alt: "Image",
     date: "18 August",
     title: "Why Accessories Define More Than Just Your Outfit",
@@ -409,7 +409,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "4",
-    img: "/ilf/frontend/assets/images/blog/blog-4.jpg",
+    img: "/frontend/assets/images/blog/blog-4.jpg",
     alt: "Image",
     date: "19 August",
     title: "From Work to Weekend: Outfits That Do It All",
@@ -417,7 +417,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "5",
-    img: "/ilf/frontend/assets/images/blog/blog-5.jpg",
+    img: "/frontend/assets/images/blog/blog-5.jpg",
     alt: "Image",
     date: "22 August",
     title: "Mastering Color Palettes for a Modern Wardrobe",
@@ -425,7 +425,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "6",
-    img: "/ilf/frontend/assets/images/blog/blog-6.jpg",
+    img: "/frontend/assets/images/blog/blog-6.jpg",
     alt: "Image",
     date: "24 August",
     title: "Sustainable Fashion Choices That Never Go Out of Style",
@@ -433,7 +433,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "2",
-    img: "/ilf/frontend/assets/images/blog/blog-2.jpg",
+    img: "/frontend/assets/images/blog/blog-2.jpg",
     alt: "Image",
     date: "15 August",
     title: "The Secret to Effortless Elegance in Every Season",
@@ -441,7 +441,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "1",
-    img: "/ilf/frontend/assets/images/blog/blog-1.jpg",
+    img: "/frontend/assets/images/blog/blog-1.jpg",
     alt: "Image",
     date: "13 August",
     title: "How to Build a Capsule Wardrobe That Fits Your Lifestyle",
@@ -449,7 +449,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "4",
-    img: "/ilf/frontend/assets/images/blog/blog-4.jpg",
+    img: "/frontend/assets/images/blog/blog-4.jpg",
     alt: "Image",
     date: "19 August",
     title: "From Work to Weekend: Outfits That Do It All",
@@ -457,7 +457,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "3",
-    img: "/ilf/frontend/assets/images/blog/blog-3.jpg",
+    img: "/frontend/assets/images/blog/blog-3.jpg",
     alt: "Image",
     date: "18 August",
     title: "Why Accessories Define More Than Just Your Outfit",
@@ -465,7 +465,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "6",
-    img: "/ilf/frontend/assets/images/blog/blog-6.jpg",
+    img: "/frontend/assets/images/blog/blog-6.jpg",
     alt: "Image",
     date: "24 August",
     title: "Sustainable Fashion Choices That Never Go Out of Style",
@@ -473,7 +473,7 @@ export const allBlogPosts: BlogPost[] = [
   },
   {
     id: "5",
-    img: "/ilf/frontend/assets/images/blog/blog-5.jpg",
+    img: "/frontend/assets/images/blog/blog-5.jpg",
     alt: "Image",
     date: "22 August",
     title: "Mastering Color Palettes for a Modern Wardrobe",

@@ -275,7 +275,7 @@ export default function Footer9({
                     <img
                       loading="lazy"
                       width={100}
-                      src="/ilf/frontend/assets/logo/logo.png"
+                      src="/frontend/assets/logo/logo.png"
                       alt="Indian Ladies Fashion"
                       className="footer-logo"
                     />

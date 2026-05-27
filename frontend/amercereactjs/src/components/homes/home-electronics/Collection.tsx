@@ -11,7 +11,7 @@ function Collection() {
                 loading="lazy"
                 width={1290}
                 height={860}
-                src="/ilf/frontend/assets/images/slider/electronics/slider-1.jpg"
+                src="/frontend/assets/images/slider/electronics/slider-1.jpg"
                 alt="Image"
               />
             </Link>
@@ -45,7 +45,7 @@ function Collection() {
                 loading="lazy"
                 width={620}
                 height={425}
-                src="/ilf/frontend/assets/images/collection/cls-9.jpg"
+                src="/frontend/assets/images/collection/cls-9.jpg"
                 alt="Image"
               />
             </Link>
@@ -73,7 +73,7 @@ function Collection() {
                 loading="lazy"
                 width={620}
                 height={425}
-                src="/ilf/frontend/assets/images/collection/cls-10.jpg"
+                src="/frontend/assets/images/collection/cls-10.jpg"
                 alt="Image"
               />
             </Link>

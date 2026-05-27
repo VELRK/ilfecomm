@@ -110,7 +110,7 @@ function Testimonials() {
           </div>
           <div className="s-bg-item">
             <img
-              src="/ilf/frontend/assets/images/item/pet-leg.png"
+              src="/frontend/assets/images/item/pet-leg.png"
               alt=""
               width={1770}
               height={716}
