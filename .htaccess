@@ -28,6 +28,10 @@ RewriteRule ^firebase-messaging-sw\.js$ firebase-messaging-sw.php [L]
     Header set Expires "0"
 </Files>
 
+# Redirect /admin → /shopkart (ShopKart is the actual admin panel)
+RewriteRule ^admin/?$ /shopkart [R=301,L]
+RewriteRule ^admin/(.*)$ /shopkart/$1 [R=301,L]
+
 # Redirect old /ilf/frontend/assets/ paths → /frontend/assets/
 RewriteRule ^ilf/frontend/assets/(.*)$ /frontend/assets/$1 [R=301,L]
 
