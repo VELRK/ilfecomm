@@ -154,10 +154,12 @@ const ASSETS_BASE = (import.meta.env.VITE_ASSETS_BASE_URL ?? "").replace(/\/$/, 
 
 /** Convert a backend thumbnail path like "images/products/..." to a full URL. */
 export function apiImageUrl(path?: string | null): string {
-  if (!path) return `${import.meta.env.BASE_URL}assets/images/product/product-placeholder.jpg`;
+  if (!path) return `/frontend/assets/images/product/product-placeholder.jpg`;
   if (path.startsWith("http")) return path;
-  const encoded = path.split("/").map(encodeURIComponent).join("/");
-  return ASSETS_BASE ? `${ASSETS_BASE}/${encoded}` : `/ilf/${encoded}`;
+  // Strip legacy server prefixes stored in the database from the old deployment
+  const clean = path.replace(/^(ilf\/frontend\/|ilf\/|frontend\/)/, "");
+  const encoded = clean.split("/").map(encodeURIComponent).join("/");
+  return ASSETS_BASE ? `${ASSETS_BASE}/${encoded}` : `/${encoded}`;
 }
 
 // ── useTestimonials ───────────────────────────────────────────────────────────

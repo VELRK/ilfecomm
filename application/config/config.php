@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // Auto-detect port so it works on both :80 and :8080
 $config['base_url'] = (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') === false)
-    ? 'https://' . $_SERVER['HTTP_HOST'] . '/ilf/'
+    ? 'https://' . $_SERVER['HTTP_HOST'] . '/'
     : 'http://localhost/ecomm/';
 
 
