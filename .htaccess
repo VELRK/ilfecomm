@@ -28,7 +28,20 @@ RewriteRule ^firebase-messaging-sw\.js$ firebase-messaging-sw.php [L]
     Header set Expires "0"
 </Files>
 
-# CodeIgniter URL rewriting
+# Serve frontend static assets directly (JS, CSS, images, fonts)
+RewriteCond %{REQUEST_URI} ^/frontend/
+RewriteRule ^(.*)$ - [L]
+
+# Route PHP API (shopkart-api) to CodeIgniter
+RewriteCond %{REQUEST_URI} ^/shopkart-api/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
+
+# Route root and all SPA paths to the React frontend
+RewriteRule ^$ frontend/index.html [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/shopkart-api/
+RewriteCond %{REQUEST_URI} !^/uploads/
+RewriteRule ^(.*)$ frontend/index.html [L]
