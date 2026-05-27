@@ -18,6 +18,6 @@ jobs:
           key: ${{ secrets.SSH_KEY_ILF }}
           port: 65002
           script: |
-            cd /home/u221026474/domains/superfinelabels.in/public_html/ilf
+            cd /home/u221026474/domains/indianladiesfashion.com/public_html
             git remote -v
             git pull $(git remote) main
