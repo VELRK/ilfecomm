@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/ilf/frontend/",
+  base: "/frontend/",
   plugins: [react()],
   resolve: {
     alias: {
@@ -14,21 +14,21 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/shopkart-api": {
-        target: "https://superfinelabels.in/ilf",
+        target: "https://indianladiesfashion.com",
         changeOrigin: true,
         rewrite: (p) => p,
       },
       "/ecomm": {
-        target: "https://superfinelabels.in/ilf",
+        target: "https://indianladiesfashion.com",
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/ecomm/, ""),
       },
       "/ilf/assets": {
-        target: "https://superfinelabels.in",
+        target: "https://indianladiesfashion.com",
         changeOrigin: true,
       },
       "/ilf/images": {
-        target: "https://superfinelabels.in",
+        target: "https://indianladiesfashion.com",
         changeOrigin: true,
       },
     },

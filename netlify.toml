@@ -10,7 +10,7 @@
 # Browser calls /api/* → Netlify forwards to live PHP backend
 [[redirects]]
   from   = "/api/*"
-  to     = "https://superfinelabels.in/ecomm/shopkart-api/:splat"
+  to     = "https://indianladiesfashion.com/shopkart-api/:splat"
   status = 200
   force  = true
 
