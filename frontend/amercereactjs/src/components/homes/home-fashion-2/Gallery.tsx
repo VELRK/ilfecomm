@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import TfSwiper from "@/components/ui/TfSwiper";
 import { useSpecialProducts, apiImageUrl } from "@/hooks/useApi";
-import React from "react";
 
 function Gallery() {
   const { products, loading } = useSpecialProducts(10);
