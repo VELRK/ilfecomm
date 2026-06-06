@@ -8,8 +8,8 @@ type Props = {
 
 function DescTitle({ tag, children }: { tag: "h5" | "div"; children: React.ReactNode }) {
   return tag === "h5"
-    ? <h5 className="desc_title">{children}</h5>
-    : <div className="h6 desc_title">{children}</div>;
+    ? <h5 className="desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</h5>
+    : <div className="h6 desc_title mb-4 pb-2 text-uppercase fs-6 fw-bold">{children}</div>;
 }
 
 export function ProductReturnPolicies({
@@ -22,45 +22,75 @@ export function ProductReturnPolicies({
   const sla          = product?.procurement_sla ?? 3;
 
   return (
-    <div className={wrapperClassName}>
+    <div className={wrapperClassName} style={{ gap: '3rem' }}>
       <div className="box-desc">
         <DescTitle tag={titleTag}>Return Policy</DescTitle>
-        {returnPolicy ? (
-          <div
-            className="desc_info cl-text-2 product-html-content"
-            dangerouslySetInnerHTML={{ __html: returnPolicy }}
-          />
-        ) : (
-          <p className="desc_info cl-text-2">
-            Easy 7-day return. Items must be unused, unwashed, and in original packaging with tags attached.
-          </p>
-        )}
+        <div className="desc_info mt-2">
+          {returnPolicy ? (
+            <div
+              className="cl-text-2 product-html-content"
+              style={{ lineHeight: '1.8', fontSize: '15px' }}
+              dangerouslySetInnerHTML={{ __html: returnPolicy }}
+            />
+          ) : (
+            <p className="cl-text-2 m-0" style={{ lineHeight: '1.6' }}>
+              Easy 7-day return. Items must be unused, unwashed, and in original packaging with tags attached.
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="box-desc">
         <DescTitle tag={titleTag}>Shipping &amp; Delivery</DescTitle>
-        {shippingInfo ? (
-          <div
-            className="cl-text-2 product-html-content"
-            dangerouslySetInnerHTML={{ __html: shippingInfo }}
-          />
-        ) : (
-          <ul className="list">
-            <li className="cl-text-2">– Standard delivery: {sla}–{sla + 3} business days.</li>
-            <li className="cl-text-2">– Tracking number shared via SMS/email after dispatch.</li>
-            <li className="cl-text-2">– Free shipping on orders above ₹999.</li>
-            <li className="cl-text-2">– Cash on Delivery available across India.</li>
-          </ul>
-        )}
+        <div className="desc_info mt-2">
+          {shippingInfo ? (
+            <div
+              className="cl-text-2 product-html-content"
+              style={{ lineHeight: '1.8', fontSize: '15px' }}
+              dangerouslySetInnerHTML={{ __html: shippingInfo }}
+            />
+          ) : (
+            <ul className="list-unstyled">
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Standard delivery: {sla}–{sla + 3} business days.</span>
+              </li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Tracking number shared via SMS/email after dispatch.</span>
+              </li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Free shipping on orders above ₹999.</span>
+              </li>
+              <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+                <span className="me-2 text-dark opacity-50">•</span>
+                <span>Cash on Delivery available across India.</span>
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
 
       <div className="box-desc">
         <DescTitle tag={titleTag}>How to Return</DescTitle>
-        <ul className="list">
-          <li className="cl-text-2">– Contact us within the return window via WhatsApp or email.</li>
-          <li className="cl-text-2">– Pack the item securely with original packaging and invoice.</li>
-          <li className="cl-text-2">– Our courier will pick up or we'll share a prepaid label.</li>
-          <li className="cl-text-2">– Refund is processed within 5–7 working days after receipt.</li>
+        <ul className="list-unstyled mt-2">
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>Contact us within the return window via WhatsApp or email.</span>
+          </li>
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>Pack the item securely with original packaging and invoice.</span>
+          </li>
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>Our courier will pick up or we'll share a prepaid label.</span>
+          </li>
+          <li className="cl-text-2 mb-3 d-flex align-items-start" style={{ lineHeight: '1.6' }}>
+            <span className="me-2 text-dark opacity-50">•</span>
+            <span>Refund is processed within 5–7 working days after receipt.</span>
+          </li>
         </ul>
       </div>
     </div>
