@@ -48,7 +48,7 @@
               <i class="bi bi-pencil"></i>
             </button>
             <button class="btn btn-sm btn-outline-danger"
-              onclick="skConfirmDelete('<?= site_url('shopkart/brands/delete/'.$b['id']) ?>', 'row-<?= $b['id'] ?>')">
+              onclick="skConfirmDelete('<?= site_url('admin/brands/delete/'.$b['id']) ?>', 'row-<?= $b['id'] ?>')">
               <i class="bi bi-trash"></i>
             </button>
           </td>
@@ -124,8 +124,8 @@ document.getElementById('brandForm').addEventListener('submit', function(e) {
   const fd  = new FormData(this);
   const id  = document.getElementById('brand_id').value;
   const url = id
-    ? '<?= site_url('shopkart/brands/update') ?>/' + id
-    : '<?= site_url('shopkart/brands/store') ?>';
+    ? '<?= site_url('admin/brands/update') ?>/' + id
+    : '<?= site_url('admin/brands/store') ?>';
 
   fetch(url, { method: 'POST', body: fd })
     .then(r => r.json())

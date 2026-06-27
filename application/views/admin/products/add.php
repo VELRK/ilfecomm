@@ -14,12 +14,12 @@ function opt($list, $val) {
 
 <div class="sk-page-header">
   <h5 class="sk-page-title"><i class="bi bi-plus-circle me-2 text-warning"></i>Add Saree Product</h5>
-  <a href="<?= site_url('shopkart/products') ?>" class="btn btn-sm btn-outline-secondary">
+  <a href="<?= site_url('admin/products') ?>" class="btn btn-sm btn-outline-secondary">
     <i class="bi bi-arrow-left me-1"></i> Back
   </a>
 </div>
 
-<form action="<?= site_url('shopkart/products/store') ?>" method="POST" enctype="multipart/form-data">
+<form action="<?= site_url('admin/products/store') ?>" method="POST" enctype="multipart/form-data">
 
   <div class="row g-3">
 
@@ -574,7 +574,7 @@ function opt($list, $val) {
     <button type="submit" class="btn btn-warning fw-semibold px-5 py-2">
       <i class="bi bi-check-lg me-1"></i> Save Saree
     </button>
-    <a href="<?= site_url('shopkart/products') ?>" class="btn btn-outline-secondary py-2">Cancel</a>
+    <a href="<?= site_url('admin/products') ?>" class="btn btn-outline-secondary py-2">Cancel</a>
   </div>
 
 </form>
@@ -584,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var catSel = document.querySelector('select[name="category_id"]');
   var subSel = document.getElementById('subcategory_id');
   var subRow = document.getElementById('subcategory-row');
-  var ajaxBase = '<?= site_url('shopkart/products/subcategories/') ?>';
+  var ajaxBase = '<?= site_url('admin/products/subcategories/') ?>';
 
   catSel.addEventListener('change', function () {
     subSel.innerHTML = '<option value="">-- Select Sub Category --</option>';

@@ -24,7 +24,7 @@ import{n as e}from"./chunk-QFMPRPBF-BesryAy5.js";import{t}from"./jsx-runtime-DdE
         .about-hero-image-wrap {
           height: 100%;
           min-height: 380px;
-          background-image: url('/ilf/frontend/assets/images/about-storefront.png');
+          background-image: url('/deal/frontend/assets/images/about-storefront.png');
           background-size: cover;
           background-position: center;
         }

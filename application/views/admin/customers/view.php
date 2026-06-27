@@ -2,7 +2,7 @@
 
 <div class="sk-page-header">
   <h5 class="sk-page-title"><i class="bi bi-person me-2 text-warning"></i><?= htmlspecialchars($customer['name']) ?></h5>
-  <a href="<?= site_url('shopkart/customers') ?>" class="btn btn-sm btn-outline-secondary">
+  <a href="<?= site_url('admin/customers') ?>" class="btn btn-sm btn-outline-secondary">
     <i class="bi bi-arrow-left me-1"></i> Back
   </a>
 </div>
@@ -35,7 +35,7 @@
           <tbody>
             <?php foreach ($orders as $o): ?>
             <tr>
-              <td><a href="<?= site_url('shopkart/orders/view/'.$o['id']) ?>" class="fw-semibold text-decoration-none">
+              <td><a href="<?= site_url('admin/orders/view/'.$o['id']) ?>" class="fw-semibold text-decoration-none">
                 <?= htmlspecialchars($o['order_number']) ?>
               </a></td>
               <td><?= $currency . number_format($o['total'],2) ?></td>

@@ -142,7 +142,7 @@ function openAdd() {
 }
 
 function openEdit(id) {
-  fetch(`<?= base_url('shopkart/testimonials/edit') ?>/${id}`)
+  fetch(`<?= base_url('admin/testimonials/edit') ?>/${id}`)
     .then(r => r.json())
     .then(res => {
       if (!res.success) return;
@@ -167,8 +167,8 @@ function saveTesti() {
   const id = document.getElementById('testiId').value;
   const fd = new FormData(form);
   const url = id
-    ? `<?= base_url('shopkart/testimonials/update') ?>/${id}`
-    : '<?= base_url('shopkart/testimonials/store') ?>';
+    ? `<?= base_url('admin/testimonials/update') ?>/${id}`
+    : '<?= base_url('admin/testimonials/store') ?>';
   fetch(url, { method: 'POST', body: fd })
     .then(r => r.json())
     .then(res => {
@@ -185,7 +185,7 @@ function saveTesti() {
 }
 
 function toggleTesti(id) {
-  fetch(`<?= base_url('shopkart/testimonials/toggle') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/testimonials/toggle') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {
@@ -198,7 +198,7 @@ function toggleTesti(id) {
 
 function deleteTesti(id) {
   if (!confirm('Delete this testimonial?')) return;
-  fetch(`<?= base_url('shopkart/testimonials/delete') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/testimonials/delete') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {

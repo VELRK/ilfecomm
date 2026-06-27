@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteBase /deal/
 
 # ── CORS — allow Netlify & any browser origin ─────────────────
 <IfModule mod_headers.c>
@@ -12,9 +13,8 @@ RewriteCond %{REQUEST_METHOD} OPTIONS
 RewriteRule ^(.*)$ $1 [R=200,L]
 
 # Allow direct access to uploads directory and all files in it
-RewriteCond %{REQUEST_URI} ^/(site-real/)?uploads/
 RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^(.*)$ - [L]
+RewriteRule ^uploads/ - [L]
 
 # Handle service worker requests
 RewriteRule ^firebase-messaging-sw\.js$ firebase-messaging-sw.php [L]
@@ -28,35 +28,31 @@ RewriteRule ^firebase-messaging-sw\.js$ firebase-messaging-sw.php [L]
     Header set Expires "0"
 </Files>
 
-# Redirect /admin → /shopkart (ShopKart is the actual admin panel)
-RewriteRule ^admin/?$ /shopkart [R=301,L]
-RewriteRule ^admin/(.*)$ /shopkart/$1 [R=301,L]
+# Legacy path redirects (ilf/ecomm → deal)
+RewriteRule ^ilf/frontend/assets/(.*)$ frontend/assets/$1 [R=301,L]
+RewriteRule ^ilf/assets/(.*)$ assets/$1 [R=301,L]
+RewriteRule ^ecomm/(.*)$ $1 [R=301,L]
 
-# Redirect old /ilf/frontend/assets/ paths → /frontend/assets/
-RewriteRule ^ilf/frontend/assets/(.*)$ /frontend/assets/$1 [R=301,L]
+# Canonical admin URL — legacy /shopkart panel paths → /admin
+RewriteRule ^shopkart/?$ admin [R=302,L]
+RewriteRule ^shopkart/(.+)$ admin/$1 [R=302,L]
 
-# Redirect old /ilf/assets/ paths → /assets/
-RewriteRule ^ilf/assets/(.*)$ /assets/$1 [R=301,L]
-
-# Serve /frontend/ and /assets/ static files directly (no CodeIgniter, no SPA fallback)
-RewriteCond %{REQUEST_URI} ^/(frontend|assets|images|css|js|fonts|webfonts|uploads)/
-RewriteRule ^(.*)$ - [L]
+# Serve static dirs directly (no CodeIgniter, no SPA fallback)
+RewriteRule ^(frontend|assets|images|css|js|fonts|webfonts|uploads)/ - [L]
 
 # Route PHP API (shopkart-api) to CodeIgniter
-RewriteCond %{REQUEST_URI} ^/shopkart-api/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteRule ^shopkart-api/(.*)$ index.php/shopkart-api/$1 [L]
 
-# ShopKart admin panel and legacy /admin → CodeIgniter
-RewriteCond %{REQUEST_URI} ^/(shopkart|admin)/? [NC]
+# Admin panel at /deal/admin
+RewriteRule ^admin/?$ index.php/admin [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteRule ^admin/(.+)$ index.php/admin/$1 [L]
 
 # Route root and all SPA paths to the React frontend
 RewriteRule ^$ frontend/index.html [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !^/(shopkart-api|shopkart|admin|uploads)/
-RewriteRule ^(.*)$ frontend/index.html [L]
+RewriteRule ^(?!shopkart-api|shopkart|admin|uploads).*$ frontend/index.html [L]

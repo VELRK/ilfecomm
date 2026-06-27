@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "browser": "open http://localhost:3000/ilf/frontend/"
+    "browser": "open http://localhost:3000/deal/frontend/"
   },
   "dependencies": {
     "@google/model-viewer": "^4.2.0",

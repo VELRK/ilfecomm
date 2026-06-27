@@ -23,10 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// Auto-detect port so it works on both :80 and :8080
-$config['base_url'] = (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') === false)
-    ? 'https://' . $_SERVER['HTTP_HOST'] . '/'
-    : 'http://localhost/ecomm/';
+// Auto-detect host + port (works on localhost:80, :8080, and production)
+if (!empty($_SERVER['HTTP_HOST'])) {
+    $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+    $host   = $_SERVER['HTTP_HOST'];
+    if (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
+        $config['base_url'] = $scheme . '://' . $host . '/deal/';
+    } else {
+        $config['base_url'] = 'https://' . $host . '/';
+    }
+} else {
+    $config['base_url'] = 'http://localhost/deal/';
+}
 
 
 /*
@@ -106,7 +114,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

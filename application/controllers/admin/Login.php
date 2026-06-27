@@ -11,7 +11,7 @@ class Login extends Sk_Base {
 
     public function index() {
         if ($this->session->userdata('sk_admin_id')) {
-            redirect('shopkart/dashboard');
+            redirect('admin/dashboard');
         }
         $data['title'] = 'Admin Login - ShopKart';
         $this->load->view('admin/login', $data);
@@ -30,15 +30,15 @@ class Login extends Sk_Base {
                 'sk_admin_role' => $admin['role'],
             ]);
             $this->Sk_Admin_model->update_last_login($admin['id']);
-            redirect('shopkart/dashboard');
+            redirect('admin/dashboard');
         } else {
             $this->session->set_flashdata('error', 'Invalid email or password.');
-            redirect('shopkart/login');
+            redirect('admin/login');
         }
     }
 
     public function logout() {
         $this->session->unset_userdata(['sk_admin_id', 'sk_admin_name', 'sk_admin_role']);
-        redirect('shopkart/login');
+        redirect('admin/login');
     }
 }

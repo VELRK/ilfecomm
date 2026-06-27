@@ -10,7 +10,7 @@
          placeholder="Search user or product…" value="<?= htmlspecialchars($search ?? '') ?>">
   <button type="submit" class="btn btn-sm btn-warning">Search</button>
   <?php if ($search): ?>
-    <a href="<?= site_url('shopkart/wishlists') ?>" class="btn btn-sm btn-outline-secondary">Clear</a>
+    <a href="<?= site_url('admin/wishlists') ?>" class="btn btn-sm btn-outline-secondary">Clear</a>
   <?php endif; ?>
 </form>
 
@@ -47,7 +47,7 @@
               <div>
                 <div class="fw-semibold small"><?= htmlspecialchars($w['product_name'] ?? '—') ?></div>
                 <?php if ($w['product_id']): ?>
-                  <a href="<?= site_url('shopkart/products/edit/'.$w['product_id']) ?>"
+                  <a href="<?= site_url('admin/products/edit/'.$w['product_id']) ?>"
                      class="text-muted small">Edit product</a>
                 <?php endif; ?>
               </div>
@@ -104,7 +104,7 @@ function showAlert(msg, type = 'success') {
 }
 function delWl(id) {
   if (!confirm('Remove this wishlist entry?')) return;
-  fetch(`<?= base_url('shopkart/wishlists/delete') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/wishlists/delete') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {

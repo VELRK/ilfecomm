@@ -167,13 +167,7 @@ $route['api/video/play'] = 'Api/track_video_play';
 $route['dashboard/wishlist'] = 'Dashboard/wishlist';
 $route['dashboard/enquiries'] = 'Dashboard/enquiries';
 
-// Admin routes
-$route['admin'] = 'Admin/index';
-$route['admin/login'] = 'Admin/login';
-$route['admin/dashboard'] = 'Admin/dashboard';
-$route['admin/enquiries'] = 'Admin/enquiries';
-$route['admin/contacts'] = 'Admin/contacts';
-$route['admin/logout'] = 'Admin/logout';
+// Admin routes (ShopKart panel — full /admin/* aliases added at end of file)
 $route['admin/clear-cache'] = 'Admin/clear_cache_public';
 $route['clear-cache'] = 'Admin/clear_cache_public';
 
@@ -197,42 +191,7 @@ $route['privacy-policy'] = 'Home/privacy_policy';
 $route['terms-conditions'] = 'Home/terms_conditions';
 $route['testimonials'] = 'Home/testimonials';
 
-// Admin routes
-$route['admin'] = 'Admin/login';
-$route['admin/login'] = 'Admin/login';
-$route['admin/logout'] = 'Admin/logout';
-$route['admin/dashboard'] = 'Admin/dashboard';
-$route['admin/properties'] = 'Admin/properties';
-$route['admin/property_create'] = 'Admin/property_create';
-$route['admin/property_edit/(:num)'] = 'Admin/property_edit/$1';
-$route['admin/property_delete/(:num)'] = 'Admin/property_delete/$1';
-$route['admin/banners'] = 'Admin/banners';
-$route['admin/offer_banners'] = 'Admin/offer_banners';
-$route['admin/offer_banner_create'] = 'Admin/offer_banner_create';
-$route['admin/offer_banner_edit/(:num)'] = 'Admin/offer_banner_edit/$1';
-$route['admin/offer_banner_delete/(:num)'] = 'Admin/offer_banner_delete/$1';
-$route['admin/banner_create'] = 'Admin/banner_create';
-$route['admin/banner_edit/(:num)'] = 'Admin/banner_edit/$1';
-$route['admin/banner_delete/(:num)'] = 'Admin/banner_delete/$1';
-$route['admin/banner_toggle/(:num)'] = 'Admin/banner_toggle/$1';
-$route['admin/enquiries'] = 'Admin/enquiries';
-$route['admin/enquiry_view/(:num)'] = 'Admin/enquiry_view/$1';
-$route['admin/enquiry_delete/(:num)'] = 'Admin/enquiry_delete/$1';
-$route['admin/contacts'] = 'Admin/contacts';
-$route['admin/contact_view/(:num)'] = 'Admin/contact_view/$1';
-$route['admin/contact_delete/(:num)'] = 'Admin/contact_delete/$1';
-$route['admin/cities'] = 'Admin/cities';
-$route['admin/city_create'] = 'Admin/city_create';
-$route['admin/city_edit/(:num)'] = 'Admin/city_edit/$1';
-$route['admin/city_delete/(:num)'] = 'Admin/city_delete/$1';
-$route['admin/locations'] = 'Admin/locations';
-$route['admin/location_create'] = 'Admin/location_create';
-$route['admin/location_edit/(:num)'] = 'Admin/location_edit/$1';
-$route['admin/location_delete/(:num)'] = 'Admin/location_delete/$1';
-$route['admin/blogs'] = 'Admin/blogs';
-$route['admin/blog_create'] = 'Admin/blog_create';
-$route['admin/blog_edit/(:num)'] = 'Admin/blog_edit/$1';
-$route['admin/blog_delete/(:num)'] = 'Admin/blog_delete/$1';
+// Legacy property admin routes removed — use /admin/* ShopKart panel routes (mirrored at end of file)
 
 // API routes
 $route['property/store'] = 'Property/store';
@@ -406,6 +365,8 @@ $route['shopkart-api/login']['POST']       = 'api/Sk_Auth/login';
 $route['shopkart-api/otp-request']['POST'] = 'api/Sk_Auth/otp_request';
 $route['shopkart-api/otp-verify']['POST']  = 'api/Sk_Auth/otp_verify';
 $route['shopkart-api/forgot-password']['POST'] = 'api/Sk_Auth/forgot_password';
+$route['shopkart-api/forgot-password/verify']['POST'] = 'api/Sk_Auth/verify_reset_code';
+$route['shopkart-api/reset-password']['POST'] = 'api/Sk_Auth/reset_password';
 // Products
 $route['shopkart-api/products']['GET'] = 'api/Sk_Product/index';
 $route['shopkart-api/product/(:any)']['GET'] = 'api/Sk_Product/show/$1';
@@ -491,3 +452,15 @@ $route['api/v1/admin/banners']['get'] = 'api/v1/Ops/admin_dashboard';
 $route['api/v1/admin/offers']['get'] = 'api/v1/Ops/admin_dashboard';
 $route['api/v1/admin/coupons']['get'] = 'api/v1/Ops/admin_dashboard';
 $route['api/v1/analytics/reports']['get'] = 'api/v1/Ops/analytics_reports';
+
+// Mirror shopkart admin routes under /admin (clean admin URLs)
+$admin_route_aliases = [];
+foreach ($route as $pattern => $target) {
+    if (strpos($pattern, 'shopkart') === 0) {
+        $admin_pattern = 'admin' . substr($pattern, 8);
+        if (!isset($route[$admin_pattern])) {
+            $admin_route_aliases[$admin_pattern] = $target;
+        }
+    }
+}
+$route = array_merge($route, $admin_route_aliases);

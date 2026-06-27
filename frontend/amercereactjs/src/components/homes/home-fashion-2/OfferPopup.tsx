@@ -9,7 +9,7 @@ function resolveImg(b: ApiBanner): string {
   const img = b.image;
   if (!img) return "";
   if (img.startsWith("http")) return img;
-  if (img.startsWith("assets/uploads/")) return `/ecomm/${img}`;
+  if (img.startsWith("assets/uploads/")) return `/deal/${img}`;
   if (img.startsWith("assets/")) return `/${img}`;
   return img;
 }

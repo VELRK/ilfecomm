@@ -11,3 +11,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |	https://codeigniter.com/userguide3/general/hooks.html
 |
 */
+
+$hook['pre_controller'] = [
+    'class'    => '',
+    'function' => 'redirect_shopkart_panel_to_admin',
+    'filename' => 'admin_url',
+    'filepath' => 'hooks',
+];

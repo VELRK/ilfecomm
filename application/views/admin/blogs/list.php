@@ -145,7 +145,7 @@ function openAdd() {
 }
 
 function openEdit(id) {
-  fetch(`<?= base_url('shopkart/blogs/edit') ?>/${id}`)
+  fetch(`<?= base_url('admin/blogs/edit') ?>/${id}`)
     .then(r => r.json())
     .then(res => {
       if (!res.success) return;
@@ -177,8 +177,8 @@ function saveBlog() {
   const id = document.getElementById('blogId').value;
   const fd = new FormData(form);
   const url = id
-    ? `<?= base_url('shopkart/blogs/update') ?>/${id}`
-    : '<?= base_url('shopkart/blogs/store') ?>';
+    ? `<?= base_url('admin/blogs/update') ?>/${id}`
+    : '<?= base_url('admin/blogs/store') ?>';
   fetch(url, { method: 'POST', body: fd })
     .then(r => r.json())
     .then(res => {
@@ -195,7 +195,7 @@ function saveBlog() {
 }
 
 function toggleBlog(id) {
-  fetch(`<?= base_url('shopkart/blogs/toggle') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/blogs/toggle') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {
@@ -208,7 +208,7 @@ function toggleBlog(id) {
 
 function deleteBlog(id) {
   if (!confirm('Delete this blog post?')) return;
-  fetch(`<?= base_url('shopkart/blogs/delete') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/blogs/delete') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {

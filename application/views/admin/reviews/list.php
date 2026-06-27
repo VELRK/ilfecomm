@@ -8,7 +8,7 @@
 <ul class="nav nav-tabs mt-3 mb-3" id="reviewTabs">
   <?php foreach (['pending'=>'Pending','approved'=>'Approved','rejected'=>'Rejected'] as $s=>$label): ?>
   <li class="nav-item">
-    <a class="nav-link <?= $status===$s?'active':'' ?>" href="<?= site_url('shopkart/reviews?status='.$s) ?>">
+    <a class="nav-link <?= $status===$s?'active':'' ?>" href="<?= site_url('admin/reviews?status='.$s) ?>">
       <?= $label ?>
       <span class="badge <?= $s==='pending'?'bg-warning text-dark':($s==='approved'?'bg-success':'bg-secondary') ?> ms-1">
         <?= $counts[$s] ?>
@@ -85,14 +85,14 @@ function showAlert(msg, type='success') {
     `<div class="alert alert-${type} alert-dismissible fade show"><i class="bi bi-${type==='success'?'check-circle':'exclamation-triangle'} me-2"></i>${msg}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>`;
 }
 function setStatus(id, action) {
-  fetch(`<?= base_url('shopkart/reviews/') ?>${action}/${id}`, {method:'POST'})
+  fetch(`<?= base_url('admin/reviews/') ?>${action}/${id}`, {method:'POST'})
     .then(r=>r.json()).then(res=>{
       if (res.success) { showAlert(`Review ${action}d.`); setTimeout(()=>location.reload(),700); }
     });
 }
 function deleteReview(id) {
   if (!confirm('Delete this review permanently?')) return;
-  fetch(`<?= base_url('shopkart/reviews/delete/') ?>${id}`, {method:'POST'})
+  fetch(`<?= base_url('admin/reviews/delete/') ?>${id}`, {method:'POST'})
     .then(r=>r.json()).then(res=>{
       if (res.success) { document.getElementById('row-'+id)?.remove(); showAlert('Review deleted.'); }
     });

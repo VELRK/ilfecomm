@@ -310,7 +310,7 @@ function openEditCat(c) {
   filterNavProducts();
 
   // Pre-check products already saved for this category
-  fetch(`<?= base_url('shopkart/categories/edit') ?>/${c.id}`)
+  fetch(`<?= base_url('admin/categories/edit') ?>/${c.id}`)
     .then(r => r.json())
     .then(res => {
       (res.selected_product_ids || []).forEach(pid => {
@@ -332,11 +332,11 @@ function saveCat(){
   const form=document.getElementById('catForm');if(!form.checkValidity()){form.reportValidity();return;}
   const id=document.getElementById('catId').value;
   const fd=new FormData(form);
-  const url=id?`<?= base_url('shopkart/categories/update') ?>/${id}`:'<?= base_url('shopkart/categories/store') ?>';
+  const url=id?`<?= base_url('admin/categories/update') ?>/${id}`:'<?= base_url('admin/categories/store') ?>';
   const spin=document.getElementById('catSpin');spin.classList.remove('d-none');
   fetch(url,{method:'POST',body:fd}).then(r=>r.json()).then(res=>{spin.classList.add('d-none');if(res.success){bootstrap.Modal.getInstance(document.getElementById('catModal')).hide();showAlert(id?'Category updated.':'Category added.');setTimeout(()=>location.reload(),700);}else showAlert(res.message||'Error','danger');}).catch(()=>{spin.classList.add('d-none');showAlert('Network error','danger');});
 }
-function delCat(id,name){if(!confirm(`Delete category "${name}"? Its subcategories will also be deleted.`))return;fetch(`<?= base_url('shopkart/categories/delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('cat-row-'+id)?.remove();showAlert('Deleted.');}});}
+function delCat(id,name){if(!confirm(`Delete category "${name}"? Its subcategories will also be deleted.`))return;fetch(`<?= base_url('admin/categories/delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('cat-row-'+id)?.remove();showAlert('Deleted.');}});}
 
 // ── Subcategory ───────────────────────────────────────────────
 function openSub(){document.getElementById('subModalTitle').textContent='Add Subcategory';document.getElementById('subForm').reset();document.getElementById('subId').value='';document.getElementById('subMegaTitleId').value='';document.getElementById('subPrev').innerHTML='';}
@@ -345,11 +345,11 @@ function saveSub(){
   const form=document.getElementById('subForm');if(!form.checkValidity()){form.reportValidity();return;}
   const id=document.getElementById('subId').value;
   const fd=new FormData(form);
-  const url=id?`<?= base_url('shopkart/subcategories/update') ?>/${id}`:'<?= base_url('shopkart/subcategories/store') ?>';
+  const url=id?`<?= base_url('admin/subcategories/update') ?>/${id}`:'<?= base_url('admin/subcategories/store') ?>';
   const spin=document.getElementById('subSpin');spin.classList.remove('d-none');
   fetch(url,{method:'POST',body:fd}).then(r=>r.json()).then(res=>{spin.classList.add('d-none');if(res.success){bootstrap.Modal.getInstance(document.getElementById('subModal')).hide();showAlert(id?'Subcategory updated.':'Subcategory added.');setTimeout(()=>location.reload(),700);}else showAlert(res.message||'Error','danger');}).catch(()=>{spin.classList.add('d-none');showAlert('Network error','danger');});
 }
-function delSub(id,name){if(!confirm(`Delete subcategory "${name}"?`))return;fetch(`<?= base_url('shopkart/subcategories/delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('sub-row-'+id)?.remove();showAlert('Deleted.');}});}
+function delSub(id,name){if(!confirm(`Delete subcategory "${name}"?`))return;fetch(`<?= base_url('admin/subcategories/delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('sub-row-'+id)?.remove();showAlert('Deleted.');}});}
 
 // ── Mega Menu Title ───────────────────────────────────────────
 function openTitle(){document.getElementById('titleModalTitle').textContent='Add Title';document.getElementById('titleForm').reset();document.getElementById('titleId').value='';}
@@ -358,9 +358,9 @@ function saveTitle(){
   const form=document.getElementById('titleForm');if(!form.checkValidity()){form.reportValidity();return;}
   const id=document.getElementById('titleId').value;
   const fd=new FormData(form);
-  const url=id?`<?= base_url('shopkart/categories/title_update') ?>/${id}`:'<?= base_url('shopkart/categories/title_store') ?>';
+  const url=id?`<?= base_url('admin/categories/title_update') ?>/${id}`:'<?= base_url('admin/categories/title_store') ?>';
   const spin=document.getElementById('titleSpin');spin.classList.remove('d-none');
   fetch(url,{method:'POST',body:fd}).then(r=>r.json()).then(res=>{spin.classList.add('d-none');if(res.success){bootstrap.Modal.getInstance(document.getElementById('titleModal')).hide();showAlert(id?'Title updated.':'Title added.');setTimeout(()=>location.reload(),700);}else showAlert(res.message||'Error','danger');}).catch(()=>{spin.classList.add('d-none');showAlert('Network error','danger');});
 }
-function delTitle(id,name){if(!confirm(`Delete title "${name}"?`))return;fetch(`<?= base_url('shopkart/categories/title_delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('title-row-'+id)?.remove();showAlert('Deleted.');}});}
+function delTitle(id,name){if(!confirm(`Delete title "${name}"?`))return;fetch(`<?= base_url('admin/categories/title_delete') ?>/${id}`,{method:'POST'}).then(r=>r.json()).then(res=>{if(res.success){document.getElementById('title-row-'+id)?.remove();showAlert('Deleted.');}});}
 </script>

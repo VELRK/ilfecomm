@@ -39,11 +39,30 @@ class Sk_User_model extends CI_Model {
         $this->db->where('id', $id)->update('users', ['last_login' => date('Y-m-d H:i:s')]);
     }
 
-    public function set_reset_token($email) {
-        $token = bin2hex(random_bytes(32));
+    /** Generate a 6-digit email verification code (15 min expiry). */
+    public function set_reset_code($email) {
+        $code = str_pad((string) random_int(0, 999999), 6, '0', STR_PAD_LEFT);
         $this->db->where('email', $email)->update('users', [
+            'reset_token'   => $code,
+            'reset_expires' => date('Y-m-d H:i:s', strtotime('+15 minutes')),
+        ]);
+        return $code;
+    }
+
+    /** Verify email code and issue a secure reset token (30 min expiry). */
+    public function verify_reset_code($email, $code) {
+        $user = $this->db->where('email', $email)
+            ->where('reset_token', $code)
+            ->where('reset_expires >', date('Y-m-d H:i:s'))
+            ->get('users')->row_array();
+        if (!$user) {
+            return null;
+        }
+
+        $token = bin2hex(random_bytes(32));
+        $this->db->where('id', $user['id'])->update('users', [
             'reset_token'   => $token,
-            'reset_expires' => date('Y-m-d H:i:s', strtotime('+1 hour')),
+            'reset_expires' => date('Y-m-d H:i:s', strtotime('+30 minutes')),
         ]);
         return $token;
     }
@@ -52,6 +71,24 @@ class Sk_User_model extends CI_Model {
         return $this->db->where('reset_token', $token)
                         ->where('reset_expires >', date('Y-m-d H:i:s'))
                         ->get('users')->row_array();
+    }
+
+    /** Reset password only after email code was verified (secure token). */
+    public function reset_password_with_token($email, $token, $password) {
+        if (strlen($token) <= 6 || ctype_digit($token)) {
+            return false;
+        }
+
+        $user = $this->db->where('email', $email)
+            ->where('reset_token', $token)
+            ->where('reset_expires >', date('Y-m-d H:i:s'))
+            ->get('users')->row_array();
+        if (!$user) {
+            return false;
+        }
+
+        $this->reset_password($user['id'], $password);
+        return true;
     }
 
     public function reset_password($id, $password) {

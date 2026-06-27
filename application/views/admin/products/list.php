@@ -2,7 +2,7 @@
 
 <div class="sk-page-header">
   <h5 class="sk-page-title"><i class="bi bi-box-seam me-2 text-warning"></i>Products</h5>
-  <a href="<?= site_url('shopkart/products/add') ?>" class="btn btn-warning btn-sm fw-semibold">
+  <a href="<?= site_url('admin/products/add') ?>" class="btn btn-warning btn-sm fw-semibold">
     <i class="bi bi-plus-lg me-1"></i> Add Product
   </a>
 </div>
@@ -14,7 +14,7 @@
       <input type="text" name="search" class="form-control form-control-sm" placeholder="Search by name or SKU..."
              value="<?= htmlspecialchars($search ?? '') ?>">
       <button class="btn btn-sm btn-outline-warning px-3">Search</button>
-      <a href="<?= site_url('shopkart/products') ?>" class="btn btn-sm btn-outline-secondary">Reset</a>
+      <a href="<?= site_url('admin/products') ?>" class="btn btn-sm btn-outline-secondary">Reset</a>
     </form>
   </div>
 </div>
@@ -73,16 +73,16 @@
               <?php endif; ?>
             </td>
             <td>
-              <button onclick="skToggleStatus('<?= site_url('shopkart/products/toggle/'.$p['id']) ?>', this)"
+              <button onclick="skToggleStatus('<?= site_url('admin/products/toggle/'.$p['id']) ?>', this)"
                       class="btn btn-sm <?= $p['status']==='active' ? 'btn-success' : 'btn-secondary' ?>">
                 <?= ucfirst($p['status']) ?>
               </button>
             </td>
             <td>
-              <a href="<?= site_url('shopkart/products/edit/'.$p['id']) ?>" class="btn btn-sm btn-outline-primary me-1">
+              <a href="<?= site_url('admin/products/edit/'.$p['id']) ?>" class="btn btn-sm btn-outline-primary me-1">
                 <i class="bi bi-pencil"></i>
               </a>
-              <button onclick="skConfirmDelete('<?= site_url('shopkart/products/delete/'.$p['id']) ?>','<?= htmlspecialchars($p['name']) ?>')"
+              <button onclick="skConfirmDelete('<?= site_url('admin/products/delete/'.$p['id']) ?>','<?= htmlspecialchars($p['name']) ?>')"
                       class="btn btn-sm btn-outline-danger">
                 <i class="bi bi-trash"></i>
               </button>

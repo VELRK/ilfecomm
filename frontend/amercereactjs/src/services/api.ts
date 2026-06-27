@@ -189,7 +189,12 @@ export const authAPI = {
     http.post<AuthResponse>("/login", data),
   register: (data: { name: string; email: string; password: string; phone?: string; address?: { line1: string; city?: string; state?: string; pincode?: string } }) =>
     http.post<AuthResponse>("/register", data),
-  forgotPassword: (data: { email: string }) => http.post("/forgot-password", data),
+  forgotPassword: (data: { email: string }) =>
+    http.post<{ success: boolean; message: string; data?: { dev_code?: string } }>("/forgot-password", data),
+  verifyResetCode: (data: { email: string; code: string }) =>
+    http.post<{ success: boolean; message: string; data: { reset_token: string } }>("/forgot-password/verify", data),
+  resetPassword: (data: { email: string; reset_token: string; password: string; password_confirmation: string }) =>
+    http.post<{ success: boolean; message: string }>("/reset-password", data),
   otpRequest: (data: { phone: string }) =>
     http.post<{ success: boolean; message: string }>("/otp-request", data),
   otpVerify: (data: { phone: string; otp: string }) =>

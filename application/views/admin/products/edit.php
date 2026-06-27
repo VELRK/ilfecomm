@@ -16,12 +16,12 @@ $saleEndLocal = !empty($p['sale_end_at']) ? date('Y-m-d\TH:i', strtotime($p['sal
 
 <div class="sk-page-header">
   <h5 class="sk-page-title"><i class="bi bi-pencil me-2 text-warning"></i>Edit: <?= htmlspecialchars($p['name']) ?></h5>
-  <a href="<?= site_url('shopkart/products') ?>" class="btn btn-sm btn-outline-secondary">
+  <a href="<?= site_url('admin/products') ?>" class="btn btn-sm btn-outline-secondary">
     <i class="bi bi-arrow-left me-1"></i> Back
   </a>
 </div>
 
-<form action="<?= site_url('shopkart/products/update/'.$p['id']) ?>" method="POST" enctype="multipart/form-data">
+<form action="<?= site_url('admin/products/update/'.$p['id']) ?>" method="POST" enctype="multipart/form-data">
 
   <div class="row g-3">
 
@@ -637,7 +637,7 @@ $saleEndLocal = !empty($p['sale_end_at']) ? date('Y-m-d\TH:i', strtotime($p['sal
     <button type="submit" class="btn btn-warning fw-semibold px-5 py-2">
       <i class="bi bi-check-lg me-1"></i> Update Saree
     </button>
-    <a href="<?= site_url('shopkart/products') ?>" class="btn btn-outline-secondary">Cancel</a>
+    <a href="<?= site_url('admin/products') ?>" class="btn btn-outline-secondary">Cancel</a>
   </div>
 
 </form>
@@ -645,7 +645,7 @@ $saleEndLocal = !empty($p['sale_end_at']) ? date('Y-m-d\TH:i', strtotime($p['sal
 <script>
 function deleteGalleryImage(imageId, productId) {
   if (!confirm('Remove this image from the gallery?')) return;
-  fetch('<?= site_url('shopkart/products/delete_image') ?>/' + imageId + '/' + productId, { method: 'POST' })
+  fetch('<?= site_url('admin/products/delete_image') ?>/' + imageId + '/' + productId, { method: 'POST' })
     .then(function(r) { return r.json(); })
     .then(function(res) {
       if (res.success) {
@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var catSel = document.querySelector('select[name="category_id"]');
   var subSel = document.getElementById('subcategory_id');
   var subRow = document.getElementById('subcategory-row');
-  var ajaxBase = '<?= site_url('shopkart/products/subcategories/') ?>';
+  var ajaxBase = '<?= site_url('admin/products/subcategories/') ?>';
   var currentSubId = '<?= (int)($p['subcategory_id'] ?? 0) ?>';
 
   catSel.addEventListener('change', function () {

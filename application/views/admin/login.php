@@ -27,7 +27,7 @@
       </div>
     <?php endif; ?>
 
-    <form action="<?= site_url('shopkart/login/submit') ?>" method="POST">
+    <form action="<?= site_url('admin/login/submit') ?>" method="POST">
       <div class="mb-3">
         <label class="form-label">Email Address</label>
         <div class="input-group">

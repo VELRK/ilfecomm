@@ -157,7 +157,7 @@ export function apiImageUrl(path?: string | null): string {
   if (!path) return `/frontend/assets/images/product/product-placeholder.jpg`;
   if (path.startsWith("http")) return path;
   // Strip legacy server prefixes stored in the database from the old deployment
-  const clean = path.replace(/^(ilf\/frontend\/|ilf\/|frontend\/)/, "");
+  const clean = path.replace(/^(deal\/frontend\/|deal\/|ilf\/frontend\/|ilf\/|ecomm\/|frontend\/)/, "");
   const encoded = clean.split("/").map(encodeURIComponent).join("/");
   return ASSETS_BASE ? `${ASSETS_BASE}/${encoded}` : `/${encoded}`;
 }

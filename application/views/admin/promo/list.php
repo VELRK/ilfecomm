@@ -42,7 +42,7 @@
               <i class="bi bi-pencil"></i>
             </button>
             <button class="btn btn-sm btn-outline-danger"
-                    onclick="skConfirmDelete('<?= site_url('shopkart/promo/delete/'.$p['id']) ?>','<?= htmlspecialchars($p['code']) ?>')">
+                    onclick="skConfirmDelete('<?= site_url('admin/promo/delete/'.$p['id']) ?>','<?= htmlspecialchars($p['code']) ?>')">
               <i class="bi bi-trash"></i>
             </button>
           </td>
@@ -56,7 +56,7 @@
 <!-- Promo Modal -->
 <div class="modal fade" id="promoModal" tabindex="-1">
   <div class="modal-dialog modal-lg">
-    <form class="modal-content sk-ajax-form" id="promoForm" action="<?= site_url('shopkart/promo/store') ?>" method="POST">
+    <form class="modal-content sk-ajax-form" id="promoForm" action="<?= site_url('admin/promo/store') ?>" method="POST">
       <div class="modal-header">
         <h5 class="modal-title fw-bold" id="promoModalTitle">Add Promo Code</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -124,8 +124,8 @@
 </div>
 
 <script>
-const promoStoreUrl  = '<?= site_url("shopkart/promo/store") ?>';
-const promoUpdateBase = '<?= site_url("shopkart/promo/update") ?>/';
+const promoStoreUrl  = '<?= site_url("admin/promo/store") ?>';
+const promoUpdateBase = '<?= site_url("admin/promo/update") ?>/';
 
 document.getElementById('promoModal').addEventListener('hidden.bs.modal', function() {
   document.getElementById('promoForm').action = promoStoreUrl;

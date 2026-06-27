@@ -42,7 +42,7 @@ class Products extends Sk_Base {
 
         if ($this->form_validation->run() === FALSE) {
             $this->session->set_flashdata('error', validation_errors());
-            redirect('shopkart/products/add');
+            redirect('admin/products/add');
         }
 
         $thumbnail = $this->upload_file('thumbnail', 'products');
@@ -136,7 +136,7 @@ class Products extends Sk_Base {
         }
 
         $this->session->set_flashdata('success', 'Product created successfully.');
-        redirect('shopkart/products');
+        redirect('admin/products');
     }
 
     public function edit($id) {
@@ -255,7 +255,7 @@ class Products extends Sk_Base {
 
         $this->_clear_product_api_cache();
         $this->session->set_flashdata('success', 'Product updated successfully.');
-        redirect('shopkart/products');
+        redirect('admin/products');
     }
 
     public function delete($id) {

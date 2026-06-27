@@ -67,7 +67,7 @@ function showAlert(msg, type='success') {
 }
 
 function markRead(id) {
-  fetch(`<?= base_url('shopkart/contacts/mark_read') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/contacts/mark_read') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {
@@ -83,7 +83,7 @@ function markRead(id) {
 
 function deleteContact(id) {
   if (!confirm('Delete this enquiry?')) return;
-  fetch(`<?= base_url('shopkart/contacts/delete') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/contacts/delete') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {

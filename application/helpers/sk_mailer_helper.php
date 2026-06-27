@@ -240,3 +240,40 @@ function sk_mail_order_status($order, $new_status, $settings = []) {
 
     return sk_send_mail($to_email, $to_name, $subject, $body);
 }
+
+/** Send password reset verification code to the user's email. */
+function sk_mail_password_reset_code($user, $code, $settings = []) {
+    $to_email = $user['email'] ?? '';
+    $to_name  = $user['name'] ?? 'Customer';
+    $site_name = $settings['site_name'] ?? 'ShopKart';
+    $subject = 'Password Reset Verification Code – ' . $site_name;
+
+    $body = "
+<!DOCTYPE html>
+<html>
+<head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'></head>
+<body style='margin:0;padding:0;background:#f8fafc;font-family:Arial,sans-serif;'>
+<div style='max-width:520px;margin:30px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);'>
+  <div style='background:#0f172a;padding:28px 32px;text-align:center;'>
+    <h1 style='color:#fff;margin:0;font-size:22px;'>{$site_name}</h1>
+    <p style='color:#94a3b8;margin:6px 0 0;font-size:13px;'>Password Reset</p>
+  </div>
+  <div style='padding:36px 32px;'>
+    <p style='color:#334155;font-size:16px;'>Hi <strong>{$to_name}</strong>,</p>
+    <p style='color:#334155;'>Use the verification code below to reset your password. This code expires in <strong>15 minutes</strong>.</p>
+    <div style='text-align:center;margin:28px 0;'>
+      <div style='display:inline-block;background:#f1f5f9;border:2px dashed #cbd5e1;border-radius:12px;padding:18px 36px;'>
+        <span style='font-size:32px;font-weight:700;letter-spacing:8px;color:#0f172a;'>{$code}</span>
+      </div>
+    </div>
+    <p style='color:#64748b;font-size:14px;'>If you did not request a password reset, you can safely ignore this email.</p>
+  </div>
+  <div style='background:#f8fafc;padding:20px 32px;text-align:center;border-top:1px solid #f1f5f9;'>
+    <p style='margin:0;color:#94a3b8;font-size:13px;'>{$site_name} &copy; " . date('Y') . "</p>
+  </div>
+</div>
+</body>
+</html>";
+
+    return sk_send_mail($to_email, $to_name, $subject, $body);
+}

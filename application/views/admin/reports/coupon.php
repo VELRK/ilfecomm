@@ -10,7 +10,7 @@
          placeholder="Search code…" value="<?= htmlspecialchars($search ?? '') ?>">
   <button class="btn btn-sm btn-outline-warning px-3">Search</button>
   <?php if ($search): ?>
-    <a href="<?= site_url('shopkart/coupon-report') ?>" class="btn btn-sm btn-outline-secondary">Clear</a>
+    <a href="<?= site_url('admin/coupon-report') ?>" class="btn btn-sm btn-outline-secondary">Clear</a>
   <?php endif; ?>
 </form>
 
@@ -94,7 +94,7 @@
           </td>
           <td>
             <?php if ($u['order_number']): ?>
-              <a href="<?= site_url('shopkart/orders/view/'.($u['order_number'])) ?>" class="text-primary text-decoration-none fw-semibold">
+              <a href="<?= site_url('admin/orders/view/'.($u['order_number'])) ?>" class="text-primary text-decoration-none fw-semibold">
                 <?= htmlspecialchars($u['order_number']) ?>
               </a>
             <?php else: ?> — <?php endif; ?>

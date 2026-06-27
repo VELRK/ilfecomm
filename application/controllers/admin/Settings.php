@@ -37,6 +37,6 @@ class Settings extends Sk_Base {
 
         $this->Sk_Admin_model->save_settings($data);
         $this->session->set_flashdata('success', 'Settings saved successfully.');
-        redirect('shopkart/settings');
+        redirect('admin/settings');
     }
 }

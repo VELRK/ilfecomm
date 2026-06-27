@@ -2,7 +2,7 @@
   <h5 class="sk-page-title"><i class="bi bi-gear me-2 text-warning"></i>Settings</h5>
 </div>
 
-<form action="<?= site_url('shopkart/settings/update') ?>" method="POST" enctype="multipart/form-data">
+<form action="<?= site_url('admin/settings/update') ?>" method="POST" enctype="multipart/form-data">
 
   <!-- Nav Tabs -->
   <ul class="nav nav-tabs mb-3" id="settingsTabs">

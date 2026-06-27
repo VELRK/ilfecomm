@@ -85,15 +85,84 @@ class Sk_Auth extends Sk_Base_Api {
         $data  = $this->body();
         $email = trim($data['email'] ?? '');
 
+        if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->error('Valid email address is required.');
+        }
+        if (strpos($email, '@shopkart.app') !== false) {
+            return $this->error('This account uses mobile login. Please sign in with OTP.');
+        }
+
         $user = $this->Sk_User_model->get_by_email($email);
-        if (!$user) return $this->error('No account found with this email.');
+        if (!$user) {
+            return $this->error('No account found with this email.');
+        }
+        if (!$user['status']) {
+            return $this->error('Your account has been blocked.', 403);
+        }
 
-        $token = $this->Sk_User_model->set_reset_token($email);
+        $code = $this->Sk_User_model->set_reset_code($email);
+        $this->load->helper('sk_mailer');
+        $settings = $this->get_settings();
+        $sent = sk_mail_password_reset_code($user, $code, $settings);
 
-        // In production: send email with reset link
-        // $this->load->library('email'); ...
+        if (!$sent) {
+            if (ENVIRONMENT !== 'production') {
+                return $this->success(
+                    ['dev_code' => $code],
+                    'SMTP not configured. Use verification code: ' . $code
+                );
+            }
+            return $this->error('Unable to send verification email. Please try again later.', 500);
+        }
 
-        $this->success([], 'Password reset link sent to your email.');
+        $this->success([], 'Verification code sent to your email.');
+    }
+
+    public function verify_reset_code() {
+        $data  = $this->body();
+        $email = trim($data['email'] ?? '');
+        $code  = trim($data['code'] ?? '');
+
+        if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->error('Valid email address is required.');
+        }
+        if (!$code || !preg_match('/^\d{6}$/', $code)) {
+            return $this->error('Enter the 6-digit verification code from your email.');
+        }
+
+        $token = $this->Sk_User_model->verify_reset_code($email, $code);
+        if (!$token) {
+            return $this->error('Invalid or expired verification code.', 401);
+        }
+
+        $this->success(['reset_token' => $token], 'Email verified. You can now set a new password.');
+    }
+
+    public function reset_password() {
+        $data  = $this->body();
+        $email = trim($data['email'] ?? '');
+        $token = trim($data['reset_token'] ?? '');
+        $password = $data['password'] ?? '';
+        $confirm  = $data['password_confirmation'] ?? ($data['confirm_password'] ?? '');
+
+        if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return $this->error('Valid email address is required.');
+        }
+        if (!$token) {
+            return $this->error('Reset session expired. Please verify your email again.', 401);
+        }
+        if (!$password || strlen($password) < 6) {
+            return $this->error('Password must be at least 6 characters.');
+        }
+        if ($password !== $confirm) {
+            return $this->error('Passwords do not match.');
+        }
+
+        if (!$this->Sk_User_model->reset_password_with_token($email, $token, $password)) {
+            return $this->error('Reset session expired or invalid. Please start again.', 401);
+        }
+
+        $this->success([], 'Password updated successfully. You can now sign in.');
     }
 
     public function otp_request() {

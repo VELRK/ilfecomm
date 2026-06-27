@@ -14,28 +14,19 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/shopkart-api": {
-        target: "https://indianladiesfashion.com",
+        target: "http://localhost/deal",
         changeOrigin: true,
         rewrite: (p) => p,
       },
-      "/ecomm": {
-        target: "https://indianladiesfashion.com",
-        changeOrigin: true,
-        rewrite: (p) => p.replace(/^\/ecomm/, ""),
-      },
-      "/ilf/assets": {
-        target: "https://indianladiesfashion.com",
-        changeOrigin: true,
-      },
-      "/ilf/images": {
-        target: "https://indianladiesfashion.com",
+      "/deal": {
+        target: "http://localhost",
         changeOrigin: true,
       },
     },
   },
   build: {
     // CI (Netlify/Vercel): build into local dist/
-    // Local: build directly into ../  (= ecomm/frontend/) which is what XAMPP serves
+    // Local: build directly into ../  (= deal/frontend/) which is what XAMPP serves
     outDir: process.env.CI ? "dist" : "../",
     emptyOutDir: false, // don't wipe amercereactjs/ source when building into parent
   },

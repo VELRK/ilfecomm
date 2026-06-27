@@ -6,10 +6,10 @@
     Order <span class="text-warning"><?= htmlspecialchars($order['order_number']) ?></span>
   </h5>
   <div class="d-flex gap-2">
-    <a href="<?= site_url('shopkart/orders/invoice/'.$order['id']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
+    <a href="<?= site_url('admin/orders/invoice/'.$order['id']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
       <i class="bi bi-printer me-1"></i> Invoice
     </a>
-    <a href="<?= site_url('shopkart/orders') ?>" class="btn btn-sm btn-outline-secondary">
+    <a href="<?= site_url('admin/orders') ?>" class="btn btn-sm btn-outline-secondary">
       <i class="bi bi-arrow-left me-1"></i> Back
     </a>
   </div>
@@ -191,7 +191,7 @@ function updateStatus(orderId) {
   var status   = document.getElementById('orderStatus').value;
   var tracking = document.getElementById('trackingNum').value;
   if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
-  $.post('<?= site_url('shopkart/orders/update_status') ?>/' + orderId, {
+  $.post('<?= site_url('admin/orders/update_status') ?>/' + orderId, {
     status: status, tracking_number: tracking
   }, function(res) {
     if (res.success) {

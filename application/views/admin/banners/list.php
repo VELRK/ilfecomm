@@ -247,7 +247,7 @@ function openAddBanner(type) {
 }
 
 function openEditBanner(id) {
-  fetch(`<?= base_url('shopkart/banners/edit') ?>/${id}`)
+  fetch(`<?= base_url('admin/banners/edit') ?>/${id}`)
     .then(r => r.json())
     .then(res => {
       if (!res.success) return;
@@ -310,8 +310,8 @@ function saveBanner() {
 
   const fd = new FormData(document.getElementById('bannerForm'));
   const url = id
-    ? `<?= base_url('shopkart/banners/update') ?>/${id}`
-    : '<?= base_url('shopkart/banners/store') ?>';
+    ? `<?= base_url('admin/banners/update') ?>/${id}`
+    : '<?= base_url('admin/banners/store') ?>';
 
   fetch(url, { method: 'POST', body: fd })
     .then(r => r.json())
@@ -334,7 +334,7 @@ function saveBanner() {
 }
 
 function toggleBanner(id) {
-  fetch(`<?= base_url('shopkart/banners/toggle') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/banners/toggle') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {
@@ -347,7 +347,7 @@ function toggleBanner(id) {
 
 function deleteBanner(id) {
   if (!confirm('Delete this banner?')) return;
-  fetch(`<?= base_url('shopkart/banners/delete') ?>/${id}`, { method: 'POST' })
+  fetch(`<?= base_url('admin/banners/delete') ?>/${id}`, { method: 'POST' })
     .then(r => r.json())
     .then(res => {
       if (res.success) {

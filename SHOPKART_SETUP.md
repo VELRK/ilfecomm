@@ -34,7 +34,7 @@
 ### Base URL
 Edit `application/config/config.php`:
 ```php
-$config['base_url'] = 'http://localhost/ecomm/';
+$config['base_url'] = 'http://localhost/deal/';
 ```
 
 ### JWT Secret
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 ```
 
 ### .htaccess (Apache mod_rewrite)
-Create `ecomm/.htaccess`:
+Create `deal/.htaccess`:
 ```apache
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -76,10 +76,10 @@ $config['index_page'] = '';
 
 Create and set permissions:
 ```
-ecomm/assets/uploads/
-ecomm/assets/uploads/products/
-ecomm/assets/uploads/categories/
-ecomm/assets/uploads/settings/
+deal/assets/uploads/
+deal/assets/uploads/products/
+deal/assets/uploads/categories/
+deal/assets/uploads/settings/
 ```
 
 On Windows (XAMPP), the folder is writable by default.
@@ -89,13 +89,13 @@ On Windows (XAMPP), the folder is writable by default.
 ## Step 4: React Frontend Setup
 
 ```bash
-cd c:/xampp/htdocs/ecomm/react-frontend
+cd c:/xampp/htdocs/deal/react-frontend
 
 # Copy env file
 copy src\.env.example .env
 
 # Edit .env
-# VITE_API_URL=http://localhost/ecomm/shopkart-api
+# VITE_API_URL=http://localhost/deal/shopkart-api
 
 # Install dependencies
 npm install
@@ -107,7 +107,7 @@ npm run dev
 ### Production Build
 ```bash
 npm run build
-# Output goes to: ecomm/frontend/shopkart/
+# Output goes to: deal/frontend/shopkart/
 ```
 
 ---
@@ -132,10 +132,11 @@ npm run build
 
 | Resource         | URL                                          |
 |-----------------|----------------------------------------------|
-| Admin Panel     | `http://localhost/ecomm/shopkart`            |
-| Admin Login     | `http://localhost/ecomm/shopkart/login`      |
+| Admin Panel     | `http://localhost/deal/admin`               |
+| Admin Login     | `http://localhost/deal/admin/login`         |
+| ShopKart Alias  | `http://localhost/deal/shopkart`            |
 | React Dev       | `http://localhost:3000`                      |
-| API Base        | `http://localhost/ecomm/shopkart-api`        |
+| API Base        | `http://localhost/deal/shopkart-api`        |
 
 ---
 
@@ -216,7 +217,7 @@ POST /shopkart-api/newsletter       → { email }
 ## Project Structure
 
 ```
-ecomm/
+deal/
 ├── application/
 │   ├── config/
 │   │   ├── config.php         ← Base config + JWT settings

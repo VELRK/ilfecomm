@@ -23,7 +23,7 @@
         <?php endforeach; ?>
       </select>
       <button class="btn btn-sm btn-outline-warning px-3">Filter</button>
-      <a href="<?= site_url('shopkart/orders') ?>" class="btn btn-sm btn-outline-secondary">Reset</a>
+      <a href="<?= site_url('admin/orders') ?>" class="btn btn-sm btn-outline-secondary">Reset</a>
     </form>
   </div>
 </div>
@@ -64,10 +64,10 @@
             <td><span class="badge badge-<?= $o['payment_status'] ?>"><?= ucfirst($o['payment_status']) ?></span></td>
             <td><?= date('d M y, H:i', strtotime($o['created_at'])) ?></td>
             <td class="d-flex gap-1">
-              <a href="<?= site_url('shopkart/orders/view/'.$o['id']) ?>" class="btn btn-sm btn-outline-primary">
+              <a href="<?= site_url('admin/orders/view/'.$o['id']) ?>" class="btn btn-sm btn-outline-primary">
                 <i class="bi bi-eye"></i>
               </a>
-              <a href="<?= site_url('shopkart/orders/invoice/'.$o['id']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
+              <a href="<?= site_url('admin/orders/invoice/'.$o['id']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
                 <i class="bi bi-printer"></i>
               </a>
             </td>

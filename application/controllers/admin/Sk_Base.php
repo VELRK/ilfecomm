@@ -20,12 +20,12 @@ class Sk_Base extends CI_Controller {
     protected function _require_admin() {
         $admin_id = $this->session->userdata('sk_admin_id');
         if (!$admin_id) {
-            redirect('shopkart/login');
+            redirect('admin/login');
         }
         $this->admin = $this->Sk_Admin_model->get_by_id($admin_id);
         if (!$this->admin) {
             $this->session->sess_destroy();
-            redirect('shopkart/login');
+            redirect('admin/login');
         }
     }
 
