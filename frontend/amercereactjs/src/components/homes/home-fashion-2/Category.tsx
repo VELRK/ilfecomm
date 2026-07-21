@@ -11,7 +11,7 @@ function catImgSrc(img?: string): string {
     return url.pathname;
   }
   const encoded = img.split("/").map(encodeURIComponent).join("/");
-  return `/deal/${encoded}`;
+  return `/${encoded}`;
 }
 
 /* ── Skeleton card matching the 3:4 category card ── */

@@ -1,5 +1,8 @@
 RewriteEngine On
-RewriteBase /deal/
+RewriteBase /
+
+# Serve React app at domain root (production: indianladiesfashion.com)
+DirectoryIndex frontend/index.html index.php
 
 # ── CORS — allow Netlify & any browser origin ─────────────────
 <IfModule mod_headers.c>
@@ -45,7 +48,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^shopkart-api/(.*)$ index.php/shopkart-api/$1 [L]
 
-# Admin panel at /deal/admin
+# Admin panel at /admin
 RewriteRule ^admin/?$ index.php/admin [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

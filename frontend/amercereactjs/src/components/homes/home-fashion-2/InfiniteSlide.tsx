@@ -10,7 +10,7 @@ function catImgSrc(img?: string): string {
     const url = new URL(img);
     return url.pathname;
   }
-  if (img.startsWith("assets/uploads/")) return `/deal/${img}`;
+  if (img.startsWith("assets/uploads/")) return `/${img}`;
   if (img.startsWith("assets/")) return `/${img}`;
   return img;
 }

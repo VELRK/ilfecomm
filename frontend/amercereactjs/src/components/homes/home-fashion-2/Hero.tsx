@@ -10,7 +10,7 @@ function bannerSrc(b: ApiBanner): string {
   if (img.startsWith("http")) return img;
   if (img.startsWith("assets/images/")) return `/${img}`;
   const encoded = img.split("/").map(encodeURIComponent).join("/");
-  return `/deal/${encoded}`;
+  return `/${encoded}`;
 }
 
 /* ── Skeleton shown while API is in flight ── */

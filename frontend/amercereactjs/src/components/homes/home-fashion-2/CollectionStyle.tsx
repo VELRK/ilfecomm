@@ -5,7 +5,7 @@ function imgSrc(raw: string): string {
   if (!raw) return "";
   if (raw.startsWith("http")) return raw;
   if (raw.startsWith("assets/images/")) return `/${raw}`;
-  return `/deal/${raw.split("/").map(encodeURIComponent).join("/")}`;
+  return `/${raw.split("/").map(encodeURIComponent).join("/")}`;
 }
 
 /* Skeleton while API loads */
