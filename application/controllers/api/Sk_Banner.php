@@ -35,7 +35,11 @@ class Sk_Banner extends Sk_Base_Api {
 
         $banner = $this->db->where('status', 1)->where('type', 'offer')
             ->order_by('sort_order', 'ASC')->limit(1)->get('sk_banners')->row_array();
-        if ($banner) $this->_add_image_url($arr = [&$banner]);
+        if ($banner) {
+            $banners = [$banner];
+            $this->_add_image_url($banners);
+            $banner = $banners[0];
+        }
 
         $data = $banner ?: null;
         $this->set_cache('banners_offer', $data);
