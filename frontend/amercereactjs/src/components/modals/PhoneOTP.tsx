@@ -91,7 +91,7 @@ export default function PhoneOTPModal() {
                   {loading ? "Sending…" : "Get OTP"}
                 </button>
                 <p className="text-center text-caption-01 cl-text-3 mt-12">
-                  OTP will be sent via WhatsApp / SMS
+                  OTP will be sent via SMS
                 </p>
               </form>
             ) : (

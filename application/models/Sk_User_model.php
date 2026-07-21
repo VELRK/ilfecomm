@@ -16,7 +16,19 @@ class Sk_User_model extends CI_Model {
     }
 
     public function get_by_phone($phone) {
-        return $this->db->where('phone', $phone)->get('users')->row_array();
+        $digits = preg_replace('/\D/', '', (string) $phone);
+        if ($digits === '') {
+            return null;
+        }
+
+        $variants = array_unique(array_filter([
+            $phone,
+            $digits,
+            (strlen($digits) === 10 ? '91' . $digits : null),
+            (strlen($digits) > 10 ? substr($digits, -10) : null),
+        ]));
+
+        return $this->db->where_in('phone', $variants)->get('users')->row_array();
     }
 
     public function get_by_id($id) {

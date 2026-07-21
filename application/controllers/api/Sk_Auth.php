@@ -171,9 +171,27 @@ class Sk_Auth extends Sk_Base_Api {
         if (!$phone || strlen(preg_replace('/\D/', '', $phone)) < 10) {
             return $this->error('Valid phone number required.');
         }
-        // In production: send real OTP via SMS/WhatsApp
-        // For testing: OTP is always 123
-        $this->success(['phone' => $phone], 'OTP sent to ' . $phone . '. Use 123 for testing.');
+
+        $this->load->library('msg91_library');
+        $mobile = $this->msg91_library->normalize_phone($phone);
+        $result = $this->msg91_library->send_otp($mobile);
+
+        if (!$result['success']) {
+            return $this->error($result['message']);
+        }
+
+        $payload = ['phone' => $mobile];
+        if (!empty($result['dev_otp'])) {
+            $payload['dev_otp'] = $result['dev_otp'];
+        }
+
+        $display = substr($mobile, -10);
+        $message = 'OTP sent to +91-' . $display . '.';
+        if (!empty($result['dev_otp'])) {
+            $message .= ' Dev OTP: ' . $result['dev_otp'];
+        }
+
+        $this->success($payload, $message);
     }
 
     public function otp_verify() {
@@ -183,21 +201,27 @@ class Sk_Auth extends Sk_Base_Api {
 
         if (!$phone || !$otp) return $this->error('Phone and OTP required.');
 
-        // TODO: replace with real OTP check
-        if ($otp !== '123') {
-            return $this->error('Invalid OTP. Please try again.', 401);
+        $this->load->library('msg91_library');
+        $mobile = $this->msg91_library->normalize_phone($phone);
+        $result = $this->msg91_library->verify_otp($mobile, $otp);
+
+        if (!$result['success']) {
+            return $this->error($result['message'], 401);
         }
 
-        $user = $this->Sk_User_model->get_by_phone($phone);
+        $user = $this->Sk_User_model->get_by_phone($mobile);
+        if (!$user) {
+            $user = $this->Sk_User_model->get_by_phone($phone);
+        }
 
         if (!$user) {
             // New user — auto-register with phone
-            $placeholder_email = 'ph_' . preg_replace('/\D/', '', $phone) . '@shopkart.app';
+            $placeholder_email = 'ph_' . preg_replace('/\D/', '', $mobile) . '@shopkart.app';
             $user_id = $this->Sk_User_model->create([
-                'name'     => 'User ' . substr(preg_replace('/\D/', '', $phone), -4),
+                'name'     => 'User ' . substr(preg_replace('/\D/', '', $mobile), -4),
                 'email'    => $placeholder_email,
                 'password' => bin2hex(random_bytes(16)),
-                'phone'    => $phone,
+                'phone'    => $mobile,
                 'status'   => 1,
             ]);
             $user = $this->Sk_User_model->get_by_id($user_id);
