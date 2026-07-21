@@ -5,7 +5,7 @@ import { useBanners } from "@/hooks/useApi";
 import type { ApiBanner } from "@/services/api";
 
 function bannerSrc(b: ApiBanner): string {
-  const img = b.image;
+  const img = b.image_url || b.image;
   if (!img) return "/frontend/assets/images/slider/fashion-2/slider-1.jpg";
   if (img.startsWith("http")) return img;
   if (img.startsWith("assets/images/")) return `/${img}`;

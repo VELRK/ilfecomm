@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /deal/
+
+# Static assets and API live at domain root (public_html)
+RewriteRule ^(frontend|assets|images|css|js|fonts|webfonts|uploads)/(.*)$ ../$1/$2 [L]
+RewriteRule ^shopkart-api/(.*)$ ../shopkart-api/$1 [L]
+RewriteRule ^admin/?$ ../admin [R=302,L]
+RewriteRule ^admin/(.+)$ ../admin/$1 [R=302,L]
+
+# SPA fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ ../frontend/index.html [L]
