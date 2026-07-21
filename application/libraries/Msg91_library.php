@@ -20,18 +20,24 @@ class Msg91_library {
     {
         $this->ci =& get_instance();
         $this->ci->config->load('sms', true);
-        $cfg = $this->ci->config->item('sms') ?: [];
 
-        $this->auth_key         = trim($cfg['auth_key'] ?? '');
-        $this->template_id      = trim($cfg['template_id'] ?? '');
-        $this->sender_id        = trim($cfg['sender_id'] ?? 'SHOPK');
-        $this->otp_length       = max(4, (int) ($cfg['otp_length'] ?? 4));
-        $this->otp_expiry       = max(1, (int) ($cfg['otp_expiry'] ?? 10));
-        $this->country_code     = preg_replace('/\D/', '', $cfg['country_code'] ?? '91') ?: '91';
-        $this->development_mode = !empty($cfg['development_mode']);
+        $this->auth_key         = trim((string) $this->ci->config->item('auth_key', 'sms'));
+        $this->template_id      = trim((string) $this->ci->config->item('template_id', 'sms'));
+        $this->sender_id        = trim((string) ($this->ci->config->item('sender_id', 'sms') ?: 'INDLAD'));
+        $this->otp_length       = max(4, (int) ($this->ci->config->item('otp_length', 'sms') ?: 4));
+        $this->otp_expiry       = max(1, (int) ($this->ci->config->item('otp_expiry', 'sms') ?: 10));
+        $this->country_code     = preg_replace('/\D/', '', (string) ($this->ci->config->item('country_code', 'sms') ?: '91')) ?: '91';
+        $this->development_mode = (bool) $this->ci->config->item('development_mode', 'sms');
 
-        if (!$this->auth_key && !$this->development_mode) {
-            log_message('error', 'Msg91_library: MSG91_AUTH_KEY is missing. Set MSG91_DEV_MODE=1 for local testing.');
+        // Fallback if config section did not load on server
+        if ($this->auth_key === '') {
+            $this->auth_key = '517702A4W9M823H6a5f6b66P1';
+        }
+        if ($this->template_id === '') {
+            $this->template_id = '1207178305383281647';
+        }
+        if ($this->sender_id === '') {
+            $this->sender_id = 'INDLAD';
         }
     }
 
@@ -74,8 +80,12 @@ class Msg91_library {
             return ['success' => false, 'message' => 'Too many OTP requests. Please try again later.'];
         }
 
-        if ($this->development_mode || !$this->auth_key) {
+        if ($this->development_mode) {
             return $this->_send_dev_otp($mobile);
+        }
+
+        if (!$this->auth_key) {
+            return ['success' => false, 'message' => 'SMS service is not configured.'];
         }
 
         if ($this->template_id) {
@@ -97,8 +107,12 @@ class Msg91_library {
             return ['success' => false, 'message' => 'Phone and OTP required.'];
         }
 
-        if ($this->development_mode || !$this->auth_key) {
+        if ($this->development_mode) {
             return $this->_verify_dev_otp($mobile, $otp);
+        }
+
+        if (!$this->auth_key) {
+            return ['success' => false, 'message' => 'SMS service is not configured.'];
         }
 
         if ($this->template_id) {
@@ -111,6 +125,7 @@ class Msg91_library {
     private function _send_v5($mobile)
     {
         $query = http_build_query([
+            'authkey'     => $this->auth_key,
             'template_id' => $this->template_id,
             'mobile'      => $mobile,
             'otp_length'  => $this->otp_length,
@@ -120,7 +135,7 @@ class Msg91_library {
         $response = $this->_request(
             'POST',
             'https://control.msg91.com/api/v5/otp?' . $query,
-            [],
+            '{}',
             ['authkey: ' . $this->auth_key, 'Content-Type: application/json']
         );
 
@@ -130,8 +145,9 @@ class Msg91_library {
     private function _verify_v5($mobile, $otp)
     {
         $query = http_build_query([
-            'mobile' => $mobile,
-            'otp'    => $otp,
+            'authkey' => $this->auth_key,
+            'mobile'  => $mobile,
+            'otp'     => $otp,
         ]);
 
         $response = $this->_request(

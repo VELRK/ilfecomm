@@ -181,13 +181,13 @@ class Sk_Auth extends Sk_Base_Api {
         }
 
         $payload = ['phone' => $mobile];
-        if (!empty($result['dev_otp'])) {
+        if (!empty($result['dev_otp']) && ENVIRONMENT !== 'production') {
             $payload['dev_otp'] = $result['dev_otp'];
         }
 
         $display = substr($mobile, -10);
         $message = 'OTP sent to +91-' . $display . '.';
-        if (!empty($result['dev_otp'])) {
+        if (!empty($result['dev_otp']) && ENVIRONMENT !== 'production') {
             $message .= ' Dev OTP: ' . $result['dev_otp'];
         }
 
