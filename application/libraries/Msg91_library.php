@@ -34,7 +34,7 @@ class Msg91_library {
             $this->auth_key = '517702A4W9M823H6a5f6b66P1';
         }
         if ($this->template_id === '') {
-            $this->template_id = '1207178305383281647';
+            $this->template_id = '1207178305383281647'; // ilf_otp_final
         }
         if ($this->sender_id === '') {
             $this->sender_id = 'INDLAD';
@@ -168,7 +168,7 @@ class Msg91_library {
             'sender'     => $this->sender_id,
             'otp_length' => $this->otp_length,
             'otp_expiry' => $this->otp_expiry,
-            'message'    => 'Your ShopKart verification code is ##OTP##. Valid for ' . $this->otp_expiry . ' minutes.',
+            'message'    => 'Indian Ladies Fashion: Your OTP is ##OTP##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.',
         ]);
 
         $response = $this->_request('GET', 'http://api.msg91.com/api/sendotp.php?' . $query);
