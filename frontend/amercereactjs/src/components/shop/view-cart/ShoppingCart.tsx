@@ -63,11 +63,16 @@ export default function ShoppingCart() {
 
   const removePromo = () => { setAppliedCode(""); setPromoDiscount(0); setPromoError(""); };
 
+  const hasCartItems = cartProducts.length > 0;
   const discount = promoDiscount;
-  const shippingCost = totalPrice >= freeShippingAbove ? 0 : shippingCharge;
+  const shippingCost = !hasCartItems
+    ? 0
+    : totalPrice >= freeShippingAbove
+      ? 0
+      : shippingCharge;
   const subtotalAfterPromo = Math.max(0, totalPrice - discount);
-  const taxAmount = Math.round(subtotalAfterPromo * (taxRate / 100));
-  const orderTotal = subtotalAfterPromo + shippingCost + taxAmount;
+  const taxAmount = hasCartItems ? Math.round(subtotalAfterPromo * (taxRate / 100)) : 0;
+  const orderTotal = hasCartItems ? subtotalAfterPromo + shippingCost + taxAmount : 0;
 
   const amountToFreeship = Math.max(0, freeShippingAbove - totalPrice);
   const shipProgressPercent = Math.min(

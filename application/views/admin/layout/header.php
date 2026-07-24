@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $title ?? 'ShopKart Admin' ?></title>
+  <title><?= htmlspecialchars($title ?? sk_admin_title('Panel')) ?></title>
   <!-- Bootstrap 5 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <!-- Bootstrap Icons -->
@@ -39,7 +39,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sk-topbar">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold" href="<?= site_url('shopkart/dashboard') ?>">
-      <i class="bi bi-bag-heart-fill text-warning me-1"></i> ShopKart
+      <i class="bi bi-bag-heart-fill text-warning me-1"></i> <?= htmlspecialchars($admin_brand ?? sk_admin_brand()) ?>
     </a>
     <button class="btn btn-sm btn-outline-secondary ms-auto me-2" id="sidebarToggle">
       <i class="bi bi-list"></i>

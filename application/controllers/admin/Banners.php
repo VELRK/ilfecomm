@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Banners extends Sk_Base {
 
     public function index() {
-        $data['title']         = 'Banners';
+        $data['title']         = sk_admin_title('Banners');
         $data['hero_banners']  = $this->db->where('type','hero')->order_by('sort_order','ASC')->get('sk_banners')->result_array();
         $data['offer_banners'] = $this->db->where('type','offer')->order_by('sort_order','ASC')->get('sk_banners')->result_array();
         $this->render('banners/list', $data);

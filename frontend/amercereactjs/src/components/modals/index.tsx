@@ -173,7 +173,7 @@ export default function LayoutModals() {
         <RecentlyViewedDrawer registerOffcanvasElement={registerOffcanvasElement} />
       </LazyModal>
       <LazyModal>
-        <PhoneOTP />
+        <PhoneOTP registerModalElement={registerModalElement} />
       </LazyModal>
       <LazyModal>
         <ProductViewModal />

@@ -42,7 +42,7 @@ class CouponReport extends Sk_Base {
 
         $total_discount = array_sum(array_column($summaries, 'total_discount_given'));
 
-        $data['title']          = 'Coupon Report';
+        $data['title']          = sk_admin_title('Coupon Report');
         $data['summaries']      = $summaries;
         $data['usage_log']      = $usage_log;
         $data['total_discount'] = $total_discount;

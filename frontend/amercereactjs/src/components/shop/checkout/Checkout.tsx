@@ -145,10 +145,24 @@ export default function Checkout() {
 
   const removePromo = () => { setAppliedCode(""); setPromoDiscount(0); setPromoError(""); setPromoInput(""); };
 
-  const shippingCost = totalPrice >= freeShippingAbove ? 0 : shippingCharge;
+  const hasCartItems = cartProducts.length > 0;
+  useEffect(() => {
+    if (!hasCartItems) {
+      setAppliedCode("");
+      setPromoDiscount(0);
+      setPromoError("");
+      setPromoInput("");
+    }
+  }, [hasCartItems]);
+
+  const shippingCost = !hasCartItems
+    ? 0
+    : totalPrice >= freeShippingAbove
+      ? 0
+      : shippingCharge;
   const subtotalAfterPromo = Math.max(0, totalPrice - promoDiscount);
-  const taxAmount    = Math.round(subtotalAfterPromo * (taxRate / 100));
-  const orderTotal   = subtotalAfterPromo + shippingCost + taxAmount;
+  const taxAmount    = hasCartItems ? Math.round(subtotalAfterPromo * (taxRate / 100)) : 0;
+  const orderTotal   = hasCartItems ? subtotalAfterPromo + shippingCost + taxAmount : 0;
 
   const [paymentMethod, setPaymentMethod] = useState<"cod" | "razorpay">(() => {
     return (sessionStorage.getItem("checkout_payment_method") as "cod" | "razorpay") || "cod";
@@ -514,51 +528,55 @@ export default function Checkout() {
                 )}
               </div>
 
-              {appliedCode ? (
-                <div className="premium-alert mb-4" style={{ background: '#ecfdf5', borderColor: '#a7f3d0', color: '#065f46', padding: '12px 16px' }}>
-                  <div className="flex-grow-1 fw-bold">
-                    ✓ {appliedCode} applied!
-                  </div>
-                  <button type="button" className="btn btn-sm btn-link text-danger p-0 text-decoration-none fw-semibold" onClick={removePromo}>Remove</button>
-                </div>
-              ) : (
-                <div className="promo-box">
-                  <input type="text" className="promo-input" placeholder="Promo / voucher code"
-                    value={promoInput} onChange={(e) => { setPromoInput(e.target.value); setPromoError(""); }}
-                    disabled={promoLoading} />
-                  <button className="tf-btn btn-sm animate-btn promo-apply-btn" type="button" onClick={handleApplyPromo} disabled={promoLoading}>
-                    {promoLoading ? "..." : "Apply"}
-                  </button>
-                </div>
-              )}
-              {promoError && <p className="text-danger mt-n2 mb-3" style={{ fontSize: 13 }}>{promoError}</p>}
+              {hasCartItems && (
+                <>
+                  {appliedCode ? (
+                    <div className="premium-alert mb-4" style={{ background: '#ecfdf5', borderColor: '#a7f3d0', color: '#065f46', padding: '12px 16px' }}>
+                      <div className="flex-grow-1 fw-bold">
+                        ✓ {appliedCode} applied!
+                      </div>
+                      <button type="button" className="btn btn-sm btn-link text-danger p-0 text-decoration-none fw-semibold" onClick={removePromo}>Remove</button>
+                    </div>
+                  ) : (
+                    <div className="promo-box">
+                      <input type="text" className="promo-input" placeholder="Promo / voucher code"
+                        value={promoInput} onChange={(e) => { setPromoInput(e.target.value); setPromoError(""); }}
+                        disabled={promoLoading} />
+                      <button className="tf-btn btn-sm animate-btn promo-apply-btn" type="button" onClick={handleApplyPromo} disabled={promoLoading}>
+                        {promoLoading ? "..." : "Apply"}
+                      </button>
+                    </div>
+                  )}
+                  {promoError && <p className="text-danger mt-n2 mb-3" style={{ fontSize: 13 }}>{promoError}</p>}
 
-              <div className="summary-row">
-                <span>Subtotal</span>
-                <span className="fw-semibold text-dark">{formatPrice(totalPrice)}</span>
-              </div>
-              {promoDiscount > 0 && (
-                <div className="summary-row text-success fw-semibold">
-                  <span>Discount ({appliedCode})</span>
-                  <span>−{formatPrice(promoDiscount)}</span>
-                </div>
+                  <div className="summary-row">
+                    <span>Subtotal</span>
+                    <span className="fw-semibold text-dark">{formatPrice(totalPrice)}</span>
+                  </div>
+                  {promoDiscount > 0 && (
+                    <div className="summary-row text-success fw-semibold">
+                      <span>Discount ({appliedCode})</span>
+                      <span>−{formatPrice(promoDiscount)}</span>
+                    </div>
+                  )}
+                  <div className="summary-row">
+                    <span>Shipping</span>
+                    <span className="fw-semibold text-dark">{shippingCost === 0 ? <span className="text-success">Free</span> : formatPrice(shippingCost)}</span>
+                  </div>
+
+                  {taxRate > 0 && (
+                    <div className="summary-row">
+                      <span>GST ({taxRate}%)</span>
+                      <span className="fw-semibold text-dark">{formatPrice(taxAmount)}</span>
+                    </div>
+                  )}
+
+                  <div className="summary-total">
+                    <span>Total</span>
+                    <span>{formatPrice(orderTotal)}</span>
+                  </div>
+                </>
               )}
-              <div className="summary-row">
-                <span>Shipping</span>
-                <span className="fw-semibold text-dark">{shippingCost === 0 ? <span className="text-success">Free</span> : formatPrice(shippingCost)}</span>
-              </div>
-              
-              {taxRate > 0 && (
-                <div className="summary-row">
-                  <span>GST ({taxRate}%)</span>
-                  <span className="fw-semibold text-dark">{formatPrice(taxAmount)}</span>
-                </div>
-              )}
-              
-              <div className="summary-total">
-                <span>Total</span>
-                <span>{formatPrice(orderTotal)}</span>
-              </div>
             </div>
           </div>
 

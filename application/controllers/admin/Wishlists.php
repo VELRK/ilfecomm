@@ -30,7 +30,7 @@ class Wishlists extends Sk_Base {
                                ->limit($limit, $offset)
                                ->get()->result_array();
 
-        $data['title']     = 'Wishlists';
+        $data['title']     = sk_admin_title('Wishlists');
         $data['wishlists'] = $wishlists;
         $data['total']     = $total;
         $data['page']      = $page;

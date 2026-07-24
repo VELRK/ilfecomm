@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Admin Login - ShopKart</title>
+  <title><?= htmlspecialchars($title ?? sk_admin_title('Admin Login')) ?></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/admin/css/admin.css') ?>">
@@ -16,7 +16,7 @@
       <div class="mb-2">
         <i class="bi bi-bag-heart-fill text-warning" style="font-size:2.5rem;"></i>
       </div>
-      <h4 class="fw-bold mb-0">ShopKart Admin</h4>
+      <h4 class="fw-bold mb-0"><?= htmlspecialchars($admin_brand ?? sk_admin_brand()) ?> Admin</h4>
       <p class="text-muted small">Sign in to continue</p>
     </div>
 
@@ -32,7 +32,7 @@
         <label class="form-label">Email Address</label>
         <div class="input-group">
           <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-          <input type="email" name="email" class="form-control" placeholder="admin@shopkart.com" required autofocus>
+          <input type="email" name="email" class="form-control" placeholder="admin@indianladiesfashion.com" required autofocus>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
     </form>
 
     <p class="text-center text-muted small mt-4 mb-0">
-      &copy; <?= date('Y') ?> ShopKart. All rights reserved.
+      &copy; <?= date('Y') ?> <?= htmlspecialchars($admin_brand ?? sk_admin_brand()) ?>. All rights reserved.
     </p>
   </div>
 </div>

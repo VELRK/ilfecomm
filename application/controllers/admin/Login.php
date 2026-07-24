@@ -13,7 +13,8 @@ class Login extends Sk_Base {
         if ($this->session->userdata('sk_admin_id')) {
             redirect('admin/dashboard');
         }
-        $data['title'] = 'Admin Login - ShopKart';
+        $data['title']       = sk_admin_title('Admin Login');
+        $data['admin_brand'] = sk_admin_brand();
         $this->load->view('admin/login', $data);
     }
 

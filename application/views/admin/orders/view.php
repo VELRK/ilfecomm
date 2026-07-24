@@ -6,6 +6,9 @@
     Order <span class="text-warning"><?= htmlspecialchars($order['order_number']) ?></span>
   </h5>
   <div class="d-flex gap-2">
+    <button type="button" class="btn btn-sm btn-outline-primary" onclick="sendInvoiceEmail(<?= $order['id'] ?>)">
+      <i class="bi bi-envelope me-1"></i> Email Invoice
+    </button>
     <a href="<?= site_url('admin/orders/invoice/'.$order['id']) ?>" target="_blank" class="btn btn-sm btn-outline-secondary">
       <i class="bi bi-printer me-1"></i> Invoice
     </a>
@@ -177,15 +180,43 @@
 </div>
 
 <div id="statusToast" class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
-  <div class="toast align-items-center text-bg-success border-0" role="alert" data-bs-autohide="true" data-bs-delay="2000">
+  <div class="toast align-items-center text-bg-success border-0" role="alert" data-bs-autohide="true" data-bs-delay="2500">
     <div class="d-flex">
-      <div class="toast-body fw-semibold"><i class="bi bi-check-circle me-2"></i>Order status updated!</div>
+      <div class="toast-body fw-semibold toast-msg"><i class="bi bi-check-circle me-2"></i>Order status updated!</div>
       <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
 </div>
 
 <script>
+function showToast(message, isError) {
+  var toastEl = document.querySelector('#statusToast .toast');
+  var bodyEl  = document.querySelector('#statusToast .toast-msg');
+  if (!toastEl || !bodyEl) return;
+  toastEl.classList.remove('text-bg-success', 'text-bg-danger');
+  toastEl.classList.add(isError ? 'text-bg-danger' : 'text-bg-success');
+  bodyEl.innerHTML = (isError ? '<i class="bi bi-exclamation-circle me-2"></i>' : '<i class="bi bi-check-circle me-2"></i>') + message;
+  new bootstrap.Toast(toastEl).show();
+}
+
+function sendInvoiceEmail(orderId) {
+  var btn = document.querySelector('[onclick="sendInvoiceEmail(' + orderId + ')"]');
+  if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span>Sending…'; }
+  $.post('<?= site_url('admin/orders/send_invoice') ?>/' + orderId, {}, function(res) {
+    showToast(res.message || (res.success ? 'Invoice email sent.' : 'Failed to send invoice.'), !res.success);
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-envelope me-1"></i> Email Invoice';
+    }
+  }, 'json').fail(function() {
+    showToast('Network error. Please try again.', true);
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-envelope me-1"></i> Email Invoice';
+    }
+  });
+}
+
 function updateStatus(orderId) {
   var btn      = document.querySelector('[onclick="updateStatus(' + orderId + ')"]');
   var status   = document.getElementById('orderStatus').value;
@@ -195,8 +226,7 @@ function updateStatus(orderId) {
     status: status, tracking_number: tracking
   }, function(res) {
     if (res.success) {
-      var toast = new bootstrap.Toast(document.querySelector('#statusToast .toast'));
-      toast.show();
+      showToast('Order status updated!');
       setTimeout(function() { location.reload(); }, 1800);
     } else {
       if (btn) { btn.disabled = false; btn.textContent = 'Update Status'; }

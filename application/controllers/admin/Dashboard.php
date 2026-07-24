@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Dashboard extends Sk_Base {
 
     public function index() {
-        $data['title']           = 'Dashboard - ShopKart Admin';
+        $data['title']           = sk_admin_title('Dashboard');
         $data['total_orders']    = $this->Sk_Order_model->total_orders();
         $data['pending_orders']  = $this->Sk_Order_model->pending_orders();
         $data['total_revenue']   = $this->Sk_Order_model->total_revenue();

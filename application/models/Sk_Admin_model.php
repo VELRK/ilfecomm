@@ -51,6 +51,12 @@ class Sk_Admin_model extends CI_Model {
                 $this->db->insert('settings', ['key' => $key, 'value' => $value, 'group' => 'general']);
             }
         }
+        $this->clear_site_settings_cache();
+    }
+
+    public function clear_site_settings_cache() {
+        $file = APPPATH . 'cache/api/site_settings.json';
+        if (is_file($file)) @unlink($file);
     }
 
     // ── Categories ────────────────────────────────────────────

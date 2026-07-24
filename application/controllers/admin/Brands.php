@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Brands extends Sk_Base {
 
     public function index() {
-        $data['title']  = 'Brands';
+        $data['title']  = sk_admin_title('Brands');
         $data['brands'] = $this->db->order_by('name')->get('brands')->result_array();
         $this->render('brands/list', $data);
     }

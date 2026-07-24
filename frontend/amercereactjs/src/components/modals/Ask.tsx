@@ -1,13 +1,23 @@
+import { useRef, useCallback } from "react";
 import { PreventDefaultForm } from "@/components/forms/PreventDefaultForm";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 export default function Ask({
   registerModalElement,
 }: {
   registerModalElement?: (el: HTMLElement | null) => void;
 }) {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const resetForm = useCallback(() => {
+    formRef.current?.reset();
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, resetForm);
+
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-log modal-ask"
       id="ask"
     >
@@ -21,7 +31,7 @@ export default function Ask({
             <p className="desc-pop cl-text-2">Have a question? Ask us today!</p>
           </div>
           <div className="modal-main">
-            <PreventDefaultForm className="form-log mb-20">
+            <PreventDefaultForm ref={formRef} className="form-log mb-20">
               <div className="form-content">
                 <fieldset className="tf-field">
                   <label htmlFor="name-ask" className="tf-lable fw-medium">

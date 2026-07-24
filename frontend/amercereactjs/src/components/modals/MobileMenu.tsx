@@ -2,6 +2,7 @@
 import { useState, useRef, useCallback } from "react";
 import { useCategories } from "@/hooks/useApi";
 import type { ApiCategory } from "@/services/api";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 function catUrl(c: ApiCategory)  { return `/shop-default?category_id=${c.id}`; }
 function subUrl(s: ApiCategory)  { return `/shop-default?subcategory_id=${s.id}`; }
@@ -44,10 +45,24 @@ export default function MobileMenu({
     });
   };
 
-  const refCb = useCallback((el: HTMLDivElement | null) => {
-    elRef.current = el;
-    registerOffcanvasElement?.(el);
-  }, [registerOffcanvasElement]);
+  const resetMenu = useCallback(() => {
+    setSearch("");
+    setOpenCats(new Set());
+  }, []);
+
+  const overlayRef = useBootstrapOverlayReset(
+    registerOffcanvasElement,
+    resetMenu,
+    "offcanvas",
+  );
+
+  const refCb = useCallback(
+    (el: HTMLDivElement | null) => {
+      elRef.current = el;
+      overlayRef(el);
+    },
+    [overlayRef],
+  );
 
   return (
     <div ref={refCb} className="offcanvas offcanvas-start canvas-mb" id="mobileMenu">

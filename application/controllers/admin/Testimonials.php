@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Testimonials extends Sk_Base {
 
     public function index() {
-        $data['title']        = 'Testimonials';
+        $data['title']        = sk_admin_title('Testimonials');
         $data['testimonials'] = $this->db
             ->order_by('sort_order', 'ASC')
             ->order_by('created_at', 'DESC')

@@ -1,0 +1,1 @@
+import{r as e}from"./chunk-DECur_0Z.js";import{t}from"./react-DhTzgwgF.js";import{t as n}from"./jsx-runtime-DdEXjPBp.js";var r=e(t(),1),i=n(),a=(0,r.forwardRef)(function({onSubmit:e,...t},n){return(0,i.jsx)(`form`,{ref:n,...t,onSubmit:t=>{t.preventDefault(),e?.(t)}})});export{a as t};

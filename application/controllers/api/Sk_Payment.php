@@ -125,6 +125,11 @@ class Sk_Payment extends Sk_Base_Api {
         $this->Sk_Order_model->update_status($order_id, 'confirmed');
 
         $order = $this->Sk_Order_model->get_by_id($order_id, $this->user['user_id']);
+
+        // Send confirmation + invoice after successful online payment
+        $this->load->helper('sk_mailer');
+        sk_mail_order_placed($order, $this->get_settings());
+
         $this->success(['order' => $order], 'Payment successful! Your order is confirmed.');
     }
 }

@@ -15,7 +15,7 @@ class Orders extends Sk_Base {
             'search'         => $this->input->get('search', TRUE),
         ];
 
-        $data['title']   = 'Orders - ShopKart Admin';
+        $data['title']   = sk_admin_title('Orders');
         $data['orders']  = $this->Sk_Order_model->get_all_admin($limit, $offset, $filters);
         $data['total']   = $this->Sk_Order_model->count_admin($filters);
         $data['page']    = $page;
@@ -25,7 +25,7 @@ class Orders extends Sk_Base {
     }
 
     public function view($id) {
-        $data['title'] = 'Order Detail';
+        $data['title'] = sk_admin_title('Order Detail');
         $data['order'] = $this->Sk_Order_model->get_by_id($id);
         if (!$data['order']) show_404();
         $this->render('orders/view', $data);
@@ -51,11 +51,39 @@ class Orders extends Sk_Base {
         $this->json(['success' => true, 'message' => 'Order status updated.']);
     }
 
+    public function send_invoice($id) {
+        $order = $this->Sk_Order_model->get_by_id($id);
+        if (!$order) return $this->json(['success' => false, 'message' => 'Order not found.']);
+
+        $this->load->helper('sk_mailer');
+        $sent = sk_mail_order_invoice($order, $this->Sk_Admin_model->get_settings());
+        if ($sent) {
+            return $this->json(['success' => true, 'message' => 'Invoice email sent to customer.']);
+        }
+        return $this->json(['success' => false, 'message' => 'Could not send invoice. Check SMTP settings and customer email.']);
+    }
+
     public function invoice($id) {
         $data['order'] = $this->Sk_Order_model->get_by_id($id);
         $data['settings'] = $this->Sk_Admin_model->get_settings();
         if (!$data['order']) show_404();
-        // Render invoice view without header/sidebar
-        $this->load->view('admin/orders/invoice', $data);
+
+        $this->load->helper('sk_mailer');
+        $invoice_html = sk_build_invoice_html($data['order'], $data['settings'], false);
+        $site_name = htmlspecialchars($data['settings']['site_name'] ?? sk_admin_brand(), ENT_QUOTES, 'UTF-8');
+
+        $page = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Invoice - {$data['order']['order_number']}</title>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'>
+<style>body{font-size:13px;background:#f8fafc;} @media print{.no-print{display:none!important;} body{background:#fff;}}</style>
+</head><body>
+<div class='no-print text-center py-3'>
+  <button onclick='window.print()' class='btn btn-sm btn-warning me-2'>Print / Save PDF</button>
+  <button onclick='window.close()' class='btn btn-sm btn-secondary'>Close</button>
+</div>
+<div class='container py-3'>{$invoice_html}</div>
+<p class='text-center text-muted pb-4'><small>{$site_name}</small></p>
+</body></html>";
+
+        $this->output->set_content_type('text/html', 'utf-8')->set_output($page);
     }
 }

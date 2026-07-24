@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Categories extends Sk_Base {
 
     public function index() {
-        $data['title']            = 'Categories';
+        $data['title']            = sk_admin_title('Categories');
         $data['categories']       = $this->Sk_Admin_model->get_categories();
         $data['subcategories']    = $this->Sk_Admin_model->get_subcategories();
         $data['mega_menu_titles'] = $this->Sk_Admin_model->get_mega_menu_titles();

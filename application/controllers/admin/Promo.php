@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Promo extends Sk_Base {
 
     public function index() {
-        $data['title']  = 'Promo Codes - ShopKart Admin';
+        $data['title']  = sk_admin_title('Promo Codes');
         $data['promos'] = $this->Sk_Promo_model->get_all();
         $this->render('promo/list', $data);
     }

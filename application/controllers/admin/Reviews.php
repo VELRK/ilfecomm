@@ -6,7 +6,7 @@ class Reviews extends Sk_Base {
 
     public function index() {
         $status = $this->input->get('status') ?: 'pending';
-        $data['title']   = 'Product Reviews';
+        $data['title']   = sk_admin_title('Product Reviews');
         $data['status']  = $status;
         $data['reviews'] = $this->db
             ->select('r.*, p.name AS product_name, u.name AS user_name, u.email AS user_email')

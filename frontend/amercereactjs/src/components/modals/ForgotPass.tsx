@@ -1,13 +1,22 @@
+import { useState, useCallback } from "react";
 import ResetPasswordFlow from "@/components/auth/ResetPasswordFlow";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 export default function ForgotPass({
   registerModalElement,
 }: {
   registerModalElement?: (el: HTMLElement | null) => void;
 }) {
+  const [resetKey, setResetKey] = useState(0);
+
+  const modalRef = useBootstrapOverlayReset(
+    registerModalElement,
+    useCallback(() => setResetKey((k) => k + 1), []),
+  );
+
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-log modal-log_forgot"
       id="modalForgot"
     >
@@ -23,7 +32,7 @@ export default function ForgotPass({
             </p>
           </div>
           <div className="modal-main">
-            <ResetPasswordFlow variant="modal" />
+            <ResetPasswordFlow key={resetKey} variant="modal" />
           </div>
         </div>
       </div>

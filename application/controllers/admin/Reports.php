@@ -9,7 +9,7 @@ class Reports extends Sk_Base {
         $from = $this->input->get('from') ?? date('Y-m-01');
         $to   = $this->input->get('to')   ?? date('Y-m-d');
 
-        $data['title']        = 'Reports - ShopKart Admin';
+        $data['title']        = sk_admin_title('Reports');
         $data['from']         = $from;
         $data['to']           = $to;
         $data['revenue']      = $this->_revenue_in_range($from, $to);

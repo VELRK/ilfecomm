@@ -310,6 +310,7 @@ $route['shopkart/banners/delete/(:num)'] = 'admin/Banners/delete/$1';
 $route['shopkart/orders'] = 'admin/Orders/index';
 $route['shopkart/orders/view/(:num)'] = 'admin/Orders/view/$1';
 $route['shopkart/orders/update_status/(:num)'] = 'admin/Orders/update_status/$1';
+$route['shopkart/orders/send_invoice/(:num)'] = 'admin/Orders/send_invoice/$1';
 $route['shopkart/orders/invoice/(:num)'] = 'admin/Orders/invoice/$1';
 // Customers
 $route['shopkart/customers'] = 'admin/Customers/index';
@@ -389,6 +390,7 @@ $route['shopkart-api/wishlist/toggle']['POST'] = 'api/Sk_User/wishlist_toggle';
 $route['shopkart-api/checkout']['POST'] = 'api/Sk_Order/checkout';
 $route['shopkart-api/orders']['GET'] = 'api/Sk_Order/index';
 $route['shopkart-api/order/(:num)']['GET']          = 'api/Sk_Order/show/$1';
+$route['shopkart-api/order/(:num)/invoice']['GET'] = 'api/Sk_Order/invoice/$1';
 $route['shopkart-api/order/(:num)/cancel']['POST']   = 'api/Sk_Order/cancel/$1';
 // Promo
 $route['shopkart-api/apply-coupon']['POST'] = 'api/Sk_Promo/apply';

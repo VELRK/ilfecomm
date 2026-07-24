@@ -262,6 +262,26 @@ export const ordersAPI = {
   getAll: () => http.get("/orders"),
   getOne: (id: number) => http.get(`/order/${id}`),
   cancelOrder: (id: number) => http.post(`/order/${id}/cancel`, {}),
+  openInvoice: (id: number) => {
+    const base = import.meta.env.VITE_API_BASE_URL ?? "/shopkart-api";
+    const token = localStorage.getItem("sk_token");
+    const url = `${base}/order/${id}/invoice`;
+    fetch(url, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Could not load invoice");
+        return res.text();
+      })
+      .then((html) => {
+        const win = window.open("", "_blank");
+        if (!win) return;
+        win.document.open();
+        win.document.write(html);
+        win.document.close();
+      })
+      .catch(() => alert("Unable to open invoice. Please try again."));
+  },
 };
 
 // ── Payment ───────────────────────────────────────────────────────────────────

@@ -1,9 +1,10 @@
 ﻿import { Link } from "react-router-dom";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 
 import { useContextElement } from "@/context/Context";
 import { formatPrice } from "@/utils/formatPrice";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 export default function QuickView({
   registerOffcanvasElement,
@@ -17,6 +18,18 @@ export default function QuickView({
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+
+  const resetSelections = useCallback(() => {
+    setSelectedColorIndex(0);
+    setSelectedSizeIndex(0);
+    setQuantity(1);
+  }, []);
+
+  const offcanvasRef = useBootstrapOverlayReset(
+    registerOffcanvasElement,
+    resetSelections,
+    "offcanvas",
+  );
 
   const selectedColor = product?.colors?.[selectedColorIndex];
   const selectedSize = product?.sizes?.[selectedSizeIndex];
@@ -51,7 +64,7 @@ export default function QuickView({
   if (!product) {
     return (
       <div
-        ref={registerOffcanvasElement}
+        ref={offcanvasRef}
         className="offcanvas offcanvas-end canvas-quickview"
         id="quickView"
       />

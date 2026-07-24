@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Blogs extends Sk_Base {
 
     public function index() {
-        $data['title'] = 'Blogs';
+        $data['title'] = sk_admin_title('Blogs');
         $data['blogs'] = $this->db
             ->order_by('created_at', 'DESC')
             ->get('blogs')

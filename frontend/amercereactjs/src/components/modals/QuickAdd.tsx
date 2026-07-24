@@ -1,7 +1,8 @@
 ﻿import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useContextElement } from "@/context/Context";
 import { formatPrice } from "@/utils/formatPrice";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 export default function QuickAdd({
   registerModalElement,
@@ -14,6 +15,14 @@ export default function QuickAdd({
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [selectedSizeIndex, setSelectedSizeIndex]   = useState(0);
   const [quantity, setQuantity]                     = useState(1);
+
+  const resetSelections = useCallback(() => {
+    setSelectedColorIndex(0);
+    setSelectedSizeIndex(0);
+    setQuantity(1);
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, resetSelections);
 
   // Reset selections whenever the product changes
   useEffect(() => {
@@ -45,7 +54,7 @@ export default function QuickAdd({
 
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-quickadd"
       id="quickAdd"
     >

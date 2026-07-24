@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { PasswordField } from "@/components/forms/PasswordField";
 import { authAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
 import type { ApiUser } from "@/services/api";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 
 
@@ -22,6 +23,18 @@ export default function Register({
   const emailRef    = useRef<HTMLInputElement>(null);
   const passRef     = useRef<HTMLInputElement>(null);
   const confirmRef  = useRef<HTMLInputElement>(null);
+
+  const resetForm = useCallback(() => {
+    setError("");
+    setLoading(false);
+    if (nameRef.current) nameRef.current.value = "";
+    if (phoneRef.current) phoneRef.current.value = "";
+    if (emailRef.current) emailRef.current.value = "";
+    if (passRef.current) passRef.current.value = "";
+    if (confirmRef.current) confirmRef.current.value = "";
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, resetForm);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -60,7 +73,7 @@ export default function Register({
 
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-log"
       id="register"
     >

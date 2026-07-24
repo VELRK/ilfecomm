@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { siteSettingsAPI } from "@/services/api";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 export default function NewsLetter({
   registerModalElement,
@@ -12,13 +13,19 @@ export default function NewsLetter({
   const { pathname } = useLocation();
   const [hasBeenShown, setHasBeenShown] = useState(false);
   const [enabled, setEnabled] = useState<boolean | null>(null); // null = loading
+  const [formKey, setFormKey] = useState(0);
+
+  const overlayRef = useBootstrapOverlayReset(
+    registerModalElement,
+    useCallback(() => setFormKey((k) => k + 1), []),
+  );
 
   const setModalRef = useCallback(
     (el: HTMLDivElement | null) => {
       modalRef.current = el;
-      registerModalElement?.(el);
+      overlayRef(el);
     },
-    [registerModalElement],
+    [overlayRef],
   );
 
   // Fetch backend setting once
@@ -81,6 +88,7 @@ export default function NewsLetter({
               order, exclusive offers &amp; more!
             </p>
             <NewsletterForm
+              key={formKey}
               className="form-newsletter mb-12"
               placeholder="Your email address"
               buttonClassName="btn-action tf-btn small animate-btn"

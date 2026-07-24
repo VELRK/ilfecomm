@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Settings extends Sk_Base {
 
     public function index() {
-        $data['title']    = 'Settings - ShopKart Admin';
+        $data['title']    = sk_admin_title('Settings');
         $data['settings'] = $this->Sk_Admin_model->get_settings();
         $this->render('settings/index', $data);
     }

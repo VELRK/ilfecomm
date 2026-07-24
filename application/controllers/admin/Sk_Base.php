@@ -9,7 +9,7 @@ class Sk_Base extends CI_Controller {
         parent::__construct();
         $this->load->model(['Sk_Admin_model', 'Sk_Product_model', 'Sk_Order_model', 'Sk_User_model', 'Sk_Promo_model']);
         $this->load->library(['session', 'form_validation', 'upload', 'pagination']);
-        $this->load->helper(['url', 'form', 'text', 'date']);
+        $this->load->helper(['url', 'form', 'text', 'date', 'sk_admin']);
 
         // Auth check — Login controller skips this
         if (get_class($this) !== 'Login') {
@@ -30,8 +30,9 @@ class Sk_Base extends CI_Controller {
     }
 
     protected function render($view, $data = []) {
-        $data['admin']    = $this->admin;
-        $data['settings'] = $this->Sk_Admin_model->get_settings();
+        $data['admin']       = $this->admin;
+        $data['admin_brand'] = sk_admin_brand();
+        $data['settings']    = $this->Sk_Admin_model->get_settings();
         $this->load->view('admin/layout/header', $data);
         $this->load->view('admin/layout/sidebar', $data);
         $this->load->view('admin/' . $view, $data);

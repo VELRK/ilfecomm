@@ -11,7 +11,7 @@ class Products extends Sk_Base {
         $limit  = 15;
         $offset = ($page - 1) * $limit;
 
-        $data['title']    = 'Products - ShopKart Admin';
+        $data['title']    = sk_admin_title('Products');
         $data['products'] = $this->Sk_Product_model->get_all_admin($limit, $offset, $search);
         $data['total']    = $this->Sk_Product_model->count_all_admin($search);
         $data['page']     = $page;
@@ -21,7 +21,7 @@ class Products extends Sk_Base {
     }
 
     public function add() {
-        $data['title']        = 'Add Saree Product';
+        $data['title']        = sk_admin_title('Add Saree Product');
         $data['categories']   = $this->Sk_Admin_model->get_categories(null, 1);
         $data['brands']       = $this->db->get('brands')->result_array();
         $data['saree_styles'] = $this->Sk_Admin_model->get_saree_styles();
@@ -140,7 +140,7 @@ class Products extends Sk_Base {
     }
 
     public function edit($id) {
-        $data['title']         = 'Edit Saree Product';
+        $data['title']         = sk_admin_title('Edit Saree Product');
         $data['product']       = $this->Sk_Product_model->get_by_id($id);
         if (!$data['product']) show_404();
         $data['categories']    = $this->Sk_Admin_model->get_categories(null, 1);

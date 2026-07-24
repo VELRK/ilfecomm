@@ -92,10 +92,13 @@ class Sk_Order extends Sk_Base_Api {
 
         $order = $this->Sk_Order_model->get_by_id($order_id, $user_id);
 
-        // Send confirmation email (non-blocking — ignore errors)
+        // Email customer for COD immediately; Razorpay emails sent after payment verify
         $this->load->helper('sk_mailer');
         $settings = $this->get_settings();
-        sk_mail_order_confirmation($order, $settings);
+        $payment_method = strtolower($data['payment_method'] ?? 'razorpay');
+        if ($payment_method === 'cod') {
+            sk_mail_order_placed($order, $settings);
+        }
 
         $this->success(['order' => $order], 'Order placed successfully.', 201);
     }
@@ -121,6 +124,32 @@ class Sk_Order extends Sk_Base_Api {
         $this->success($order);
     }
 
+    /** GET /shopkart-api/order/:id/invoice — customer invoice HTML */
+    public function invoice($id) {
+        $this->auth_required();
+        $order = $this->Sk_Order_model->get_by_id((int)$id, $this->user['user_id']);
+        if (!$order) return $this->error('Order not found.', 404);
+
+        $this->load->helper('sk_mailer');
+        $settings = $this->get_settings();
+        $html = sk_build_invoice_html($order, $settings, false);
+
+        $site_name = htmlspecialchars($settings['site_name'] ?? 'ShopKart', ENT_QUOTES, 'UTF-8');
+        $page = "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Invoice - {$order['order_number']}</title>
+<style>body{margin:0;padding:24px;background:#f8fafc;font-family:Arial,sans-serif;} @media print{body{background:#fff;padding:0;}.no-print{display:none!important;}}</style>
+</head><body>
+<div class='no-print' style='text-align:center;margin-bottom:16px;'>
+  <button onclick='window.print()' style='padding:8px 18px;border:none;border-radius:8px;background:#c11069;color:#fff;font-weight:600;cursor:pointer;'>Print / Save PDF</button>
+</div>
+{$html}
+<p style='text-align:center;color:#94a3b8;font-size:12px;margin-top:16px;'>{$site_name}</p>
+</body></html>";
+
+        $this->output
+            ->set_content_type('text/html', 'utf-8')
+            ->set_output($page);
+    }
+
     public function cancel($id) {
         $this->auth_required();
         $order = $this->Sk_Order_model->get_by_id((int)$id, $this->user['user_id']);
@@ -130,6 +159,11 @@ class Sk_Order extends Sk_Base_Api {
         }
         $this->Sk_Order_model->update_status((int)$id, 'cancelled');
         $this->Sk_Order_model->update_payment_status((int)$id, 'failed');
+
+        $order['status'] = 'cancelled';
+        $this->load->helper('sk_mailer');
+        sk_mail_order_status($order, 'cancelled', $this->get_settings());
+
         $this->success([], 'Order cancelled.');
     }
 }

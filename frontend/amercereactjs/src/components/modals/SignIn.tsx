@@ -4,6 +4,7 @@ import { PasswordField } from "@/components/forms/PasswordField";
 import { authAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
 import type { ApiUser } from "@/services/api";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 const OTP_LENGTH = 4;
 
@@ -27,6 +28,22 @@ export default function SignIn({
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const resetForm = useCallback(() => {
+    setTab("email");
+    setOtpSent(false);
+    setLoginEmail("");
+    setOtpDigits(Array(OTP_LENGTH).fill(""));
+    setError("");
+    setLoading(false);
+    if (emailRef.current) emailRef.current.value = "";
+    if (passRef.current) passRef.current.value = "";
+    if (otpPhoneRef.current) otpPhoneRef.current.value = "";
+    const remember = document.getElementById("si-remember") as HTMLInputElement | null;
+    if (remember) remember.checked = false;
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, resetForm);
 
   function closeModal() {
     import("bootstrap").then(({ Modal }) => {
@@ -142,7 +159,7 @@ export default function SignIn({
 
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-log"
       id="sign"
     >

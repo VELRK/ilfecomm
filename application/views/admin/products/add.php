@@ -484,7 +484,7 @@ function opt($list, $val) {
         <div class="card-body">
           <div class="mb-3">
             <label class="form-label">Meta Title</label>
-            <input type="text" name="meta_title" class="form-control" placeholder="Buy Pure Kanjivaram Silk Saree Online - ShopKart">
+            <input type="text" name="meta_title" class="form-control" placeholder="Buy Pure Kanjivaram Silk Saree Online - ILF">
           </div>
           <div>
             <label class="form-label">Meta Description</label>

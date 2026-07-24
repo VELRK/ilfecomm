@@ -6,7 +6,7 @@ require_once APPPATH . 'controllers/admin/Sk_Base.php';
 class Contacts extends Sk_Base {
 
     public function index() {
-        $data['title']    = 'Contact Enquiries';
+        $data['title']    = sk_admin_title('Contact Enquiries');
         $data['contacts'] = $this->db->table_exists('contact_enquiries')
             ? $this->db->order_by('created_at', 'DESC')->get('contact_enquiries')->result_array()
             : [];

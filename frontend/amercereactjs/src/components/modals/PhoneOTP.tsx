@@ -1,9 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { authAPI } from "@/services/api";
 import { useAuthStore } from "@/store/authStore";
 import type { ApiUser } from "@/services/api";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
-export default function PhoneOTPModal() {
+export default function PhoneOTPModal({
+  registerModalElement,
+}: {
+  registerModalElement?: (el: HTMLElement | null) => void;
+}) {
   const { login } = useAuthStore();
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -14,10 +19,16 @@ export default function PhoneOTPModal() {
   const [loading, setLoading] = useState(false);
   const [hint, setHint]       = useState("");
 
-  const reset = () => {
-    setStep("phone"); setPhone(""); setOtp("");
-    setError(""); setHint("");
-  };
+  const reset = useCallback(() => {
+    setStep("phone");
+    setPhone("");
+    setOtp("");
+    setError("");
+    setHint("");
+    setLoading(false);
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, reset);
 
   const handleRequestOTP = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +55,7 @@ export default function PhoneOTPModal() {
       const r = res.data as { success: boolean; message?: string; data?: { token: string; user: ApiUser } };
       if (r.success && r.data?.token) {
         login(r.data.token, r.data.user);
-        closeRef.current?.click(); // dismiss modal via hidden button
+        closeRef.current?.click();
         reset();
       } else {
         setError(r.message ?? "Invalid OTP.");
@@ -56,7 +67,7 @@ export default function PhoneOTPModal() {
   };
 
   return (
-    <div className="modal fade" id="phoneOTPModal" tabIndex={-1} aria-hidden="true">
+    <div ref={modalRef} className="modal fade" id="phoneOTPModal" tabIndex={-1} aria-hidden="true">
       {/* Hidden dismiss button — reliably closes modal via Bootstrap */}
       <button ref={closeRef} type="button" data-bs-dismiss="modal"
         aria-label="close" style={{ display: "none" }} />
@@ -67,7 +78,7 @@ export default function PhoneOTPModal() {
             <h5 className="modal-title fw-semibold">
               {step === "phone" ? "🔐 Login with Mobile" : "Enter OTP"}
             </h5>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" onClick={reset} />
+            <button type="button" className="btn-close" data-bs-dismiss="modal" />
           </div>
 
           <div className="modal-body pt-3">

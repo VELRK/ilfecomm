@@ -24,6 +24,7 @@ interface Order {
   subtotal?: number;
   discount?: number;
   shipping?: number;
+  tax?: number;
   promo_code?: string;
   tracking_number?: string;
   created_at: string;
@@ -486,6 +487,13 @@ export default function AccountOrders() {
                       >
                         {isExpanded ? "Hide Details" : "Details"}
                       </button>
+                      <button
+                        type="button"
+                        onClick={() => ordersAPI.openInvoice(order.id)}
+                        className="btn-details-custom"
+                      >
+                        Invoice
+                      </button>
                     </div>
                   </div>
 
@@ -545,6 +553,10 @@ export default function AccountOrders() {
                           <div className="row-summary-custom">
                             <span>Shipping Costs</span>
                             <span>{(order.shipping ?? 0) === 0 ? <span style={{ color: "#15803d", fontWeight: 600 }}>Free</span> : formatPrice(order.shipping!)}</span>
+                          </div>
+                          <div className="row-summary-custom">
+                            <span>Tax (GST)</span>
+                            <span>{formatPrice(order.tax ?? 0)}</span>
                           </div>
                           <div className="row-summary-custom total">
                             <span>Grand Total</span><span>{formatPrice(order.total)}</span>

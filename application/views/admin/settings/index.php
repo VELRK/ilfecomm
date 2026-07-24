@@ -21,7 +21,7 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Site Name</label>
-              <input type="text" name="site_name" class="form-control" value="<?= htmlspecialchars($settings['site_name'] ?? 'ShopKart') ?>">
+              <input type="text" name="site_name" class="form-control" value="<?= htmlspecialchars($settings['site_name'] ?? sk_admin_brand()) ?>">
             </div>
             <div class="col-md-6">
               <label class="form-label">Site Email</label>
@@ -37,15 +37,18 @@
             </div>
             <div class="col-md-4">
               <label class="form-label">Tax Rate (%)</label>
-              <input type="number" name="tax_rate" class="form-control" step="0.01" value="<?= $settings['tax_rate'] ?? '18' ?>">
+              <input type="number" name="tax_rate" class="form-control" step="0.01" min="0" value="<?= $settings['tax_rate'] ?? '18' ?>">
+              <div class="form-text">GST applied on order subtotal after discount.</div>
             </div>
             <div class="col-md-4">
-              <label class="form-label">Shipping Charge (₹)</label>
-              <input type="number" name="shipping_charge" class="form-control" value="<?= $settings['shipping_charge'] ?? '50' ?>">
+              <label class="form-label">Standard Delivery Charge (₹)</label>
+              <input type="number" name="shipping_charge" class="form-control" min="0" step="0.01" value="<?= $settings['shipping_charge'] ?? '50' ?>">
+              <div class="form-text">Shipping fee when order is below free delivery amount.</div>
             </div>
             <div class="col-md-4">
-              <label class="form-label">Free Shipping Above (₹)</label>
-              <input type="number" name="free_shipping_above" class="form-control" value="<?= $settings['free_shipping_above'] ?? '999' ?>">
+              <label class="form-label">Free Delivery Above (₹)</label>
+              <input type="number" name="free_shipping_above" class="form-control" min="0" step="0.01" value="<?= $settings['free_shipping_above'] ?? '999' ?>">
+              <div class="form-text">Orders at or above this amount get free delivery.</div>
             </div>
             <div class="col-12">
               <label class="form-label">Address</label>
@@ -155,7 +158,7 @@
             </div>
             <div class="col-md-3">
               <label class="form-label">From Name</label>
-              <input type="text" name="smtp_from_name" class="form-control" value="<?= htmlspecialchars($settings['smtp_from_name'] ?? 'ShopKart') ?>">
+              <input type="text" name="smtp_from_name" class="form-control" value="<?= htmlspecialchars($settings['smtp_from_name'] ?? sk_admin_brand()) ?>">
             </div>
             <div class="col-md-6">
               <label class="form-label">SMTP Username</label>

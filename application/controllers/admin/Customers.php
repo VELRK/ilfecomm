@@ -11,7 +11,7 @@ class Customers extends Sk_Base {
         $offset = ($page - 1) * $limit;
         $search = $this->input->get('search', TRUE);
 
-        $data['title']     = 'Customers - ShopKart Admin';
+        $data['title']     = sk_admin_title('Customers');
         $data['customers'] = $this->Sk_User_model->get_all_admin($limit, $offset, $search);
         $data['total']     = $this->Sk_User_model->count_admin($search);
         $data['page']      = $page;
@@ -21,7 +21,7 @@ class Customers extends Sk_Base {
     }
 
     public function view($id) {
-        $data['title']    = 'Customer Detail';
+        $data['title']    = sk_admin_title('Customer Detail');
         $data['customer'] = $this->Sk_User_model->get_by_id($id);
         if (!$data['customer']) show_404();
         $data['orders']   = $this->Sk_Order_model->get_user_orders($id);

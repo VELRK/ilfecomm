@@ -19,7 +19,7 @@
 
 <div class="invoice-header d-flex justify-content-between align-items-center">
   <div>
-    <h4 class="mb-0 fw-bold">ShopKart</h4>
+    <h4 class="mb-0 fw-bold"><?= htmlspecialchars($settings['site_name'] ?? sk_admin_brand()) ?></h4>
     <small><?= htmlspecialchars($settings['site_address'] ?? '') ?></small>
   </div>
   <div class="text-end">
@@ -72,7 +72,7 @@
   </table>
 
   <div class="text-center text-muted mt-4">
-    <small>Thank you for shopping with ShopKart! • <?= $settings['site_email'] ?? '' ?></small>
+    <small>Thank you for shopping with <?= htmlspecialchars($settings['site_name'] ?? sk_admin_brand()) ?>! • <?= $settings['site_email'] ?? '' ?></small>
   </div>
 </div>
 </body>

@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { productsAPI } from "@/services/api";
 import type { ApiProduct } from "@/services/api";
 import { toProductCard } from "@/hooks/useApi";
 import ProductCard from "@/components/ui/ProductCard";
 import TfSwiper from "@/components/ui/TfSwiper";
+import { useBootstrapOverlayReset } from "@/hooks/useBootstrapOverlayReset";
 
 const FEATURED_KEYWORDS = ["Saree", "Cotton", "Silk", "Ethnic Wear", "Kurti", "Lehenga"];
 
@@ -18,6 +19,15 @@ export default function Search({
   const [results, setResults]       = useState<ApiProduct[]>([]);
   const [featured, setFeatured]     = useState<ApiProduct[]>([]);
   const [loading, setLoading]       = useState(false);
+
+  const resetSearch = useCallback(() => {
+    setQuery("");
+    setDebounced("");
+    setResults([]);
+    setLoading(false);
+  }, []);
+
+  const modalRef = useBootstrapOverlayReset(registerModalElement, resetSearch);
 
   // Debounce input
   useEffect(() => {
@@ -47,7 +57,7 @@ export default function Search({
 
   return (
     <div
-      ref={registerModalElement}
+      ref={modalRef}
       className="modal modalCentered fade modal-search"
       id="search"
     >
