@@ -10,7 +10,9 @@ class Msg91_library {
     private $ci;
     private $provider;
     private $auth_key;
+    private $send_mode;
     private $template_id;
+    private $template_variable;
     private $dlt_template_id;
     private $template_name;
     private $template_message;
@@ -34,10 +36,12 @@ class Msg91_library {
             $sms = $sms['sms'];
         }
 
-        $this->provider         = trim((string) ($sms['provider'] ?? 'msg91'));
-        $this->auth_key         = trim((string) ($sms['auth_key'] ?? ''));
-        $this->template_id      = trim((string) ($sms['template_id'] ?? ''));
-        $this->dlt_template_id  = trim((string) ($sms['dlt_template_id'] ?? ''));
+        $this->provider          = trim((string) ($sms['provider'] ?? 'msg91'));
+        $this->auth_key          = trim((string) ($sms['auth_key'] ?? ''));
+        $this->send_mode         = strtolower(trim((string) ($sms['send_mode'] ?? 'flow')));
+        $this->template_id       = trim((string) ($sms['template_id'] ?? ''));
+        $this->template_variable = trim((string) ($sms['template_variable'] ?? 'number')) ?: 'number';
+        $this->dlt_template_id   = trim((string) ($sms['dlt_template_id'] ?? ''));
         $this->template_name    = trim((string) ($sms['template_name'] ?? 'ilf_otp_final'));
         $this->template_message = trim((string) ($sms['template_message'] ?? ''));
         $this->sender_id        = trim((string) ($sms['sender_id'] ?? 'INDLAD'));
@@ -52,6 +56,9 @@ class Msg91_library {
         }
         if ($this->dlt_template_id === '') {
             $this->dlt_template_id = '1207178305383281647';
+        }
+        if ($this->template_id === '' && $this->send_mode === 'flow') {
+            $this->template_id = '6a5db22e2209427ceb0fc032';
         }
         if ($this->sender_id === '') {
             $this->sender_id = 'INDLAD';
@@ -112,7 +119,16 @@ class Msg91_library {
             return ['success' => false, 'message' => 'Unsupported SMS provider.'];
         }
 
-        // India DLT: legacy sendotp.php sends sender + DLT_TE_ID; v5 OTP API often fails DLT scrubbing
+        // MSG91 v5 Flow API — DLT template mapped in panel; OTP generated and verified locally
+        if ($this->send_mode === 'flow' && $this->template_id !== '') {
+            return $this->_send_flow($mobile);
+        }
+
+        if ($this->send_mode === 'otp_v5' && $this->template_id !== '') {
+            return $this->_send_v5($mobile);
+        }
+
+        // India DLT fallback: legacy sendotp.php
         if ($this->dlt_template_id !== '') {
             return $this->_send_legacy($mobile);
         }
@@ -144,11 +160,78 @@ class Msg91_library {
             return ['success' => false, 'message' => 'SMS service is not configured.'];
         }
 
+        if ($this->send_mode === 'flow' && $this->template_id !== '') {
+            return $this->_verify_stored_otp($mobile, $otp);
+        }
+
+        if ($this->send_mode === 'otp_v5' && $this->template_id !== '') {
+            return $this->_verify_v5($mobile, $otp);
+        }
+
         if ($this->template_id) {
             return $this->_verify_v5($mobile, $otp);
         }
 
         return $this->_verify_legacy($mobile, $otp);
+    }
+
+    /**
+     * Send OTP via MSG91 v5 Flow API (POST /api/v5/flow).
+     * DLT template must be mapped to template_id in MSG91 panel.
+     */
+    private function _send_flow($mobile)
+    {
+        $otp     = $this->_generate_otp();
+        $varName = $this->template_variable;
+
+        $payload = [
+            'template_id' => $this->template_id,
+            'short_url'   => '0',
+            'recipients'  => [
+                [
+                    'mobiles' => $mobile,
+                    $varName  => $otp,
+                ],
+            ],
+        ];
+
+        log_message(
+            'debug',
+            'Msg91 send OTP flow — template=' . $this->template_name
+            . ' id=' . $this->template_id
+            . ' var=' . $varName
+            . ' mobile=' . $mobile
+        );
+
+        $response = $this->_request(
+            'POST',
+            'https://control.msg91.com/api/v5/flow',
+            json_encode($payload),
+            [
+                'authkey: ' . $this->auth_key,
+                'accept: application/json',
+                'Content-Type: application/json',
+            ]
+        );
+
+        log_message(
+            'error',
+            'Msg91 send flow response — mobile=' . $mobile
+            . ' curl_error=' . ($response['error'] ?: 'none')
+            . ' body=' . $response['body']
+        );
+
+        $parsed = $this->_parse_send_response($response);
+        if (!empty($parsed['success'])) {
+            $this->_store_dev_otp($mobile, $otp);
+        }
+
+        return $this->_attach_msg91_debug($parsed, $response);
+    }
+
+    private function _verify_stored_otp($mobile, $otp)
+    {
+        return $this->_verify_dev_otp($mobile, $otp);
     }
 
     private function _send_v5($mobile)
