@@ -9,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['sms']['provider']         = 'msg91';
 $config['sms']['auth_key']         = '517702A4W9M823H6a5f6b66P1';
-$config['sms']['template_id']       = '6a5db22e2209427ceb0fc032'; // MSG91 OTP template ID (ilf_otp_final) — from MSG91 panel
-$config['sms']['dlt_template_id']   = '1207178305383281647'; // DLT-approved template ID (required for India delivery)
+$config['sms']['template_id']       = ''; // Leave empty — use legacy sendotp.php with DLT_TE_ID for India
+$config['sms']['dlt_template_id']   = '1207178305383281647'; // DLT-approved template ID (ilf_otp_final)
 $config['sms']['template_name']    = 'ilf_otp_final';
 $config['sms']['template_message'] = 'Indian Ladies Fashion: Your OTP is ##number##. Do not share this OTP with anyone. It is valid for 10 minutes.';
 $config['sms']['sender_id']        = 'INDLAD';

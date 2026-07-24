@@ -50,9 +50,6 @@ class Msg91_library {
         if ($this->auth_key === '') {
             $this->auth_key = '517702A4W9M823H6a5f6b66P1';
         }
-        if ($this->template_id === '') {
-            $this->template_id = '6a5db22e2209427ceb0fc032'; // ilf_otp_final
-        }
         if ($this->dlt_template_id === '') {
             $this->dlt_template_id = '1207178305383281647';
         }
@@ -113,6 +110,11 @@ class Msg91_library {
 
         if ($this->provider !== 'msg91') {
             return ['success' => false, 'message' => 'Unsupported SMS provider.'];
+        }
+
+        // India DLT: legacy sendotp.php sends sender + DLT_TE_ID; v5 OTP API often fails DLT scrubbing
+        if ($this->dlt_template_id !== '') {
+            return $this->_send_legacy($mobile);
         }
 
         if ($this->template_id) {
@@ -252,6 +254,7 @@ class Msg91_library {
         log_message(
             'debug',
             'Msg91 send OTP legacy — template=' . $this->template_name
+            . ' dlt=' . $this->dlt_template_id
             . ' sender=' . $this->sender_id
             . ' mobile=' . $mobile
         );
