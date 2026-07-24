@@ -34,7 +34,7 @@ class Msg91_library {
             $this->auth_key = '517702A4W9M823H6a5f6b66P1';
         }
         if ($this->template_id === '') {
-            $this->template_id = '1207178305383281647'; // ilf_otp_final
+            $this->template_id = '6a5db22e2209427ceb0fc032'; // ilf_otp_final
         }
         if ($this->sender_id === '') {
             $this->sender_id = 'INDLAD';
