@@ -240,10 +240,16 @@ class Sk_Auth extends Sk_Base_Api {
         $this->Sk_User_model->update_last_login($user['id']);
         $token = $this->sk_jwt->encode(['user_id' => $user['id'], 'email' => $user['email']]);
 
-        $this->success([
+        $payload = [
             'token' => $token,
             'user'  => $this->_safe_user($user),
-        ], 'Login successful.');
+        ];
+        if (!empty($result['msg91_response'])) {
+            $decoded = json_decode($result['msg91_response'], true);
+            $payload['msg91_response'] = is_array($decoded) ? $decoded : $result['msg91_response'];
+        }
+
+        $this->success($payload, 'Login successful.');
     }
 
     private function _safe_user($user) {
