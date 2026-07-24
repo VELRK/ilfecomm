@@ -11,6 +11,7 @@ class Msg91_library {
     private $provider;
     private $auth_key;
     private $template_id;
+    private $dlt_template_id;
     private $template_name;
     private $template_message;
     private $sender_id;
@@ -36,6 +37,7 @@ class Msg91_library {
         $this->provider         = trim((string) ($sms['provider'] ?? 'msg91'));
         $this->auth_key         = trim((string) ($sms['auth_key'] ?? ''));
         $this->template_id      = trim((string) ($sms['template_id'] ?? ''));
+        $this->dlt_template_id  = trim((string) ($sms['dlt_template_id'] ?? ''));
         $this->template_name    = trim((string) ($sms['template_name'] ?? 'ilf_otp_final'));
         $this->template_message = trim((string) ($sms['template_message'] ?? ''));
         $this->sender_id        = trim((string) ($sms['sender_id'] ?? 'INDLAD'));
@@ -50,6 +52,9 @@ class Msg91_library {
         }
         if ($this->template_id === '') {
             $this->template_id = '6a5db22e2209427ceb0fc032'; // ilf_otp_final
+        }
+        if ($this->dlt_template_id === '') {
+            $this->dlt_template_id = '1207178305383281647';
         }
         if ($this->sender_id === '') {
             $this->sender_id = 'INDLAD';
@@ -146,19 +151,29 @@ class Msg91_library {
 
     private function _send_v5($mobile)
     {
-        // MSG91 OTP v5: message body + sender come from approved template (ilf_otp_final)
-        $query = http_build_query([
+        // MSG91 OTP v5: template_id = MSG91 panel ID; DLT_TE_ID = DLT-approved ID (both required for India)
+        $params = [
             'authkey'     => $this->auth_key,
             'template_id' => $this->template_id,
             'mobile'      => $mobile,
             'otp_length'  => $this->otp_length,
             'otp_expiry'  => $this->otp_expiry,
-        ]);
+        ];
+        if ($this->dlt_template_id !== '') {
+            $params['DLT_TE_ID'] = $this->dlt_template_id;
+        }
+        $query = http_build_query($params);
+
+        $body = '{}';
+        if ($this->dlt_template_id !== '') {
+            $body = json_encode(['DLT_TE_ID' => $this->dlt_template_id]);
+        }
 
         log_message(
             'debug',
             'Msg91 send OTP v5 — template=' . $this->template_name
             . ' id=' . $this->template_id
+            . ' dlt=' . $this->dlt_template_id
             . ' sender=' . $this->sender_id
             . ' mobile=' . $mobile
             . ' len=' . $this->otp_length
@@ -168,7 +183,7 @@ class Msg91_library {
         $response = $this->_request(
             'POST',
             'https://control.msg91.com/api/v5/otp?' . $query,
-            '{}',
+            $body,
             ['authkey: ' . $this->auth_key, 'Content-Type: application/json']
         );
 
@@ -214,21 +229,25 @@ class Msg91_library {
 
     private function _send_legacy($mobile)
     {
-        // DLT template ilf_otp_final uses ##number## (not ##OTP##)
+        // Legacy API requires ##OTP## placeholder; DLT_TE_ID required for India delivery
         $message = $this->template_message;
-        $message = str_replace('##OTP##', '##number##', $message);
-        if (strpos($message, '##number##') === false) {
-            $message = 'Indian Ladies Fashion: Your OTP is ##number##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.';
+        $message = str_replace('##number##', '##OTP##', $message);
+        if (strpos($message, '##OTP##') === false) {
+            $message = 'Indian Ladies Fashion: Your OTP is ##OTP##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.';
         }
 
-        $query = http_build_query([
+        $legacyParams = [
             'authkey'    => $this->auth_key,
             'mobile'     => $mobile,
             'sender'     => $this->sender_id,
             'otp_length' => $this->otp_length,
             'otp_expiry' => $this->otp_expiry,
             'message'    => $message,
-        ]);
+        ];
+        if ($this->dlt_template_id !== '') {
+            $legacyParams['DLT_TE_ID'] = $this->dlt_template_id;
+        }
+        $query = http_build_query($legacyParams);
 
         log_message(
             'debug',
