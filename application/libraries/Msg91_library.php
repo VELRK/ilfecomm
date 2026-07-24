@@ -172,7 +172,14 @@ class Msg91_library {
             ['authkey: ' . $this->auth_key, 'Content-Type: application/json']
         );
 
-        return $this->_parse_send_response($response);
+        log_message(
+            'error',
+            'Msg91 send v5 response — mobile=' . $mobile
+            . ' curl_error=' . ($response['error'] ?: 'none')
+            . ' body=' . $response['body']
+        );
+
+        return $this->_attach_msg91_debug($this->_parse_send_response($response), $response);
     }
 
     private function _verify_v5($mobile, $otp)
@@ -202,12 +209,7 @@ class Msg91_library {
         );
 
         $parsed = $this->_parse_verify_response($response);
-        $parsed['msg91_response'] = $response['body'];
-        if ($response['error']) {
-            $parsed['msg91_curl_error'] = $response['error'];
-        }
-
-        return $parsed;
+        return $this->_attach_msg91_debug($parsed, $response);
     }
 
     private function _send_legacy($mobile)
@@ -237,7 +239,14 @@ class Msg91_library {
 
         $response = $this->_request('GET', 'http://api.msg91.com/api/sendotp.php?' . $query);
 
-        return $this->_parse_send_response($response);
+        log_message(
+            'error',
+            'Msg91 send legacy response — mobile=' . $mobile
+            . ' curl_error=' . ($response['error'] ?: 'none')
+            . ' body=' . $response['body']
+        );
+
+        return $this->_attach_msg91_debug($this->_parse_send_response($response), $response);
     }
 
     private function _verify_legacy($mobile, $otp)
@@ -286,23 +295,34 @@ class Msg91_library {
     {
         if ($response['error']) {
             log_message('error', 'Msg91 send OTP failed: ' . $response['error']);
-            return ['success' => false, 'message' => 'Failed to send OTP. Please try again.'];
+            return [
+                'success' => false,
+                'message' => 'MSG91 request failed: ' . $response['error'],
+            ];
         }
 
         $body = json_decode($response['body'], true);
         if (!is_array($body)) {
             log_message('error', 'Msg91 send OTP invalid response: ' . $response['body']);
-            return ['success' => false, 'message' => 'Failed to send OTP. Please try again.'];
+            return [
+                'success' => false,
+                'message' => 'MSG91 invalid response: ' . trim($response['body']),
+            ];
         }
 
-        $type = strtolower((string) ($body['type'] ?? ''));
+        $type    = strtolower((string) ($body['type'] ?? ''));
+        $message = trim((string) ($body['message'] ?? ''));
+
         if ($type === 'success') {
-            return ['success' => true, 'message' => 'OTP sent successfully.'];
+            return [
+                'success' => true,
+                'message' => $message !== '' ? $message : 'OTP sent successfully.',
+            ];
         }
 
-        $message = $body['message'] ?? 'Failed to send OTP.';
-        log_message('error', 'Msg91 send OTP rejected: ' . $message);
-        return ['success' => false, 'message' => $this->_friendly_error($message)];
+        $failMsg = $message !== '' ? $message : 'Failed to send OTP.';
+        log_message('error', 'Msg91 send OTP rejected: ' . $failMsg);
+        return ['success' => false, 'message' => $failMsg];
     }
 
     private function _parse_verify_response($response)
@@ -327,6 +347,15 @@ class Msg91_library {
 
         log_message('error', 'Msg91 verify OTP rejected: ' . ($body['message'] ?? $response['body']));
         return ['success' => false, 'message' => 'Invalid OTP. Please try again.'];
+    }
+
+    private function _attach_msg91_debug(array $parsed, array $response)
+    {
+        $parsed['msg91_response'] = $response['body'];
+        if ($response['error']) {
+            $parsed['msg91_curl_error'] = $response['error'];
+        }
+        return $parsed;
     }
 
     private function _friendly_error($message)

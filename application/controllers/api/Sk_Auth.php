@@ -177,16 +177,17 @@ class Sk_Auth extends Sk_Base_Api {
         $result = $this->msg91_library->send_otp($mobile);
 
         if (!$result['success']) {
-            return $this->error($result['message']);
+            return $this->error($result['message'], 400, $this->_msg91_debug_payload($result));
         }
 
         $payload = ['phone' => $mobile];
+        $payload = array_merge($payload, $this->_msg91_debug_payload($result));
         if (!empty($result['dev_otp']) && ENVIRONMENT !== 'production') {
             $payload['dev_otp'] = $result['dev_otp'];
         }
 
         $display = substr($mobile, -10);
-        $message = 'OTP sent to +91-' . $display . '.';
+        $message = $result['message'] ?? ('OTP sent to +91-' . $display . '.');
         if (!empty($result['dev_otp']) && ENVIRONMENT !== 'production') {
             $message .= ' Dev OTP: ' . $result['dev_otp'];
         }
@@ -206,15 +207,7 @@ class Sk_Auth extends Sk_Base_Api {
         $result = $this->msg91_library->verify_otp($mobile, $otp);
 
         if (!$result['success']) {
-            $debug = [];
-            if (!empty($result['msg91_response'])) {
-                $decoded = json_decode($result['msg91_response'], true);
-                $debug['msg91_response'] = is_array($decoded) ? $decoded : $result['msg91_response'];
-            }
-            if (!empty($result['msg91_curl_error'])) {
-                $debug['msg91_curl_error'] = $result['msg91_curl_error'];
-            }
-            return $this->error($result['message'], 401, $debug);
+            return $this->error($result['message'], 401, $this->_msg91_debug_payload($result));
         }
 
         $user = $this->Sk_User_model->get_by_phone($mobile);
@@ -244,12 +237,21 @@ class Sk_Auth extends Sk_Base_Api {
             'token' => $token,
             'user'  => $this->_safe_user($user),
         ];
+        $payload = array_merge($payload, $this->_msg91_debug_payload($result));
+
+        $this->success($payload, $result['message'] ?? 'Login successful.');
+    }
+
+    private function _msg91_debug_payload(array $result) {
+        $debug = [];
         if (!empty($result['msg91_response'])) {
             $decoded = json_decode($result['msg91_response'], true);
-            $payload['msg91_response'] = is_array($decoded) ? $decoded : $result['msg91_response'];
+            $debug['msg91_response'] = is_array($decoded) ? $decoded : $result['msg91_response'];
         }
-
-        $this->success($payload, 'Login successful.');
+        if (!empty($result['msg91_curl_error'])) {
+            $debug['msg91_curl_error'] = $result['msg91_curl_error'];
+        }
+        return $debug;
     }
 
     private function _safe_user($user) {
