@@ -183,14 +183,31 @@ class Msg91_library {
             'otp'     => $otp,
         ]);
 
+        $url = 'https://control.msg91.com/api/v5/otp/verify?' . $query;
+
+        log_message('debug', 'Msg91 verify OTP v5 — mobile=' . $mobile . ' otp_len=' . strlen($otp));
+
         $response = $this->_request(
             'GET',
-            'https://control.msg91.com/api/v5/otp/verify?' . $query,
+            $url,
             null,
             ['authkey: ' . $this->auth_key]
         );
 
-        return $this->_parse_verify_response($response);
+        log_message(
+            'error',
+            'Msg91 verify v5 response — mobile=' . $mobile
+            . ' curl_error=' . ($response['error'] ?: 'none')
+            . ' body=' . $response['body']
+        );
+
+        $parsed = $this->_parse_verify_response($response);
+        $parsed['msg91_response'] = $response['body'];
+        if ($response['error']) {
+            $parsed['msg91_curl_error'] = $response['error'];
+        }
+
+        return $parsed;
     }
 
     private function _send_legacy($mobile)

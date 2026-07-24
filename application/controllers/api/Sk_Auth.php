@@ -206,7 +206,15 @@ class Sk_Auth extends Sk_Base_Api {
         $result = $this->msg91_library->verify_otp($mobile, $otp);
 
         if (!$result['success']) {
-            return $this->error($result['message'], 401);
+            $debug = [];
+            if (!empty($result['msg91_response'])) {
+                $decoded = json_decode($result['msg91_response'], true);
+                $debug['msg91_response'] = is_array($decoded) ? $decoded : $result['msg91_response'];
+            }
+            if (!empty($result['msg91_curl_error'])) {
+                $debug['msg91_curl_error'] = $result['msg91_curl_error'];
+            }
+            return $this->error($result['message'], 401, $debug);
         }
 
         $user = $this->Sk_User_model->get_by_phone($mobile);
