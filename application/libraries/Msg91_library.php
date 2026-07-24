@@ -195,11 +195,11 @@ class Msg91_library {
 
     private function _send_legacy($mobile)
     {
-        // Legacy API needs ##OTP## placeholder; map from config ##number## if present
+        // DLT template ilf_otp_final uses ##number## (not ##OTP##)
         $message = $this->template_message;
-        $message = str_replace('##number##', '##OTP##', $message);
-        if (strpos($message, '##OTP##') === false) {
-            $message = 'Indian Ladies Fashion: Your OTP is ##OTP##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.';
+        $message = str_replace('##OTP##', '##number##', $message);
+        if (strpos($message, '##number##') === false) {
+            $message = 'Indian Ladies Fashion: Your OTP is ##number##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.';
         }
 
         $query = http_build_query([
