@@ -3,13 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * MSG91 SMS OTP library
- * Supports v5 OTP API (DLT template) and legacy sendotp.php fallback.
+ * Uses application/config/sms.php for all send/verify settings.
  */
 class Msg91_library {
 
     private $ci;
+    private $provider;
     private $auth_key;
     private $template_id;
+    private $template_name;
+    private $template_message;
     private $sender_id;
     private $otp_length;
     private $otp_expiry;
@@ -19,17 +22,29 @@ class Msg91_library {
     public function __construct()
     {
         $this->ci =& get_instance();
-        $this->ci->config->load('sms', true);
+        // sms.php uses $config['sms'][...] — load without sections so item('sms') returns that array
+        $this->ci->config->load('sms', false);
+        $sms = $this->ci->config->item('sms');
+        if (!is_array($sms)) {
+            $sms = [];
+        }
+        // Handle accidental double-nest if file was loaded with sections elsewhere
+        if (isset($sms['sms']) && is_array($sms['sms'])) {
+            $sms = $sms['sms'];
+        }
 
-        $this->auth_key         = trim((string) $this->ci->config->item('auth_key', 'sms'));
-        $this->template_id      = trim((string) $this->ci->config->item('template_id', 'sms'));
-        $this->sender_id        = trim((string) ($this->ci->config->item('sender_id', 'sms') ?: 'INDLAD'));
-        $this->otp_length       = max(4, (int) ($this->ci->config->item('otp_length', 'sms') ?: 4));
-        $this->otp_expiry       = max(1, (int) ($this->ci->config->item('otp_expiry', 'sms') ?: 10));
-        $this->country_code     = preg_replace('/\D/', '', (string) ($this->ci->config->item('country_code', 'sms') ?: '91')) ?: '91';
-        $this->development_mode = (bool) $this->ci->config->item('development_mode', 'sms');
+        $this->provider         = trim((string) ($sms['provider'] ?? 'msg91'));
+        $this->auth_key         = trim((string) ($sms['auth_key'] ?? ''));
+        $this->template_id      = trim((string) ($sms['template_id'] ?? ''));
+        $this->template_name    = trim((string) ($sms['template_name'] ?? 'ilf_otp_final'));
+        $this->template_message = trim((string) ($sms['template_message'] ?? ''));
+        $this->sender_id        = trim((string) ($sms['sender_id'] ?? 'INDLAD'));
+        $this->otp_length       = max(4, (int) ($sms['otp_length'] ?? 4));
+        $this->otp_expiry       = max(1, (int) ($sms['otp_expiry'] ?? 10));
+        $this->country_code     = preg_replace('/\D/', '', (string) ($sms['country_code'] ?? '91')) ?: '91';
+        $this->development_mode = !empty($sms['development_mode']);
 
-        // Fallback if config section did not load on server
+        // Fallbacks if config missing on server
         if ($this->auth_key === '') {
             $this->auth_key = '517702A4W9M823H6a5f6b66P1';
         }
@@ -38,6 +53,9 @@ class Msg91_library {
         }
         if ($this->sender_id === '') {
             $this->sender_id = 'INDLAD';
+        }
+        if ($this->template_message === '') {
+            $this->template_message = 'Indian Ladies Fashion: Your OTP is ##number##. Do not share this OTP with anyone. It is valid for 10 minutes.';
         }
     }
 
@@ -88,6 +106,10 @@ class Msg91_library {
             return ['success' => false, 'message' => 'SMS service is not configured.'];
         }
 
+        if ($this->provider !== 'msg91') {
+            return ['success' => false, 'message' => 'Unsupported SMS provider.'];
+        }
+
         if ($this->template_id) {
             return $this->_send_v5($mobile);
         }
@@ -124,6 +146,7 @@ class Msg91_library {
 
     private function _send_v5($mobile)
     {
+        // MSG91 OTP v5: message body + sender come from approved template (ilf_otp_final)
         $query = http_build_query([
             'authkey'     => $this->auth_key,
             'template_id' => $this->template_id,
@@ -131,6 +154,16 @@ class Msg91_library {
             'otp_length'  => $this->otp_length,
             'otp_expiry'  => $this->otp_expiry,
         ]);
+
+        log_message(
+            'debug',
+            'Msg91 send OTP v5 — template=' . $this->template_name
+            . ' id=' . $this->template_id
+            . ' sender=' . $this->sender_id
+            . ' mobile=' . $mobile
+            . ' len=' . $this->otp_length
+            . ' exp=' . $this->otp_expiry
+        );
 
         $response = $this->_request(
             'POST',
@@ -162,14 +195,28 @@ class Msg91_library {
 
     private function _send_legacy($mobile)
     {
+        // Legacy API needs ##OTP## placeholder; map from config ##number## if present
+        $message = $this->template_message;
+        $message = str_replace('##number##', '##OTP##', $message);
+        if (strpos($message, '##OTP##') === false) {
+            $message = 'Indian Ladies Fashion: Your OTP is ##OTP##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.';
+        }
+
         $query = http_build_query([
             'authkey'    => $this->auth_key,
             'mobile'     => $mobile,
             'sender'     => $this->sender_id,
             'otp_length' => $this->otp_length,
             'otp_expiry' => $this->otp_expiry,
-            'message'    => 'Indian Ladies Fashion: Your OTP is ##OTP##. Do not share this OTP with anyone. It is valid for ' . $this->otp_expiry . ' minutes.',
+            'message'    => $message,
         ]);
+
+        log_message(
+            'debug',
+            'Msg91 send OTP legacy — template=' . $this->template_name
+            . ' sender=' . $this->sender_id
+            . ' mobile=' . $mobile
+        );
 
         $response = $this->_request('GET', 'http://api.msg91.com/api/sendotp.php?' . $query);
 
