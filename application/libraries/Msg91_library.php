@@ -233,11 +233,11 @@ class Msg91_library {
 
     private function _verify_stored_otp($mobile, $otp)
     {
-        if ($this->Sk_Otp_model->verify($mobile, $otp)) {
+        if ($this->ci->Sk_Otp_model->verify($mobile, $otp)) {
             return ['success' => true, 'message' => 'OTP verified.'];
         }
 
-        if (!$this->Sk_Otp_model->has_pending($mobile)) {
+        if (!$this->ci->Sk_Otp_model->has_pending($mobile)) {
             return ['success' => false, 'message' => 'OTP expired or not found. Please request a new OTP.'];
         }
 
@@ -393,11 +393,11 @@ class Msg91_library {
 
     private function _verify_dev_otp($mobile, $otp)
     {
-        if ($this->Sk_Otp_model->verify($mobile, $otp)) {
+        if ($this->ci->Sk_Otp_model->verify($mobile, $otp)) {
             return ['success' => true, 'message' => 'OTP verified.'];
         }
 
-        $pending = $this->Sk_Otp_model->has_pending($mobile);
+        $pending = $this->ci->Sk_Otp_model->has_pending($mobile);
         if (!$pending) {
             return ['success' => false, 'message' => 'OTP expired or not found. Please request a new OTP.'];
         }
@@ -519,11 +519,11 @@ class Msg91_library {
 
     private function _store_otp($mobile, $otp)
     {
-        $this->Sk_Otp_model->store($mobile, $otp, $this->otp_expiry);
+        $this->ci->Sk_Otp_model->store($mobile, $otp, $this->otp_expiry);
     }
 
     private function _check_rate_limit($mobile)
     {
-        return $this->Sk_Otp_model->can_request($mobile, 15, 5);
+        return $this->ci->Sk_Otp_model->can_request($mobile, 15, 5);
     }
 }
