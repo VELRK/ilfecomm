@@ -66,6 +66,8 @@ class Msg91_library {
         if ($this->template_message === '') {
             $this->template_message = 'Indian Ladies Fashion: Your OTP is ##number##. Do not share this OTP with anyone. It is valid for 10 minutes.';
         }
+
+        $this->ci->load->model('Sk_Otp_model');
     }
 
     /**
@@ -223,7 +225,7 @@ class Msg91_library {
 
         $parsed = $this->_parse_send_response($response);
         if (!empty($parsed['success'])) {
-            $this->_store_dev_otp($mobile, $otp);
+            $this->_store_otp($mobile, $otp);
         }
 
         return $this->_attach_msg91_debug($parsed, $response);
@@ -231,7 +233,15 @@ class Msg91_library {
 
     private function _verify_stored_otp($mobile, $otp)
     {
-        return $this->_verify_dev_otp($mobile, $otp);
+        if ($this->Sk_Otp_model->verify($mobile, $otp)) {
+            return ['success' => true, 'message' => 'OTP verified.'];
+        }
+
+        if (!$this->Sk_Otp_model->has_pending($mobile)) {
+            return ['success' => false, 'message' => 'OTP expired or not found. Please request a new OTP.'];
+        }
+
+        return ['success' => false, 'message' => 'Invalid OTP. Please try again.'];
     }
 
     private function _send_v5($mobile)
@@ -370,7 +380,7 @@ class Msg91_library {
     private function _send_dev_otp($mobile)
     {
         $otp = $this->_generate_otp();
-        $this->_store_dev_otp($mobile, $otp);
+        $this->_store_otp($mobile, $otp);
 
         log_message('debug', 'Msg91_library dev OTP for ' . $mobile . ': ' . $otp);
 
@@ -383,17 +393,16 @@ class Msg91_library {
 
     private function _verify_dev_otp($mobile, $otp)
     {
-        $stored = $this->_read_dev_otp($mobile);
-        if (!$stored) {
+        if ($this->Sk_Otp_model->verify($mobile, $otp)) {
+            return ['success' => true, 'message' => 'OTP verified.'];
+        }
+
+        $pending = $this->Sk_Otp_model->has_pending($mobile);
+        if (!$pending) {
             return ['success' => false, 'message' => 'OTP expired or not found. Please request a new OTP.'];
         }
 
-        if (!hash_equals($stored['otp'], $otp)) {
-            return ['success' => false, 'message' => 'Invalid OTP. Please try again.'];
-        }
-
-        $this->_clear_dev_otp($mobile);
-        return ['success' => true, 'message' => 'OTP verified.'];
+        return ['success' => false, 'message' => 'Invalid OTP. Please try again.'];
     }
 
     private function _parse_send_response($response)
@@ -508,78 +517,13 @@ class Msg91_library {
         return (string) random_int($min, $max);
     }
 
-    private function _otp_cache_file($mobile)
+    private function _store_otp($mobile, $otp)
     {
-        $dir = APPPATH . 'cache/otp/';
-        if (!is_dir($dir)) {
-            @mkdir($dir, 0755, true);
-        }
-        return $dir . preg_replace('/\D/', '', $mobile) . '.json';
-    }
-
-    private function _store_dev_otp($mobile, $otp)
-    {
-        @file_put_contents($this->_otp_cache_file($mobile), json_encode([
-            'otp'     => $otp,
-            'expires' => time() + ($this->otp_expiry * 60),
-        ]), LOCK_EX);
-    }
-
-    private function _read_dev_otp($mobile)
-    {
-        $file = $this->_otp_cache_file($mobile);
-        if (!file_exists($file)) {
-            return null;
-        }
-
-        $data = json_decode((string) file_get_contents($file), true);
-        if (!is_array($data) || empty($data['otp']) || empty($data['expires'])) {
-            @unlink($file);
-            return null;
-        }
-
-        if (time() > (int) $data['expires']) {
-            @unlink($file);
-            return null;
-        }
-
-        return $data;
-    }
-
-    private function _clear_dev_otp($mobile)
-    {
-        $file = $this->_otp_cache_file($mobile);
-        if (file_exists($file)) {
-            @unlink($file);
-        }
+        $this->Sk_Otp_model->store($mobile, $otp, $this->otp_expiry);
     }
 
     private function _check_rate_limit($mobile)
     {
-        $file = APPPATH . 'cache/otp/rate_' . preg_replace('/\D/', '', $mobile) . '.json';
-        $now  = time();
-        $window = 15 * 60;
-        $max_attempts = 5;
-
-        $attempts = [];
-        if (file_exists($file)) {
-            $attempts = json_decode((string) file_get_contents($file), true) ?: [];
-            $attempts = array_values(array_filter($attempts, function ($ts) use ($now, $window) {
-                return ($now - (int) $ts) < $window;
-            }));
-        }
-
-        if (count($attempts) >= $max_attempts) {
-            return false;
-        }
-
-        $attempts[] = $now;
-        $dir = dirname($file);
-        if (!is_dir($dir)) {
-            @mkdir($dir, 0755, true);
-        }
-        @file_put_contents($file, json_encode($attempts), LOCK_EX);
-
-        return true;
+        return $this->Sk_Otp_model->can_request($mobile, 15, 5);
     }
 }
