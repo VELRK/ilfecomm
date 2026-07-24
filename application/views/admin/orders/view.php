@@ -161,6 +161,14 @@
       <div class="card-body">
         <p class="mb-1 fw-semibold"><?= htmlspecialchars($order['customer_name'] ?? '-') ?></p>
         <p class="mb-1 text-muted small"><?= htmlspecialchars($order['customer_email'] ?? '-') ?></p>
+        <?php
+        $this->load->helper('sk_mailer');
+        if (sk_mail_is_placeholder_email($order['customer_email'] ?? '')): ?>
+          <div class="alert alert-warning py-2 px-3 small mb-0 mt-2">
+            <i class="bi bi-exclamation-triangle me-1"></i>
+            This customer logged in with phone only — invoice email cannot be sent until they add a real email address.
+          </div>
+        <?php endif; ?>
       </div>
     </div>
 

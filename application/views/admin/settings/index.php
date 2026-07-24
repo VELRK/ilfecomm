@@ -37,8 +37,8 @@
             </div>
             <div class="col-md-4">
               <label class="form-label">Tax Rate (%)</label>
-              <input type="number" name="tax_rate" class="form-control" step="0.01" min="0" value="<?= $settings['tax_rate'] ?? '18' ?>">
-              <div class="form-text">GST applied on order subtotal after discount.</div>
+              <input type="number" name="tax_rate" class="form-control" step="0.01" min="0" max="100" value="<?= htmlspecialchars($settings['tax_rate'] ?? '18') ?>">
+              <div class="form-text">GST applied on order subtotal after discount (0–100).</div>
             </div>
             <div class="col-md-4">
               <label class="form-label">Standard Delivery Charge (₹)</label>
@@ -128,8 +128,8 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">Razorpay Key Secret</label>
-              <input type="password" name="razorpay_key_secret" class="form-control font-monospace"
-                     value="<?= htmlspecialchars($settings['razorpay_key_secret'] ?? '') ?>">
+              <input type="password" name="razorpay_key_secret" class="form-control font-monospace" autocomplete="new-password"
+                placeholder="<?= !empty($settings['razorpay_key_secret']) ? 'Saved — leave blank to keep current' : 'Enter key secret' ?>">
             </div>
             <div class="col-md-4">
               <label class="form-label">Mode</label>
@@ -147,6 +147,10 @@
     <div class="tab-pane fade" id="tab-email">
       <div class="card sk-table-card shadow-sm">
         <div class="card-body">
+          <div class="alert alert-light border small mb-3">
+            <strong>Hostinger / business email:</strong> Host <code>smtp.hostinger.com</code>, Port <code>465</code> (SSL) or <code>587</code> (TLS).<br>
+            <strong>Site Email</strong> should match your SMTP username (e.g. <code>info@indianladiesfashion.com</code>).
+          </div>
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">SMTP Host</label>
@@ -166,8 +170,18 @@
             </div>
             <div class="col-md-6">
               <label class="form-label">SMTP Password</label>
-              <input type="password" name="smtp_pass" class="form-control" value="<?= htmlspecialchars($settings['smtp_pass'] ?? '') ?>">
+              <input type="password" name="smtp_pass" class="form-control" autocomplete="new-password"
+                placeholder="<?= !empty($settings['smtp_pass']) ? 'Saved — leave blank to keep current' : 'Enter SMTP password' ?>">
+              <?php if (!empty($settings['smtp_pass'])): ?>
+                <div class="form-text text-success"><i class="bi bi-check-circle me-1"></i>SMTP password is saved.</div>
+              <?php endif; ?>
             </div>
+          </div>
+          <div class="mt-3">
+            <button type="button" class="btn btn-outline-secondary btn-sm" id="smtpTestBtn">
+              <i class="bi bi-envelope-check me-1"></i> Send Test Email
+            </button>
+            <span id="smtpTestResult" class="ms-2 small"></span>
           </div>
         </div>
       </div>
@@ -198,3 +212,55 @@
   </div>
 
 </form>
+
+<script>
+(function () {
+  var form = document.querySelector('form[action*="settings/update"]');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    var invalid = form.querySelector(':invalid');
+    if (!invalid) return;
+
+    e.preventDefault();
+    var tabPane = invalid.closest('.tab-pane');
+    if (tabPane && tabPane.id) {
+      var tabBtn = document.querySelector('[data-bs-target="#' + tabPane.id + '"]');
+      if (tabBtn && window.bootstrap && bootstrap.Tab) {
+        bootstrap.Tab.getOrCreateInstance(tabBtn).show();
+      }
+    }
+    invalid.focus();
+    invalid.reportValidity();
+  });
+
+  var testBtn = document.getElementById('smtpTestBtn');
+  var testResult = document.getElementById('smtpTestResult');
+  if (testBtn && testResult) {
+    testBtn.addEventListener('click', function () {
+      testBtn.disabled = true;
+      testResult.textContent = 'Sending…';
+      testResult.className = 'ms-2 small text-muted';
+
+      var fd = new FormData(form);
+      fetch('<?= site_url('admin/settings/test_email') ?>', {
+        method: 'POST',
+        body: fd,
+        credentials: 'same-origin',
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          testResult.textContent = res.message || (res.success ? 'Sent.' : 'Failed.');
+          testResult.className = 'ms-2 small ' + (res.success ? 'text-success' : 'text-danger');
+        })
+        .catch(function () {
+          testResult.textContent = 'Network error.';
+          testResult.className = 'ms-2 small text-danger';
+        })
+        .finally(function () {
+          testBtn.disabled = false;
+        });
+    });
+  }
+})();
+</script>

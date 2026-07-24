@@ -329,6 +329,7 @@ $route['shopkart/coupon-report'] = 'admin/CouponReport/index';
 // Settings
 $route['shopkart/settings'] = 'admin/Settings/index';
 $route['shopkart/settings/update'] = 'admin/Settings/update';
+$route['shopkart/settings/test_email'] = 'admin/Settings/test_email';
 // Reviews (admin)
 $route['shopkart/wishlists'] = 'admin/Wishlists/index';
 $route['shopkart/wishlists/delete/(:num)'] = 'admin/Wishlists/delete/$1';

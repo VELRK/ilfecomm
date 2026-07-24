@@ -1,55 +1,149 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/** Last sk_send_mail failure reason (for admin/API feedback). */
+function sk_mail_last_error() {
+    return sk_mail_error_store();
+}
+
+function &sk_mail_error_store() {
+    static $error = '';
+    return $error;
+}
+
+function sk_mail_set_error($message) {
+    sk_mail_error_store() = (string) $message;
+    if ($message !== '') {
+        log_message('error', 'sk_mailer: ' . $message);
+    }
+}
+
+/** Return list of SMTP configuration problems (empty array = OK). */
+function sk_mail_config_issues($settings) {
+    $issues = [];
+    if (trim($settings['smtp_host'] ?? '') === '') {
+        $issues[] = 'SMTP host is not set.';
+    }
+    if (trim($settings['smtp_user'] ?? '') === '') {
+        $issues[] = 'SMTP username is not set.';
+    }
+    if ((string) ($settings['smtp_pass'] ?? '') === '') {
+        $issues[] = 'SMTP password is not saved. Re-enter it on Settings → Email and click Save.';
+    }
+    $from = trim($settings['site_email'] ?? '');
+    if ($from === '' || !filter_var($from, FILTER_VALIDATE_EMAIL)) {
+        $from = trim($settings['smtp_user'] ?? '');
+    }
+    if ($from === '' || !filter_var($from, FILTER_VALIDATE_EMAIL)) {
+        $issues[] = 'Site Email (General tab) must be a valid email and usually match SMTP username.';
+    }
+    return $issues;
+}
+
+/** True when the address cannot receive mail (empty / phone-login placeholder). */
+function sk_mail_is_placeholder_email($email) {
+    $email = trim((string) $email);
+    if ($email === '') {
+        return true;
+    }
+    if (stripos($email, '@shopkart.app') !== false) {
+        return true;
+    }
+    if (preg_match('/^ph_\d+@/i', $email)) {
+        return true;
+    }
+    return !filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
 /**
  * Send an email using SMTP settings stored in the settings table.
  * Returns true on success, false on failure.
  */
-function sk_send_mail($to_email, $to_name, $subject, $html_body) {
-    if (empty($to_email) || strpos($to_email, '@shopkart.app') !== false) {
-        return false; // Skip placeholder emails
-    }
+function sk_send_mail($to_email, $to_name, $subject, $html_body, $settings = null) {
+    sk_mail_set_error('');
 
-    $CI =& get_instance();
-    $CI->load->library('email');
-    $settings = $CI->Sk_Admin_model->get_settings();
-
-    $smtp_host = $settings['smtp_host'] ?? '';
-    $smtp_user = $settings['smtp_user'] ?? '';
-    $smtp_pass = $settings['smtp_pass'] ?? '';
-    $smtp_port = $settings['smtp_port'] ?? 587;
-    $from_email = $settings['site_email'] ?? $smtp_user;
-    $from_name  = $settings['smtp_from_name'] ?? ($settings['site_name'] ?? 'ShopKart');
-
-    if (!$smtp_host || !$smtp_user || !$smtp_pass) {
-        // SMTP not configured — log and bail
-        log_message('info', "sk_mailer: SMTP not configured, skipping email to {$to_email}");
+    $to_email = trim((string) $to_email);
+    if (sk_mail_is_placeholder_email($to_email)) {
+        sk_mail_set_error('Customer has no valid email address. Phone-login accounts need a real email in their profile.');
         return false;
     }
 
-    $CI->email->initialize([
-        'useragent'  => 'ShopKart Mailer',
-        'protocol'   => 'smtp',
-        'smtp_host'  => $smtp_host,
-        'smtp_port'  => (int)$smtp_port,
-        'smtp_user'  => $smtp_user,
-        'smtp_pass'  => $smtp_pass,
-        'smtp_crypto'=> ((int)$smtp_port === 465) ? 'ssl' : 'tls',
-        'mailtype'   => 'html',
-        'charset'    => 'utf-8',
-        'newline'    => "\r\n",
-    ]);
-
-    $CI->email->from($from_email, $from_name);
-    $CI->email->to($to_email, $to_name);
-    $CI->email->subject($subject);
-    $CI->email->message($html_body);
-
-    $result = $CI->email->send(false);
-    if (!$result) {
-        log_message('error', 'sk_mailer send error: ' . $CI->email->print_debugger(['headers', 'subject', 'body']));
+    $CI =& get_instance();
+    if ($settings === null) {
+        if (!isset($CI->Sk_Admin_model)) {
+            $CI->load->model('Sk_Admin_model');
+        }
+        $settings = $CI->Sk_Admin_model->get_settings();
     }
-    return $result;
+
+    $issues = sk_mail_config_issues($settings);
+    if ($issues) {
+        sk_mail_set_error(implode(' ', $issues));
+        return false;
+    }
+
+    $CI->load->library('email');
+
+    $smtp_host = trim($settings['smtp_host'] ?? '');
+    $smtp_user = trim($settings['smtp_user'] ?? '');
+    $smtp_pass = (string) ($settings['smtp_pass'] ?? '');
+    $smtp_port = (int) ($settings['smtp_port'] ?? 587);
+    $from_email = trim($settings['site_email'] ?? '');
+    if ($from_email === '' || !filter_var($from_email, FILTER_VALIDATE_EMAIL)) {
+        $from_email = $smtp_user;
+    }
+    $from_name  = trim($settings['smtp_from_name'] ?? ($settings['site_name'] ?? 'ILF'));
+
+    $attempts = [];
+    if ($smtp_port === 465) {
+        $attempts[] = ['port' => 465, 'crypto' => 'ssl'];
+    } elseif ($smtp_port === 587) {
+        $attempts[] = ['port' => 587, 'crypto' => 'tls'];
+    } else {
+        $attempts[] = ['port' => $smtp_port, 'crypto' => ''];
+    }
+    // Retry common alternate port if primary fails
+    if ($smtp_port === 587) {
+        $attempts[] = ['port' => 465, 'crypto' => 'ssl'];
+    } elseif ($smtp_port === 465) {
+        $attempts[] = ['port' => 587, 'crypto' => 'tls'];
+    }
+
+    $last_debug = '';
+    foreach ($attempts as $attempt) {
+        $CI->email->clear(true);
+        $CI->email->initialize([
+            'useragent'    => 'ILF Mailer',
+            'protocol'     => 'smtp',
+            'smtp_host'    => $smtp_host,
+            'smtp_port'    => $attempt['port'],
+            'smtp_user'    => $smtp_user,
+            'smtp_pass'    => $smtp_pass,
+            'smtp_crypto'  => $attempt['crypto'],
+            'smtp_timeout' => 20,
+            'mailtype'     => 'html',
+            'charset'      => 'utf-8',
+            'newline'      => "\r\n",
+            'crlf'         => "\r\n",
+            'wordwrap'     => true,
+        ]);
+
+        $CI->email->from($from_email, $from_name);
+        $CI->email->to($to_email, $to_name);
+        $CI->email->subject($subject);
+        $CI->email->message($html_body);
+
+        if ($CI->email->send(false)) {
+            return true;
+        }
+
+        $last_debug = trim(preg_replace('/\s+/', ' ', strip_tags($CI->email->print_debugger(['headers', 'subject']))));
+    }
+
+    sk_mail_set_error($last_debug !== ''
+        ? $last_debug
+        : 'SMTP connection failed. For Hostinger use smtp.hostinger.com, port 465 (SSL) or 587 (TLS), and full email as username.');
+    return false;
 }
 
 /** Build and send an order confirmation email to the customer. */

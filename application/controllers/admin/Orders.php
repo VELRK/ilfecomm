@@ -56,11 +56,30 @@ class Orders extends Sk_Base {
         if (!$order) return $this->json(['success' => false, 'message' => 'Order not found.']);
 
         $this->load->helper('sk_mailer');
-        $sent = sk_mail_order_invoice($order, $this->Sk_Admin_model->get_settings());
-        if ($sent) {
-            return $this->json(['success' => true, 'message' => 'Invoice email sent to customer.']);
+        $settings = $this->Sk_Admin_model->get_settings();
+        $email    = trim($order['customer_email'] ?? '');
+
+        if (sk_mail_is_placeholder_email($email)) {
+            return $this->json([
+                'success' => false,
+                'message' => 'Customer email is invalid (' . ($email ?: 'empty') . '). Phone-login customers need a real email in Admin → Customers.',
+            ]);
         }
-        return $this->json(['success' => false, 'message' => 'Could not send invoice. Check SMTP settings and customer email.']);
+
+        $configIssues = sk_mail_config_issues($settings);
+        if ($configIssues) {
+            return $this->json(['success' => false, 'message' => implode(' ', $configIssues)]);
+        }
+
+        $sent = sk_mail_order_invoice($order, $settings);
+        if ($sent) {
+            return $this->json(['success' => true, 'message' => 'Invoice email sent to ' . $email . '.']);
+        }
+
+        return $this->json([
+            'success' => false,
+            'message' => sk_mail_last_error() ?: 'SMTP send failed. Open Settings → Email and use Send Test Email.',
+        ]);
     }
 
     public function invoice($id) {
